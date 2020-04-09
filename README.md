@@ -1,5 +1,5 @@
 # Medline-frontend
 
 ## Start app
-- run **npm run start**
-
+- development: **npm run start:dev**
+- production: **npm run start**
