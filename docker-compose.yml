@@ -1,0 +1,16 @@
+version: '3.7'
+
+services: 
+
+    medline:
+        container_name: medline
+        build:
+            context: .
+            dockerfile: _infra/Dockerfile
+        volumes:
+            - '.:/frontend'
+            - '/frontend/node_modules'
+        ports: 
+            - '8000:3000'
+        environment:
+            - NODE_ENV=development
