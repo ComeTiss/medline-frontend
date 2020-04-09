@@ -5,6 +5,7 @@ language: node_js
  directories:
    - node_modules
  script:
- - npm run test
  - npm run lint
  - npm run build
+
+# Add deploy instructions below
