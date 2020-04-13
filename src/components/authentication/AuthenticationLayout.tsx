@@ -9,11 +9,13 @@ import {
 } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import SignUpFields from "./SignUpFields";
 
 type Props = {
   title: string;
-  confirmPassword?: boolean;
+  isSignup?: boolean;
   submitError: string;
+  onSubmit: (data: any) => void;
 };
 
 const useStyles = makeStyles(() => ({
@@ -28,14 +30,15 @@ const useStyles = makeStyles(() => ({
   },
   authLayout__submitBtn: {
     display: "block",
-    marginTop: 40
+    marginTop: 40,
+    marginBottom: 40,
   },
   authLayout__avatar: {
     margin: "auto",
     marginBottom: 8
   },
-  authLayout__confirmPwd: {
-    marginTop: 20
+  authLayout__signUpFieldsContainer: {
+     marginTop: 20
   },
   authLayout_errorMsg: {
     marginTop: 8,
@@ -45,16 +48,24 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
+const signUpExtraFields = {
+  confirmPassword: "",
+  firstName: "",
+  lastName: ""
+};
+
 function AuthenticationLayout(props: Props) {
-  const { submitError, title, confirmPassword } = props;
+  const { submitError, onSubmit, title, isSignup } = props;
   const styles = useStyles();
   const [inputData, setInputData] = useState({
     email: "",
     password: "",
-    passwordConfirm: ""
+    ...signUpExtraFields  
   });
 
+
   const onChangeData = (field: string, e: any) => {
+    e.persist();
     const newData = { ...inputData };
     // @ts-ignore
     newData[field] = e.target.value;
@@ -90,17 +101,9 @@ function AuthenticationLayout(props: Props) {
             placeholder="Password"
             onChange={(e: any) => onChangeData("password", e)}
           />
-          {confirmPassword && (
-            <div className={styles.authLayout__confirmPwd}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="password-confirm-input"
-                label="Confirm password"
-                placeholder="Confirmation"
-                onChange={(e: any) => onChangeData("passwordConfirm", e)}
-              />
+          {isSignup && (
+            <div className={styles.authLayout__signUpFieldsContainer}>
+              <SignUpFields onChangeData={onChangeData} />
             </div>
           )}
           {submitError && !!submitError.trim() && (
@@ -117,6 +120,7 @@ function AuthenticationLayout(props: Props) {
               color="primary"
               component="span"
               fullWidth
+              onClick={() => onSubmit(inputData)}
             >
               Submit
             </Button>
