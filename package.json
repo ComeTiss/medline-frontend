@@ -8,7 +8,7 @@
     "start:dev": "react-scripts start",
     "test": "echo \"Error: no test specified\" && exit 0",
     "lint": "eslint \"**/*.tsx\" --ignore-pattern node_modules/",
-    "lint:fix": "npm run lint --fix"
+    "lint:fix": "eslint \"**/*.tsx\" --ignore-pattern node_modules/ --fix"
   },
   "dependencies": {
     "@apollo/react-hooks": "^3.1.4",

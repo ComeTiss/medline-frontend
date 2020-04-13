@@ -31,14 +31,14 @@ const useStyles = makeStyles(() => ({
   authLayout__submitBtn: {
     display: "block",
     marginTop: 40,
-    marginBottom: 40,
+    marginBottom: 40
   },
   authLayout__avatar: {
     margin: "auto",
     marginBottom: 8
   },
   authLayout__signUpFieldsContainer: {
-     marginTop: 20
+    marginTop: 20
   },
   authLayout_errorMsg: {
     marginTop: 8,
@@ -60,9 +60,8 @@ function AuthenticationLayout(props: Props) {
   const [inputData, setInputData] = useState({
     email: "",
     password: "",
-    ...signUpExtraFields  
+    ...signUpExtraFields
   });
-
 
   const onChangeData = (field: string, e: any) => {
     e.persist();

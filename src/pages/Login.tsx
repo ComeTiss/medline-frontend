@@ -10,20 +10,24 @@ function Login() {
 
   const onSubmit = (data: any) => {
     login(data)
-    .then(() => {
-      setRedirect(true);
-    })
-    .catch((error: any) => {
-      const errorMsg = error?.response?.data?.error;
-      setError(errorMsg);
-    });
+      .then(() => {
+        setRedirect(true);
+      })
+      .catch((error: any) => {
+        const errorMsg = error?.response?.data?.error;
+        setError(errorMsg);
+      });
   };
 
   return (
     <>
-      {redirect && <Redirect to="/"/> }
+      {redirect && <Redirect to="/" />}
       <NavBar />
-      <AuthenticationLayout title="Login" submitError={error} onSubmit={onSubmit} />
+      <AuthenticationLayout
+        title="Login"
+        submitError={error}
+        onSubmit={onSubmit}
+      />
     </>
   );
 }

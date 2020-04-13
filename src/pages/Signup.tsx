@@ -10,19 +10,24 @@ function Signup() {
 
   const onSubmit = (data: any) => {
     signup(data)
-    .then(() => {
-      setRedirect(true);
-    })
-    .catch((error: any) => {
-      const errorMsg = error?.response?.data?.error;
-      setError(errorMsg);
-    });
+      .then(() => {
+        setRedirect(true);
+      })
+      .catch((error: any) => {
+        const errorMsg = error?.response?.data?.error;
+        setError(errorMsg);
+      });
   };
   return (
     <>
-      {redirect && <Redirect to="/"/> }
+      {redirect && <Redirect to="/" />}
       <NavBar />
-      <AuthenticationLayout title="Sign-up" isSignup submitError={error} onSubmit={onSubmit} />
+      <AuthenticationLayout
+        title="Sign-up"
+        isSignup
+        submitError={error}
+        onSubmit={onSubmit}
+      />
     </>
   );
 }
