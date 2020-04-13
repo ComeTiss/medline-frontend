@@ -25,7 +25,8 @@ const useStyles = makeStyles(() => ({
     textDecoration: "none"
   },
   navBar__menuBtn: {
-    textAlign: "center",
+    // textAlign: "center",
+    marginLeft: 16,
     flexGrow: 1
   }
 }));

@@ -1,11 +1,12 @@
 import React from "react";
 import NavBar from "../components/navigation/NavBar";
+import AuthenticationLayout from "../components/authentication/AuthenticationLayout";
 
 function Login() {
   return (
     <>
       <NavBar />
-      <h1>Login page</h1>
+      <AuthenticationLayout title="Login" submitError="" />
     </>
   );
 }
