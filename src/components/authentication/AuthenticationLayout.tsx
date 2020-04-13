@@ -94,6 +94,7 @@ function AuthenticationLayout(props: Props) {
             />
           </div>
           <TextField
+            type="password"
             variant="outlined"
             required
             fullWidth

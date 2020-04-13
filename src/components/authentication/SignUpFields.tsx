@@ -20,6 +20,7 @@ function SignUpFields(props: Props) {
   return (
     <>
       <TextField
+        type="password"
         variant="outlined"
         required
         fullWidth
