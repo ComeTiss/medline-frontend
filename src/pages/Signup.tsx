@@ -9,6 +9,10 @@ function Signup() {
   const [redirect, setRedirect] = useState<boolean>(false);
 
   const onSubmit = (data: any) => {
+    if (data?.password !== data?.confirmPassword) {
+      setError("Invalid password confirmation.");
+      return;
+    }
     signup(data)
       .then(() => {
         setRedirect(true);

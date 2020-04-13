@@ -18,6 +18,8 @@ type Props = {
   onSubmit: (data: any) => void;
 };
 
+const GAP_BETWEEN_INPUTS = 10;
+
 const useStyles = makeStyles(() => ({
   auth_Layout__mainContainer: {
     marginTop: "40px",
@@ -25,8 +27,8 @@ const useStyles = makeStyles(() => ({
   },
   authLayout__textInput: {
     display: "block",
-    marginTop: 40,
-    marginBottom: 20
+    marginTop: 20,
+    marginBottom: GAP_BETWEEN_INPUTS
   },
   authLayout__submitBtn: {
     display: "block",
@@ -38,7 +40,7 @@ const useStyles = makeStyles(() => ({
     marginBottom: 8
   },
   authLayout__signUpFieldsContainer: {
-    marginTop: 20
+    marginTop: GAP_BETWEEN_INPUTS
   },
   authLayout_errorMsg: {
     marginTop: 8,

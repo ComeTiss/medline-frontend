@@ -5,10 +5,12 @@ type Props = {
   onChangeData: (field: string, e: any) => void;
 };
 
+const GAP_BETWEEN_INPUTS = 10;
+
 const useStyles = makeStyles({
   signupFields__firsNameBtn: {
-    marginTop: 20,
-    marginBottom: 20
+    marginTop: GAP_BETWEEN_INPUTS,
+    marginBottom: GAP_BETWEEN_INPUTS
   }
 });
 
@@ -24,7 +26,7 @@ function SignUpFields(props: Props) {
         id="password-confirm-input"
         label="Confirm password"
         placeholder="Confirmation"
-        onChange={(e: any) => onChangeData("passwordConfirm", e)}
+        onChange={(e: any) => onChangeData("confirmPassword", e)}
       />
       <TextField
         variant="outlined"
