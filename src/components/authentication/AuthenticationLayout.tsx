@@ -10,6 +10,7 @@ import {
 import CssBaseline from "@material-ui/core/CssBaseline";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import SignUpFields from "./SignUpFields";
+import Captcha from "./Captcha";
 
 type Props = {
   title: string;
@@ -116,6 +117,7 @@ function AuthenticationLayout(props: Props) {
               {submitError}
             </Typography>
           )}
+          <Captcha />
           <div className={styles.authLayout__submitBtn}>
             <Button
               variant="contained"
