@@ -1,16 +1,20 @@
 import React, { useState } from "react";
+import { useCookies } from "react-cookie";
+import { Redirect } from "react-router-dom";
+
 import NavBar from "../components/navigation/NavBar";
 import AuthenticationLayout from "../components/authentication/AuthenticationLayout";
 import { login } from "../service/rest/apis";
-import { Redirect } from "react-router-dom";
 
 function Login() {
   const [error, setError] = useState("");
   const [redirect, setRedirect] = useState<boolean>(false);
+  const [, setCookies] = useCookies();
 
   const onSubmit = (data: any) => {
     login(data)
-      .then(() => {
+      .then(resp => {
+        setCookies("access_token", resp.data.token);
         setRedirect(true);
       })
       .catch((error: any) => {
