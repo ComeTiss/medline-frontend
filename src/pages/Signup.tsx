@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { useCookies } from "react-cookie";
+import { Redirect } from "react-router-dom";
+
 import NavBar from "../components/navigation/NavBar";
 import AuthenticationLayout from "../components/authentication/AuthenticationLayout";
 import { signup } from "../service/rest/apis";
-import { Redirect } from "react-router-dom";
 
 function Signup() {
   const [error, setError] = useState("");
   const [redirect, setRedirect] = useState<boolean>(false);
+  const [, setCookies] = useCookies();
 
   const onSubmit = (data: any) => {
     if (data?.password !== data?.confirmPassword) {
@@ -14,7 +17,8 @@ function Signup() {
       return;
     }
     signup(data)
-      .then(() => {
+      .then(resp => {
+        setCookies("access_token", resp.data.token);
         setRedirect(true);
       })
       .catch((error: any) => {
@@ -22,6 +26,7 @@ function Signup() {
         setError(errorMsg);
       });
   };
+
   return (
     <>
       {redirect && <Redirect to="/verify" />}
