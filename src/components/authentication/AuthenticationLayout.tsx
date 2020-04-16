@@ -7,7 +7,6 @@ import {
   Avatar,
   Container
 } from "@material-ui/core";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import SignUpFields from "./SignUpFields";
 import Captcha from "./Captcha";
@@ -81,7 +80,6 @@ function AuthenticationLayout(props: Props) {
   return (
     <Container component="main" maxWidth="xs">
       <div className={styles.auth_Layout__mainContainer}>
-        <CssBaseline />
         <Avatar className={styles.authLayout__avatar}>
           <LockOutlinedIcon />
         </Avatar>
