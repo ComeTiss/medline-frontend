@@ -6,26 +6,35 @@ import NavBar from "../components/navigation/NavBar";
 import AuthenticationLayout from "../components/authentication/AuthenticationLayout";
 import { login } from "../service/rest/apis";
 
+const VERIFY_PATH = "/verify";
+const HOME_PATH = "/";
+
+type RedirectPath = typeof VERIFY_PATH | typeof HOME_PATH | null;
+
 function Login() {
   const [error, setError] = useState("");
-  const [redirect, setRedirect] = useState<boolean>(false);
+  const [redirect, setRedirect] = useState<RedirectPath>(null);
   const [, setCookies] = useCookies();
 
   const onSubmit = (data: any) => {
     login(data)
-      .then(resp => {
-        setCookies("access_token", resp.data.token);
-        setRedirect(true);
+      .then(response => {
+        setRedirect(HOME_PATH);
+        setCookies("access_token", response?.data?.token);
       })
       .catch((error: any) => {
         const errorMsg = error?.response?.data?.error;
-        setError(errorMsg);
+        if (error?.response?.data?.requireEmailValidation) {
+          setRedirect(VERIFY_PATH);
+        } else {
+          setError(errorMsg);
+        }
       });
   };
 
   return (
     <>
-      {redirect && <Redirect to="/" />}
+      {redirect && <Redirect to={redirect} />}
       <NavBar />
       <AuthenticationLayout
         title="Login"
