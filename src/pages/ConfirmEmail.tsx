@@ -105,7 +105,7 @@ function ConfirmEmail() {
             <SendIcon />
           </IconButton>
         </Paper>
-        {responseMsg?.message.trim() && (
+        {responseMsg?.message?.trim() && (
           <Typography
             variant="subtitle1"
             className={
