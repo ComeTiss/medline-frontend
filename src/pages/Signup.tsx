@@ -24,7 +24,7 @@ function Signup() {
   };
   return (
     <>
-      {redirect && <Redirect to="/" />}
+      {redirect && <Redirect to="/verify" />}
       <NavBar />
       <AuthenticationLayout
         title="Sign-up"

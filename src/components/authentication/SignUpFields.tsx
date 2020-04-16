@@ -8,7 +8,7 @@ type Props = {
 const GAP_BETWEEN_INPUTS = 10;
 
 const useStyles = makeStyles({
-  signupFields__firsNameBtn: {
+  signupFields__BtnContainer: {
     marginTop: GAP_BETWEEN_INPUTS,
     marginBottom: GAP_BETWEEN_INPUTS
   }
@@ -36,7 +36,7 @@ function SignUpFields(props: Props) {
         id="first-name-input"
         label="First name"
         placeholder="First name"
-        className={styles.signupFields__firsNameBtn}
+        className={styles.signupFields__BtnContainer}
         onChange={(e: any) => onChangeData("firstName", e)}
       />
       <TextField
@@ -47,6 +47,44 @@ function SignUpFields(props: Props) {
         label="Last name"
         placeholder="Last name"
         onChange={(e: any) => onChangeData("lastName", e)}
+      />
+      <TextField
+        variant="outlined"
+        required
+        fullWidth
+        id="country-input"
+        label="Country"
+        placeholder="Country"
+        className={styles.signupFields__BtnContainer}
+        onChange={(e: any) => onChangeData("country", e)}
+      />
+      <TextField
+        variant="outlined"
+        required
+        fullWidth
+        id="city-input"
+        label="City"
+        placeholder="City"
+        onChange={(e: any) => onChangeData("city", e)}
+      />
+      <TextField
+        variant="outlined"
+        required
+        fullWidth
+        id="function-title-input"
+        label="Function title"
+        placeholder="Function title"
+        className={styles.signupFields__BtnContainer}
+        onChange={(e: any) => onChangeData("functionTitle", e)}
+      />
+      <TextField
+        variant="outlined"
+        required
+        fullWidth
+        id="company-input"
+        label="Company"
+        placeholder="Company"
+        onChange={(e: any) => onChangeData("company", e)}
       />
     </>
   );

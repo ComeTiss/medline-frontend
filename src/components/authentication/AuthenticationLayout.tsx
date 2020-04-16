@@ -54,7 +54,11 @@ const useStyles = makeStyles(() => ({
 const signUpExtraFields = {
   confirmPassword: "",
   firstName: "",
-  lastName: ""
+  lastName: "",
+  country: "",
+  city: "",
+  functionTitle: "",
+  company: ""
 };
 
 function AuthenticationLayout(props: Props) {

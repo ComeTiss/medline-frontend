@@ -2,6 +2,7 @@ import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Logout from "../pages/Logout";
+import ConfirmEmail from "../pages/ConfirmEmail";
 
 const routes = [
   {
@@ -24,6 +25,13 @@ const routes = [
     name: "logout",
     protected: false,
     component: Logout
+  },
+  {
+    path: "/verify",
+    exact: true,
+    name: "verify",
+    protected: false,
+    component: ConfirmEmail
   },
   {
     path: "/",
