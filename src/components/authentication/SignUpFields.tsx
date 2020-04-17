@@ -77,15 +77,6 @@ function SignUpFields(props: Props) {
         className={styles.signupFields__BtnContainer}
         onChange={(e: any) => onChangeData("functionTitle", e)}
       />
-      <TextField
-        variant="outlined"
-        required
-        fullWidth
-        id="company-input"
-        label="Company"
-        placeholder="Company"
-        onChange={(e: any) => onChangeData("company", e)}
-      />
     </>
   );
 }
