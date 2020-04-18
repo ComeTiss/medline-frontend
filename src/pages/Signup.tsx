@@ -5,6 +5,7 @@ import { Redirect } from "react-router-dom";
 import NavBar from "../components/navigation/NavBar";
 import AuthenticationLayout from "../components/authentication/AuthenticationLayout";
 import { signup } from "../service/rest/apis";
+import { ACCESS_TOKEN_COOKIE_NAME } from "../utils/constants";
 
 function Signup() {
   const [error, setError] = useState("");
@@ -18,7 +19,7 @@ function Signup() {
     }
     signup(data)
       .then(resp => {
-        setCookies("access_token", resp.data.token);
+        setCookies(ACCESS_TOKEN_COOKIE_NAME, resp.data.token);
         setRedirect(true);
       })
       .catch((error: any) => {
