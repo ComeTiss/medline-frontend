@@ -6,12 +6,14 @@ import { useCookies } from "react-cookie";
 
 import { getApolloClient } from "./service/apollo/client";
 import Routes from "./components/navigation/Routes";
+import { ACCESS_TOKEN_COOKIE_NAME } from "./utils/constants";
 
 function App() {
   const [cookies] = useCookies();
-  const apolloClient = useMemo(() => getApolloClient(cookies["access_token"]), [
-    cookies
-  ]);
+  const apolloClient = useMemo(
+    () => getApolloClient(cookies[ACCESS_TOKEN_COOKIE_NAME]),
+    [cookies]
+  );
 
   return (
     <ApolloProvider client={apolloClient}>
