@@ -23,8 +23,9 @@ const GAP_BETWEEN_INPUTS = 10;
 const useStyles = makeStyles(theme => ({
   auth_Layout__mainContainer: {
     boxShadow: theme.shadows[3],
-    padding: theme.spacing(6),
+    padding: theme.spacing(8),
     paddingTop: theme.spacing(4),
+    paddingBottom: theme.spacing(6),
     marginTop: "40px",
     textAlign: "center",
     backgroundColor: "white"
@@ -36,12 +37,11 @@ const useStyles = makeStyles(theme => ({
   },
   authLayout__submitBtn: {
     display: "block",
-    marginTop: 40,
-    marginBottom: 40
+    marginTop: theme.spacing(5)
   },
   authLayout__avatar: {
     margin: "auto",
-    marginBottom: 8
+    marginBottom: theme.spacing(2)
   },
   authLayout__signUpFieldsContainer: {
     marginTop: GAP_BETWEEN_INPUTS

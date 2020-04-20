@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { LeadFragment, NeedFragment } from "./fragments";
+import { LeadFragment, NeedFragment, UserFragment } from "./fragments";
 
 export const GET_LEADS = gql`
   query GetAllLeads($request: GetAllLeadsRequest) {
@@ -21,4 +21,15 @@ export const GET_NEEDS = gql`
     }
   }
   ${NeedFragment}
+`;
+
+export const GET_USERS = gql`
+  query GetUsersWithOptions($request: GetAllNeedsRequest) {
+    getUsersWithOptions(request: $request) {
+      users {
+        ...UserItem
+      }
+    }
+  }
+  ${UserFragment}
 `;

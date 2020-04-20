@@ -27,3 +27,21 @@ export const NeedFragment = gql`
     updatedAt
   }
 `;
+
+export const UserFragment = gql`
+  fragment UserItem on User {
+    id
+    firstName
+    lastName
+    email
+    country
+    city
+    functionTitle
+    organizationId
+    contactId
+    contactType
+    isAdmin
+    createdAt
+    updatedAt
+  }
+`;
