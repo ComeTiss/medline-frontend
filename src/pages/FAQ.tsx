@@ -1,4 +1,7 @@
 import React from 'react';
+import NavBar from "../components/navigation/NavBar";
+import { Button } from '@material-ui/core';
+
 
 function FAQ() {
   return (
