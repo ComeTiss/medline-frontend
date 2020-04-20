@@ -4,9 +4,19 @@ import { LIGHT_GREY } from "./utils/constants";
 // import green from "@material-ui/core/colors/green";
 
 const theme = createMuiTheme({
+  typography: {
+    htmlFontSize: 16,
+    fontFamily: "Verdana",
+    h3: {
+      fontSize: "1.5rem",
+      fontWeight: "bold"
+    },
+  },
   palette: {
     // Example to set primary and secondary theme color once decided
-    // primary: purple,
+    primary:{
+      main:  "#233768"
+    },
     // secondary: green,
     background: {
       default: LIGHT_GREY

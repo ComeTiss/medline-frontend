@@ -1,4 +1,5 @@
 import Home from "../pages/Home";
+import About from "../pages/About";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Logout from "../pages/Logout";
@@ -48,6 +49,13 @@ const routes = [
     name: "home",
     protected: false,
     component: Home
+  },
+  {
+    path: "/about",
+    exact: true,
+    name: "about",
+    protected: false,
+    component: About
   },
   {
     path: "/profile",
