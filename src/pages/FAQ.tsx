@@ -6,23 +6,37 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
-import { blue } from '@material-ui/core/colors';
+import { ProvidedRequiredArgumentsOnDirectivesRule } from 'graphql/validation/rules/ProvidedRequiredArgumentsRule';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: '80%',
-      
+    },
+    expansionPanel: {
+      backgroundColor: 'transparent',
+      boxShadow: 'none',
+      borderColor: 'red',
+      margin: "0 auto" 
     },
     title: {
-      color: "#1a237e",
-      textAlign: 'center'
+      color: "#233768",
+      fontWeight: "bolder",
+      textAlign: 'center',
+      padding: '20px',
+      fontSize: '20px',
+      fontFamily: 'Verdana'
     },
     heading: {
-      fontSize: theme.typography.pxToRem(15),
-      fontWeight: theme.typography.fontWeightRegular,
-      color: "#1a237e",
+      fontSize: '24px',
+      color: "#233768",
+      fontFamily: 'Verdana'
     },
+    answer: {
+      fontSize: '18px',
+      fontFamily: 'Verdana',
+      color: '#5b5b5b'
+    }
   }),
 );
 
@@ -34,7 +48,8 @@ export default function FAQ() {
       <NavBar />
       <div className={classes.title}>FAQ</div>
       <div className={classes.root}>
-        <ExpansionPanel>
+        <hr />
+        <ExpansionPanel className={classes.expansionPanel}>
           <ExpansionPanelSummary
             expandIcon={<AddIcon />}
             aria-controls="panel1a-content"
@@ -43,7 +58,7 @@ export default function FAQ() {
             <Typography className={classes.heading}>Can I buy medical supplies from Medline.io?</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Typography>
+            <Typography className={classes.answer}>
               Nope. This platform is purely for posting, organising and listing medical supply needs in order
               to more effectively connect them with folks that can meet those requirements in the most 
               efficient and effective way possible. Its matchmaking for medical supplies. There is no buy & sell /
@@ -51,7 +66,8 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <ExpansionPanel>
+        <hr />
+        <ExpansionPanel className={classes.expansionPanel}>
           <ExpansionPanelSummary
             expandIcon={<AddIcon />}
             aria-controls="panel2a-content"
@@ -60,21 +76,44 @@ export default function FAQ() {
             <Typography className={classes.heading}>Then how does MedLine.io make money?</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-              sit amet blandit leo lobortis eget.
+            <Typography className={classes.answer}>
+              Well, we don't make any money. MedLine.io is a grassroots not-for-profit initiative. The
+              platform is built and operated by generous and highly skilled volunteers from all over the
+              world.
+              Also, we do not sell ad spaces for advertising revenue, and we absolutely do not sell community
+              members' information - which are not provided to any 3rd parties by site operators.
+              We do receive some donations to help keep the platform up and running. If you’d like to learn more 
+              about volunteering or donations, click [here] or [Contact Us].
+
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        
-        
-
-        How do you prioritise "Needs"?
-        What are "Leads"?
-        Are the Leads / Suppliers certified?
-        Who's using the platform?
-        Are you related to MedlinePlus or Medline Industries?
+        <hr />
       </div>
     </div>
   );
 }
+
+// How do you prioritise "Needs"?
+// Right now, we are prioritizing Needs based on the information shared by users. Members fill in
+// Urgency level when posting medical supply requirements. The 5 Urgency Levels are listed as:
+// Level 1: Life threatening now. Need immediate supplies.
+// Level 2: Supply needs are required within 1 week.
+// Level 3: Supply needs are required within 2 weeks.
+// Level 4: Forecast needs will be required within 3-4 weeks.
+// Level 5: Good to have supplies just in case, but send to others with more needs first.
+
+// We ask taht all posters try to be as accurate as possible in terms of quantities, timeframe and 
+// urgency requirements so that people with truly pressing needs for immediate support can be identified
+// and helped first.
+
+// Meanwhile, we are looking into more sophisticated methods for developing "urgency prioritization". For
+// example, how might we develop accurate modelling of where needs might crop up next, based on spreading
+// trends of the virus vs available healthcare centers in the area; along with number of hospital beds,
+// ventilators, doctors, nurses, etc.?
+
+
+// What are "Leads"?
+// Are the Leads / Suppliers certified?
+// Who's using the platform?
+// Are you related to MedlinePlus or Medline Industries?
