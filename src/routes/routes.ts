@@ -4,6 +4,7 @@ import Signup from "../pages/Signup";
 import Logout from "../pages/Logout";
 import ConfirmEmail from "../pages/ConfirmEmail";
 import ContactUs from "../pages/ContactUs";
+import User from "../pages/User";
 
 const routes = [
   {
@@ -47,6 +48,13 @@ const routes = [
     name: "home",
     protected: false,
     component: Home
+  },
+  {
+    path: "/user",
+    exact: true,
+    name: "user",
+    protected: false,
+    component: User
   }
 ];
 
