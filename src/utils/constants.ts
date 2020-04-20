@@ -3,3 +3,5 @@ export const COLORS = {
 };
 
 export const ACCESS_TOKEN_COOKIE_NAME = "access_token";
+
+export const LIGHT_GREY = "#EAEBEE";

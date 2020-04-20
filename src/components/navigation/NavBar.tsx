@@ -10,12 +10,9 @@ import {
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 
-import { COLORS } from "../../utils/constants";
-
 const useStyles = makeStyles(() => ({
   navBar__container: {
-    color: "black",
-    backgroundColor: COLORS.LIGHT_GREY
+    color: "black"
   },
   navBar__linkBtn: {
     marginRight: 16

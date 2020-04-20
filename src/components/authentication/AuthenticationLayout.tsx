@@ -7,7 +7,6 @@ import {
   Avatar,
   Container
 } from "@material-ui/core";
-import CssBaseline from "@material-ui/core/CssBaseline";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import SignUpFields from "./SignUpFields";
 import Captcha from "./Captcha";
@@ -21,10 +20,14 @@ type Props = {
 
 const GAP_BETWEEN_INPUTS = 10;
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
   auth_Layout__mainContainer: {
+    boxShadow: theme.shadows[3],
+    padding: theme.spacing(6),
+    paddingTop: theme.spacing(4),
     marginTop: "40px",
-    textAlign: "center"
+    textAlign: "center",
+    backgroundColor: "white"
   },
   authLayout__textInput: {
     display: "block",
@@ -79,9 +82,8 @@ function AuthenticationLayout(props: Props) {
   };
 
   return (
-    <Container component="main" maxWidth="xs">
+    <Container component="main" maxWidth="sm">
       <div className={styles.auth_Layout__mainContainer}>
-        <CssBaseline />
         <Avatar className={styles.authLayout__avatar}>
           <LockOutlinedIcon />
         </Avatar>
