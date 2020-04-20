@@ -103,7 +103,7 @@ export default function FAQ() {
 // Level 4: Forecast needs will be required within 3-4 weeks.
 // Level 5: Good to have supplies just in case, but send to others with more needs first.
 
-// We ask taht all posters try to be as accurate as possible in terms of quantities, timeframe and 
+// We ask that all posters try to be as accurate as possible in terms of quantities, timeframe and 
 // urgency requirements so that people with truly pressing needs for immediate support can be identified
 // and helped first.
 
@@ -114,6 +114,12 @@ export default function FAQ() {
 
 
 // What are "Leads"?
+// Leads can be any individual or organization that has medical supplies in stock and available to ship.
+// These can include personal volunteers, NGOs, distributors and distribution businesses, as well as 
+// manufacturers.
+
+
+
 // Are the Leads / Suppliers certified?
 // Who's using the platform?
 // Are you related to MedlinePlus or Medline Industries?
