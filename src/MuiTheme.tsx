@@ -1,4 +1,5 @@
 import { createMuiTheme } from "@material-ui/core/styles";
+import { LIGHT_GREY } from "./utils/constants";
 // import purple from "@material-ui/core/colors/purple";
 // import green from "@material-ui/core/colors/green";
 
@@ -8,7 +9,7 @@ const theme = createMuiTheme({
     // primary: purple,
     // secondary: green,
     background: {
-      default: "#EAEBEE"
+      default: LIGHT_GREY
     }
   }
 });
