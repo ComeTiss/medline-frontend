@@ -3,6 +3,7 @@ import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Logout from "../pages/Logout";
 import ConfirmEmail from "../pages/ConfirmEmail";
+import ContactUs from "../pages/ContactUs";
 
 const routes = [
   {
@@ -32,6 +33,13 @@ const routes = [
     name: "verify",
     protected: false,
     component: ConfirmEmail
+  },
+  {
+    path: "/contact-us",
+    exact: true,
+    name: "contactus",
+    protected: false,
+    component: ContactUs
   },
   {
     path: "/",
