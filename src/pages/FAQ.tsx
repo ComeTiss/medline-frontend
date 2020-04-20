@@ -121,5 +121,18 @@ export default function FAQ() {
 
 
 // Are the Leads / Suppliers certified?
+// Unfortunately, no; since Leads can also be individual volunteers, the platform is not able to certify
+// Leads stocks at this time. However, the Leads list has highlighted suppliers that have already
+// effectively shipped to another member on the platform. These shipments have been verified by recipients
+// and the Leads are marked with a green flag.
+
+// In addition, we're working on enabling Leads to upload photos of their products, stocks, certifications
+// and licenses, etc. But these cannot be verified by platform volunteers at this time.
+
+
 // Who's using the platform?
+
+
+
+
 // Are you related to MedlinePlus or Medline Industries?
