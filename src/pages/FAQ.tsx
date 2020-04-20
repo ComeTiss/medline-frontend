@@ -11,6 +11,8 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       width: '80%',
+      position: 'absolute',
+      left: '10%'
     },
     expansionPanel: {
       backgroundColor: 'transparent',
@@ -35,6 +37,9 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: '18px',
       fontFamily: 'Verdana',
       color: '#5b5b5b'
+    },
+    ul: {
+      listStyle: "none",
     }
   }),
 );
@@ -58,10 +63,12 @@ export default function FAQ() {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography className={classes.answer}>
-              Nope. This platform is purely for posting, organising and listing medical supply needs in order
-              to more effectively connect them with folks that can meet those requirements in the most 
-              efficient and effective way possible. Its matchmaking for medical supplies. There is no buy & sell /
-              transactions happening on the site.
+              <p>
+                Nope. This platform is purely for posting, organising and listing medical supply needs in order
+                to more effectively connect them with folks that can meet those requirements in the most 
+                efficient and effective way possible. Its matchmaking for medical supplies. There is no buy & sell /
+                transactions happening on the site.
+              </p>
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -76,14 +83,19 @@ export default function FAQ() {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography className={classes.answer}>
-              Well, we don't make any money. MedLine.io is a grassroots not-for-profit initiative. The
-              platform is built and operated by generous and highly skilled volunteers from all over the
-              world.
-              Also, we do not sell ad spaces for advertising revenue, and we absolutely do not sell community
-              members' information - which are not provided to any 3rd parties by site operators.
-              We do receive some donations to help keep the platform up and running. If you’d like to learn more 
-              about volunteering or donations, click [here] or [Contact Us].
-
+              <p>
+                Well, we don't make any money. MedLine.io is a grassroots not-for-profit initiative. The
+                platform is built and operated by generous and highly skilled volunteers from all over the
+                world.
+              </p>
+              <p>
+                Also, we do not sell ad spaces for advertising revenue, and we absolutely do not sell community
+                members' information - which are not provided to any 3rd parties by site operators.
+              </p>
+              <p>
+                We do receive some donations to help keep the platform up and running. If you’d like to learn more 
+                about volunteering or donations, click [here] or [Contact Us].
+              </p>
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -98,22 +110,31 @@ export default function FAQ() {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography className={classes.answer}>
-              Right now, we are prioritizing Needs based on the information shared by users. Members fill in
-              Urgency level when posting medical supply requirements. The 5 Urgency Levels are listed as:
-              Level 1: Life threatening now. Need immediate supplies.
-              Level 2: Supply needs are required within 1 week.
-              Level 3: Supply needs are required within 2 weeks.
-              Level 4: Forecast needs will be required within 3-4 weeks.
-              Level 5: Good to have supplies just in case, but send to others with more needs first.
-
-              We ask that all posters try to be as accurate as possible in terms of quantities, timeframe and 
-              urgency requirements so that people with truly pressing needs for immediate support can be identified
-              and helped first.
-
-              Meanwhile, we are looking into more sophisticated methods for developing "urgency prioritization". For
-              example, how might we develop accurate modelling of where needs might crop up next, based on spreading
-              trends of the virus vs available healthcare centers in the area; along with number of hospital beds,
-              ventilators, doctors, nurses, etc.?
+              <p>
+                Right now, we are prioritizing Needs based on the information shared by users. Members fill in
+                Urgency level when posting medical supply requirements. The 5 Urgency Levels are listed as:
+              </p>
+              <p>
+                Level 1: Life threatening now. Need immediate supplies.<br/>
+                Level 2: Supply needs are required within 1 week.<br/>
+                Level 3: Supply needs are required within 2 weeks.<br/>
+                Level 4: Forecast needs will be required within 3-4 weeks.<br/>
+                Level 5: Good to have supplies just in case, but send to others with more needs first.
+              </p>
+              <p>
+                We ask that all posters try to be as accurate as possible in terms of quantities, timeframe and 
+                urgency requirements so that people with truly pressing needs for immediate support can be identified
+                and helped first.
+              </p>  
+              <p>  
+                Meanwhile, we are looking into more sophisticated methods for developing "urgency prioritization". For
+                example, how might we develop accurate modelling of where needs might crop up next, based on spreading
+                trends of the virus vs available healthcare centers in the area; along with number of hospital beds,
+                ventilators, doctors, nurses, etc.?
+              </p>  
+              <p>
+                If you have relevant expertise and ideas that could help with this. Please let us know! [contact link]
+              </p>    
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
