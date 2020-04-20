@@ -22,3 +22,14 @@ export const GET_NEEDS = gql`
   }
   ${NeedFragment}
 `;
+
+export const GET_USERS = gql`
+  query GetUsersWithOptions($request: GetAllNeedsRequest) {
+    getUsersWithOptions(request: $request) {
+      users {
+        ...UserItem
+      }
+    }
+  }
+  ${NeedFragment}
+`;
