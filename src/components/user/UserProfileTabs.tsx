@@ -4,6 +4,8 @@ import Container from "@material-ui/core/Container";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
+import User from "../../service/models/user.model";
+
 const useStyles = makeStyles(theme => ({
   container: {
     marginTop: theme.spacing(8),
@@ -17,6 +19,7 @@ const useStyles = makeStyles(theme => ({
   },
   tabsContainer: {
     paddingTop: theme.spacing(2),
+    minWidth: "220px",
     borderRight: `1px solid ${theme.palette.divider}`
   },
   tabs: {
@@ -33,9 +36,16 @@ function a11yProps(index: any) {
   };
 }
 
-function UserProfile() {
+type Props = {
+  user: User;
+};
+
+function UserProfile(props: Props) {
   const styles = useStyles();
+  const { user } = props;
   const [tabNumber, setTabNumber] = useState(0);
+
+  if (!user) return null;
 
   return (
     <Container
@@ -55,18 +65,18 @@ function UserProfile() {
         >
           <Tab
             className={styles.tabs}
-            label="Personal Profile Details"
+            label="Personal info"
             {...a11yProps(0)}
           />
           <Tab
             className={styles.tabs}
-            label="Your organization"
+            label="Organization info"
             {...a11yProps(1)}
           />
           <Tab className={styles.tabs} label="Manage needs" {...a11yProps(2)} />
           <Tab
             className={styles.tabs}
-            label="Manage offered supplies"
+            label="Manage supplies"
             {...a11yProps(3)}
           />
         </Tabs>

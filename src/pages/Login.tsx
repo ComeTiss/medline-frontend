@@ -5,7 +5,10 @@ import { Redirect } from "react-router-dom";
 import NavBar from "../components/navigation/NavBar";
 import AuthenticationLayout from "../components/authentication/AuthenticationLayout";
 import { login } from "../service/rest/apis";
-import { ACCESS_TOKEN_COOKIE_NAME } from "../utils/constants";
+import {
+  ACCESS_TOKEN_COOKIE_NAME,
+  USER_ID_COOKIE_NAME
+} from "../utils/constants";
 
 const VERIFY_PATH = "/verify";
 const HOME_PATH = "/";
@@ -22,6 +25,7 @@ function Login() {
       .then(response => {
         setRedirect(HOME_PATH);
         setCookies(ACCESS_TOKEN_COOKIE_NAME, response?.data?.token);
+        setCookies(USER_ID_COOKIE_NAME, response?.data?.user?.id);
       })
       .catch((error: any) => {
         const errorMsg = error?.response?.data?.error;
