@@ -24,7 +24,7 @@ export const GET_NEEDS = gql`
 `;
 
 export const GET_USERS = gql`
-  query GetUsersWithOptions($request: GetAllNeedsRequest) {
+  query GetUsersWithOptions($request: GetUsersRequest) {
     getUsersWithOptions(request: $request) {
       users {
         ...UserItem

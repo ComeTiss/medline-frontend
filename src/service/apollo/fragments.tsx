@@ -38,7 +38,7 @@ export const UserFragment = gql`
     city
     functionTitle
     organizationId
-    contactId
+    contactID
     contactType
     isAdmin
     createdAt
