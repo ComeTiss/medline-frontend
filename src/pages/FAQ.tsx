@@ -63,9 +63,12 @@ export default function FAQ() {
         <ExpansionPanel className={classes.expansionPanel}>
           <ExpansionPanelSummary
             expandIcon={<AddIcon />}
+            RemoveIcon={<AddIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
+            {this.state.expanded ? <RemoveIcon /> : <AddIcon />}
           >
+            
             <Typography className={classes.heading}>Can I buy medical supplies from Medline.io?</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
