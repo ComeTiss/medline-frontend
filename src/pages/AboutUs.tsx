@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "../components/navigation/NavBar";
-import { makeStyles, Typography } from "@material-ui/core";
+import { makeStyles, Typography, Link } from "@material-ui/core";
 
 import backgroundImage from  '../media/about_us_background.png'
 const useStyles = makeStyles(theme => ({
@@ -9,12 +9,19 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: "cover"
   },
   container: {
-    padding:"2rem 7rem",
-    background: 'rgba(255, 255, 255, 0.6)'
+    background: 'rgba(255, 255, 255, 0.6)',
+    padding:"2rem",
+    [theme.breakpoints.up('sm')]:{
+      padding:"2rem 7rem",
+    },
+   
   },
   overlapContainer: {
-    padding:"0 7rem",
-    background: 'rgba(255, 255, 255, 0.8)'
+    background: 'rgba(255, 255, 255, 0.8)',
+    padding:"0 2rem",
+    [theme.breakpoints.up('sm')]:{
+      padding:"0 7rem",
+    },
   },
   paragraphContainer: {
    padding: "1rem 0"
@@ -24,10 +31,16 @@ const useStyles = makeStyles(theme => ({
   },
   bottomContainer: {
     backgroundColor: "white",
-    padding: "2rem 4rem"
+    padding: "2rem",
+    [theme.breakpoints.up('sm')]:{
+      padding:"2rem 7rem",
+    },
   },
   titleWrapper:{
-    paddingTop: "4rem"
+    paddingTop: "2rem",
+    [theme.breakpoints.up('sm')]: {
+      paddingTop: "4rem"
+    },
   }
 }));
 
@@ -86,7 +99,7 @@ function AboutUs() {
 
       <div className={classes.bottomContainer}>
         <Typography variant="body1" component="p" align="center" color="secondary" className={classes.paragraphContainer}>
-          The platform is designed, developed and operated by a team of volunteers generously donating their time, skills, resources and funds to this project. If you’d like to join us in supporting this initiative: see here or contact us directly.
+          The platform is designed, developed and operated by a team of volunteers generously donating their time, skills, resources and funds to this project. If you’d like to join us in supporting this initiative: see here or <Link href="/contact-us">contact us</Link> directly.
       </Typography>
         <Typography variant="body1" component="p" align="center" color="secondary" className={classes.paragraphContainer}>
           Thank you! Stay safe, and be well.

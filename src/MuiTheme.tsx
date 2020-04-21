@@ -1,7 +1,5 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 import { LIGHT_GREY } from "./utils/constants";
-// import purple from "@material-ui/core/colors/purple";
-// import green from "@material-ui/core/colors/green";
 
 const theme = createMuiTheme({
   typography: {
@@ -17,18 +15,30 @@ const theme = createMuiTheme({
     },
   },
   palette: {
-    // Example to set primary and secondary theme color once decided
     primary:{
       main:  "#233768"
     },
     secondary:{
       main:  "#5b5b5b"
     },
-    // secondary: green,
     background: {
       default: LIGHT_GREY
     }
   }
 });
 
+theme.typography.h3 = {
+  fontSize: '1rem',
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '1.5rem',
+  },
+};
+theme.typography.body1 = {
+  fontSize: '1rem',
+  lineHeight:"1.8rem",
+  [theme.breakpoints.up('sm')]: {
+    fontSize: '1.5rem',
+    lineHeight:"2.5rem;"
+  },
+};
 export default theme;
