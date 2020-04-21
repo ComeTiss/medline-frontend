@@ -28,6 +28,21 @@ export const NeedFragment = gql`
   }
 `;
 
+export const OrganizationFragment = gql`
+  fragment OrganizationItem on Organization {
+    id
+    name
+    address
+    country
+    city
+    activity
+    verifiedAt
+    deletedAt
+    createdAt
+    updatedAt
+  }
+`;
+
 export const UserFragment = gql`
   fragment UserItem on User {
     id
@@ -37,8 +52,7 @@ export const UserFragment = gql`
     country
     city
     functionTitle
-    organizationId
-    contactId
+    contactID
     contactType
     isAdmin
     createdAt
