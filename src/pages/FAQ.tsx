@@ -6,6 +6,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 const logo = require('../images/laptop-near-teal-stethoscope-in-wooden-table-3758756.jpg')
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -63,10 +64,8 @@ export default function FAQ() {
         <ExpansionPanel className={classes.expansionPanel}>
           <ExpansionPanelSummary
             expandIcon={<AddIcon />}
-            RemoveIcon={<AddIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
-            {this.state.expanded ? <RemoveIcon /> : <AddIcon />}
           >
             
             <Typography className={classes.heading}>Can I buy medical supplies from Medline.io?</Typography>
