@@ -37,7 +37,7 @@ function a11yProps(index: any) {
 }
 
 type Props = {
-  user?: User;
+  user: User;
 };
 
 function UserProfile(props: Props) {

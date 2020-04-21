@@ -24,7 +24,7 @@ function Profile() {
   return (
     <>
       <NavBar showLogout />
-      <UserProfileTabs user={user} />
+      {!!user && <UserProfileTabs user={user} />}
     </>
   );
 }
