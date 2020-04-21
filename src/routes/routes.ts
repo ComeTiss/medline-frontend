@@ -1,5 +1,5 @@
 import Home from "../pages/Home";
-import About from "../pages/About";
+import About from "../pages/AboutUs";
 import Login from "../pages/Login";
 import Signup from "../pages/Signup";
 import Logout from "../pages/Logout";
@@ -51,7 +51,7 @@ const routes = [
     component: Home
   },
   {
-    path: "/about",
+    path: "/about-us",
     exact: true,
     name: "about",
     protected: false,

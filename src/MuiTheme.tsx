@@ -7,6 +7,10 @@ const theme = createMuiTheme({
   typography: {
     htmlFontSize: 16,
     fontFamily: "Verdana",
+    body1: {
+      lineHeight:"2.5rem;",
+      fontSize: "1.5rem"
+    },
     h3: {
       fontSize: "1.5rem",
       fontWeight: "bold"
@@ -16,6 +20,9 @@ const theme = createMuiTheme({
     // Example to set primary and secondary theme color once decided
     primary:{
       main:  "#233768"
+    },
+    secondary:{
+      main:  "#5b5b5b"
     },
     // secondary: green,
     background: {
