@@ -6,13 +6,14 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
+const logo = require('./laptop-near-teal-stethoscope-in-wooden-table-3758756.jpg')
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      width: '80%',
+      width: '58%',
       position: 'absolute',
-      left: '10%'
+      left: '21%'
     },
     expansionPanel: {
       backgroundColor: 'transparent',
@@ -24,22 +25,27 @@ const useStyles = makeStyles((theme: Theme) =>
       color: "#233768",
       fontWeight: "bolder",
       textAlign: 'center',
-      padding: '40px',
+      padding: '30px',
       fontSize: '20px',
       fontFamily: 'Verdana'
     },
     heading: {
-      fontSize: '24px',
+      fontSize: '18px',
       color: "#233768",
       fontFamily: 'Verdana'
     },
     answer: {
-      fontSize: '18px',
+      fontSize: '14px',
       fontFamily: 'Verdana',
       color: '#5b5b5b'
     },
     ul: {
       listStyle: "none",
+    },
+    background: {
+      position: "absolute",
+      float: "left",
+      opacity: '20%'
     }
   }),
 );
@@ -50,6 +56,7 @@ export default function FAQ() {
   return (
     <div>
       <NavBar />
+      <img src={String(logo)} style={{ width: '100%' }} className={classes.background} alt='laptop' />
       <div className={classes.title}>FAQ</div>
       <div className={classes.root}>
         <hr />
