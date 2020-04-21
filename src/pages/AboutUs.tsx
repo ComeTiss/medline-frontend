@@ -2,24 +2,24 @@ import React from "react";
 import NavBar from "../components/navigation/NavBar";
 import { makeStyles, Typography, Link } from "@material-ui/core";
 
-import backgroundImage from  '../media/about_us_background.png'
+import backgroundImage from  "../media/about_us_background.png"
 const useStyles = makeStyles(theme => ({
   wrapper: { 
     background: `url(${backgroundImage}) no-repeat center center`,
     backgroundSize: "cover"
   },
   container: {
-    background: 'rgba(255, 255, 255, 0.6)',
+    background: "rgba(255, 255, 255, 0.6)",
     padding:"2rem",
-    [theme.breakpoints.up('sm')]:{
+    [theme.breakpoints.up("sm")]:{
       padding:"2rem 7rem",
     },
    
   },
   overlapContainer: {
-    background: 'rgba(255, 255, 255, 0.8)',
+    background: "rgba(255, 255, 255, 0.8)",
     padding:"0 2rem",
-    [theme.breakpoints.up('sm')]:{
+    [theme.breakpoints.up("sm")]:{
       padding:"0 7rem",
     },
   },
@@ -32,13 +32,13 @@ const useStyles = makeStyles(theme => ({
   bottomContainer: {
     backgroundColor: "white",
     padding: "2rem",
-    [theme.breakpoints.up('sm')]:{
+    [theme.breakpoints.up("sm")]:{
       padding:"2rem 7rem",
     },
   },
   titleWrapper:{
     paddingTop: "2rem",
-    [theme.breakpoints.up('sm')]: {
+    [theme.breakpoints.up("sm")]: {
       paddingTop: "4rem"
     },
   }

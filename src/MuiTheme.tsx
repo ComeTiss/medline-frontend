@@ -28,17 +28,17 @@ const theme = createMuiTheme({
 });
 
 theme.typography.h3 = {
-  fontSize: '1rem',
-  [theme.breakpoints.up('sm')]: {
-    fontSize: '1.5rem',
+  fontSize: "1rem",
+  [theme.breakpoints.up("sm")]: {
+    fontSize: "1.5rem",
   },
 };
 theme.typography.body1 = {
-  fontSize: '1rem',
+  fontSize: "1rem",
   lineHeight:"1.8rem",
-  [theme.breakpoints.up('sm')]: {
-    fontSize: '1.5rem',
-    lineHeight:"2.5rem;"
+  [theme.breakpoints.up("sm")]: {
+    fontSize: "1.5rem",
+    lineHeight:"2.5rem"
   },
 };
 export default theme;
