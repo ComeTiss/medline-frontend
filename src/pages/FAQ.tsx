@@ -6,7 +6,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
-const logo = require('./laptop-near-teal-stethoscope-in-wooden-table-3758756.jpg')
+const logo = require('../images/laptop-near-teal-stethoscope-in-wooden-table-3758756.jpg')
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
