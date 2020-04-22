@@ -24,25 +24,19 @@ export function validateLeadForm(lead: any) {
   const { availableAt, itemName, quantity, cost } = lead;
 
   if (availableAt === "" || cost === "" || itemName === "" || quantity === "")
-    return false;
-  return true;
+    return true;
+  return false;
 }
 
 export function mapFormInputToNeedSchema(need: any) {
-  const {
-    urgencyLevel,
-    itemName,
-    specifications,
-    budget,
-    quantity,
-    expireAt
-  } = need;
   return {
-    urgencyLevel: Number(urgencyLevel),
-    itemName,
-    specifications,
-    budget,
-    quantity,
-    expireAt
+    ...need,
+    urgencyLevel: Number(need.urgencyLevel)
+  };
+}
+
+export function mapFormInputToLeadSchema(lead: any) {
+  return {
+    ...lead
   };
 }
