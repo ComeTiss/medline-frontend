@@ -6,7 +6,7 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
-import RemoveIcon from '@material-ui/icons/Remove';
+import ClearIcon from '@material-ui/icons/Clear';
 const logo = require('../images/laptop-near-teal-stethoscope-in-wooden-table-3758756.jpg')
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -18,8 +18,8 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     expansionPanel: {
       backgroundColor: 'transparent',
-      boxShadow: 'none',
-      borderColor: 'red',
+      boxShadow: '0 4px 2px -2px #233768',
+      borderColor: 'none',
       margin: "0 auto" 
     },
     title: {
@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme: Theme) =>
       position: "absolute",
       float: "left",
       opacity: '20%'
+    },
+    lines: {
+      transform: 'translateY(9px)'
     }
   }),
 );
@@ -60,14 +63,13 @@ export default function FAQ() {
       <img src={String(logo)} style={{ width: '100%' }} className={classes.background} alt='laptop' />
       <div className={classes.title}>FAQ</div>
       <div className={classes.root}>
-        <hr />
+        
         <ExpansionPanel className={classes.expansionPanel}>
           <ExpansionPanelSummary
-            expandIcon={<AddIcon />}
+            expandIcon={<ClearIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            
             <Typography className={classes.heading}>Can I buy medical supplies from Medline.io?</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
@@ -81,7 +83,6 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <hr />
         <ExpansionPanel className={classes.expansionPanel}>
           <ExpansionPanelSummary
             expandIcon={<AddIcon />}
@@ -108,7 +109,6 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <hr />
         <ExpansionPanel className={classes.expansionPanel}>
           <ExpansionPanelSummary
             expandIcon={<AddIcon />}
