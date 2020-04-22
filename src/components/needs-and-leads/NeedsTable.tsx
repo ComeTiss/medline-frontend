@@ -125,7 +125,6 @@ function NeedsTable(props: Props) {
                   >
                     {columns.map(column => {
                       const value = need[column.id];
-                      console.log(value);
                       return (
                         <TableCell key={column.id} align={column.align}>
                           {column.format && typeof value === "number"
