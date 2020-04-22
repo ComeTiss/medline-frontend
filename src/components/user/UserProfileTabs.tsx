@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Tabs from "@material-ui/core/Tabs";
+import { makeStyles } from "@material-ui/core/styles";
 import Tab from "@material-ui/core/Tab";
-
-import ManageSupplies from "./ManageSupplies";
-import ManageNeeds from "./ManageNeeds";
-import User from "../../service/models/user.model";
-import OrganizationInfo from "./OrganisationInfo";
-import Need from "../../service/models/need.model";
+import Tabs from "@material-ui/core/Tabs";
+import React, { useState } from "react";
 import Lead from "../../service/models/lead.model";
+import Need from "../../service/models/need.model";
+import User from "../../service/models/user.model";
+import ManageNeeds from "./ManageNeeds";
+import ManageSupplies from "./ManageSupplies";
+import OrganizationInfo from "./OrganisationInfo";
+import PersonalProfileDetails from "./PersonalProfileDetails";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: "flex",
-    height: 580
+    height: "100%"
   },
   tabsContainer: {
     paddingTop: theme.spacing(2),
@@ -87,12 +87,9 @@ function UserProfile(props: Props) {
             {...a11yProps(3)}
           />
         </Tabs>
-        {/* TODO: Add personal profile details component */}
-        {tabNumber === 0 && "Personal Profile Details"}
+        {tabNumber === 0 && <PersonalProfileDetails user={user} />}
         {tabNumber === 1 && <OrganizationInfo user={user} />}
-        {/* TODO: Add manage needs component */}
         {tabNumber === 2 && <ManageNeeds needs={needs} />}
-        {/* TODO: Add manage offered supplies component */}
         {tabNumber === 3 && <ManageSupplies leads={leads} />}
       </div>
     </Container>
