@@ -21,7 +21,7 @@ export const GET_NEEDS = gql`
   query GetAllNeeds($request: GetAllNeedsRequest) {
     getAllNeeds(request: $request) {
       needs {
-        ...needItem
+        ...NeedItem
       }
     }
   }
