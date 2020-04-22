@@ -6,7 +6,6 @@ import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
 import Typography from '@material-ui/core/Typography';
 import AddIcon from '@material-ui/icons/Add';
-import ClearIcon from '@material-ui/icons/Clear';
 const logo = require('../images/laptop-near-teal-stethoscope-in-wooden-table-3758756.jpg')
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -52,7 +51,13 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     lines: {
       transform: 'translateY(-1px)',
-    }
+    },
+    expandIcon: {
+      "&$expanded": {
+        transform: "translateY(-15%) rotate(45deg)"
+      }
+    },
+    expanded: {}
   }),
 );
 
@@ -68,7 +73,11 @@ export default function FAQ() {
         
         <ExpansionPanel className={classes.expansionPanel} square={true} >
           <ExpansionPanelSummary
-            expandIcon={<ClearIcon />}
+            classes={{
+              expandIcon: classes.expandIcon,
+              expanded: classes.expanded
+            }}
+            expandIcon={<AddIcon />}
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
@@ -85,11 +94,15 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <ExpansionPanel className={classes.expansionPanel}>
+        <ExpansionPanel className={classes.expansionPanel} square={true} >
           <ExpansionPanelSummary
+            classes={{
+              expandIcon: classes.expandIcon,
+              expanded: classes.expanded
+            }}
             expandIcon={<AddIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
+            aria-controls="panel1a-content"
+            id="panel1a-header"
           >
             <Typography className={classes.heading}>Then how does MedLine.io make money?</Typography>
           </ExpansionPanelSummary>
@@ -111,11 +124,15 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <ExpansionPanel className={classes.expansionPanel}>
+        <ExpansionPanel className={classes.expansionPanel} square={true} >
           <ExpansionPanelSummary
+            classes={{
+              expandIcon: classes.expandIcon,
+              expanded: classes.expanded
+            }}
             expandIcon={<AddIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
+            aria-controls="panel1a-content"
+            id="panel1a-header"
           >
             <Typography className={classes.heading}>How do you prioritise "Needs"?</Typography>
           </ExpansionPanelSummary>
@@ -149,11 +166,15 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <ExpansionPanel className={classes.expansionPanel}>
+        <ExpansionPanel className={classes.expansionPanel} square={true} >
           <ExpansionPanelSummary
+            classes={{
+              expandIcon: classes.expandIcon,
+              expanded: classes.expanded
+            }}
             expandIcon={<AddIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
+            aria-controls="panel1a-content"
+            id="panel1a-header"
           >
             <Typography className={classes.heading}>What are "Leads"?</Typography>
           </ExpansionPanelSummary>
@@ -165,11 +186,15 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <ExpansionPanel className={classes.expansionPanel}>
+        <ExpansionPanel className={classes.expansionPanel} square={true} >
           <ExpansionPanelSummary
+            classes={{
+              expandIcon: classes.expandIcon,
+              expanded: classes.expanded
+            }}
             expandIcon={<AddIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
+            aria-controls="panel1a-content"
+            id="panel1a-header"
           >
             <Typography className={classes.heading}>Are the Leads / Suppliers certified?</Typography>
           </ExpansionPanelSummary>
@@ -188,11 +213,15 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <ExpansionPanel className={classes.expansionPanel}>
+        <ExpansionPanel className={classes.expansionPanel} square={true} >
           <ExpansionPanelSummary
+            classes={{
+              expandIcon: classes.expandIcon,
+              expanded: classes.expanded
+            }}
             expandIcon={<AddIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
+            aria-controls="panel1a-content"
+            id="panel1a-header"
           >
             <Typography className={classes.heading}>Who's using the platform?</Typography>
           </ExpansionPanelSummary>
@@ -214,9 +243,13 @@ export default function FAQ() {
         </ExpansionPanel>
         <ExpansionPanel className={classes.expansionPanelBottom} square={true} >
           <ExpansionPanelSummary
+            classes={{
+              expandIcon: classes.expandIcon,
+              expanded: classes.expanded
+            }}
             expandIcon={<AddIcon />}
-            aria-controls="panel2a-content"
-            id="panel2a-header"
+            aria-controls="panel1a-content"
+            id="panel1a-header"
           >
             <Typography className={classes.heading}>Are you related to MedlinePlus or Medline Industries?</Typography>
           </ExpansionPanelSummary>
