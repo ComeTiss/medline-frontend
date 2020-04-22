@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Backspace, Edit } from "@material-ui/icons";
+import DelIcon from "@material-ui/icons/Backspace";
+import EditIcon from "@material-ui/icons/Edit";
 import {
   IconButton,
   Paper,
@@ -138,14 +139,14 @@ function LeadsTable(props: Props) {
                         color="primary"
                         onClick={() => console.log("clicked edit")}
                       >
-                        <Edit />
+                        <EditIcon />
                       </IconButton>
                       <IconButton
                         size="small"
                         color="primary"
                         onClick={() => console.log("clicked delete")}
                       >
-                        <Backspace />
+                        <DelIcon />
                       </IconButton>
                     </TableCell>
                   </TableRow>

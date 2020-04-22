@@ -11,11 +11,12 @@ import { USER_ID_COOKIE_NAME } from "../utils/constants";
 
 function Profile() {
   const [cookies] = useCookies();
+  const userId = cookies[USER_ID_COOKIE_NAME];
   const { data: userData } = useQuery(GET_USERS, {
     variables: {
       request: {
         filters: {
-          userId: cookies[USER_ID_COOKIE_NAME]
+          userId
         }
       }
     },
@@ -26,7 +27,7 @@ function Profile() {
     variables: {
       request: {
         filters: {
-          authorId: cookies[USER_ID_COOKIE_NAME]
+          authorId: userId
         }
       }
     },
@@ -37,7 +38,7 @@ function Profile() {
     variables: {
       request: {
         filters: {
-          authorId: cookies[USER_ID_COOKIE_NAME]
+          authorId: userId
         }
       }
     },
