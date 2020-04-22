@@ -5,11 +5,12 @@ import { useQuery } from "@apollo/react-hooks";
 import NavBar from "../components/navigation/NavBar";
 import UserProfileTabs from "../components/user/UserProfileTabs";
 import { GET_USERS } from "../service/apollo/queries";
+import { GET_NEEDS } from "../service/apollo/queries";
 import { USER_ID_COOKIE_NAME } from "../utils/constants";
 
 function Profile() {
   const [cookies] = useCookies();
-  const { data } = useQuery(GET_USERS, {
+  const { data: userData } = useQuery(GET_USERS, {
     variables: {
       request: {
         filters: {
@@ -19,12 +20,22 @@ function Profile() {
     },
     fetchPolicy: "network-only"
   });
-  const user = data?.getUsersWithOptions?.users[0];
-
+  const user = userData?.getUsersWithOptions?.users[0];
+  const { data: needsData } = useQuery(GET_NEEDS, {
+    variables: {
+      request: {
+        filters: {
+          authorId: cookies[USER_ID_COOKIE_NAME]
+        }
+      }
+    },
+    fetchPolicy: "network-only"
+  });
+  const needs = needsData?.getAllNeeds?.needs;
   return (
     <>
       <NavBar showLogout />
-      {!!user && <UserProfileTabs user={user} />}
+      {!!user && <UserProfileTabs user={user} needs={needs} />}
     </>
   );
 }

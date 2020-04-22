@@ -1,8 +1,9 @@
 class Need {
   id: string;
+  urgencyLevel: number;
   authorId: number;
   itemName: string;
-  specifications: string;
+  specifications?: string;
   quantity: number;
   budget: number;
   expireAt: Date;
@@ -11,6 +12,7 @@ class Need {
 
   constructor(props: any) {
     this.id = props.id;
+    this.urgencyLevel = props.urgencyLevel;
     this.authorId = props.authorId;
     this.itemName = props.itemName;
     this.specifications = props.specifications;
