@@ -18,9 +18,11 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     expansionPanel: {
       backgroundColor: 'transparent',
-      boxShadow: '0 1px 1px -1px #233768',
-      borderColor: 'none',
-      margin: "0 auto" 
+      boxShadow: '0px -2px 1px -1px #233768',
+    },
+    expansionPanelBottom: {
+      backgroundColor: 'transparent',
+      boxShadow: '0px -2px 1px -1px #233768, 0px 2px 1px -1px #233768',
     },
     title: {
       color: "#233768",
@@ -49,7 +51,7 @@ const useStyles = makeStyles((theme: Theme) =>
       opacity: '20%'
     },
     lines: {
-      transform: 'translateY(9px)'
+      transform: 'translateY(-1px)',
     }
   }),
 );
@@ -64,7 +66,7 @@ export default function FAQ() {
       <div className={classes.title}>FAQ</div>
       <div className={classes.root}>
         
-        <ExpansionPanel className={classes.expansionPanel}>
+        <ExpansionPanel className={classes.expansionPanel} square={true} >
           <ExpansionPanelSummary
             expandIcon={<ClearIcon />}
             aria-controls="panel1a-content"
@@ -147,7 +149,6 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <hr />
         <ExpansionPanel className={classes.expansionPanel}>
           <ExpansionPanelSummary
             expandIcon={<AddIcon />}
@@ -164,7 +165,6 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <hr />
         <ExpansionPanel className={classes.expansionPanel}>
           <ExpansionPanelSummary
             expandIcon={<AddIcon />}
@@ -188,7 +188,6 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <hr />
         <ExpansionPanel className={classes.expansionPanel}>
           <ExpansionPanelSummary
             expandIcon={<AddIcon />}
@@ -213,8 +212,7 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <hr />
-        <ExpansionPanel className={classes.expansionPanel}>
+        <ExpansionPanel className={classes.expansionPanelBottom} square={true} >
           <ExpansionPanelSummary
             expandIcon={<AddIcon />}
             aria-controls="panel2a-content"
@@ -242,7 +240,6 @@ export default function FAQ() {
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
-        <hr />
       </div>
     </div>
   );
