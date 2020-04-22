@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     expansionPanel: {
       backgroundColor: 'transparent',
-      boxShadow: '0 4px 2px -2px #233768',
+      boxShadow: '0 1px 1px -1px #233768',
       borderColor: 'none',
       margin: "0 auto" 
     },
