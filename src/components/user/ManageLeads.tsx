@@ -1,19 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/react-hooks";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-import LoyaltyIcon from "@material-ui/icons/Loyalty";
+import ShareIcon from "@material-ui/icons/Share";
 import Grid from "@material-ui/core/Grid";
 import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
 
-import Need from "../../service/models/need.model";
-import NeedsTable from "../needs-and-leads/NeedsTable";
-import CreateOrEditNeedModal from "../needs-and-leads/CreateOrEditNeedModal";
-import { MUTATE_NEED } from "../../service/apollo/mutations";
-import { GET_NEEDS } from "../../service/apollo/queries";
+import Lead from "../../service/models/lead.model";
+import LeadsTable from "../needs-and-leads/LeadsTable";
+import CreateOrEditLeadModal from "../needs-and-leads/CreateOrEditLeadModal";
+import { MUTATE_LEAD } from "../../service/apollo/mutations";
+import { GET_LEADS } from "../../service/apollo/queries";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,42 +33,33 @@ const useStyles = makeStyles(theme => ({
   },
   searchTool: {
     marginBottom: theme.spacing(1)
-  },
-  modal: {
-    outline: "none"
   }
 }));
 
 type Props = {
-  needs: Array<Need | null>;
+  leads: Array<Lead | null>;
   userId: number;
 };
 
-function ManageNeeds(props: Props) {
+function ManageSupplies(props: Props) {
   const styles = useStyles();
-  const { needs, userId } = props;
+  const { leads, userId } = props;
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [error, setError] = useState("");
-  const [mutateNeed] = useMutation(MUTATE_NEED);
-
-  const [filteredNeeds, setFilteredNeeds] = useState(needs);
-
-  useEffect(() => {
-    setFilteredNeeds(needs);
-  }, [needs]);
-
-  function searchNeeds(e: any) {
-    setFilteredNeeds(
-      needs.filter(it => !!it && it.itemName.search(e.target.value) >= 0)
+  const [mutateLead] = useMutation(MUTATE_LEAD);
+  const [filteredLeads, setFilteredLeads] = useState(leads);
+  function searchLeads(e: any) {
+    setFilteredLeads(
+      leads.filter(it => !!it && it.itemName.search(e.target.value) >= 0)
     );
   }
 
-  const onSubmit = (need: Need) => {
-    mutateNeed({
-      variables: { request: need },
+  const onSubmit = (lead: Lead) => {
+    mutateLead({
+      variables: { request: lead },
       refetchQueries: [
         {
-          query: GET_NEEDS,
+          query: GET_LEADS,
           variables: {
             request: { filters: { authorId: userId } }
           }
@@ -78,6 +70,10 @@ function ManageNeeds(props: Props) {
       .catch(() => setError("Internal server error, please try again later"));
   };
 
+  useEffect(() => {
+    setFilteredLeads(leads);
+  }, [leads]);
+
   return (
     <>
       <div className={styles.root}>
@@ -85,7 +81,7 @@ function ManageNeeds(props: Props) {
           <Grid container spacing={1} alignItems="flex-end">
             <Grid item xs={8}>
               <Typography variant="h6" className={styles.title}>
-                My needs
+                My supplies
               </Typography>
             </Grid>
             <Grid item>
@@ -94,14 +90,14 @@ function ManageNeeds(props: Props) {
             <Grid item>
               <TextField
                 id="input-with-icon-grid"
-                onChange={searchNeeds}
-                label="Search for needs"
+                onChange={searchLeads}
+                label="Search for supplies"
               />
             </Grid>
           </Grid>
         </div>
-        <NeedsTable
-          needs={filteredNeeds}
+        <LeadsTable
+          leads={filteredLeads}
           onSubmit={onSubmit}
           submitError={error}
           userId={userId}
@@ -109,16 +105,16 @@ function ManageNeeds(props: Props) {
         <Container className={styles.submit}>
           <Button
             onClick={() => setShowSubmitModal(true)}
-            startIcon={<LoyaltyIcon />}
+            startIcon={<ShareIcon />}
             variant="contained"
             color="primary"
           >
-            Submit new need
+            Submit new supply
           </Button>
         </Container>
       </div>
-      <CreateOrEditNeedModal
-        title="Create Need"
+      <CreateOrEditLeadModal
+        title="Create Lead"
         onSubmit={onSubmit}
         submitError={error}
         onClose={() => setShowSubmitModal(false)}
@@ -128,4 +124,4 @@ function ManageNeeds(props: Props) {
   );
 }
 
-export default ManageNeeds;
+export default ManageSupplies;

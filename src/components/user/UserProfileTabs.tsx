@@ -7,7 +7,7 @@ import Lead from "../../service/models/lead.model";
 import Need from "../../service/models/need.model";
 import User from "../../service/models/user.model";
 import ManageNeeds from "./ManageNeeds";
-import ManageSupplies from "./ManageSupplies";
+import ManageLeads from "./ManageLeads";
 import OrganizationInfo from "./OrganisationInfo";
 import PersonalProfileDetails from "./PersonalProfileDetails";
 
@@ -20,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: "flex",
-    height: "100%"
+    height: "740px"
   },
   tabsContainer: {
     paddingTop: theme.spacing(2),
@@ -89,8 +89,8 @@ function UserProfile(props: Props) {
         </Tabs>
         {tabNumber === 0 && <PersonalProfileDetails user={user} />}
         {tabNumber === 1 && <OrganizationInfo user={user} />}
-        {tabNumber === 2 && <ManageNeeds needs={needs} />}
-        {tabNumber === 3 && <ManageSupplies leads={leads} />}
+        {tabNumber === 2 && <ManageNeeds needs={needs} userId={user.id} />}
+        {tabNumber === 3 && <ManageLeads leads={leads} userId={user.id} />}
       </div>
     </Container>
   );

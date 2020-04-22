@@ -21,6 +21,7 @@ export const NeedFragment = gql`
     itemName
     specifications
     quantity
+    urgencyLevel
     budget
     expireAt
     createdAt

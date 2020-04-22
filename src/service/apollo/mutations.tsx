@@ -27,3 +27,21 @@ export const MUTATE_USER = gql`
   }
   ${UserFragment}
 `;
+
+export const DELETE_NEEDS = gql`
+  mutation DeleteNeedsByIds($request: DeleteNeedsByIdsRequest!) {
+    deleteNeedsByIds(request: $request) {
+      ...NeedItem
+    }
+  }
+  ${NeedFragment}
+`;
+
+export const DELETE_LEADS = gql`
+  mutation DeleteLeadsByIds($request: DeleteLeadsByIdsRequest!) {
+    deleteLeadsByIds(request: $request) {
+      ...LeadItem
+    }
+  }
+  ${LeadFragment}
+`;

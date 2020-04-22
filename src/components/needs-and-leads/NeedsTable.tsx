@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import moment from "moment";
+import { useMutation } from "@apollo/react-hooks";
 import { makeStyles } from "@material-ui/core/styles";
 import DelIcon from "@material-ui/icons/Backspace";
 import EditIcon from "@material-ui/icons/Edit";
@@ -14,10 +16,16 @@ import {
   TableRow
 } from "@material-ui/core";
 
+import { DELETE_NEEDS } from "../../service/apollo/mutations";
+import { GET_NEEDS } from "../../service/apollo/queries";
 import Need from "../../service/models/need.model";
+import CreateOrEditNeedModal from "./CreateOrEditNeedModal";
 
 type Props = {
   needs: Array<Need | null>;
+  onSubmit: (data: any) => void;
+  submitError: string;
+  userId?: number;
 };
 
 interface Column {
@@ -43,11 +51,11 @@ const columns: Column[] = [
     label: "Date",
     minWidth: 110,
     align: "left",
-    format: (value: number) => value.toLocaleString()
+    format: (value: number) => moment(value, "x").format("YYYY-MM-DD")
   },
   {
     id: "budget",
-    label: "Budget",
+    label: "Budget ($)",
     minWidth: 90,
     align: "left",
     format: (value: number) => value.toFixed(2)
@@ -76,10 +84,35 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function NeedsTable(props: Props) {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const { needs } = props;
+  const [page, setPage] = useState(0);
+  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [showSubmitModal, setShowSubmitModal] = useState(false);
+  const [selectedNeed, setSelectedNeed] = useState(new Need({}));
+  const { needs, onSubmit, submitError, userId } = props;
   const styles = useStyles();
+  const [deleteMutation] = useMutation(DELETE_NEEDS);
+
+  function onDeleteNeed(id: string) {
+    deleteMutation({
+      variables: { request: { ids: [id] } },
+      refetchQueries: [
+        {
+          query: GET_NEEDS,
+          variables: {
+            request: { filters: { authorId: userId } }
+          }
+        }
+      ]
+    });
+  }
+
+  function onMutateNeed(data: any) {
+    onSubmit({
+      id: selectedNeed.id,
+      ...data
+    });
+    setShowSubmitModal(false);
+  }
 
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
@@ -91,6 +124,11 @@ function NeedsTable(props: Props) {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
+  function onEditNeed(need: Need) {
+    setSelectedNeed(need);
+    setShowSubmitModal(true);
+  }
 
   return (
     <Paper elevation={0} className={styles.root}>
@@ -107,7 +145,9 @@ function NeedsTable(props: Props) {
                   {column.label}
                 </TableCell>
               ))}
-              <TableCell className={styles.action}>Action</TableCell>
+              {userId && (
+                <TableCell className={styles.action}>Action</TableCell>
+              )}
             </TableRow>
           </TableHead>
           <TableBody>
@@ -127,28 +167,30 @@ function NeedsTable(props: Props) {
                       const value = need[column.id];
                       return (
                         <TableCell key={column.id} align={column.align}>
-                          {column.format && typeof value === "number"
-                            ? column.format(value)
+                          {column.format && !isNaN(Number(value))
+                            ? column.format(Number(value))
                             : value}
                         </TableCell>
                       );
                     })}
-                    <TableCell className={styles.actionButtons}>
-                      <IconButton
-                        size="small"
-                        color="primary"
-                        onClick={() => console.log("clicked edit")}
-                      >
-                        <EditIcon />
-                      </IconButton>
-                      <IconButton
-                        size="small"
-                        color="primary"
-                        onClick={() => console.log("clicked delete")}
-                      >
-                        <DelIcon />
-                      </IconButton>
-                    </TableCell>
+                    {userId && (
+                      <TableCell className={styles.actionButtons}>
+                        <IconButton
+                          size="small"
+                          color="primary"
+                          onClick={() => onEditNeed(need)}
+                        >
+                          <EditIcon />
+                        </IconButton>
+                        <IconButton
+                          size="small"
+                          color="primary"
+                          onClick={() => onDeleteNeed(need.id)}
+                        >
+                          <DelIcon />
+                        </IconButton>
+                      </TableCell>
+                    )}
                   </TableRow>
                 );
               })}
@@ -164,6 +206,14 @@ function NeedsTable(props: Props) {
         page={page}
         onChangePage={handleChangePage}
         onChangeRowsPerPage={handleChangeRowsPerPage}
+      />
+      <CreateOrEditNeedModal
+        title="Edit Need"
+        onSubmit={onMutateNeed}
+        submitError={submitError}
+        onClose={() => setShowSubmitModal(false)}
+        isOpen={showSubmitModal}
+        need={selectedNeed}
       />
     </Paper>
   );
