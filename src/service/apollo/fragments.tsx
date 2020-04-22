@@ -5,7 +5,7 @@ export const LeadFragment = gql`
     id
     authorId
     itemName
-    speficiations
+    specifications
     quantity
     cost
     availableAt

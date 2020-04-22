@@ -4,10 +4,12 @@ import Container from "@material-ui/core/Container";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
+import ManageSupplies from "./ManageSupplies";
 import ManageNeeds from "./ManageNeeds";
 import User from "../../service/models/user.model";
 import OrganizationInfo from "./OrganisationInfo";
 import Need from "../../service/models/need.model";
+import Lead from "../../service/models/lead.model";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -42,11 +44,12 @@ function a11yProps(index: any) {
 type Props = {
   user: User;
   needs: Array<Need | null>;
+  leads: Array<Lead | null>;
 };
 
 function UserProfile(props: Props) {
   const styles = useStyles();
-  const { user, needs } = props;
+  const { user, needs, leads } = props;
   const [tabNumber, setTabNumber] = useState(0);
 
   if (!user) return null;
@@ -90,7 +93,7 @@ function UserProfile(props: Props) {
         {/* TODO: Add manage needs component */}
         {tabNumber === 2 && <ManageNeeds needs={needs} />}
         {/* TODO: Add manage offered supplies component */}
-        {tabNumber === 3 && "Manage offered supplies"}
+        {tabNumber === 3 && <ManageSupplies leads={leads} />}
       </div>
     </Container>
   );

@@ -1,11 +1,11 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Need from "../../service/models/need.model";
-import NeedsTable from "../needs-and-leads/NeedsTable";
+import Lead from "../../service/models/lead.model";
+import LeadsTable from "../needs-and-leads/LeadsTable";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
-import LoyaltyIcon from "@material-ui/icons/Loyalty";
+import ShareIcon from "@material-ui/icons/Share";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -25,30 +25,30 @@ const useStyles = makeStyles(theme => ({
 }));
 
 type Props = {
-  needs: Array<Need | null>;
+  leads: Array<Lead | null>;
 };
 
-function ManageNeeds(props: Props) {
+function ManageSupplies(props: Props) {
   const styles = useStyles();
-  const { needs } = props;
+  const { leads } = props;
   return (
     <div className={styles.root}>
       <Typography variant="h6" className={styles.title}>
-        My needs
+        My supplies
       </Typography>
-      <NeedsTable needs={needs} />
+      <LeadsTable leads={leads} />
       <Container className={styles.submit}>
         <Button
-          onClick={() => console.log("Clicked submit new need")}
-          startIcon={<LoyaltyIcon />}
+          onClick={() => console.log("Clicked submit new supply")}
+          startIcon={<ShareIcon />}
           variant="contained"
           color="primary"
         >
-          Submit new need
+          Submit new supply
         </Button>
       </Container>
     </div>
   );
 }
 
-export default ManageNeeds;
+export default ManageSupplies;

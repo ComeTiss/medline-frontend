@@ -6,6 +6,7 @@ import NavBar from "../components/navigation/NavBar";
 import UserProfileTabs from "../components/user/UserProfileTabs";
 import { GET_USERS } from "../service/apollo/queries";
 import { GET_NEEDS } from "../service/apollo/queries";
+import { GET_LEADS } from "../service/apollo/queries";
 import { USER_ID_COOKIE_NAME } from "../utils/constants";
 
 function Profile() {
@@ -32,10 +33,21 @@ function Profile() {
     fetchPolicy: "network-only"
   });
   const needs = needsData?.getAllNeeds?.needs;
+  const { data: leadsData } = useQuery(GET_LEADS, {
+    variables: {
+      request: {
+        filters: {
+          authorId: cookies[USER_ID_COOKIE_NAME]
+        }
+      }
+    },
+    fetchPolicy: "network-only"
+  });
+  const leads = leadsData?.getAllLeads?.leads;
   return (
     <>
       <NavBar showLogout />
-      {!!user && <UserProfileTabs user={user} needs={needs} />}
+      {!!user && <UserProfileTabs user={user} needs={needs} leads={leads} />}
     </>
   );
 }
