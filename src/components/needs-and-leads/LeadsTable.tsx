@@ -14,14 +14,14 @@ import {
   TableRow
 } from "@material-ui/core";
 
-import Need from "../../service/models/need.model";
+import Lead from "../../service/models/lead.model";
 
 type Props = {
-  needs: Array<Need | null>;
+  leads: Array<Lead | null>;
 };
 
 interface Column {
-  id: "urgencyLevel" | "itemName" | "quantity" | "createdAt" | "budget";
+  id: "itemName" | "quantity" | "availableAt" | "cost";
   label: string;
   minWidth?: number;
   align?: "left";
@@ -29,7 +29,6 @@ interface Column {
 }
 
 const columns: Column[] = [
-  { id: "urgencyLevel", label: "Urgency", minWidth: 50 },
   { id: "itemName", label: "Item", minWidth: 230 },
   {
     id: "quantity",
@@ -39,15 +38,15 @@ const columns: Column[] = [
     format: (value: number) => value.toLocaleString()
   },
   {
-    id: "createdAt",
-    label: "Date",
+    id: "availableAt",
+    label: "Available Date",
     minWidth: 110,
     align: "left",
     format: (value: number) => value.toLocaleString()
   },
   {
-    id: "budget",
-    label: "Budget",
+    id: "cost",
+    label: "Price",
     minWidth: 90,
     align: "left",
     format: (value: number) => value.toFixed(2)
@@ -75,10 +74,10 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function NeedsTable(props: Props) {
+function LeadsTable(props: Props) {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  const { needs } = props;
+  const { leads } = props;
   const styles = useStyles();
 
   const handleChangePage = (event: unknown, newPage: number) => {
@@ -111,20 +110,20 @@ function NeedsTable(props: Props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {needs
+            {leads
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map(need => {
-                if (!need) return null;
+              .map(lead => {
+                if (!lead) return null;
                 return (
                   <TableRow
                     hover
                     className={styles.row}
                     role="checkbox"
                     tabIndex={-1}
-                    key={need.id}
+                    key={lead.id}
                   >
                     {columns.map(column => {
-                      const value = need[column.id];
+                      const value = lead[column.id];
                       console.log(value);
                       return (
                         <TableCell key={column.id} align={column.align}>
@@ -160,7 +159,7 @@ function NeedsTable(props: Props) {
         className={styles.container}
         rowsPerPageOptions={[5, 10, 25, 100]}
         component="div"
-        count={needs.length}
+        count={leads.length}
         rowsPerPage={rowsPerPage}
         page={page}
         onChangePage={handleChangePage}
@@ -170,4 +169,4 @@ function NeedsTable(props: Props) {
   );
 }
 
-export default NeedsTable;
+export default LeadsTable;
