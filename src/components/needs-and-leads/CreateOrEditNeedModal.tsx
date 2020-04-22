@@ -163,7 +163,7 @@ function CreateOrEditNeedModal(props: Props) {
                 error={isError("urgencyLevel")}
                 required
                 fullWidth
-                defaultValue={need?.urgencyLevel ?? "5"}
+                defaultValue={need?.urgencyLevel ?? null}
                 type="number"
                 id="urgency-level-input"
                 label="Urgency level (from 1: vital to 5)"

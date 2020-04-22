@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/react-hooks";
+
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import ShareIcon from "@material-ui/icons/Share";
+import Grid from "@material-ui/core/Grid";
+import TextField from "@material-ui/core/TextField";
+import SearchIcon from "@material-ui/icons/Search";
 
 import Lead from "../../service/models/lead.model";
 import LeadsTable from "../needs-and-leads/LeadsTable";
@@ -27,8 +31,8 @@ const useStyles = makeStyles(theme => ({
     marginLeft: theme.spacing(3),
     marginBottom: theme.spacing(1)
   },
-  modal: {
-    outline: "none"
+  searchTool: {
+    marginBottom: theme.spacing(1)
   }
 }));
 
@@ -37,12 +41,18 @@ type Props = {
   userId: number;
 };
 
-function ManageLeads(props: Props) {
+function ManageSupplies(props: Props) {
   const styles = useStyles();
   const { leads, userId } = props;
   const [showSubmitModal, setShowSubmitModal] = useState(false);
   const [error, setError] = useState("");
   const [mutateLead] = useMutation(MUTATE_LEAD);
+  const [filteredLeads, setFilteredLeads] = useState(leads);
+  function searchLeads(e: any) {
+    setFilteredLeads(
+      leads.filter(it => !!it && it.itemName.search(e.target.value) >= 0)
+    );
+  }
 
   const onSubmit = (lead: Lead) => {
     mutateLead({
@@ -60,14 +70,34 @@ function ManageLeads(props: Props) {
       .catch(() => setError("Internal server error, please try again later"));
   };
 
+  useEffect(() => {
+    setFilteredLeads(leads);
+  }, [leads]);
+
   return (
     <>
       <div className={styles.root}>
-        <Typography variant="h6" className={styles.title}>
-          My supplies
-        </Typography>
+        <div className={styles.searchTool}>
+          <Grid container spacing={1} alignItems="flex-end">
+            <Grid item xs={8}>
+              <Typography variant="h6" className={styles.title}>
+                My supplies
+              </Typography>
+            </Grid>
+            <Grid item>
+              <SearchIcon />
+            </Grid>
+            <Grid item>
+              <TextField
+                id="input-with-icon-grid"
+                onChange={searchLeads}
+                label="Search for supplies"
+              />
+            </Grid>
+          </Grid>
+        </div>
         <LeadsTable
-          leads={leads}
+          leads={filteredLeads}
           onSubmit={onSubmit}
           submitError={error}
           userId={userId}
@@ -94,4 +124,4 @@ function ManageLeads(props: Props) {
   );
 }
 
-export default ManageLeads;
+export default ManageSupplies;

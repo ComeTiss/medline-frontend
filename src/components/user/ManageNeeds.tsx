@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
@@ -51,6 +51,11 @@ function ManageNeeds(props: Props) {
   const [mutateNeed] = useMutation(MUTATE_NEED);
 
   const [filteredNeeds, setFilteredNeeds] = useState(needs);
+
+  useEffect(() => {
+    setFilteredNeeds(needs);
+  }, [needs]);
+
   function searchNeeds(e: any) {
     setFilteredNeeds(
       needs.filter(it => !!it && it.itemName.search(e.target.value) >= 0)
@@ -78,20 +83,21 @@ function ManageNeeds(props: Props) {
       <div className={styles.root}>
         <div className={styles.searchTool}>
           <Grid container spacing={1} alignItems="flex-end">
-            <Grid item xs={8}></Grid>
-            <Typography variant="h6" className={styles.title}>
-              My needs
-            </Typography>
-          </Grid>
-          <Grid item>
-            <SearchIcon />
-          </Grid>
-          <Grid item>
-            <TextField
-              id="input-with-icon-grid"
-              onChange={searchNeeds}
-              label="Search for needs"
-            />
+            <Grid item xs={8}>
+              <Typography variant="h6" className={styles.title}>
+                My needs
+              </Typography>
+            </Grid>
+            <Grid item>
+              <SearchIcon />
+            </Grid>
+            <Grid item>
+              <TextField
+                id="input-with-icon-grid"
+                onChange={searchNeeds}
+                label="Search for needs"
+              />
+            </Grid>
           </Grid>
         </div>
         <NeedsTable
@@ -102,7 +108,7 @@ function ManageNeeds(props: Props) {
         />
         <Container className={styles.submit}>
           <Button
-            onClick={() => console.log("Clicked submit new need")}
+            onClick={() => setShowSubmitModal(true)}
             startIcon={<LoyaltyIcon />}
             variant="contained"
             color="primary"
