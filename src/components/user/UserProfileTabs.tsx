@@ -5,6 +5,7 @@ import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
 import User from "../../service/models/user.model";
+import OrganizationInfo from "./OrganisationInfo";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -15,7 +16,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: "flex",
-    height: 500
+    height: 580
   },
   tabsContainer: {
     paddingTop: theme.spacing(2),
@@ -82,8 +83,7 @@ function UserProfile(props: Props) {
         </Tabs>
         {/* TODO: Add personal profile details component */}
         {tabNumber === 0 && "Personal Profile Details"}
-        {/* TODO: Add your organisation component */}
-        {tabNumber === 1 && "Your organisation"}
+        {tabNumber === 1 && <OrganizationInfo user={user} />}
         {/* TODO: Add manage needs component */}
         {tabNumber === 2 && "Manage needs"}
         {/* TODO: Add manage offered supplies component */}
