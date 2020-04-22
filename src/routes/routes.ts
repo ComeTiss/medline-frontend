@@ -53,7 +53,7 @@ const routes = [
   {
     path: "/about-us",
     exact: true,
-    name: "about",
+    name: "aboutus",
     protected: false,
     component: About
   },
