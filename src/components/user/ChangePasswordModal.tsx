@@ -36,7 +36,8 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: theme.palette.background.paper,
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
-    padding: theme.spacing(2, 4, 3)
+    padding: theme.spacing(2, 4, 3),
+    width: 400
   }
 }));
 
@@ -63,16 +64,16 @@ function ChangePasswordModal(props: Props) {
         <div className={styles.changePasswordModalLayout__paper}>
           <h2 id="transition-modal-title">Change Password</h2>
           <form>
-            <div className={styles.changePasswordModalLayout__submitBtn}>
+            <div className={styles.changePasswordModalLayout__textInput}>
               <TextField
                 type="password"
                 variant="outlined"
                 required
                 fullWidth
-                id="password-input"
-                label="Password"
-                placeholder="Password"
-                onChange={(e: any) => onChangeData("password", e)}
+                id="old-password-input"
+                label="Old Password"
+                placeholder="Old Password"
+                onChange={(e: any) => onChangeData("oldPassword", e)}
               />
             </div>
             <div className={styles.changePasswordModalLayout__textInput}>
@@ -81,10 +82,22 @@ function ChangePasswordModal(props: Props) {
                 variant="outlined"
                 required
                 fullWidth
-                id="password-confirm-input"
+                id="new-password-input"
+                label="New Password"
+                placeholder="New Password"
+                onChange={(e: any) => onChangeData("newPassword", e)}
+              />
+            </div>
+            <div className={styles.changePasswordModalLayout__textInput}>
+              <TextField
+                type="password"
+                variant="outlined"
+                required
+                fullWidth
+                id="new-password-confirm-input"
                 label="Confirm password"
                 placeholder="Confirmation"
-                onChange={(e: any) => onChangeData("confirmPassword", e)}
+                onChange={(e: any) => onChangeData("confirmNewPassword", e)}
               />
             </div>
             <div className={styles.changePasswordModalLayout__submitBtn}>

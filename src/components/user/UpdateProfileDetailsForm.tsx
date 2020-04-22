@@ -9,16 +9,17 @@ import {
   Button
 } from "@material-ui/core";
 import User from "../../service/models/user.model";
+import CountryCodeSelect from "./CountryCodeSelect";
 
 type Props = {
   user: User;
+  inputData: any;
   onChangeData: (field: string, e: any) => void;
   onSubmit: (data: any) => void;
 };
 
 function UpdateProfileDetailsForm(props: Props) {
-  const { user } = props;
-  const { onChangeData, onSubmit } = props;
+  const { user, inputData, onChangeData, onSubmit } = props;
 
   return (
     <>
@@ -28,7 +29,7 @@ function UpdateProfileDetailsForm(props: Props) {
             <span>Last (Family) Name</span>
           </Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={7}>
           <TextField
             fullWidth
             id="last-name-input"
@@ -43,7 +44,7 @@ function UpdateProfileDetailsForm(props: Props) {
             <span>First (Given) Name</span>
           </Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={7}>
           <TextField
             fullWidth
             id="first-name-input"
@@ -54,7 +55,7 @@ function UpdateProfileDetailsForm(props: Props) {
       </Grid>
       <Grid container spacing={3} direction="row" justify="flex-start">
         <Grid item xs={3}></Grid>
-        <Grid item xs={6}>
+        <Grid item xs={7}>
           <RadioGroup
             row
             aria-label="position"
@@ -91,7 +92,7 @@ function UpdateProfileDetailsForm(props: Props) {
             <span>Job Title / Function</span>
           </Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={7}>
           <TextField
             fullWidth
             id="function-title-input"
@@ -108,7 +109,7 @@ function UpdateProfileDetailsForm(props: Props) {
             </span>
           </Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={7}>
           <TextField
             fullWidth
             id="email-display-input"
@@ -123,7 +124,13 @@ function UpdateProfileDetailsForm(props: Props) {
             <span>Phone Number</span>
           </Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={3}>
+          <CountryCodeSelect
+            onChangeData={onChangeData}
+            inputData={inputData}
+          />
+        </Grid>
+        <Grid item xs={4}>
           <TextField
             fullWidth
             id="phone-number-input"
@@ -137,7 +144,13 @@ function UpdateProfileDetailsForm(props: Props) {
             <span>WhatsApp Number</span>
           </Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={3}>
+          <CountryCodeSelect
+            onChangeData={onChangeData}
+            inputData={inputData}
+          />
+        </Grid>
+        <Grid item xs={4}>
           <TextField
             fullWidth
             id="whatsapp-number-input"
@@ -151,7 +164,7 @@ function UpdateProfileDetailsForm(props: Props) {
             <span>WeChat ID</span>
           </Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={7}>
           <TextField
             fullWidth
             id="weChat-id-input"
@@ -165,7 +178,7 @@ function UpdateProfileDetailsForm(props: Props) {
             <span>Skype ID</span>
           </Box>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={7}>
           <TextField
             fullWidth
             id="skype-id-input"

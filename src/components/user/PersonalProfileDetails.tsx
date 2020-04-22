@@ -3,9 +3,9 @@ import {
   makeStyles,
   Container,
   Typography,
-  Button,
   Grid,
-  Box
+  Box,
+  Link
 } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import User from "../../service/models/user.model";
@@ -69,6 +69,7 @@ function PersonalProfileDetails(props: Props) {
     civility: "",
     functionTitle: user.functionTitle,
     emailDisplay: user.email,
+    countryCode: "",
     phoneNumber: "",
     whatsAppNumber: "",
     weChatId: "",
@@ -108,9 +109,9 @@ function PersonalProfileDetails(props: Props) {
         <Grid container spacing={3} direction="row" justify="flex-start">
           <Grid item>
             <Box mb={1}>
-              <Button color="primary" onClick={handleOpen}>
-                Change Password
-              </Button>
+              <Link href="#" onClick={handleOpen}>
+                CHANGE PASSWORD
+              </Link>
             </Box>
           </Grid>
           <ChangePasswordModal
@@ -128,6 +129,7 @@ function PersonalProfileDetails(props: Props) {
         </p>
         <UpdateProfileDetailsForm
           user={user}
+          inputData={inputData}
           onChangeData={onChangeData}
           onSubmit={onSubmit}
         />
