@@ -115,7 +115,7 @@ export default function FAQ() {
                 <br /><br />
             
                 We do receive some donations to help keep the platform up and running. If you’d like to learn more 
-                about volunteering or donations, click [here] or <a href="/contact-us">contact us</a>.
+                about volunteering or donations, click <a href="#">here</a> or <a href="/contact-us">contact us</a>.
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -249,10 +249,10 @@ export default function FAQ() {
                 MedlinePlus is “an online health information resource” and “service of the National 
                 Library of Medicine (NLM), the world’s largest medical library, which is part of the National
                 Institues of Health (NIH).
-                You can visit them at https://medlineplus.gov/
+                You can visit them at <a href="https://www.medlineplus.gov/">https://medlineplus.gov/</a>
                 <br/><br/>
                 Medline Industries is “the largest privately held manufacturer and distributor of medical supplies.” 
-                You can vist them at https://www.medline.com/
+                You can vist them at <a href="https://www.medline.com/">https://www.medline.com/</a>
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
