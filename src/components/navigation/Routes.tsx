@@ -1,6 +1,5 @@
 import React from "react";
 import routes from "../../routes/routes";
-import ProtectedRoute from "./ProtectedRoute";
 import { Route } from "react-router";
 import { useCookies } from "react-cookie";
 import {
