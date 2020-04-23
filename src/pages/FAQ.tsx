@@ -1,56 +1,57 @@
-import React from 'react';
+import React from "react";
 import NavBar from "../components/navigation/NavBar";
-import { Theme, createStyles, makeStyles } from '@material-ui/core/styles';
-import ExpansionPanel from '@material-ui/core/ExpansionPanel';
-import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary';
-import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails';
-import Typography from '@material-ui/core/Typography';
-import AddIcon from '@material-ui/icons/Add';
-const logo = require('../images/laptop-near-teal-stethoscope-in-wooden-table-3758756.jpg')
+import { createStyles, makeStyles } from "@material-ui/core/styles";
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
+import Typography from "@material-ui/core/Typography";
+import AddIcon from "@material-ui/icons/Add";
+import Panel from "../components/faq/Panel";
+const logo = require("../images/laptop-near-teal-stethoscope-in-wooden-table-3758756.jpg");
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      width: '58%',
-      position: 'absolute',
-      left: '21%'
+      width: "58%",
+      position: "absolute",
+      left: "21%"
     },
     expansionPanel: {
-      backgroundColor: 'transparent',
-      boxShadow: '0px -2px 1px -1px #233768',
+      backgroundColor: "transparent",
+      boxShadow: "0px -2px 1px -1px #233768"
     },
     expansionPanelBottom: {
-      backgroundColor: 'transparent',
-      boxShadow: '0px -2px 1px -1px #233768, 0px 2px 1px -1px #233768',
+      backgroundColor: "transparent",
+      boxShadow: "0px -2px 1px -1px #233768, 0px 2px 1px -1px #233768"
     },
     title: {
       color: "#233768",
       fontWeight: "bolder",
-      textAlign: 'center',
-      padding: '30px',
-      fontSize: '20px',
-      fontFamily: 'Verdana'
+      textAlign: "center",
+      padding: "30px",
+      fontSize: "20px",
+      fontFamily: "Verdana"
     },
     heading: {
-      fontSize: '18px',
+      fontSize: "18px",
       color: "#233768",
-      fontFamily: 'Verdana'
+      fontFamily: "Verdana"
     },
     answer: {
-      fontSize: '14px',
-      fontFamily: 'Verdana',
-      color: '#5b5b5b'
+      fontSize: "14px",
+      fontFamily: "Verdana",
+      color: "#5b5b5b"
     },
     ul: {
-      listStyle: "none",
+      listStyle: "none"
     },
     background: {
       position: "absolute",
       float: "left",
-      opacity: '20%'
+      opacity: "20%"
     },
     lines: {
-      transform: 'translateY(-1px)',
+      transform: "translateY(-1px)"
     },
     expandIcon: {
       "&$expanded": {
@@ -58,7 +59,7 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
     expanded: {}
-  }),
+  })
 );
 
 export default function FAQ() {
@@ -67,55 +68,58 @@ export default function FAQ() {
   return (
     <div>
       <NavBar />
-      <img src={String(logo)} style={{ width: '100%' }} className={classes.background} alt='laptop' />
+      <img
+        src={String(logo)}
+        style={{ width: "100%" }}
+        className={classes.background}
+        alt="laptop"
+      />
       <div className={classes.title}>FAQ</div>
       <div className={classes.root}>
-        
-        <ExpansionPanel className={classes.expansionPanel} square={true} >
-          <ExpansionPanelSummary
-            classes={{
-              expandIcon: classes.expandIcon,
-              expanded: classes.expanded
-            }}
-            expandIcon={<AddIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.heading}>Can I buy medical supplies from Medline.io?</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography className={classes.answer} component="p">
-                Nope. This platform is purely for posting, organising and listing medical supply needs in order
-                to more effectively connect them with folks that can meet those requirements in the most 
-                efficient and effective way possible. Its matchmaking for medical supplies. There is no buy & sell /
-                transactions happening on the site.
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel className={classes.expansionPanel} square={true} >
-          <ExpansionPanelSummary
-            classes={{
-              expandIcon: classes.expandIcon,
-              expanded: classes.expanded
-            }}
-            expandIcon={<AddIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.heading}>Then how does MedLine.io make money?</Typography>
+        <Panel 
+          heading='Can I buy medical supplies from Medline.io?' 
+          answer='Nope. This platform is purely for posting, organising and listing
+          medical supply needs in order to more effectively connect them
+          with folks that can meet those requirements in the most efficient
+          and effective way possible. Its matchmaking for medical supplies.
+          There is no buy & sell / transactions happening on the site.'
+        />
+        <Panel 
+          heading='Can I buy medical supplies from Medline.io?' 
+          answer='Nope. This platform is purely for posting, organising and listing
+          medical supply needs in order to more effectively connect them
+          with folks that can meet those requirements in the most efficient
+          and effective way possible. Its matchmaking for medical supplies.
+          There is no buy & sell / transactions happening on the site.'
+        />
+        <ExpansionPanel className={classes.expansionPanel} square={true}>
+        <ExpansionPanelSummary
+          classes={{
+            expandIcon: classes.expandIcon,
+            expanded: classes.expanded
+          }}
+          expandIcon={<AddIcon />}
+          aria-controls="panel1a-content"
+          id="panel1a-header"
+        >
+          <Typography className={classes.heading}>
+            Then how does MedLine.io make money?
+          </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>            
             <Typography className={classes.answer} component="p">
-                Well, we don't make any money. MedLine.io is a grassroots not-for-profit initiative. The
-                platform is built and operated by generous and highly skilled volunteers from all over the
-                world.
-                <br /><br />
-                Also, we do not sell ad spaces for advertising revenue, and we absolutely do not sell community
-                members' information - which are not provided to any 3rd parties by site operators.
-                <br /><br />
-            
-                We do receive some donations to help keep the platform up and running. If you’d like to learn more 
-                about volunteering or donations, click <a href="#">here</a> or <a href="/contact-us">contact us</a>.
+              Well, we don't make any money. MedLine.io is a grassroots not-for-profit initiative. The
+              platform is built and operated by generous and highly skilled volunteers from all over the
+              world.
+              <br />
+              <br />
+              Also, we do not sell ad spaces for advertising revenue, and we absolutely do not sell community
+              members' information - which are not provided to any 3rd parties by site operators.
+              <br />
+              <br />
+          
+              We do receive some donations to help keep the platform up and running. If you’d like to learn more 
+              about volunteering or donations, click <a href="#">here</a> or <a href="/contact-us">contact us</a>.
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -129,7 +133,9 @@ export default function FAQ() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>How do you prioritise "Needs"?</Typography>
+            <Typography className={classes.heading}>
+              How do you prioritise "Needs"?
+            </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>         
             <Typography className={classes.answer} component="p">
@@ -165,7 +171,9 @@ export default function FAQ() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>What are "Leads"?</Typography>
+            <Typography className={classes.heading}>
+              What are "Leads"?
+            </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography className={classes.answer}>
@@ -185,7 +193,9 @@ export default function FAQ() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>Are the Leads / Suppliers certified?</Typography>
+            <Typography className={classes.heading}>
+              Are the Leads / Suppliers certified?
+            </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography className={classes.answer} component="p">
@@ -209,11 +219,14 @@ export default function FAQ() {
             aria-controls="panel1a-content"
             id="panel1a-header"
           >
-            <Typography className={classes.heading}>Who's using the platform?</Typography>
+            <Typography className={classes.heading}>
+              Who's using the platform?
+            </Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography className={classes.answer}>
-              Our community members consist of:<br /><br />
+              Our community members consist of:<br />
+              <br />
               
                 <li>Medical Personnel</li>
                 <li>Healthcare Organisations</li>
@@ -221,8 +234,10 @@ export default function FAQ() {
                 <li>Supply Distributors</li>
                 <li>Supply Manufacturers</li>
                 <br />
-              If you know anyone that may benefit from this site, please share with them.<br /><br />
-              MedLine.io is 100% free to use and takes just a few minutes to post Needs / Leads!<br /><br />
+              If you know anyone that may benefit from this site, please share with them.<br />
+              <br />
+              MedLine.io is 100% free to use and takes just a few minutes to post Needs / Leads!<br />
+              <br />
               Here's our [link] and [social accounts].
             </Typography>
           </ExpansionPanelDetails>
@@ -241,18 +256,21 @@ export default function FAQ() {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography className={classes.answer}>
-                Apologies for any confusion. MedLine.io is not related in any way to MedlinePlus or 
-                Medline Industries. We don’t know them, and they don't know us (at least not yet).
-                <br/><br/>
-                In case you're wondering, according to their websites:
-                <br/><br/>
-                MedlinePlus is “an online health information resource” and “service of the National 
-                Library of Medicine (NLM), the world’s largest medical library, which is part of the National
-                Institues of Health (NIH).
-                You can visit them at <a href="https://www.medlineplus.gov/" target="_blank">https://medlineplus.gov/</a>
-                <br/><br/>
-                Medline Industries is “the largest privately held manufacturer and distributor of medical supplies.” 
-                You can vist them at <a href="https://www.medline.com/" target="_blank">https://www.medline.com/</a>
+              Apologies for any confusion. MedLine.io is not related in any way to MedlinePlus or 
+              Medline Industries. We don’t know them, and they don't know us (at least not yet).
+              <br />
+              <br />
+              In case you're wondering, according to their websites:
+              <br />
+              <br />
+              MedlinePlus is “an online health information resource” and “service of the National 
+              Library of Medicine (NLM), the world’s largest medical library, which is part of the National
+              Institutes of Health (NIH).
+              You can visit them at <a href="https://www.medlineplus.gov/">https://medlineplus.gov/</a>
+              <br />
+              <br />
+              Medline Industries is “the largest privately held manufacturer and
+              distributor of medical supplies.” You can vist them at <a href="https://www.medline.com/">https://www.medline.com/</a>
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -260,6 +278,3 @@ export default function FAQ() {
     </div>
   );
 }
-
-
-
