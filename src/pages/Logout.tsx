@@ -8,8 +8,8 @@ import {
 
 function Logout() {
   const [, setCookies] = useCookies();
-  setCookies(ACCESS_TOKEN_COOKIE_NAME, null);
-  setCookies(USER_ID_COOKIE_NAME, null);
+  setCookies(ACCESS_TOKEN_COOKIE_NAME, "");
+  setCookies(USER_ID_COOKIE_NAME, "");
 
   return <Redirect to="/login" />;
 }

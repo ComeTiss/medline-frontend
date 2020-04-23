@@ -52,6 +52,16 @@ function SignUpFields(props: Props) {
         variant="outlined"
         required
         fullWidth
+        id="country-name-input"
+        label="Organization name"
+        placeholder="Organization name"
+        className={styles.signupFields__BtnContainer}
+        onChange={(e: any) => onChangeData("organizationName", e)}
+      />
+      <TextField
+        variant="outlined"
+        required
+        fullWidth
         id="country-input"
         label="Country"
         placeholder="Country"
