@@ -84,13 +84,11 @@ export default function FAQ() {
             <Typography className={classes.heading}>Can I buy medical supplies from Medline.io?</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Typography className={classes.answer}>
-              <span>
+            <Typography className={classes.answer} component="p">
                 Nope. This platform is purely for posting, organising and listing medical supply needs in order
                 to more effectively connect them with folks that can meet those requirements in the most 
                 efficient and effective way possible. Its matchmaking for medical supplies. There is no buy & sell /
                 transactions happening on the site.
-              </span>
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -106,21 +104,18 @@ export default function FAQ() {
           >
             <Typography className={classes.heading}>Then how does MedLine.io make money?</Typography>
           </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography className={classes.answer}>
-              <span>
+          <ExpansionPanelDetails>            
+            <Typography className={classes.answer} component="p">
                 Well, we don't make any money. MedLine.io is a grassroots not-for-profit initiative. The
                 platform is built and operated by generous and highly skilled volunteers from all over the
                 world.
-              </span>
-              <span>
+                <br /><br />
                 Also, we do not sell ad spaces for advertising revenue, and we absolutely do not sell community
                 members' information - which are not provided to any 3rd parties by site operators.
-              </span>
-              <span>
+                <br /><br />
+            
                 We do receive some donations to help keep the platform up and running. If you’d like to learn more 
-                about volunteering or donations, click [here] or [Contact Us].
-              </span>
+                about volunteering or donations, click [here] or <a href="/contact-us">contact us</a>.
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -136,33 +131,27 @@ export default function FAQ() {
           >
             <Typography className={classes.heading}>How do you prioritise "Needs"?</Typography>
           </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography className={classes.answer}>
-              <span>
-                Right now, we are prioritizing Needs based on the information shared by users. Members fill in
-                Urgency level when posting medical supply requirements. The 5 Urgency Levels are listed as:
-              </span>
-              <span>
-                Level 1: Life threatening now. Need immediate supplies.<br/>
-                Level 2: Supply needs are required within 1 week.<br/>
-                Level 3: Supply needs are required within 2 weeks.<br/>
-                Level 4: Forecast needs will be required within 3-4 weeks.<br/>
-                Level 5: Good to have supplies just in case, but send to others with more needs first.
-              </span>
-              <span>
-                We ask that all posters try to be as accurate as possible in terms of quantities, timeframe and 
-                urgency requirements so that people with truly pressing needs for immediate support can be identified
-                and helped first.
-              </span>  
-              <span>  
-                Meanwhile, we are looking into more sophisticated methods for developing "urgency prioritization". For
-                example, how might we develop accurate modelling of where needs might crop up next, based on spreading
-                trends of the virus vs available healthcare centers in the area; along with number of hospital beds,
-                ventilators, doctors, nurses, etc.?
-              </span>  
-              <span>
-                If you have relevant expertise and ideas that could help with this. Please let us know! [contact link]
-              </span>    
+          <ExpansionPanelDetails>         
+            <Typography className={classes.answer} component="p">
+              Right now, we are prioritizing Needs based on the information shared by users. Members fill in
+              Urgency level when posting medical supply requirements. The 5 Urgency Levels are listed as:
+              <br/><br/>
+              Level 1: Life threatening now. Need immediate supplies.<br/>
+              Level 2: Supply needs are required within 1 week.<br/>
+              Level 3: Supply needs are required within 2 weeks.<br/>
+              Level 4: Forecast needs will be required within 3-4 weeks.<br/>
+              Level 5: Good to have supplies just in case, but send to others with more needs first.
+              <br/><br/>
+              We ask that all posters try to be as accurate as possible in terms of quantities, timeframe and 
+              urgency requirements so that people with truly pressing needs for immediate support can be identified
+              and helped first.
+              <br/><br/>
+              Meanwhile, we are looking into more sophisticated methods for developing "urgency prioritization". For
+              example, how might we develop accurate modelling of where needs might crop up next, based on spreading
+              trends of the virus vs available healthcare centers in the area; along with number of hospital beds,
+              ventilators, doctors, nurses, etc.?
+              <br/><br/>
+              If you have relevant expertise and ideas that could help with this, <a href="/contact-us">please let us know!</a>.
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -199,17 +188,14 @@ export default function FAQ() {
             <Typography className={classes.heading}>Are the Leads / Suppliers certified?</Typography>
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
-            <Typography className={classes.answer}>
-              <span>
-                Unfortunately, no; since Leads can also be individual volunteers, the platform is not able to certify
-                Leads stocks at this time. However, the Leads list has highlighted suppliers that have already
-                effectively shipped to another member on the platform. These shipments have been verified by recipients
-                and the Leads are marked with a green flag.
-              </span>
-              <span>
-                In addition, we're working on enabling Leads to upload photos of their products, stocks, certifications
-                and licenses, etc. But these cannot be verified by platform volunteers at this time.
-              </span>
+            <Typography className={classes.answer} component="p">
+              Unfortunately, no; since Leads can also be individual volunteers, the platform is not able to certify
+              Leads stocks at this time. However, the Leads list has highlighted suppliers that have already
+              effectively shipped to another member on the platform. These shipments have been verified by recipients
+              and the Leads are marked with a green flag.
+              <br/><br/>
+              In addition, we're working on enabling Leads to upload photos of their products, stocks, certifications
+              and licenses, etc. But these cannot be verified by platform volunteers at this time.
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -227,17 +213,17 @@ export default function FAQ() {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography className={classes.answer}>
-              <span>Our community members consist of:</span>
-              <span>
-                Medical Personnel<br/>
-                Healthcare Organisations<br/>
-                Volunteers / NGOs<br/>
-                Supply Distributors<br/>
-                Supply Manufacturers
-              </span>
-              <span>If you know anyone that may benefit from this site. Please share with them.</span>
-              <span>MedLine.io is 100% free to use and takes just a few minutes to post Needs / Leads!</span>
-              <span>Here's our [link] and [social accounts].</span>
+              Our community members consist of:<br /><br />
+              
+                <li>Medical Personnel</li>
+                <li>Healthcare Organisations</li>
+                <li>Volunteers / NGOs</li>
+                <li>Supply Distributors</li>
+                <li>Supply Manufacturers</li>
+                <br />
+              If you know anyone that may benefit from this site, please share with them.<br /><br />
+              MedLine.io is 100% free to use and takes just a few minutes to post Needs / Leads!<br /><br />
+              Here's our [link] and [social accounts].
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -255,21 +241,18 @@ export default function FAQ() {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
             <Typography className={classes.answer}>
-              <span>
                 Apologies for any confusion. MedLine.io is not related in any way to MedlinePlus or 
                 Medline Industries. We don’t know them, and they don't know us (at least not yet).
-              </span>
-              <span>In case you're wondering, according to their websites:</span>
-              <span>
+                <br/><br/>
+                In case you're wondering, according to their websites:
+                <br/><br/>
                 MedlinePlus is “an online health information resource” and “service of the National 
                 Library of Medicine (NLM), the world’s largest medical library, which is part of the National
                 Institues of Health (NIH).
                 You can visit them at https://medlineplus.gov/
-              </span>
-              <span>
+                <br/><br/>
                 Medline Industries is “the largest privately held manufacturer and distributor of medical supplies.” 
                 You can vist them at https://www.medline.com/
-              </span>
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
