@@ -1,24 +1,29 @@
 import React from "react";
 import routes from "../../routes/routes";
-import ProtectedRoute from "./ProtectedRoute";
 import { Route } from "react-router";
 import { useCookies } from "react-cookie";
-import { ACCESS_TOKEN_COOKIE_NAME } from "../../utils/constants";
+import {
+  ACCESS_TOKEN_COOKIE_NAME,
+  USER_ID_COOKIE_NAME
+} from "../../utils/constants";
+import Logout from "../../pages/Logout";
 
 function Routes() {
   const [cookies] = useCookies();
-  const isUserLoggedIn = !!cookies[ACCESS_TOKEN_COOKIE_NAME];
+  const access_token = cookies[ACCESS_TOKEN_COOKIE_NAME];
+  const userId = cookies[USER_ID_COOKIE_NAME];
+  const isUserLoggedIn = !!access_token && !!userId;
   return (
     <>
       {routes.map(route => {
-        return route.protected ? (
-          <ProtectedRoute
+        return (
+          <Route
             key={route.name}
-            route={route}
-            isUserLoggedIn={isUserLoggedIn}
+            {...route}
+            component={
+              route.protected && !isUserLoggedIn ? Logout : route.component
+            }
           />
-        ) : (
-          <Route key={route.name} {...route} />
         );
       })}
     </>

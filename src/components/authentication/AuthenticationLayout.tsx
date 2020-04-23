@@ -58,10 +58,10 @@ const signUpExtraFields = {
   confirmPassword: "",
   firstName: "",
   lastName: "",
+  organizationName: "",
   country: "",
   city: "",
-  functionTitle: "",
-  company: ""
+  functionTitle: ""
 };
 
 function AuthenticationLayout(props: Props) {
@@ -115,7 +115,7 @@ function AuthenticationLayout(props: Props) {
               <SignUpFields onChangeData={onChangeData} />
             </div>
           )}
-          {submitError && !!submitError.trim() && (
+          {submitError && !!submitError?.trim() && (
             <Typography
               variant="subtitle1"
               className={styles.authLayout_errorMsg}

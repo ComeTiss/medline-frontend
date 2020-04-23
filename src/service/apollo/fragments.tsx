@@ -5,7 +5,7 @@ export const LeadFragment = gql`
     id
     authorId
     itemName
-    speficiations
+    specifications
     quantity
     cost
     availableAt
@@ -21,8 +21,22 @@ export const NeedFragment = gql`
     itemName
     specifications
     quantity
+    urgencyLevel
     budget
     expireAt
+    createdAt
+    updatedAt
+  }
+`;
+
+export const OrganizationFragment = gql`
+  fragment OrganizationItem on Organization {
+    id
+    name
+    country
+    city
+    verifiedAt
+    deletedAt
     createdAt
     updatedAt
   }
@@ -34,11 +48,8 @@ export const UserFragment = gql`
     firstName
     lastName
     email
-    country
-    city
     functionTitle
-    organizationId
-    contactId
+    contactID
     contactType
     isAdmin
     createdAt

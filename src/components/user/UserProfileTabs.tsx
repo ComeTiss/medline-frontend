@@ -1,8 +1,15 @@
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
-import Tabs from "@material-ui/core/Tabs";
+import { makeStyles } from "@material-ui/core/styles";
 import Tab from "@material-ui/core/Tab";
+import Tabs from "@material-ui/core/Tabs";
+import React, { useState } from "react";
+import Lead from "../../service/models/lead.model";
+import Need from "../../service/models/need.model";
+import User from "../../service/models/user.model";
+import ManageNeeds from "./ManageNeeds";
+import ManageLeads from "./ManageLeads";
+import OrganizationInfo from "./OrganisationInfo";
+import PersonalProfileDetails from "./PersonalProfileDetails";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -13,10 +20,11 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: "flex",
-    height: 500
+    height: "740px"
   },
   tabsContainer: {
     paddingTop: theme.spacing(2),
+    minWidth: "220px",
     borderRight: `1px solid ${theme.palette.divider}`
   },
   tabs: {
@@ -33,9 +41,18 @@ function a11yProps(index: any) {
   };
 }
 
-function UserProfile() {
+type Props = {
+  user: User;
+  needs: Array<Need | null>;
+  leads: Array<Lead | null>;
+};
+
+function UserProfile(props: Props) {
   const styles = useStyles();
+  const { user, needs, leads } = props;
   const [tabNumber, setTabNumber] = useState(0);
+
+  if (!user) return null;
 
   return (
     <Container
@@ -55,29 +72,25 @@ function UserProfile() {
         >
           <Tab
             className={styles.tabs}
-            label="Personal Profile Details"
+            label="Personal info"
             {...a11yProps(0)}
           />
           <Tab
             className={styles.tabs}
-            label="Your organization"
+            label="Organization info"
             {...a11yProps(1)}
           />
           <Tab className={styles.tabs} label="Manage needs" {...a11yProps(2)} />
           <Tab
             className={styles.tabs}
-            label="Manage offered supplies"
+            label="Manage supplies"
             {...a11yProps(3)}
           />
         </Tabs>
-        {/* TODO: Add personal profile details component */}
-        {tabNumber === 0 && "Personal Profile Details"}
-        {/* TODO: Add your organisation component */}
-        {tabNumber === 1 && "Your organisation"}
-        {/* TODO: Add manage needs component */}
-        {tabNumber === 2 && "Manage needs"}
-        {/* TODO: Add manage offered supplies component */}
-        {tabNumber === 3 && "Manage offered supplies"}
+        {tabNumber === 0 && <PersonalProfileDetails user={user} />}
+        {tabNumber === 1 && <OrganizationInfo user={user} />}
+        {tabNumber === 2 && <ManageNeeds needs={needs} userId={user.id} />}
+        {tabNumber === 3 && <ManageLeads leads={leads} userId={user.id} />}
       </div>
     </Container>
   );
