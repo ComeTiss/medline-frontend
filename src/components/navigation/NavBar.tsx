@@ -39,6 +39,13 @@ type Props = {
   showLogout?: boolean;
 };
 
+const menuLinks = [
+  { name: "Home", path: "/" },
+  { name: "Profile", path: "/profile" },
+  { name: "About us", path: "/about-us" },
+  { name: "Contact us", path: "/contact-us" }
+];
+
 function NavBar(props: Props) {
   const styles = useStyles();
   const { showLogout } = props;
@@ -92,16 +99,17 @@ function NavBar(props: Props) {
             list: styles.navBar__menu
           }}
         >
-          <MenuItem onClick={handleClose} className={styles.navBar__menuItem}>
-            <Link to={"/"} className={styles.navBar__link}>
-              Home
-            </Link>
-          </MenuItem>
-          <MenuItem onClick={handleClose} className={styles.navBar__menuItem}>
-            <Link to={"/profile"} className={styles.navBar__link}>
-              Profile
-            </Link>
-          </MenuItem>
+          {menuLinks.map(it => (
+            <MenuItem
+              key={it.name}
+              onClick={handleClose}
+              className={styles.navBar__menuItem}
+            >
+              <Link to={it.path} className={styles.navBar__link}>
+                {it.name}
+              </Link>
+            </MenuItem>
+          ))}
         </Menu>
       </Toolbar>
     </AppBar>
