@@ -1,11 +1,6 @@
 import React from "react";
 import NavBar from "../components/navigation/NavBar";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
-import Typography from "@material-ui/core/Typography";
-import AddIcon from "@material-ui/icons/Add";
 import Panel from "../components/faq/Panel";
 const logo = require("../images/laptop-near-teal-stethoscope-in-wooden-table-3758756.jpg");
 
@@ -78,37 +73,22 @@ export default function FAQ() {
       <div className={classes.root}>
         <Panel 
           heading='Can I buy medical supplies from Medline.io?' 
-          answer='Nope. This platform is purely for posting, organising and listing
-          medical supply needs in order to more effectively connect them
-          with folks that can meet those requirements in the most efficient
-          and effective way possible. Its matchmaking for medical supplies.
-          There is no buy & sell / transactions happening on the site.'
+          answer={
+            <div>
+              Nope. This platform is purely for posting, organising and listing
+              medical supply needs in order to more effectively connect them
+              with folks that can meet those requirements in the most efficient
+              and effective way possible. Its matchmaking for medical supplies.
+              There is no buy & sell / transactions happening on the site.
+            </div>
+          }
+          bottomPanel={false}
         />
         <Panel 
-          heading='Can I buy medical supplies from Medline.io?' 
-          answer='Nope. This platform is purely for posting, organising and listing
-          medical supply needs in order to more effectively connect them
-          with folks that can meet those requirements in the most efficient
-          and effective way possible. Its matchmaking for medical supplies.
-          There is no buy & sell / transactions happening on the site.'
-        />
-        <ExpansionPanel className={classes.expansionPanel} square={true}>
-        <ExpansionPanelSummary
-          classes={{
-            expandIcon: classes.expandIcon,
-            expanded: classes.expanded
-          }}
-          expandIcon={<AddIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography className={classes.heading}>
-            Then how does MedLine.io make money?
-          </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>            
-            <Typography className={classes.answer} component="p">
-              Well, we don't make any money. MedLine.io is a grassroots not-for-profit initiative. The
+          heading='Then how does MedLine.io make money?' 
+          answer={
+            <div>
+            Well, we don't make any money. MedLine.io is a grassroots not-for-profit initiative. The
               platform is built and operated by generous and highly skilled volunteers from all over the
               world.
               <br />
@@ -117,28 +97,16 @@ export default function FAQ() {
               members' information - which are not provided to any 3rd parties by site operators.
               <br />
               <br />
-          
               We do receive some donations to help keep the platform up and running. If you’d like to learn more 
               about volunteering or donations, click <a href="#">here</a> or <a href="/contact-us">contact us</a>.
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel className={classes.expansionPanel} square={true} >
-          <ExpansionPanelSummary
-            classes={{
-              expandIcon: classes.expandIcon,
-              expanded: classes.expanded
-            }}
-            expandIcon={<AddIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.heading}>
-              How do you prioritise "Needs"?
-            </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>         
-            <Typography className={classes.answer} component="p">
+            </div>
+          }
+          bottomPanel={false}
+        />
+        <Panel 
+          heading='How do you prioritise "Needs"?' 
+          answer={
+            <div>
               Right now, we are prioritizing Needs based on the information shared by users. Members fill in
               Urgency level when posting medical supply requirements. The 5 Urgency Levels are listed as:
               <br/><br/>
@@ -158,47 +126,25 @@ export default function FAQ() {
               ventilators, doctors, nurses, etc.?
               <br/><br/>
               If you have relevant expertise and ideas that could help with this, <a href="/contact-us">please let us know!</a>.
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel className={classes.expansionPanel} square={true} >
-          <ExpansionPanelSummary
-            classes={{
-              expandIcon: classes.expandIcon,
-              expanded: classes.expanded
-            }}
-            expandIcon={<AddIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.heading}>
-              What are "Leads"?
-            </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography className={classes.answer}>
+            </div>
+          }
+          bottomPanel={false}
+        />
+        <Panel 
+          heading='What are "Leads"?' 
+          answer={
+            <div>
               Leads can be any individual or organization that has medical supplies in stock and available to ship.
               These can include personal volunteers, NGOs, distributors and distribution businesses, as well as 
               manufacturers.
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel className={classes.expansionPanel} square={true} >
-          <ExpansionPanelSummary
-            classes={{
-              expandIcon: classes.expandIcon,
-              expanded: classes.expanded
-            }}
-            expandIcon={<AddIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.heading}>
-              Are the Leads / Suppliers certified?
-            </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography className={classes.answer} component="p">
+            </div>
+          }
+          bottomPanel={false}
+        />
+        <Panel 
+          heading='Are the Leads / Suppliers certified?' 
+          answer={
+            <div>
               Unfortunately, no; since Leads can also be individual volunteers, the platform is not able to certify
               Leads stocks at this time. However, the Leads list has highlighted suppliers that have already
               effectively shipped to another member on the platform. These shipments have been verified by recipients
@@ -206,28 +152,16 @@ export default function FAQ() {
               <br/><br/>
               In addition, we're working on enabling Leads to upload photos of their products, stocks, certifications
               and licenses, etc. But these cannot be verified by platform volunteers at this time.
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel className={classes.expansionPanel} square={true} >
-          <ExpansionPanelSummary
-            classes={{
-              expandIcon: classes.expandIcon,
-              expanded: classes.expanded
-            }}
-            expandIcon={<AddIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.heading}>
-              Who's using the platform?
-            </Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography className={classes.answer}>
+            </div>
+          }
+          bottomPanel={false}
+        />
+        <Panel 
+          heading="Who's using the platform?" 
+          answer={
+            <div>
               Our community members consist of:<br />
               <br />
-              
                 <li>Medical Personnel</li>
                 <li>Healthcare Organisations</li>
                 <li>Volunteers / NGOs</li>
@@ -239,23 +173,14 @@ export default function FAQ() {
               MedLine.io is 100% free to use and takes just a few minutes to post Needs / Leads!<br />
               <br />
               Here's our [link] and [social accounts].
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-        <ExpansionPanel className={classes.expansionPanelBottom} square={true} >
-          <ExpansionPanelSummary
-            classes={{
-              expandIcon: classes.expandIcon,
-              expanded: classes.expanded
-            }}
-            expandIcon={<AddIcon />}
-            aria-controls="panel1a-content"
-            id="panel1a-header"
-          >
-            <Typography className={classes.heading}>Are you related to MedlinePlus or Medline Industries?</Typography>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <Typography className={classes.answer}>
+            </div>
+          }
+          bottomPanel={false}
+        />
+        <Panel 
+          heading='Are you related to MedlinePlus or Medline Industries?' 
+          answer={
+            <div>
               Apologies for any confusion. MedLine.io is not related in any way to MedlinePlus or 
               Medline Industries. We don’t know them, and they don't know us (at least not yet).
               <br />
@@ -271,9 +196,10 @@ export default function FAQ() {
               <br />
               Medline Industries is “the largest privately held manufacturer and
               distributor of medical supplies.” You can vist them at <a href="https://www.medline.com/">https://www.medline.com/</a>
-            </Typography>
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
+            </div>
+          }
+          bottomPanel={true}
+        /> 
       </div>
     </div>
   );

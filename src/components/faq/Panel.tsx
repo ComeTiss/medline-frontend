@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
@@ -8,7 +8,8 @@ import AddIcon from "@material-ui/icons/Add";
 
 type Props = {
   heading: string;
-  answer: string;
+  answer: any;
+  bottomPanel: boolean;
 };
 
 const useStyles = makeStyles(() =>
@@ -59,12 +60,11 @@ const useStyles = makeStyles(() =>
   })
 );
 
-
 export default function Panel(props: Props) {
   const classes = useStyles();
-  const { heading, answer } = props;  
+  const { heading, answer, bottomPanel } = props;  
     return (
-      <ExpansionPanel className={classes.expansionPanel} square={true}>
+      <ExpansionPanel className={ bottomPanel ? classes.expansionPanelBottom : classes.expansionPanel } square={true}>
         <ExpansionPanelSummary
           classes={{
             expandIcon: classes.expandIcon,
