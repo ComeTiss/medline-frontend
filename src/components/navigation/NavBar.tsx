@@ -39,8 +39,6 @@ type Props = {
   showLogout?: boolean;
 };
 
-type RedirectPath = string | null;
-
 function NavBar(props: Props) {
   const styles = useStyles();
   const { showLogout } = props;
