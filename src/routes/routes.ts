@@ -69,7 +69,7 @@ const routes = [
     path: "/faq",
     exact: true,
     name: "faq",
-    protected: true,
+    protected: false,
     component: FAQ
   }
 ];
