@@ -33,10 +33,8 @@ export const OrganizationFragment = gql`
   fragment OrganizationItem on Organization {
     id
     name
-    address
     country
     city
-    activity
     verifiedAt
     deletedAt
     createdAt
@@ -50,8 +48,6 @@ export const UserFragment = gql`
     firstName
     lastName
     email
-    country
-    city
     functionTitle
     contactID
     contactType
