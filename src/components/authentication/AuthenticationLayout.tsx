@@ -58,10 +58,10 @@ const signUpExtraFields = {
   confirmPassword: "",
   firstName: "",
   lastName: "",
+  organizationName: "",
   country: "",
   city: "",
-  functionTitle: "",
-  company: ""
+  functionTitle: ""
 };
 
 function AuthenticationLayout(props: Props) {
