@@ -249,10 +249,10 @@ export default function FAQ() {
                 MedlinePlus is “an online health information resource” and “service of the National 
                 Library of Medicine (NLM), the world’s largest medical library, which is part of the National
                 Institues of Health (NIH).
-                You can visit them at <a href="https://www.medlineplus.gov/">https://medlineplus.gov/</a>
+                You can visit them at <a href="https://www.medlineplus.gov/" target="_blank">https://medlineplus.gov/</a>
                 <br/><br/>
                 Medline Industries is “the largest privately held manufacturer and distributor of medical supplies.” 
-                You can vist them at <a href="https://www.medline.com/">https://www.medline.com/</a>
+                You can vist them at <a href="https://www.medline.com/" target="_blank">https://www.medline.com/</a>
             </Typography>
           </ExpansionPanelDetails>
         </ExpansionPanel>
