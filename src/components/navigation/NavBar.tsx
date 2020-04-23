@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
   IconButton,
   Typography,
   Button,
+  Menu,
+  MenuItem,
   makeStyles
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -22,9 +24,14 @@ const useStyles = makeStyles(() => ({
     textDecoration: "none"
   },
   navBar__menuBtn: {
-    // textAlign: "center",
     marginLeft: 16,
     flexGrow: 1
+  },
+  navBar__menu: {
+    padding: 0
+  },
+  navBar__menuItem: {
+    height: "50px"
   }
 }));
 
@@ -32,9 +39,26 @@ type Props = {
   showLogout?: boolean;
 };
 
+const menuLinks = [
+  { name: "Home", path: "/" },
+  { name: "Profile", path: "/profile" },
+  { name: "About us", path: "/about-us" },
+  { name: "Contact us", path: "/contact-us" }
+];
+
 function NavBar(props: Props) {
   const styles = useStyles();
   const { showLogout } = props;
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const showMenu = Boolean(anchorEl);
+
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   const LinkBtn = (name: string, path: string) => (
     <Button color="inherit" className={styles.navBar__linkBtn}>
@@ -57,9 +81,36 @@ function NavBar(props: Props) {
         {showLogout && LinkBtn("Logout", "/logout")}
         {!showLogout && LinkBtn("Login", "/login")}
         {!showLogout && LinkBtn("Signup", "/signup")}
-        <IconButton edge="end" color="inherit" aria-label="menu">
+        <IconButton
+          edge="end"
+          color="inherit"
+          aria-label="menu"
+          onClick={handleMenu}
+        >
           <MenuIcon />
         </IconButton>
+        <Menu
+          id="simple-menu"
+          anchorEl={anchorEl}
+          keepMounted
+          open={showMenu}
+          onClose={handleClose}
+          classes={{
+            list: styles.navBar__menu
+          }}
+        >
+          {menuLinks.map(it => (
+            <MenuItem
+              key={it.name}
+              onClick={handleClose}
+              className={styles.navBar__menuItem}
+            >
+              <Link to={it.path} className={styles.navBar__link}>
+                {it.name}
+              </Link>
+            </MenuItem>
+          ))}
+        </Menu>
       </Toolbar>
     </AppBar>
   );
