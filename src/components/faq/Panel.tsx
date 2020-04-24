@@ -22,14 +22,6 @@ const useStyles = makeStyles(() =>
       backgroundColor: "transparent",
       boxShadow: "0px -2px 1px -1px #233768, 0px 2px 1px -1px #233768"
     },
-    title: {
-      color: "#233768",
-      fontWeight: "bolder",
-      textAlign: "center",
-      padding: "30px",
-      fontSize: "20px",
-      fontFamily: "Verdana"
-    },
     heading: {
       fontSize: "18px",
       color: "#233768",
@@ -39,17 +31,6 @@ const useStyles = makeStyles(() =>
       fontSize: "14px",
       fontFamily: "Verdana",
       color: "#5b5b5b"
-    },
-    ul: {
-      listStyle: "none"
-    },
-    background: {
-      position: "absolute",
-      float: "left",
-      opacity: "20%"
-    },
-    lines: {
-      transform: "translateY(-1px)"
     },
     expandIcon: {
       "&$expanded": {
@@ -62,28 +43,30 @@ const useStyles = makeStyles(() =>
 
 export default function Panel(props: Props) {
   const classes = useStyles();
-  const { heading, answer, bottomPanel } = props;  
-    return (
-      <ExpansionPanel className={ bottomPanel ? classes.expansionPanelBottom : classes.expansionPanel } square={true}>
-        <ExpansionPanelSummary
-          classes={{
-            expandIcon: classes.expandIcon,
-            expanded: classes.expanded
-          }}
-          expandIcon={<AddIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
-          <Typography className={classes.heading}>
-            {heading}
-          </Typography>
-        </ExpansionPanelSummary>
-        <ExpansionPanelDetails>
-          <Typography className={classes.answer} component="p">
-            {answer}
-          </Typography>
-        </ExpansionPanelDetails>
-      </ExpansionPanel>
-    );
-  
+  const { heading, answer, bottomPanel } = props;
+  return (
+    <ExpansionPanel
+      className={
+        bottomPanel ? classes.expansionPanelBottom : classes.expansionPanel
+      }
+      square={true}
+    >
+      <ExpansionPanelSummary
+        classes={{
+          expandIcon: classes.expandIcon,
+          expanded: classes.expanded
+        }}
+        expandIcon={<AddIcon />}
+        aria-controls="panel1a-content"
+        id="panel1a-header"
+      >
+        <Typography className={classes.heading}>{heading}</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <Typography className={classes.answer} component="p">
+          {answer}
+        </Typography>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
+  );
 }
