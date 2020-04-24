@@ -4,7 +4,7 @@ import NavBar from "../components/navigation/NavBar";
 function Home() {
   return (
     <>
-      <NavBar showLogout />
+      <NavBar />
       <h1>Home page</h1>
     </>
   );
