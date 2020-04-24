@@ -70,7 +70,7 @@ export default function FAQ() {
               <br />
               We do receive some donations to help keep the platform up and
               running. If you’d like to learn more about volunteering or
-              donations, click <a href="#">here</a> or
+              donations, click <a href="#">here</a> or&nbsp;
               <a href="/contact-us">contact us</a>.
             </div>
           }
