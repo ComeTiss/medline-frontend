@@ -47,7 +47,7 @@ function Profile() {
   const leads = leadsData?.getAllLeads?.leads;
   return (
     <>
-      <NavBar showLogout />
+      <NavBar />
       {!!user && <UserProfileTabs user={user} needs={needs} leads={leads} />}
     </>
   );

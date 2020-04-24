@@ -47,7 +47,7 @@ function AboutUs() {
   const classes = useStyles();
   return (
     <>
-      <NavBar showLogout />
+      <NavBar />
       <div className={classes.wrapper}>
         <div className={classes.container}>
           <div className={classes.titleWrapper}>

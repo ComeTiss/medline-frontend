@@ -11,6 +11,8 @@ import {
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { isAuthenticated } from "../../utils/authentication/AuthUtils";
 
 const useStyles = makeStyles(() => ({
   navBar__container: {
@@ -35,20 +37,18 @@ const useStyles = makeStyles(() => ({
   }
 }));
 
-type Props = {
-  showLogout?: boolean;
-};
-
 const menuLinks = [
   { name: "Home", path: "/" },
   { name: "Profile", path: "/profile" },
   { name: "About us", path: "/about-us" },
-  { name: "Contact us", path: "/contact-us" }
+  { name: "Contact us", path: "/contact-us" },
+  { name: "FAQ", path: "/faq" }
 ];
 
-function NavBar(props: Props) {
+function NavBar() {
   const styles = useStyles();
-  const { showLogout } = props;
+  const cookies = useCookies();
+  const isUserLoggedIn = isAuthenticated(cookies[0]);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const showMenu = Boolean(anchorEl);
 
@@ -78,9 +78,9 @@ function NavBar(props: Props) {
         <Typography variant="h6" className={styles.navBar__menuBtn}>
           Medline.io
         </Typography>
-        {showLogout && LinkBtn("Logout", "/logout")}
-        {!showLogout && LinkBtn("Login", "/login")}
-        {!showLogout && LinkBtn("Signup", "/signup")}
+        {isUserLoggedIn && LinkBtn("Logout", "/logout")}
+        {!isUserLoggedIn && LinkBtn("Login", "/login")}
+        {!isUserLoggedIn && LinkBtn("Signup", "/signup")}
         <IconButton
           edge="end"
           color="inherit"
