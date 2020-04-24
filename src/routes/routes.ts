@@ -7,6 +7,7 @@ import ConfirmEmail from "../pages/ConfirmEmail";
 import ContactUs from "../pages/ContactUs";
 import Profile from "../pages/Profile";
 import FAQ from "../pages/FAQ";
+import Donate from "../pages/Donate";
 
 const routes = [
   {
@@ -71,6 +72,13 @@ const routes = [
     name: "faq",
     protected: false,
     component: FAQ
+  },
+  {
+    path: "/donate",
+    exact: true,
+    name: "donate",
+    protected: false,
+    component: Donate
   }
 ];
 
