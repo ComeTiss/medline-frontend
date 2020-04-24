@@ -6,6 +6,7 @@ import Logout from "../pages/Logout";
 import ConfirmEmail from "../pages/ConfirmEmail";
 import ContactUs from "../pages/ContactUs";
 import Profile from "../pages/Profile";
+import FAQ from "../pages/FAQ";
 
 const routes = [
   {
@@ -63,6 +64,13 @@ const routes = [
     name: "user",
     protected: true,
     component: Profile
+  },
+  {
+    path: "/faq",
+    exact: true,
+    name: "faq",
+    protected: false,
+    component: FAQ
   }
 ];
 
