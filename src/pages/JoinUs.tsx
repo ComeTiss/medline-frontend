@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../components/navigation/NavBar";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
+import SpecArea from "../components/join-us/SpecArea"
 const logo = require("../media/join_us_background.jpg");
 
 const useStyles = makeStyles(() =>
@@ -76,7 +77,29 @@ export default function JoinUs() {
           <br />
           Your help is greatly appreciated through:
         </div>
-
+        <SpecArea 
+          icon="#" 
+          title="TECH"
+          content={
+            <div>
+              <ul>
+                <li>
+                  Full-stack Developers: Ongoing builds. Continuous improvements
+                  to help users more, better, faster.
+                </li>
+                <li>
+                  Back-End: Site maintenance and security. Keeping the platform
+                  up and running smoothly. Protecting privacy of our members.
+                </li>
+                <li>
+                  Data Scientists/Math Whizzes: Developing algorithms to optimise
+                  forecast and prioritisation of 'Needs' urgencies. We have to
+                  clearly identify and get them helped first and foremost.
+                </li>
+              </ul>
+            </div>
+          }
+        />
         <div className={classes.outro_text}>
           If you are, or know of credible transport, customs, quality control or
           other service providers that can facilitate efficient and effective
