@@ -123,6 +123,103 @@ export default function JoinUs() {
             </div>
           }
         />
+        <SpecArea
+          icon="#"
+          title="MEDIA / CONTENT"
+          content={
+            <div>
+              <ul>
+                <li>
+                  Writers, Bloggers, Copywriters: Effectively communicating
+                  thoughts, ideas, and inspirations through the written word.
+                  Across teams, platforms and social media.
+                </li>
+                <li>
+                  Community Managers: Share Medline.io to medics and suppliers
+                  that could benefit from this platform. Operating our social
+                  accounts to keep in touch.
+                </li>
+                  Translators: Any and every human language. Viruses know no
+                  borders. If we can help share needed info across global
+                  communities, then we should get to it.
+                <li>
+                  Marketing/PR/Communications Practitioners: Get the word out
+                  across media, with targeted editorials, verticals and channels.
+                  Let relevant folks know that Medline.io is working to help out
+                  the best we can, as much as we can.
+                </li>
+                <li>
+                  Customer Service Representatives: Answering emails and
+                  corresponding with platform members that have user experience
+                  issues, questions or comments.
+                </li>
+                <li>
+                  Crowdfunding Experts: Sharing effective fundraising best
+                  practices via GoFundMe, Kickstarter, Indiegogo, etc. Our
+                  volunteers have donated innumerable hours building and operating
+                  this site. Hate to have them pay for it too.
+                </li>
+              </ul>
+            </div>
+          }
+        />
+        <SpecArea
+          icon="#"
+          title="ADVISORY"
+          content={
+            <div>
+              <ul>
+                <li>
+
+                </li>
+                <li>
+
+                </li>
+                <li>
+
+                </li>
+              </ul>
+            </div>
+          }
+        />
+        <SpecArea
+          icon="#"
+          title="PROJECT MANAGEMENT"
+          content={
+            <div>
+              <ul>
+                <li>
+
+                </li>
+                <li>
+
+                </li>
+                <li>
+
+                </li>
+              </ul>
+            </div>
+          }
+        />
+        <SpecArea
+          icon="#"
+          title="OTHERS"
+          content={
+            <div>
+              <ul>
+                <li>
+
+                </li>
+                <li>
+
+                </li>
+                <li>
+
+                </li>
+              </ul>
+            </div>
+          }
+        />                
         <div className={classes.outro_text}>
           If you are, or know of credible transport, customs, quality control or
           other service providers that can facilitate efficient and effective
