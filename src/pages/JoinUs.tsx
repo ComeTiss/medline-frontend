@@ -112,8 +112,8 @@ export default function JoinUs() {
                   design-thinking. Inspired innovation that works.
                 </li>
                 <li>
-                  UI/UX Designers: User-friendly, intuitive, easy and quick
-                  to navigate. Our members are very busy people.
+                  UI/UX Designers: User-friendly, intuitive, easy and quick to
+                  navigate. Our members are very busy people.
                 </li>
                 <li>
                   Visual Designers: Making things pretty on the platform and
@@ -139,14 +139,16 @@ export default function JoinUs() {
                   that could benefit from this platform. Operating our social
                   accounts to keep in touch.
                 </li>
+                <li>
                   Translators: Any and every human language. Viruses know no
                   borders. If we can help share needed info across global
                   communities, then we should get to it.
+                </li>
                 <li>
                   Marketing/PR/Communications Practitioners: Get the word out
-                  across media, with targeted editorials, verticals and channels.
-                  Let relevant folks know that Medline.io is working to help out
-                  the best we can, as much as we can.
+                  across media, with targeted editorials, verticals and
+                  channels. Let relevant folks know that Medline.io is working
+                  to help out the best we can, as much as we can.
                 </li>
                 <li>
                   Customer Service Representatives: Answering emails and
@@ -156,8 +158,8 @@ export default function JoinUs() {
                 <li>
                   Crowdfunding Experts: Sharing effective fundraising best
                   practices via GoFundMe, Kickstarter, Indiegogo, etc. Our
-                  volunteers have donated innumerable hours building and operating
-                  this site. Hate to have them pay for it too.
+                  volunteers have donated innumerable hours building and
+                  operating this site. Hate to have them pay for it too.
                 </li>
               </ul>
             </div>
