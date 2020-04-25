@@ -36,6 +36,19 @@ const useStyles = makeStyles(() =>
       textAlign: "center",
       fontSize: "18px",
       fontFamily: "Verdana"
+    },
+    thanks_text: {
+      color: "white",
+      fontWeight: "bolder",
+      textAlign: "center",
+      fontSize: "18px",
+      fontFamily: "Verdana"
+    },
+    people: {
+      color: "white",
+      textAlign: "center",
+      fontSize: "12px",
+      fontFamily: "Verdana"
     }
   })
 );
@@ -70,6 +83,21 @@ export default function JoinUs() {
           delivery of medical supplies in the best interest of all parties,
           please contact us. We are currently building a database and will make
           it available to the public soon.
+        </div>
+        <div className={classes.thanks_text}>
+          Thanks to all our volunteers & contributors for making this possible!
+        </div>
+        <div className={classes.people}>
+          Tech: Come Tisserand, Perry Yang, Lucas Zimmerman, thzimmer, Tia Rose,
+          Adriana Black, Marta Ibarra, Jason Wong
+          <br />
+          Design: Diane Russell, Elena Svitkina, Voss Yao
+          <br />
+          Photography: Ashcan Forouzani, Tedward Quinn, Tai's Captures on Unsplash
+          <br />
+          Media / Content:
+          <br />
+          Project Management:
         </div>
       </div>
     </>
