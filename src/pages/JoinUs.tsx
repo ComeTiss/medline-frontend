@@ -10,6 +10,14 @@ const useStyles = makeStyles(() =>
       position: "absolute",
       left: "21%"
     },
+    title: {
+      color: "#233768",
+      fontWeight: "bolder",
+      textAlign: "center",
+      padding: "30px",
+      fontSize: "20px",
+      fontFamily: "Verdana"
+    },
     background: {
       position: "absolute",
       float: "left",
@@ -31,6 +39,10 @@ export default function JoinUs() {
         className={ classes.background }
         alt="latex_gloves"
       />
+      <div className={classes.title}>Join Us</div>
+      <div className={classes.root}>
+        
+      </div>
     </>
   );
 }
