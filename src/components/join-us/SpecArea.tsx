@@ -13,7 +13,6 @@ const useStyles = makeStyles(() =>
       color: "#233768",
       fontWeight: "bolder",
       textAlign: "center",
-      padding: "30px",
       fontSize: "20px",
       fontFamily: "Verdana"
     },
@@ -23,7 +22,7 @@ const useStyles = makeStyles(() =>
       fontFamily: "Verdana"
     }
   })
-)
+);
 
 export default function SpecArea(props: Props) {
   const classes = useStyles();
@@ -31,19 +30,9 @@ export default function SpecArea(props: Props) {
 
   return (
     <div>
-      <img
-        src={icon}
-        style={{ width: "100%" }}
-        alt={title}
-      />
-      <div className={classes.title}>
-        {title}
-      </div>
-      <div className={classes.content}>
-        {content}
-      </div>
+      <img src={icon} style={{ width: "100%" }} alt={title} />
+      <div className={classes.title}>{title}</div>
+      <div className={classes.content}>{content}</div>
     </div>
   );
 }
-
-

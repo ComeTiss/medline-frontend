@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../components/navigation/NavBar";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import SpecArea from "../components/join-us/SpecArea"
+import SpecArea from "../components/join-us/SpecArea";
 const logo = require("../media/join_us_background.jpg");
 
 const useStyles = makeStyles(() =>
@@ -77,8 +77,8 @@ export default function JoinUs() {
           <br />
           Your help is greatly appreciated through:
         </div>
-        <SpecArea 
-          icon="#" 
+        <SpecArea
+          icon="#"
           title="TECH"
           content={
             <div>
@@ -92,9 +92,32 @@ export default function JoinUs() {
                   up and running smoothly. Protecting privacy of our members.
                 </li>
                 <li>
-                  Data Scientists/Math Whizzes: Developing algorithms to optimise
-                  forecast and prioritisation of 'Needs' urgencies. We have to
-                  clearly identify and get them helped first and foremost.
+                  Data Scientists/Math Whizzes: Developing algorithms to
+                  optimise forecast and prioritisation of &apos;Needs&apos;
+                  urgencies. We have to clearly identify and get them helped
+                  first and foremost.
+                </li>
+              </ul>
+            </div>
+          }
+        />
+        <SpecArea
+          icon="#"
+          title="DESIGN"
+          content={
+            <div>
+              <ul>
+                <li>
+                  Product Designers: User insights, concepting ideas through
+                  design-thinking. Inspired innovation that works.
+                </li>
+                <li>
+                  UI/UX Designers: User-friendly, intuitive, easy and quick
+                  to navigate. Our members are very busy people.
+                </li>
+                <li>
+                  Visual Designers: Making things pretty on the platform and
+                  across our social channels. Cause if we can, then why not.
                 </li>
               </ul>
             </div>
@@ -116,7 +139,8 @@ export default function JoinUs() {
           <br />
           Design: Diane Russell, Elena Svitkina, Voss Yao
           <br />
-          Photography: Ashcan Forouzani, Tedward Quinn, Tai's Captures on Unsplash
+          Photography: Ashcan Forouzani, Tedward Quinn, Tai&apos;s Captures on
+          Unsplash
           <br />
           Media / Content:
           <br />
