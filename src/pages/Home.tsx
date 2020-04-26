@@ -10,7 +10,7 @@ import Lead from "../service/models/lead.model";
 import Need from "../service/models/need.model";
 import CreateOrEditNeedModal from "../components/needs-and-leads/CreateOrEditNeedModal";
 import CreateOrEditLeadModal from "../components/needs-and-leads/CreateOrEditLeadModal";
-import { MUTATE_NEED } from "../service/apollo/mutations";
+import { MUTATE_NEED, MUTATE_LEAD } from "../service/apollo/mutations";
 
 import heartImage from "../images/homepage_heart.jpg";
 import maskImage from "../images/homepage_mask.jpg";
@@ -107,21 +107,28 @@ function Home() {
   const [showSubmitModal, setShowSubmitModal] = useState(NO_MODAL);
   const [error, setError] = useState("");
   const [mutateNeed] = useMutation(MUTATE_NEED);
+  const [mutateLead] = useMutation(MUTATE_LEAD);
 
   const onNeedSubmit = (need: Need) => {
     mutateNeed({
       variables: { request: need }
     })
       .then(() => setShowSubmitModal(NO_MODAL))
-      .catch(() => setError("Internal server error, please try again later"));
+      .catch ((error: any) => {
+        const errorMsg = error?.response?.data?.error;
+        setError(errorMsg);
+      });
   };
 
   const onLeadSubmit = (lead: Lead) => {
-    mutateNeed({
+    mutateLead({
       variables: { request: lead }
     })
       .then(() => setShowSubmitModal(NO_MODAL))
-      .catch(() => setError("Internal server error, please try again later"));
+      .catch((error: any) => {
+        const errorMsg = error?.response?.data?.error;
+        setError(errorMsg);
+      });
   };
 
   return (
