@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { makeStyles } from "@material-ui/core/styles";
+import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
 
@@ -12,6 +13,8 @@ import CreateOrEditLeadModal from "../components/needs-and-leads/CreateOrEditLea
 import { MUTATE_NEED } from "../service/apollo/mutations";
 
 import heartImage from "../images/homepage_heart.jpg";
+import maskImage from "../images/homepage_mask.jpg";
+import threePeopleImage from "../images/homepage_three_people.jpg";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -24,7 +27,8 @@ const useStyles = makeStyles(theme => ({
     background: `url(${heartImage}) no-repeat center center`,
     backgroundSize: "cover",
     height: "50vh",
-    width: "100vw"
+    width: "100%",
+    minHeight: "260px"
   },
   container: {
     display: "flex",
@@ -33,31 +37,36 @@ const useStyles = makeStyles(theme => ({
   },
   submitNeed: {
    width: "45vw",
-   height: "25vh",
+   height: "22vh",
    display: "flex",
    flexDirection: "column",
    justifyContent: "center",
-   backgroundColor: "#c9c9d5",
    textAlign: "center",
    minWidth: "210px",
-   minHeight: "155px",
-   marginTop: "10px"
+   minHeight: "185px",
+   marginTop: "10px",
+   background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${threePeopleImage}) no-repeat center center `,
+   backgroundSize: "cover",
+    color: "#5b5b5b",
+   fontSize: "17px"
   },
   submitLead: {
     width: "45vw",
-    height: "25vh",
+    height: "22vh",
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
-    backgroundColor: "#c9c9d5",
     textAlign: "center",
     minWidth: "210px",
-    minHeight: "155px",
-    marginTop: "10px"
+    minHeight: "185px",
+    marginTop: "10px",
+    background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${maskImage}) no-repeat center center `,
+    backgroundSize: "cover",
+    color: "#5b5b5b",
+    fontSize: "17px"
   },
   text: {
     marginBottom: "15px",
-    fontFamily: "Roboto Helvetica Arial sans- serif",
     fontWeight: 600
   },
   textHead: {
@@ -67,10 +76,14 @@ const useStyles = makeStyles(theme => ({
     fontWeight:500,
     fontSize: "16px",
     lineHeight: "26px",
+    minWidth: "140px"
   },
   submit: {
     textAlign: "center",
-    bottom: theme.spacing(5)
+    bottom: theme.spacing(5),
+  },
+  button: {
+    fontWeight: 400
   },
   title: {
     marginTop: theme.spacing(2),
@@ -111,12 +124,12 @@ function Home() {
   return (
     <>
       <NavBar />
-      <Container className={styles.head}>
+      <Box className={styles.head}>
         <Container className={styles.textHead} >
            Aggregating global demand & supply of medical supplies & equipment to connect needs with supply leads. STAT.
         </Container >
-      </Container>
-      <Container className={styles.container}>
+      </Box>
+      <Box className={styles.container}>
         <Container className={styles.submitNeed}>
           <Container className={styles.text} >On the front-lines flighting COVID-19 and in need of medical supplies & equipment?</Container >
           <Container className={styles.submit}>
@@ -124,6 +137,7 @@ function Home() {
               onClick={() => setShowNeedSubmitModal(true)}
               variant="contained"
               color="primary"
+              className={styles.button}
             >
               POST NEEDS
           </Button>
@@ -144,6 +158,7 @@ function Home() {
               onClick={() => setShowLeadSubmitModal(true)}
               variant="contained"
               color="primary"
+              className={styles.button}
             >
               POST SUPPLIES
           </Button>
@@ -156,7 +171,7 @@ function Home() {
             isOpen={showLeadSubmitModal}
           />
           </Container>
-        </Container>
+        </Box>
     </>   
   );
 }
