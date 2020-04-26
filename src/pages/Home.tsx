@@ -16,6 +16,10 @@ import heartImage from "../images/homepage_heart.jpg";
 import maskImage from "../images/homepage_mask.jpg";
 import threePeopleImage from "../images/homepage_three_people.jpg";
 
+const NO_MODAL = "";
+const MODAL_LEAD_OPEN = "modal_lead_open";
+const MODAL_NEED_OPEN = "modal_need_open";
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: "100%"
@@ -100,8 +104,7 @@ const useStyles = makeStyles(theme => ({
 
 function Home() {
   const styles = useStyles();
-  const [showNeedSubmitModal, setShowNeedSubmitModal] = useState(false);
-  const [showLeadSubmitModal, setShowLeadSubmitModal] = useState(false);
+  const [showSubmitModal, setShowSubmitModal] = useState(NO_MODAL);
   const [error, setError] = useState("");
   const [mutateNeed] = useMutation(MUTATE_NEED);
 
@@ -109,7 +112,7 @@ function Home() {
     mutateNeed({
       variables: { request: need }
     })
-      .then(() => setShowNeedSubmitModal(false))
+      .then(() => setShowSubmitModal(NO_MODAL))
       .catch(() => setError("Internal server error, please try again later"));
   };
 
@@ -117,7 +120,7 @@ function Home() {
     mutateNeed({
       variables: { request: lead }
     })
-      .then(() => setShowLeadSubmitModal(false))
+      .then(() => setShowSubmitModal(NO_MODAL))
       .catch(() => setError("Internal server error, please try again later"));
   };
 
@@ -138,7 +141,7 @@ function Home() {
           </Container>
           <Container className={styles.submit}>
             <Button
-              onClick={() => setShowNeedSubmitModal(true)}
+              onClick={() => setShowSubmitModal(MODAL_NEED_OPEN)}
               variant="contained"
               color="primary"
               className={styles.button}
@@ -150,8 +153,8 @@ function Home() {
             title="Create Need"
             onSubmit={onNeedSubmit}
             submitError={error}
-            onClose={() => setShowNeedSubmitModal(false)}
-            isOpen={showNeedSubmitModal}
+            onClose={() => setShowSubmitModal(NO_MODAL)}
+            isOpen={showSubmitModal === MODAL_NEED_OPEN}
           />
         </Container>
 
@@ -162,7 +165,7 @@ function Home() {
           </Container>
           <Container className={styles.submit}>
             <Button
-              onClick={() => setShowLeadSubmitModal(true)}
+              onClick={() => setShowSubmitModal(MODAL_LEAD_OPEN)}
               variant="contained"
               color="primary"
               className={styles.button}
@@ -174,8 +177,8 @@ function Home() {
             title="Create Lead"
             onSubmit={onLeadSubmit}
             submitError={error}
-            onClose={() => setShowLeadSubmitModal(false)}
-            isOpen={showLeadSubmitModal}
+            onClose={() => setShowSubmitModal(NO_MODAL)}
+            isOpen={showSubmitModal === MODAL_LEAD_OPEN}
           />
         </Container>
       </Box>
