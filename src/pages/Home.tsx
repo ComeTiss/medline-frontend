@@ -36,19 +36,19 @@ const useStyles = makeStyles(theme => ({
     flexWrap: "wrap"
   },
   submitNeed: {
-   width: "45vw",
-   height: "22vh",
-   display: "flex",
-   flexDirection: "column",
-   justifyContent: "center",
-   textAlign: "center",
-   minWidth: "210px",
-   minHeight: "185px",
-   marginTop: "10px",
-   background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${threePeopleImage}) no-repeat center center `,
-   backgroundSize: "cover",
+    width: "45vw",
+    height: "22vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    textAlign: "center",
+    minWidth: "210px",
+    minHeight: "185px",
+    marginTop: "10px",
+    background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${threePeopleImage}) no-repeat center center `,
+    backgroundSize: "cover",
     color: "#5b5b5b",
-   fontSize: "17px"
+    fontSize: "17px"
   },
   submitLead: {
     width: "45vw",
@@ -73,14 +73,14 @@ const useStyles = makeStyles(theme => ({
     color: "white",
     textAlign: "center",
     width: "30vw",
-    fontWeight:500,
+    fontWeight: 500,
     fontSize: "16px",
     lineHeight: "26px",
     minWidth: "140px"
   },
   submit: {
     textAlign: "center",
-    bottom: theme.spacing(5),
+    bottom: theme.spacing(5)
   },
   button: {
     fontWeight: 400
@@ -107,7 +107,7 @@ function Home() {
 
   const onNeedSubmit = (need: Need) => {
     mutateNeed({
-      variables: { request: need },
+      variables: { request: need }
     })
       .then(() => setShowNeedSubmitModal(false))
       .catch(() => setError("Internal server error, please try again later"));
@@ -115,7 +115,7 @@ function Home() {
 
   const onLeadSubmit = (lead: Lead) => {
     mutateNeed({
-      variables: { request: lead },
+      variables: { request: lead }
     })
       .then(() => setShowLeadSubmitModal(false))
       .catch(() => setError("Internal server error, please try again later"));
@@ -125,13 +125,17 @@ function Home() {
     <>
       <NavBar />
       <Box className={styles.head}>
-        <Container className={styles.textHead} >
-           Aggregating global demand & supply of medical supplies & equipment to connect needs with supply leads. STAT.
-        </Container >
+        <Container className={styles.textHead}>
+          Aggregating global demand & supply of medical supplies & equipment to
+          connect needs with supply leads. STAT.
+        </Container>
       </Box>
       <Box className={styles.container}>
         <Container className={styles.submitNeed}>
-          <Container className={styles.text} >On the front-lines flighting COVID-19 and in need of medical supplies & equipment?</Container >
+          <Container className={styles.text}>
+            On the front-lines flighting COVID-19 and in need of medical
+            supplies & equipment?
+          </Container>
           <Container className={styles.submit}>
             <Button
               onClick={() => setShowNeedSubmitModal(true)}
@@ -140,7 +144,7 @@ function Home() {
               className={styles.button}
             >
               POST NEEDS
-          </Button>
+            </Button>
           </Container>
           <CreateOrEditNeedModal
             title="Create Need"
@@ -152,7 +156,10 @@ function Home() {
         </Container>
 
         <Container className={styles.submitLead}>
-          <Container className={styles.text} >Have access to medical supplies & equipment needed by healthcare professionals?</Container >
+          <Container className={styles.text}>
+            Have access to medical supplies & equipment needed by healthcare
+            professionals?
+          </Container>
           <Container className={styles.submit}>
             <Button
               onClick={() => setShowLeadSubmitModal(true)}
@@ -161,7 +168,7 @@ function Home() {
               className={styles.button}
             >
               POST SUPPLIES
-          </Button>
+            </Button>
           </Container>
           <CreateOrEditLeadModal
             title="Create Lead"
@@ -170,9 +177,9 @@ function Home() {
             onClose={() => setShowLeadSubmitModal(false)}
             isOpen={showLeadSubmitModal}
           />
-          </Container>
-        </Box>
-    </>   
+        </Container>
+      </Box>
+    </>
   );
 }
 
