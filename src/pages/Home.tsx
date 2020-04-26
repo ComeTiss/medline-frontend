@@ -106,7 +106,6 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-
 function Home() {
   const cookies = useCookies();
   const isUserLoggedIn = isAuthenticated(cookies[0]);
@@ -122,7 +121,7 @@ function Home() {
       variables: { request: need }
     })
       .then(() => setShowSubmitModal(NO_MODAL))
-      .catch ((error: any) => {
+      .catch((error: any) => {
         const errorMsg = error?.response?.data?.error;
         setError(errorMsg);
       });
@@ -145,7 +144,7 @@ function Home() {
     } else {
       history.push(LOGIN_ROUTE);
     }
-  }
+  };
 
   return (
     <>
