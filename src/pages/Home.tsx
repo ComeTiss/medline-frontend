@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { makeStyles } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import { isAuthenticated } from "../utils/authentication/AuthUtils";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Container from "@material-ui/core/Container";
@@ -19,6 +22,7 @@ import threePeopleImage from "../images/homepage_three_people.jpg";
 const NO_MODAL = "";
 const MODAL_LEAD_OPEN = "modal_lead_open";
 const MODAL_NEED_OPEN = "modal_need_open";
+const LOGIN_ROUTE = "/login";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -102,8 +106,12 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
 function Home() {
+  const cookies = useCookies();
+  const isUserLoggedIn = isAuthenticated(cookies[0]);
   const styles = useStyles();
+  const history = useHistory();
   const [showSubmitModal, setShowSubmitModal] = useState(NO_MODAL);
   const [error, setError] = useState("");
   const [mutateNeed] = useMutation(MUTATE_NEED);
@@ -131,6 +139,14 @@ function Home() {
       });
   };
 
+  const onModalOpenClick = (showSubmitModalValue: string) => {
+    if (isUserLoggedIn) {
+      setShowSubmitModal(showSubmitModalValue);
+    } else {
+      history.push(LOGIN_ROUTE);
+    }
+  }
+
   return (
     <>
       <NavBar />
@@ -148,7 +164,7 @@ function Home() {
           </Container>
           <Container className={styles.submit}>
             <Button
-              onClick={() => setShowSubmitModal(MODAL_NEED_OPEN)}
+              onClick={() => onModalOpenClick(MODAL_NEED_OPEN)}
               variant="contained"
               color="primary"
               className={styles.button}
@@ -172,7 +188,7 @@ function Home() {
           </Container>
           <Container className={styles.submit}>
             <Button
-              onClick={() => setShowSubmitModal(MODAL_LEAD_OPEN)}
+              onClick={() => onModalOpenClick(MODAL_LEAD_OPEN)}
               variant="contained"
               color="primary"
               className={styles.button}
