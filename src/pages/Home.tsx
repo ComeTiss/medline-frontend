@@ -18,13 +18,13 @@ import { MUTATE_NEED, MUTATE_LEAD } from "../service/apollo/mutations";
 import heartImage from "../images/homepage_heart.jpg";
 import maskImage from "../images/homepage_mask.jpg";
 import threePeopleImage from "../images/homepage_three_people.jpg";
-
+import ProgressTracker from '../components/homepage/ProgressTracker'
 const NO_MODAL = "";
 const MODAL_LEAD_OPEN = "modal_lead_open";
 const MODAL_NEED_OPEN = "modal_need_open";
 const LOGIN_ROUTE = "/login";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles( theme => ( {
   root: {
     width: "100%"
   },
@@ -88,61 +88,61 @@ const useStyles = makeStyles(theme => ({
   },
   submit: {
     textAlign: "center",
-    bottom: theme.spacing(5)
+    bottom: theme.spacing( 5 )
   },
   button: {
     fontWeight: 400
   },
   title: {
-    marginTop: theme.spacing(2),
-    marginLeft: theme.spacing(3),
-    marginBottom: theme.spacing(1)
+    marginTop: theme.spacing( 2 ),
+    marginLeft: theme.spacing( 3 ),
+    marginBottom: theme.spacing( 1 )
   },
   searchTool: {
-    marginBottom: theme.spacing(1)
+    marginBottom: theme.spacing( 1 )
   },
   modal: {
     outline: "none"
   }
-}));
+} ) );
 
 function Home() {
   const cookies = useCookies();
-  const isUserLoggedIn = isAuthenticated(cookies[0]);
+  const isUserLoggedIn = isAuthenticated( cookies[0] );
   const styles = useStyles();
   const history = useHistory();
-  const [showSubmitModal, setShowSubmitModal] = useState(NO_MODAL);
-  const [error, setError] = useState("");
-  const [mutateNeed] = useMutation(MUTATE_NEED);
-  const [mutateLead] = useMutation(MUTATE_LEAD);
+  const [showSubmitModal, setShowSubmitModal] = useState( NO_MODAL );
+  const [error, setError] = useState( "" );
+  const [mutateNeed] = useMutation( MUTATE_NEED );
+  const [mutateLead] = useMutation( MUTATE_LEAD );
 
-  const onNeedSubmit = (need: Need) => {
-    mutateNeed({
+  const onNeedSubmit = ( need: Need ) => {
+    mutateNeed( {
       variables: { request: need }
-    })
-      .then(() => setShowSubmitModal(NO_MODAL))
-      .catch((error: any) => {
+    } )
+      .then( () => setShowSubmitModal( NO_MODAL ) )
+      .catch( ( error: any ) => {
         const errorMsg = error?.response?.data?.error;
-        setError(errorMsg);
-      });
+        setError( errorMsg );
+      } );
   };
 
-  const onLeadSubmit = (lead: Lead) => {
-    mutateLead({
+  const onLeadSubmit = ( lead: Lead ) => {
+    mutateLead( {
       variables: { request: lead }
-    })
-      .then(() => setShowSubmitModal(NO_MODAL))
-      .catch((error: any) => {
+    } )
+      .then( () => setShowSubmitModal( NO_MODAL ) )
+      .catch( ( error: any ) => {
         const errorMsg = error?.response?.data?.error;
-        setError(errorMsg);
-      });
+        setError( errorMsg );
+      } );
   };
 
-  const onModalOpenClick = (showSubmitModalValue: string) => {
-    if (isUserLoggedIn) {
-      setShowSubmitModal(showSubmitModalValue);
+  const onModalOpenClick = ( showSubmitModalValue: string ) => {
+    if ( isUserLoggedIn ) {
+      setShowSubmitModal( showSubmitModalValue );
     } else {
-      history.push(LOGIN_ROUTE);
+      history.push( LOGIN_ROUTE );
     }
   };
 
@@ -163,7 +163,7 @@ function Home() {
           </Container>
           <Container className={styles.submit}>
             <Button
-              onClick={() => onModalOpenClick(MODAL_NEED_OPEN)}
+              onClick={() => onModalOpenClick( MODAL_NEED_OPEN )}
               variant="contained"
               color="primary"
               className={styles.button}
@@ -175,7 +175,7 @@ function Home() {
             title="Create Need"
             onSubmit={onNeedSubmit}
             submitError={error}
-            onClose={() => setShowSubmitModal(NO_MODAL)}
+            onClose={() => setShowSubmitModal( NO_MODAL )}
             isOpen={showSubmitModal === MODAL_NEED_OPEN}
           />
         </Container>
@@ -187,7 +187,7 @@ function Home() {
           </Container>
           <Container className={styles.submit}>
             <Button
-              onClick={() => onModalOpenClick(MODAL_LEAD_OPEN)}
+              onClick={() => onModalOpenClick( MODAL_LEAD_OPEN )}
               variant="contained"
               color="primary"
               className={styles.button}
@@ -199,11 +199,13 @@ function Home() {
             title="Create Lead"
             onSubmit={onLeadSubmit}
             submitError={error}
-            onClose={() => setShowSubmitModal(NO_MODAL)}
+            onClose={() => setShowSubmitModal( NO_MODAL )}
             isOpen={showSubmitModal === MODAL_LEAD_OPEN}
           />
         </Container>
       </Box>
+      <ProgressTracker />
+
     </>
   );
 }
