@@ -74,7 +74,7 @@ const routes = [
     component: FAQ
   },
   {
-    path: "/join-us",
+    path: "/joinus",
     exact: true,
     name: "joinus",
     protected: false,
