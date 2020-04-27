@@ -173,19 +173,18 @@ export default function JoinUs() {
             <div>
               <ul>
                 <li>
-                  Healthcare Professionals: Providing insights and expertise
-                  on 'Needs' requirements, any important info we should
-                  consider, or challenges when procuring supplies. Letting
-                  us know what we haven't thought of yet.
+                  Healthcare Professionals: Providing insights and expertise on
+                  &apos;Needs&apos; requirements, any important info we should
+                  consider, or challenges when procuring supplies. Letting us
+                  know what we haven&apos;t thought of yet.
                 </li>
                 <li>
-                  Pandemic Experts: Sharing insights and timely forecasting
-                  of viral spread to help with urgency/prioritisation
-                  calculations.
+                  Pandemic Experts: Sharing insights and timely forecasting of
+                  viral spread to help with urgency/prioritisation calculations.
                 </li>
                 <li>
                   Legal Experts: Trademarks, intellectual properties, adhering
-                  to GDPR, etc. Who doesn't need a lawyer?
+                  to GDPR etc. Who doesn&apos;t need a lawyer?
                 </li>
               </ul>
             </div>
@@ -214,13 +213,17 @@ export default function JoinUs() {
               <ul>
                 <li>
                   Have a skill, talent, or expertise you feel might be relevant
-                  to operating, building or improving the platform? Reach out
-                  to <a href="mailto:ssupport@medline.io" target="_top">support@medline.io</a> and let us know!
+                  to operating, building or improving the platform? Reach out to
+                  &nbsp;
+                  <a href="mailto:ssupport@medline.io" target="_top">
+                    support@medline.io
+                  </a>
+                  &nbsp;and let us know!
                 </li>
               </ul>
             </div>
           }
-        />                
+        />
         <div className={classes.outro_text}>
           If you are, or know of credible transport, customs, quality control or
           other service providers that can facilitate efficient and effective
