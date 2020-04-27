@@ -9,6 +9,7 @@ const useStyles = makeStyles( {
     },
     stepLevel: {
         display: "flex",
+        padding: "50px"
     },
     step: {
         width: "500px",
@@ -44,16 +45,16 @@ const ProgressTracker = () => {
     const TypographyStepNumberConfig = ( props: TypographyProp ) =>
         <Typography
             variant="body2"
-            component="p"
+            component="h1"
             color="primary"
             align="center"
             style={{
-                // width: "46px",
+                fontWeight: "bold",
                 borderRadius: "50%",
                 background: "none",
                 border: "solid 3px black",
-                padding: "0.6em",
-                fontWeight: "bold",
+                padding: "0.6em 1em",
+                display: "inline",
             }}
         >
             {props.children}
@@ -107,7 +108,7 @@ const ProgressTracker = () => {
                 </div>
                 <div className={styles.step}>
                     <TypographyStepNumberConfig>
-                        1
+                        3
                     </TypographyStepNumberConfig>
                 </div>
                 <div className={styles.step}></div>
