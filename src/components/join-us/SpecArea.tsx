@@ -2,7 +2,7 @@ import React from "react";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 
 type Props = {
-  icon: string;
+  icon: any;
   title: string;
   content: any;
 };
@@ -30,7 +30,7 @@ export default function SpecArea(props: Props) {
 
   return (
     <div>
-      <img src={icon} style={{ width: "100%" }} alt={title} />
+      <img src={icon} style={{ width: "5%" }} alt={title} />
       <div className={classes.title}>{title}</div>
       <div className={classes.content}>{content}</div>
     </div>

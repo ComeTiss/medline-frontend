@@ -4,6 +4,11 @@ import { createStyles, makeStyles } from "@material-ui/core/styles";
 import SpecArea from "../components/join-us/SpecArea";
 const backgroundImage = require("../media/join_us_images/join_us_background.jpg");
 const techIcon = require("../media/join_us_images/tech-icon.svg");
+const designIcon = require("../media/join_us_images/design-icon.svg");
+const mediaIcon = require("../media/join_us_images/media-icon.svg");
+const advisoryIcon = require("../media/join_us_images/advisory-icon.svg");
+const projectManagementIcon = require("../media/join_us_images/project-management-icon.svg");
+const othersIcon = require("../media/join_us_images/others-icon.svg");
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -79,7 +84,7 @@ export default function JoinUs() {
           Your help is greatly appreciated through:
         </div>
         <SpecArea
-          icon="#"
+          icon={String(techIcon)}
           title="TECH"
           content={
             <div>
@@ -103,7 +108,7 @@ export default function JoinUs() {
           }
         />
         <SpecArea
-          icon="#"
+          icon={String(designIcon)}
           title="DESIGN"
           content={
             <div>
@@ -125,7 +130,7 @@ export default function JoinUs() {
           }
         />
         <SpecArea
-          icon="#"
+          icon={String(mediaIcon)}
           title="MEDIA / CONTENT"
           content={
             <div>
@@ -167,7 +172,7 @@ export default function JoinUs() {
           }
         />
         <SpecArea
-          icon="#"
+          icon={String(advisoryIcon)}
           title="ADVISORY"
           content={
             <div>
@@ -191,7 +196,7 @@ export default function JoinUs() {
           }
         />
         <SpecArea
-          icon="#"
+          icon={String(projectManagementIcon)}
           title="PROJECT MANAGEMENT"
           content={
             <div>
@@ -206,7 +211,7 @@ export default function JoinUs() {
           }
         />
         <SpecArea
-          icon="#"
+          icon={String(othersIcon)}
           title="OTHERS"
           content={
             <div>
