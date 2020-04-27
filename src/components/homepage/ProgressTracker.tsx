@@ -8,11 +8,9 @@ const useStyles = makeStyles( {
     progressTracker: {
         display: "flex",
         flexDirection: "column",
-        // padding: "100px",
         margin: "100px",
-        background: "linear-gradient(#000, #000 ) no-repeat center/2px 100%",
+        // background: "linear-gradient(#000, #000 ) no-repeat center/2px 100%",
 
-        // height: "600px"
 
     },
     stepLevel: {
@@ -28,12 +26,15 @@ const useStyles = makeStyles( {
         height: "50px",
     },
     verticalBar: {
+        position: "absolute",
+        background: "linear-gradient(#000, #000 ) no-repeat center/2px 100%",
+        height: "300px",
+        width: "100%",
+        margin: "100px",
 
         // zIndex: -1,
         // borderLeft: "1px solid black",
-        // // height: "300px",
-        // // position: "absolute",
-        // // left: "50%",
+        // left: "50%",
         // // padding: "100px"
     }
 } )
@@ -72,7 +73,7 @@ const ProgressTracker = () => {
             style={{
                 fontWeight: "bold",
                 borderRadius: "50%",
-                background: "none",
+                background: "white",
                 border: "solid 2px black",
                 padding: "0.6em 1em",
                 display: "inline",
@@ -83,7 +84,7 @@ const ProgressTracker = () => {
 
     return (
         <div className={styles.progressTracker}>
-            <div className={styles.verticalBar}></div>
+            {/* <div className={styles.verticalBar}></div> */}
 
             <div className={styles.stepLevel}>
                 <div className={styles.step}>
@@ -98,8 +99,10 @@ const ProgressTracker = () => {
                 </div>
                 <div className={styles.step}
                     style={{
-                        marginTop: "50px",
-                        paddingTop: "0.6em",
+                        marginTop: "10px",
+                        // paddingTop: "0.6em",
+                        background: "linear-gradient(#000, #000 ) no-repeat center/2px 100%",
+
                     }}>
                     <TypographyStepNumberConfig>
                         1
@@ -111,8 +114,11 @@ const ProgressTracker = () => {
                 <div className={styles.step}></div>
                 <div className={styles.step}
                     style={{
-                        marginTop: "50px",
-                        paddingTop: "0.6em"
+                        marginTop: "10px",
+                        background: "linear-gradient(#000, #000 ) no-repeat center/2px 100%",
+
+                        // marginTop: "50px",
+                        // paddingTop: "0.6em"
                     }}>
                     <TypographyStepNumberConfig>
                         2
@@ -144,7 +150,8 @@ const ProgressTracker = () => {
                 </div>
                 <div className={styles.step}
                     style={{
-                        marginTop: "50px",
+                        marginTop: "10px",
+                        // marginTop: "50px",
                         paddingTop: "0.6em"
                     }}
                 >
