@@ -28,6 +28,7 @@ export const GET_NEEDS = gql`
   ${NeedFragment}
 `;
 
+
 export const GET_USERS = gql`
   query GetUsersWithOptions($request: GetUsersRequest) {
     getUsersWithOptions(request: $request) {
