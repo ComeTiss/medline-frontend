@@ -2,7 +2,8 @@ import React from "react";
 import NavBar from "../components/navigation/NavBar";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import SpecArea from "../components/join-us/SpecArea";
-const logo = require("../media/join_us_background.jpg");
+const backgroundImage = require("../media/join_us_images/join_us_background.jpg");
+const techIcon = require("../media/join_us_images/tech-icon.svg");
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -61,7 +62,7 @@ export default function JoinUs() {
     <>
       <NavBar />
       <img
-        src={String(logo)}
+        src={String(backgroundImage)}
         style={{ width: "100%" }}
         className={classes.background}
         alt="latex_gloves"
@@ -172,13 +173,19 @@ export default function JoinUs() {
             <div>
               <ul>
                 <li>
-
+                  Healthcare Professionals: Providing insights and expertise
+                  on 'Needs' requirements, any important info we should
+                  consider, or challenges when procuring supplies. Letting
+                  us know what we haven't thought of yet.
                 </li>
                 <li>
-
+                  Pandemic Experts: Sharing insights and timely forecasting
+                  of viral spread to help with urgency/prioritisation
+                  calculations.
                 </li>
                 <li>
-
+                  Legal Experts: Trademarks, intellectual properties, adhering
+                  to GDPR, etc. Who doesn't need a lawyer?
                 </li>
               </ul>
             </div>
@@ -191,13 +198,9 @@ export default function JoinUs() {
             <div>
               <ul>
                 <li>
-
-                </li>
-                <li>
-
-                </li>
-                <li>
-
+                  Project Managers: Taking update and expansion initiatives from
+                  zero to hero. The glue that connects people together and gets
+                  things happening.
                 </li>
               </ul>
             </div>
@@ -210,13 +213,9 @@ export default function JoinUs() {
             <div>
               <ul>
                 <li>
-
-                </li>
-                <li>
-
-                </li>
-                <li>
-
+                  Have a skill, talent, or expertise you feel might be relevant
+                  to operating, building or improving the platform? Reach out
+                  to <a href="mailto:ssupport@medline.io" target="_top">support@medline.io</a> and let us know!
                 </li>
               </ul>
             </div>
