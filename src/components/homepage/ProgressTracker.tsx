@@ -8,7 +8,11 @@ const useStyles = makeStyles( {
     progressTracker: {
         display: "flex",
         flexDirection: "column",
-        padding: "100px",
+        // padding: "100px",
+        margin: "100px",
+        background: "linear-gradient(#000, #000 ) no-repeat center/2px 100%",
+
+        // height: "600px"
 
     },
     stepLevel: {
@@ -22,7 +26,15 @@ const useStyles = makeStyles( {
     stepImage: {
         width: "50px",
         height: "50px",
+    },
+    verticalBar: {
 
+        // zIndex: -1,
+        // borderLeft: "1px solid black",
+        // // height: "300px",
+        // // position: "absolute",
+        // // left: "50%",
+        // // padding: "100px"
     }
 } )
 type TypographyProp = {
@@ -61,9 +73,8 @@ const ProgressTracker = () => {
                 fontWeight: "bold",
                 borderRadius: "50%",
                 background: "none",
-                border: "solid 3px black",
+                border: "solid 2px black",
                 padding: "0.6em 1em",
-                // marginTop: "50px",
                 display: "inline",
             }}
         >
@@ -72,6 +83,8 @@ const ProgressTracker = () => {
 
     return (
         <div className={styles.progressTracker}>
+            <div className={styles.verticalBar}></div>
+
             <div className={styles.stepLevel}>
                 <div className={styles.step}>
                     <img src={helpImage} className={styles.stepImage} />
@@ -86,7 +99,7 @@ const ProgressTracker = () => {
                 <div className={styles.step}
                     style={{
                         marginTop: "50px",
-                        paddingTop: "0.6em"
+                        paddingTop: "0.6em",
                     }}>
                     <TypographyStepNumberConfig>
                         1
