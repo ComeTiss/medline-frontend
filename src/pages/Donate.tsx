@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
     },
     gridContainer: {
         background: "rgba(255, 255, 255, 0.6)",
-        padding: "0%",
+        // padding: "0%",
         [theme.breakpoints.up("sm")]: {
             padding: "1rem 0"
         }
@@ -77,7 +77,8 @@ const useStyles = makeStyles(theme => ({
     },
     paypalButton: {
         margin: theme.spacing(2),
-        backgroundColor: "white"
+        backgroundColor: "white", 
+        size: "small"
     },
     cashButton: {
         margin: theme.spacing(2),
@@ -129,21 +130,21 @@ function Donate() {
                 </div>
                 <div className={styles.gridContainer}>
                     <Grid container className={styles.root} spacing={4}>
-                        <Grid item xs={3}>
+                        <Grid item xs={12} md={3}>
                             <div className={styles.circle}>1</div>
                             <Box className={styles.box}>
                                 Site hosting and server maintenance
                             </Box>
                         </Grid>
                         <Divider orientation="vertical" flexItem={true} variant="middle" />
-                        <Grid item xs={3}>
+                        <Grid item xs={12} md={3}>
                             <div className={styles.circle}>2</div>
                             <Box className={styles.box}>
                                 Ongoing improvements to site functions for providing increased value to members
                                 </Box>
                         </Grid>
                         <Divider orientation="vertical" flexItem={true} variant="middle" />
-                        <Grid item xs={3}>
+                        <Grid item xs={12} md={3}>
                             <div className={styles.circle}>3</div>
                             <Box className={styles.box}>
                                 Platform security to protect the privacy of our community memeber
