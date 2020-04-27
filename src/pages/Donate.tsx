@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "../components/navigation/NavBar";
-import { makeStyles, Typography, Grid, Divider, Box } from "@material-ui/core";
+import { makeStyles, Typography, Grid, Divider, Box, Button } from "@material-ui/core";
 
 import backgroundImage from "../media/person-holding-white-peony-bouquet-closeup-photography-1109561.jpg";
 
@@ -75,6 +75,18 @@ const useStyles = makeStyles(theme => ({
         color: "#233768",
         margin: "47%"
     },
+    paypalButton: {
+        margin: theme.spacing(2),
+        backgroundColor: "white"
+    },
+    cashButton: {
+        margin: theme.spacing(2),
+        backgroundColor: "white"
+    },
+
+    buttonContainer: {
+        textAlign: "center"
+    }
 
 
 }));
@@ -173,6 +185,21 @@ function Donate() {
                     >
                         Donations are accepted here:
                     </Typography>
+                    <br></br>
+                    <div className={styles.buttonContainer}>
+                        <Button
+                            variant="contained"
+                            href="#"
+                            className={styles.paypalButton}
+                        ><img src="https://img.icons8.com/color/48/000000/paypal.png" alt="PayPal" />
+                        </Button>
+                        <Button
+                            variant="contained"
+                            href="#"
+                            className={styles.cashButton}
+                        ><img src="https://img.icons8.com/color/48/000000/cash-app.png" alt="Cash" />
+                        </Button>
+                    </div>
                     <br></br>
                     <Typography
                         variant="body1"
