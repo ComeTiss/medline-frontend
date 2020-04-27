@@ -53,7 +53,10 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
         justifyContent: 'center',
         backgroundColor: 'white',
-        opacity: '0.75'
+        opacity: '0.75', 
+        [theme.breakpoints.up("xs")]: {
+            paddingTop: "1rem"
+        }
     },
     box: {
         padding: theme.spacing(2),
@@ -64,8 +67,8 @@ const useStyles = makeStyles(theme => ({
     circle: {
         border: "0.1em solid #233768",
         borderRadius: "100%",
-        height: "1.5em",
-        width: "1.5em",
+        height: "1.6em",
+        width: "1.6em",
         textAlign: "center",
         marginTop: "0.10em",
         marginBottom: "0.10em",
@@ -77,8 +80,7 @@ const useStyles = makeStyles(theme => ({
     },
     paypalButton: {
         margin: theme.spacing(2),
-        backgroundColor: "white", 
-        size: "small"
+        backgroundColor: "white"
     },
     cashButton: {
         margin: theme.spacing(2),
@@ -127,9 +129,10 @@ function Donate() {
                     >
                         keeping the platform up and running in the following ways:
                     </Typography>
+                    <br></br>
                 </div>
                 <div className={styles.gridContainer}>
-                    <Grid container className={styles.root} spacing={4}>
+                    <Grid container className={styles.root}>
                         <Grid item xs={12} md={3}>
                             <div className={styles.circle}>1</div>
                             <Box className={styles.box}>
@@ -153,6 +156,7 @@ function Donate() {
                     </Grid>
                 </div>
                 <div className={styles.container}>
+                    <br></br>
                     <Typography
                         variant="body1"
                         component="p"
