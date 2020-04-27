@@ -24,19 +24,15 @@ const useStyles = makeStyles( {
         width: "50px",
         height: "50px",
     },
-    verticalBar: {
-        position: "absolute",
+    verticalBarRel: {
+        position: "relative",
         background: "linear-gradient(#233768, #233768 ) no-repeat center/2px 100%",
         height: "100%",
-        width: "500px",
-        left: "-60px",
-        top: "40px",
-
+        transform: "translateY(16%)"
     }
 } )
 type TypographyProp = {
     children: string,
-    style?: any,
 }
 
 const ProgressTracker = () => {
@@ -71,7 +67,7 @@ const ProgressTracker = () => {
                 borderRadius: "50%",
                 background: "none",
                 border: "solid 2px #233768",
-                padding: "0.6em 1em",
+                padding: "0.4em 0.7em",
                 display: "inline",
             }}
         >
@@ -97,10 +93,11 @@ const ProgressTracker = () => {
                         marginTop: "50px",
                         paddingTop: "0.6em",
                     }}>
-                    <div className={styles.verticalBar}></div>
                     <TypographyStepNumberConfig>
                         1
                      </TypographyStepNumberConfig>
+                    <div className={styles.verticalBarRel}></div>
+
                 </div>
                 <div className={styles.step}></div>
             </div>
@@ -111,11 +108,11 @@ const ProgressTracker = () => {
                         marginTop: "50px",
                         paddingTop: "0.6em",
                     }}>
-                    <div className={styles.verticalBar}></div>
-
                     <TypographyStepNumberConfig>
                         2
                      </TypographyStepNumberConfig>
+                    <div className={styles.verticalBarRel}></div>
+
                 </div>
                 <div className={styles.step}>
                     <img src={findImage} className={styles.stepImage} />
