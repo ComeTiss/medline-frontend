@@ -26,7 +26,7 @@ const useStyles = makeStyles( {
     },
     verticalBar: {
         position: "absolute",
-        background: "linear-gradient(#000, #000 ) no-repeat center/2px 100%",
+        background: "linear-gradient(#233768, #233768 ) no-repeat center/2px 100%",
         height: "100%",
         width: "500px",
         left: "-60px",
@@ -70,7 +70,7 @@ const ProgressTracker = () => {
                 fontWeight: "bold",
                 borderRadius: "50%",
                 background: "none",
-                border: "solid 2px black",
+                border: "solid 2px #233768",
                 padding: "0.6em 1em",
                 display: "inline",
             }}
