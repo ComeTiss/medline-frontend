@@ -1,5 +1,9 @@
 import React from 'react'
 import { makeStyles, Typography } from '@material-ui/core'
+import findImage from '../../images/homepage-find.png'
+import handsImage from '../../images/homepage-hands-and-gestures.png'
+import helpImage from '../../images/homepage-help.png'
+
 const useStyles = makeStyles( {
     progressTracker: {
         display: "flex",
@@ -9,12 +13,17 @@ const useStyles = makeStyles( {
     },
     stepLevel: {
         display: "flex",
-        padding: "50px"
+        padding: "0 50px 0 50px"
     },
     step: {
         width: "500px",
         textAlign: "center"
     },
+    stepImage: {
+        width: "50px",
+        height: "50px",
+
+    }
 } )
 type TypographyProp = {
     children: string,
@@ -54,6 +63,7 @@ const ProgressTracker = () => {
                 background: "none",
                 border: "solid 3px black",
                 padding: "0.6em 1em",
+                // marginTop: "50px",
                 display: "inline",
             }}
         >
@@ -64,6 +74,7 @@ const ProgressTracker = () => {
         <div className={styles.progressTracker}>
             <div className={styles.stepLevel}>
                 <div className={styles.step}>
+                    <img src={helpImage} className={styles.stepImage} />
                     <TypographyHeaderConfig>
                         REQUEST YOUR NEEDS
                     </TypographyHeaderConfig>
@@ -72,7 +83,11 @@ const ProgressTracker = () => {
                         requests -bringing awareness and support to the very front-lines, where relief is needed the most.
                     </TypographyBodyConfig>
                 </div>
-                <div className={styles.step}>
+                <div className={styles.step}
+                    style={{
+                        marginTop: "50px",
+                        paddingTop: "0.6em"
+                    }}>
                     <TypographyStepNumberConfig>
                         1
                      </TypographyStepNumberConfig>
@@ -81,12 +96,18 @@ const ProgressTracker = () => {
             </div>
             <div className={styles.stepLevel}>
                 <div className={styles.step}></div>
-                <div className={styles.step}>
+                <div className={styles.step}
+                    style={{
+                        marginTop: "50px",
+                        paddingTop: "0.6em"
+                    }}>
                     <TypographyStepNumberConfig>
                         2
                      </TypographyStepNumberConfig>
                 </div>
                 <div className={styles.step}>
+                    <img src={findImage} className={styles.stepImage} />
+
                     <TypographyHeaderConfig>
                         FIND SUPPLIERS THAT FIT
                     </TypographyHeaderConfig>
@@ -98,6 +119,8 @@ const ProgressTracker = () => {
             </div>
             <div className={styles.stepLevel}>
                 <div className={styles.step}>
+                    <img src={handsImage} className={styles.stepImage} />
+
                     <TypographyHeaderConfig>
                         CONNECT FAST AND DIRECT
                     </TypographyHeaderConfig>
@@ -106,14 +129,19 @@ const ProgressTracker = () => {
                         manpower and budget resources.
                 </TypographyBodyConfig>
                 </div>
-                <div className={styles.step}>
+                <div className={styles.step}
+                    style={{
+                        marginTop: "50px",
+                        paddingTop: "0.6em"
+                    }}
+                >
                     <TypographyStepNumberConfig>
                         3
                     </TypographyStepNumberConfig>
                 </div>
                 <div className={styles.step}></div>
             </div>
-        </div>
+        </div >
     )
 }
 
