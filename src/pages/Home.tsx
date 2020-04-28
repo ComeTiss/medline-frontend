@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
@@ -18,6 +18,9 @@ import { MUTATE_NEED, MUTATE_LEAD } from "../service/apollo/mutations";
 import heartImage from "../images/homepage_heart.jpg";
 import maskImage from "../images/homepage_mask.jpg";
 import threePeopleImage from "../images/homepage_three_people.jpg";
+
+import HomeNeedLeadView from './HomeNeedLeadView'
+import Footer from './Footer'
 
 const NO_MODAL = "";
 const MODAL_LEAD_OPEN = "modal_lead_open";
@@ -51,7 +54,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
     textAlign: "center",
     minWidth: "210px",
-    minHeight: "185px",
+    minHeight: "200px",
     marginTop: "10px",
     background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${threePeopleImage}) no-repeat center center `,
     backgroundSize: "cover",
@@ -66,7 +69,7 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
     textAlign: "center",
     minWidth: "210px",
-    minHeight: "185px",
+    minHeight: "200px",
     marginTop: "10px",
     background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${maskImage}) no-repeat center center `,
     backgroundSize: "cover",
@@ -106,6 +109,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+
 function Home() {
   const cookies = useCookies();
   const isUserLoggedIn = isAuthenticated(cookies[0]);
@@ -116,6 +120,10 @@ function Home() {
   const [mutateNeed] = useMutation(MUTATE_NEED);
   const [mutateLead] = useMutation(MUTATE_LEAD);
 
+  useEffect(() => {
+  })
+
+  
   const onNeedSubmit = (need: Need) => {
     mutateNeed({
       variables: { request: need }
@@ -204,6 +212,8 @@ function Home() {
           />
         </Container>
       </Box>
+      <HomeNeedLeadView />
+      <Footer />
     </>
   );
 }
