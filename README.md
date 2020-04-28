@@ -14,8 +14,9 @@ You can see full documentation in backend graphql playground
 5. Set http headers with jwt token (view bottom of playground).
  - Run medline-backend and medline-frontend with **npm run start:dev**
  - Log in with the test user account (email: user_test@gmail.com, password: password).
- - In DevTools, open the **Application** tab and locate the **http://localhost:3000" cookie (in the Storage panel) and select it.
+ - In DevTools, open the **Application** tab and locate the "http://localhost:3000" cookie (in the Storage panel) and select it.
  - Copy the value of **access_token**.
- - At http://localhost:4000/graphql, create http headers of "authorization": "Bearer <access_token value>"
---> View "docs" & "schemas" for API documentation
+ - At http://localhost:4000/graphql, create http headers of **"authorization": "Bearer <access_token value>"**
+ 
+ --> View "docs" & "schemas" for API documentation
 6. In development, a verified user will be automatically created for you when you start the server.
