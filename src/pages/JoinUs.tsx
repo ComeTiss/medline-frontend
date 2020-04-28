@@ -80,8 +80,17 @@ const useStyles = makeStyles(() =>
       fontSize: "16px",
       fontFamily: "Verdana",
       border: "none",
-      marginLeft: "45%"
+      marginLeft: "45%",
+      cursor: "pointer",
+      "&:hover": {
+        background: "white",
+        border: "#233768 solid 1px",
+        color: "#233768"
+      }
     }
+    // contact_button, hover {
+    //   backgroundColor: "#233768"
+    // }
   })
 );
 
@@ -283,9 +292,9 @@ export default function JoinUs() {
           it available to the public soon.
         </div>
         <br />
-        <button className={classes.contact_button}>
+        <a href="/about-us" ><button className={classes.contact_button}>
           CONTACT US
-        </button>
+        </button></a>
         <br />
         <br />
         <div className={classes.thanks_text}>
