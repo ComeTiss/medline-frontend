@@ -12,20 +12,21 @@ const useStyles = makeStyles(() =>
     container: {
       background: "rgba(255, 255, 255, 0.6)",
       padding: "10px",
-      margin: "20px",
-      width: "43%",
-      display: "inline-block"
+      margin: "15px",
+      // width: "43%",
+      // display: "inline-block"
     },
     title: {
       color: "#233768",
       fontWeight: "bolder",
       textAlign: "center",
       fontSize: "20px",
-      fontFamily: "Verdana"
+      fontFamily: "Verdana",
+      margin: "0"
     },
     content: {
       color: "#5b5b5b",
-      fontSize: "15px",
+      fontSize: "13px",
       fontFamily: "Verdana"
     },
     icon: {

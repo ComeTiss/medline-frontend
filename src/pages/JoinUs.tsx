@@ -14,8 +14,8 @@ const useStyles = makeStyles(() =>
   createStyles({
     overallContainer: {
       background: `url(${backgroundImage}) no-repeat center center`,
-      backgroundSize: "cover",
-      backgroundPosition: "0 -100px"
+      backgroundSize: "125% auto",
+      backgroundPosition: "0 -250px"
     },
     title: {
       color: "#233768",
@@ -63,19 +63,25 @@ const useStyles = makeStyles(() =>
     people: {
       color: "white",
       textAlign: "center",
-      fontSize: "12px",
+      fontSize: "15px",
       fontFamily: "Verdana"
     },
-    left_margin: {
-      // marginLeft: "1%",
-      // display: "inline-block",
-      // float: "left"
-    },
     grid_container: {
+      marginLeft: "10%",
       display: "grid",
-      gridTemplateColumns: "auto auto"
+      gridTemplateColumns: "45% 45%"
     },
-
+    contact_button: {
+      color: "white",
+      backgroundColor: "#233768",
+      borderRadius: "10px",
+      height: "50px",
+      width: "150px",
+      fontSize: "16px",
+      fontFamily: "Verdana",
+      border: "none",
+      marginLeft: "45%"
+    }
   })
 );
 
@@ -102,7 +108,7 @@ export default function JoinUs() {
           Your help is greatly appreciated through:
         </div>
         <br />
-        <div style={{ display: "inline-block" }}>
+        <div className={classes.grid_container}>
           <SpecArea
             icon={String(techIcon)}
             title="TECH"
@@ -129,7 +135,6 @@ export default function JoinUs() {
               </div>
             }
           />
-
           <SpecArea
             icon={String(designIcon)}
             title="DESIGN"
@@ -155,8 +160,8 @@ export default function JoinUs() {
               </div>
             }
           />         
-        </div>
-        <div className={classes.left_margin}>
+
+
           <SpecArea
             icon={String(mediaIcon)}
             title="MEDIA / CONTENT"
@@ -169,17 +174,20 @@ export default function JoinUs() {
                     Across teams, platforms and social media.
                   </li>
                   <br />
+                  <br />
                   <li>
                     <strong>Community Managers:</strong> Share Medline.io to medics and suppliers
                     that could benefit from this platform. Operating our social
                     accounts to keep in touch.
                   </li>
                   <br />
+                  <br />
                   <li>
                     <strong>Translators:</strong> Any and every human language. Viruses know no
                     borders. If we can help share needed info across global
                     communities, then we should get to it.
                   </li>
+                  <br />
                   <br />
                   <li>
                     <strong>Marketing/PR/Communications Practitioners:</strong> Get the word out
@@ -188,11 +196,13 @@ export default function JoinUs() {
                     to help out the best we can, as much as we can.
                   </li>
                   <br />
+                  <br />
                   <li>
                     <strong>Customer Service Representatives:</strong> Answering emails and
                     corresponding with platform members that have user experience
                     issues, questions or comments.
                   </li>
+                  <br />
                   <br />
                   <li>
                     <strong>Crowdfunding Experts:</strong> Sharing effective fundraising best
@@ -200,22 +210,11 @@ export default function JoinUs() {
                     volunteers have donated innumerable hours building and
                     operating this site. Hate to have them pay for it too.
                   </li>
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
-                  <br />
                 </ul>
               </div>
             }
           />  
+          <div>
           <SpecArea
             icon={String(advisoryIcon)}
             title="ADVISORY"
@@ -256,7 +255,7 @@ export default function JoinUs() {
               </div>
             }
           />
-          {/* <SpecArea
+          <SpecArea
             icon={String(othersIcon)}
             title="OTHERS"
             content={
@@ -272,7 +271,8 @@ export default function JoinUs() {
                 </ul>
               </div>
             }
-          /> */}
+          />
+        </div>
         </div>
         <br />
         <div className={classes.outro_text}>
@@ -282,22 +282,31 @@ export default function JoinUs() {
           please contact us. We are currently building a database and will make
           it available to the public soon.
         </div>
+        <br />
+        <button className={classes.contact_button}>
+          CONTACT US
+        </button>
+        <br />
+        <br />
         <div className={classes.thanks_text}>
           Thanks to all our volunteers & contributors for making this possible!
         </div>
+        <br />
         <div className={classes.people}>
-          Tech: Come Tisserand, Perry Yang, Lucas Zimmerman, thzimmer, Tia Rose,
+          <strong>Tech:</strong> Come Tisserand, Perry Yang, Lucas Zimmerman, thzimmer, Tia Rose,
           Adriana Black, Marta Ibarra, Jason Wong
           <br />
-          Design: Diane Russell, Elena Svitkina, Voss Yao
+          <strong>Design:</strong> Diane Russell, Elena Svitkina, Voss Yao
           <br />
-          Photography: Ashcan Forouzani, Tedward Quinn, Tai&apos;s Captures on
+          <strong>Photography:</strong> Ashcan Forouzani, Tedward Quinn, Tai&apos;s Captures on
           Unsplash
           <br />
-          Media / Content:
+          <strong>Media / Content:</strong>
           <br />
-          Project Management:
+          <strong>Project Management:</strong>
         </div>
+        <br />
+        <br />
     </div>
   );
 }
