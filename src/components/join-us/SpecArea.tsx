@@ -12,9 +12,7 @@ const useStyles = makeStyles(() =>
     container: {
       background: "rgba(255, 255, 255, 0.6)",
       padding: "10px",
-      margin: "15px",
-      // width: "43%",
-      // display: "inline-block"
+      margin: "15px"
     },
     title: {
       color: "#233768",
@@ -30,7 +28,7 @@ const useStyles = makeStyles(() =>
       fontFamily: "Verdana"
     },
     icon: {
-      width: "12%",
+      width: "12%"
     },
     iconPara: {
       textAlign: "center"
@@ -44,11 +42,11 @@ export default function SpecArea(props: Props) {
 
   return (
     <div className={classes.container}>
-      <p className={classes.iconPara}><img src={icon} className={classes.icon} alt={title} /></p>
+      <p className={classes.iconPara}>
+        <img src={icon} className={classes.icon} alt={title} />
+      </p>
       <div className={classes.title}>{title}</div>
       <div className={classes.content}>{content}</div>
     </div>
   );
 }
-
-// style={{ width: "5%" }}

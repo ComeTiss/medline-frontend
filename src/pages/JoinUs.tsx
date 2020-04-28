@@ -34,16 +34,6 @@ const useStyles = makeStyles(() =>
       width: "80%",
       marginLeft: "10%"
     },
-    // root: {
-    //   width: "80%",
-    //   position: "absolute",
-    //   left: "10%"
-    // },
-    // background: {
-    //   position: "absolute",
-    //   float: "left",
-    //   zIndex: -1
-    // },
     outro_text: {
       color: "white",
       fontWeight: "bolder",
@@ -55,7 +45,6 @@ const useStyles = makeStyles(() =>
     },
     thanks_text: {
       color: "white",
-      fontWeight: "bolder",
       textAlign: "center",
       fontSize: "18px",
       fontFamily: "Verdana"
@@ -79,18 +68,14 @@ const useStyles = makeStyles(() =>
       width: "150px",
       fontSize: "16px",
       fontFamily: "Verdana",
-      border: "none",
+      border: "#233768 solid 1px",
       marginLeft: "45%",
       cursor: "pointer",
       "&:hover": {
         background: "white",
-        border: "#233768 solid 1px",
         color: "#233768"
       }
     }
-    // contact_button, hover {
-    //   backgroundColor: "#233768"
-    // }
   })
 );
 
@@ -100,12 +85,6 @@ export default function JoinUs() {
   return (
     <div className={classes.overallContainer}>
       <NavBar />
-      {/* <img
-        src={String(backgroundImage)}
-        style={{ width: "100%" }}
-        className={classes.background}
-        alt="latex_gloves"
-      /> */}
       <div className={classes.title}>Join Us</div>
       <div className={classes.intro_text}>
         Would you like to join our international team of talented volunteers
