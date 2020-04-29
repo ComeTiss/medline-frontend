@@ -43,3 +43,19 @@ export const GET_USERS = gql`
   ${UserFragment}
   ${OrganizationFragment}
 `;
+
+export const GET_N_NEEDS = gql`
+  query GetAllNeeds($request: GetAllNeedsRequest) {
+    getAllNeeds(request: $request) {
+      needs {
+        authorId
+        itemName
+        specifications
+        quantity
+        budget
+        urgencyLevel
+      }
+    }
+  }
+  ${NeedFragment}
+`;

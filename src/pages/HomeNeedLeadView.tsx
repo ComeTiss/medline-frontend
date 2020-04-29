@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { makeStyles, Box } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import doctorMaskImage from "../images/homepage_doctor_mask.jpg";
-import { style } from "@material-ui/system";
-
+import { GET_NEEDS } from "../service/apollo/queries";
+import { useQuery } from "@apollo/react-hooks";
 
 const useStyles = makeStyles(theme => ({
     box: {
@@ -63,12 +63,25 @@ const useStyles = makeStyles(theme => ({
 
 
 const HomeNeedLeadView = () => {
+    const { data: needsData } = useQuery(GET_NEEDS, {
+        variables: {
+            request: {
+                options: {
+                    limit: 5
+                }
+            }
+        },
+        fetchPolicy: "network-only"
+    });
+    const needs = needsData?.getAllNeeds?.needs;
 
+    console.log(needs);
     const styles = useStyles();
 
     return (
         <>
         <Box className={styles.box}>
+                <span>Needs: {JSON.stringify(needs)}</span>
             <Box className={styles.box_table}>
                 <h3 className={styles.h3}>VIEW NEEDS</h3>
                     <table className={styles.table}>
