@@ -36,6 +36,14 @@ export const GET_USERS = gql`
         organization {
           ...OrganizationItem
         }
+        contacts {
+          phone
+          whatsapp
+          skype
+          wechat
+          zoom
+          messenger
+        }
       }
     }
   }

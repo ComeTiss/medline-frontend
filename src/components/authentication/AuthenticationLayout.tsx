@@ -90,7 +90,7 @@ function AuthenticationLayout(props: Props) {
     if (field !== "country") newData[field] = e.target.value;
     else {
       const country = e.target.textContent.match(/[A-Z].+?(?= \()/g);
-      newData[field] = country ? country[0] : "";
+      newData[field] = country ? country[0] : e.target.value;
     }
     setInputData(newData);
   };
