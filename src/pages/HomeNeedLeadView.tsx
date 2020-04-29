@@ -58,17 +58,17 @@ const useStyles = makeStyles(() => ({
 }));
 
 const HomeNeedLeadView = () => {
-  //   const { data: needsData } = useQuery(GET_NEEDS, {
-  //     variables: {
-  //       request: {
-  //         options: {
-  //           limit: 5
-  //         }
+  // const { data: needsData } = useQuery(GET_NEEDS, {
+  //   variables: {
+  //     request: {
+  //       options: {
+  //         limit: 5
   //       }
-  //     },
-  //     fetchPolicy: "network-only"
-  //   });
-  //   const needs = needsData?.getAllNeeds?.needs;
+  //     }
+  //   },
+  //   fetchPolicy: "network-only"
+  // });
+  // const needs = needsData?.getAllNeeds?.needs;
 
   const styles = useStyles();
 

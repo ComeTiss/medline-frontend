@@ -79,6 +79,13 @@ const useStyles = makeStyles(theme => ({
 const Footer = () => {
   const styles = useStyles();
 
+  const BoxWithLink = (title: string, path: string) => (
+    <Box>
+      <Link className={styles.link} to={path}>
+        {title}
+      </Link>
+    </Box>
+  );
   return (
     <>
       <Box className={styles.boxMd}>
@@ -93,37 +100,17 @@ const Footer = () => {
         </Container>
         <Container className={styles.container}>
           <Box className={styles.header}>FIGHT COVID</Box>
-          <Box>Nedds: Medical Supplies</Box>
+          <Box>Needs: Medical Supplies</Box>
           <Box>Leads: Suppliers</Box>
-          <Box>
-            <Link className={styles.link} to="/login">
-              Log In
-            </Link>
-          </Box>
-          <Box>
-            <Link className={styles.link} to="/signup">
-              Sign Up
-            </Link>
-          </Box>
+          {BoxWithLink("Log in", "/login")}
+          {BoxWithLink("Sign up", "/signup")}
         </Container>
         <Container className={styles.container}>
           <Box className={styles.header}>MEDLINE.IO</Box>
-          <Box>
-            <Link className={styles.link} to="/about-us">
-              About
-            </Link>
-          </Box>
-          <Box>
-            <Link className={styles.link} to="/faq">
-              FAQ
-            </Link>
-          </Box>
+          {BoxWithLink("About", "/about-us")}
+          {BoxWithLink("FAQ", "/faq")}
           <Box>Join Our Cause</Box>
-          <Box>
-            <Link className={styles.link} to="/contact-us">
-              Contact Us
-            </Link>
-          </Box>
+          {BoxWithLink("Contact Us", "/contact-us")}
         </Container>
         <Container className={styles.container_last}>
           <Box className={styles.logo}>goFundMe</Box>
@@ -145,39 +132,19 @@ const Footer = () => {
           </Container>
           <Container className={styles.container}>
             <Box className={styles.header}>FIGHT COVID</Box>
-            <Box>Nedds: Medical Supplies</Box>
+            <Box>Needs: Medical Supplies</Box>
             <Box>Leads: Suppliers</Box>
-            <Box>
-              <Link className={styles.link} to="/login">
-                Log In
-              </Link>
-            </Box>
-            <Box>
-              <Link className={styles.link} to="/signup">
-                Sign Up
-              </Link>
-            </Box>
+            {BoxWithLink("Log in", "/login")}
+            {BoxWithLink("Sign up", "/signup")}
           </Container>
         </Container>
         <Container className={styles.column}>
           <Container className={styles.container}>
             <Box className={styles.header}>MEDLINE.IO</Box>
-            <Box>
-              <Link className={styles.link} to="/about-us">
-                About
-              </Link>
-            </Box>
-            <Box>
-              <Link className={styles.link} to="/faq">
-                FAQ
-              </Link>
-            </Box>
+            {BoxWithLink("About", "/about-us")}
+            {BoxWithLink("FAQ", "/faq")}
             <Box>Join Our Cause</Box>
-            <Box>
-              <Link className={styles.link} to="/contact-us">
-                Contact Us
-              </Link>
-            </Box>
+            {BoxWithLink("Contact Us", "/contact-us")}
           </Container>
           <Container className={styles.container_last}>
             <Box className={styles.logo}>goFundMe</Box>
