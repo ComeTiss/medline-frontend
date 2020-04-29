@@ -46,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop: "25px",
     flexWrap: "wrap"
   },
-  submitNeed: {
+  submitPanel: {
     width: "45vw",
     height: "22vh",
     display: "flex",
@@ -56,25 +56,16 @@ const useStyles = makeStyles(theme => ({
     minWidth: "210px",
     minHeight: "200px",
     marginTop: "10px",
-    background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${threePeopleImage}) no-repeat center center `,
-    backgroundSize: "cover",
     color: "#5b5b5b",
     fontSize: "17px"
   },
+  submitNeed: {
+    background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${threePeopleImage}) no-repeat center center `,
+    backgroundSize: "cover"
+  },
   submitLead: {
-    width: "45vw",
-    height: "22vh",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    textAlign: "center",
-    minWidth: "210px",
-    minHeight: "200px",
-    marginTop: "10px",
     background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${maskImage}) no-repeat center center `,
-    backgroundSize: "cover",
-    color: "#5b5b5b",
-    fontSize: "17px"
+    backgroundSize: "cover"
   },
   text: {
     marginBottom: "15px",
@@ -161,7 +152,7 @@ function Home() {
         </Container>
       </Box>
       <Box className={styles.container}>
-        <Container className={styles.submitNeed}>
+        <Container className={`${styles.submitPanel} ${styles.submitNeed}`}>
           <Container className={styles.text}>
             On the front-lines flighting COVID-19 and in need of medical
             supplies & equipment?
@@ -185,7 +176,7 @@ function Home() {
           />
         </Container>
 
-        <Container className={styles.submitLead}>
+        <Container className={`${styles.submitPanel} ${styles.submitLead}`}>
           <Container className={styles.text}>
             Have access to medical supplies & equipment needed by healthcare
             professionals?
