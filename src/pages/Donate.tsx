@@ -150,7 +150,7 @@ function Donate() {
                         <Grid item xs={12} md={3}>
                             <div className={styles.circle}>3</div>
                             <Box className={styles.box}>
-                                Platform security to protect the privacy of our community memeber
+                                Platform security to protect the privacy of our community member
                             </Box>
                         </Grid>
                     </Grid>
