@@ -4,9 +4,7 @@ import Button from "@material-ui/core/Button";
 import doctorMaskImage from "../images/homepage_doctor_mask.jpg";
 import { GET_NEEDS, GET_LEADS } from "../service/apollo/queries";
 import { useQuery } from "@apollo/react-hooks";
-import Need from "../service/models/need.model";
-import Lead from "../service/models/lead.model";
-import { leadsDummy, needsDummy } from '../media/dummyData';
+import { leadsDummy, needsDummy } from "../media/dummyData";
 
 const useStyles = makeStyles(() => ({
   box: {
@@ -88,7 +86,6 @@ const HomeNeedLeadView = () => {
   const needs = needsData?.getAllNeeds?.needs || needsDummy;
   const leads = leadsData?.getAllLeads?.leads || leadsDummy;
 
-
   const styles = useStyles();
 
   const needRow = (need: any) => (
@@ -101,12 +98,11 @@ const HomeNeedLeadView = () => {
       <td className={styles.td}>{need.createdAt}</td>
       <td>
         <a className={styles.link} href="/">
-                    More
-                  </a>
+          More
+        </a>
       </td>
     </tr>
   );
-
 
   const leadRow = (lead: any) => (
     <tr className={styles.tr}>
@@ -119,10 +115,10 @@ const HomeNeedLeadView = () => {
       <td>
         <a className={styles.link} href="/">
           More
-                  </a>
+        </a>
       </td>
     </tr>
-  )
+  );
 
   return (
     <>
@@ -141,9 +137,7 @@ const HomeNeedLeadView = () => {
                 <th className={styles.header}></th>
               </tr>
             </thead>
-            <tbody>
-              {needs.map(needRow)}
-            </tbody>
+            <tbody>{needs.map(needRow)}</tbody>
           </table>
           <Button variant="contained" color="primary" className={styles.button}>
             VIEW ALL
@@ -162,9 +156,7 @@ const HomeNeedLeadView = () => {
                 <th className={styles.header}>NAME</th>
               </tr>
             </thead>
-            <tbody>
-              {leads.map(leadRow)}
-            </tbody>
+            <tbody>{leads.map(leadRow)}</tbody>
           </table>
           <Button variant="contained" color="primary" className={styles.button}>
             VIEW ALL
