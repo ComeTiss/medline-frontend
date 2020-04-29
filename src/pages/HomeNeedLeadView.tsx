@@ -98,7 +98,7 @@ const HomeNeedLeadView = () => {
                 <td className={styles.td}>NY</td>
                 <td className={styles.td}>hospital</td>
                 <td>
-                  <a className={styles.link} href="">
+                  <a className={styles.link}>
                     More
                   </a>
                 </td>
@@ -111,7 +111,7 @@ const HomeNeedLeadView = () => {
                 <td className={styles.td}>NY</td>
                 <td className={styles.td}>hospital</td>
                 <td>
-                  <a className={styles.link} href="">
+                  <a className={styles.link}>
                     More
                   </a>
                 </td>
@@ -124,7 +124,7 @@ const HomeNeedLeadView = () => {
                 <td className={styles.td}>NY</td>
                 <td className={styles.td}>hospital</td>
                 <td>
-                  <a className={styles.link} href="">
+                  <a className={styles.link}>
                     More
                   </a>
                 </td>
@@ -137,7 +137,7 @@ const HomeNeedLeadView = () => {
                 <td className={styles.td}>NY</td>
                 <td className={styles.td}>hospital</td>
                 <td>
-                  <a className={styles.link} href="">
+                  <a className={styles.link}>
                     More
                   </a>
                 </td>
@@ -150,7 +150,7 @@ const HomeNeedLeadView = () => {
                 <td className={styles.td}>NY</td>
                 <td className={styles.td}>hospital</td>
                 <td>
-                  <a className={styles.link} href="">
+                  <a className={styles.link}>
                     More
                   </a>
                 </td>
@@ -183,7 +183,7 @@ const HomeNeedLeadView = () => {
                 <td>NY</td>
                 <td>hospital</td>
                 <td>
-                  <a className={styles.link} href="">
+                  <a className={styles.link}>
                     More
                   </a>
                 </td>
@@ -196,7 +196,7 @@ const HomeNeedLeadView = () => {
                 <td>NY</td>
                 <td>hospital</td>
                 <td>
-                  <a className={styles.link} href="">
+                  <a className={styles.link}>
                     More
                   </a>
                 </td>
@@ -209,7 +209,7 @@ const HomeNeedLeadView = () => {
                 <td>NY</td>
                 <td>hospital</td>
                 <td>
-                  <a className={styles.link} href="">
+                  <a className={styles.link}>
                     More
                   </a>
                 </td>
@@ -222,7 +222,7 @@ const HomeNeedLeadView = () => {
                 <td>NY</td>
                 <td>hospital</td>
                 <td>
-                  <a className={styles.link} href="">
+                  <a className={styles.link}>
                     More
                   </a>
                 </td>
@@ -235,7 +235,7 @@ const HomeNeedLeadView = () => {
                 <td>NY</td>
                 <td>hospital</td>
                 <td>
-                  <a className={styles.link} href="">
+                  <a className={styles.link}>
                     More
                   </a>
                 </td>
