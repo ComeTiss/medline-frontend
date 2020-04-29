@@ -98,7 +98,7 @@ const Footer = () => {
       <Box className={styles.boxMd}>
         <Container className={styles.container_first}>
           <Box className={styles.logo}>
-            <img className={styles.logoImg} src={logoImage} />
+            <img className={styles.logoImg} src={logoImage} alt="logo" />
           </Box>
           <Box className={styles.icons}>
             <FacebookIcon className={styles.icon} />
