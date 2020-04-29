@@ -107,6 +107,14 @@ const useStyles = makeStyles(theme => ({
     // footerContainer: {
     //     background: "rgba(255, 255, 255, 0.6)",
     //     padding: "0rem",
+    //     // display: "flex", 
+    //     // minHeight: "100vh",
+    //     // marginBottom: "15vh",
+    //     // marginTop: "20vh", 
+    //     width: "100vw",
+    //     marginLeft: "50%",
+    //     transform: "translateX(-50%)",
+    //     bottom: "0"
     // }
 }));
 
@@ -199,8 +207,11 @@ function Donate() {
                         "We are working to either partner or register as a recognized non-profit for tax"
                     )}
                     {TextBody1("deductibles in the near future. Stay tuned")}
-
+                    {/* <div className={styles.footerContainer}>
+                        <Footer />
+                    </div> */}
                 </div>
+
             </div>
         </>
     );
