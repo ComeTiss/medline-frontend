@@ -98,9 +98,9 @@ const HomeNeedLeadView = () => {
                 <td className={styles.td}>NY</td>
                 <td className={styles.td}>hospital</td>
                 <td>
-                  <a className={styles.link}>
+                  {/* <a className={styles.link}>
                     More
-                  </a>
+                  </a> */}
                 </td>
               </tr>
               <tr className={styles.tr}>
@@ -111,9 +111,9 @@ const HomeNeedLeadView = () => {
                 <td className={styles.td}>NY</td>
                 <td className={styles.td}>hospital</td>
                 <td>
-                  <a className={styles.link}>
+                  {/* <a className={styles.link}>
                     More
-                  </a>
+                  </a> */}
                 </td>
               </tr>
               <tr className={styles.tr}>
@@ -124,9 +124,9 @@ const HomeNeedLeadView = () => {
                 <td className={styles.td}>NY</td>
                 <td className={styles.td}>hospital</td>
                 <td>
-                  <a className={styles.link}>
+                  {/* <a className={styles.link}>
                     More
-                  </a>
+                  </a> */}
                 </td>
               </tr>
               <tr className={styles.tr}>
@@ -137,9 +137,9 @@ const HomeNeedLeadView = () => {
                 <td className={styles.td}>NY</td>
                 <td className={styles.td}>hospital</td>
                 <td>
-                  <a className={styles.link}>
+                  {/* <a className={styles.link}>
                     More
-                  </a>
+                  </a> */}
                 </td>
               </tr>
               <tr className={styles.tr}>
@@ -150,9 +150,9 @@ const HomeNeedLeadView = () => {
                 <td className={styles.td}>NY</td>
                 <td className={styles.td}>hospital</td>
                 <td>
-                  <a className={styles.link}>
+                  {/* <a className={styles.link}>
                     More
-                  </a>
+                  </a> */}
                 </td>
               </tr>
             </tbody>
@@ -183,9 +183,9 @@ const HomeNeedLeadView = () => {
                 <td>NY</td>
                 <td>hospital</td>
                 <td>
-                  <a className={styles.link}>
+                  {/* <a className={styles.link}>
                     More
-                  </a>
+                  </a> */}
                 </td>
               </tr>
               <tr className={styles.tr}>
@@ -196,9 +196,9 @@ const HomeNeedLeadView = () => {
                 <td>NY</td>
                 <td>hospital</td>
                 <td>
-                  <a className={styles.link}>
+                  {/* <a className={styles.link}>
                     More
-                  </a>
+                  </a> */}
                 </td>
               </tr>
               <tr className={styles.tr}>
@@ -209,9 +209,9 @@ const HomeNeedLeadView = () => {
                 <td>NY</td>
                 <td>hospital</td>
                 <td>
-                  <a className={styles.link}>
+                  {/* <a className={styles.link}>
                     More
-                  </a>
+                  </a> */}
                 </td>
               </tr>
               <tr className={styles.tr}>
@@ -222,9 +222,9 @@ const HomeNeedLeadView = () => {
                 <td>NY</td>
                 <td>hospital</td>
                 <td>
-                  <a className={styles.link}>
+                  {/* <a className={styles.link}>
                     More
-                  </a>
+                  </a> */}
                 </td>
               </tr>
               <tr className={styles.tr}>
@@ -235,9 +235,9 @@ const HomeNeedLeadView = () => {
                 <td>NY</td>
                 <td>hospital</td>
                 <td>
-                  <a className={styles.link}>
+                  {/* <a className={styles.link}>
                     More
-                  </a>
+                  </a> */}
                 </td>
               </tr>
             </tbody>
