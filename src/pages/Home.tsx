@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
@@ -18,6 +18,9 @@ import { MUTATE_NEED, MUTATE_LEAD } from "../service/apollo/mutations";
 import heartImage from "../images/homepage_heart.jpg";
 import maskImage from "../images/homepage_mask.jpg";
 import threePeopleImage from "../images/homepage_three_people.jpg";
+
+import HomeNeedLeadView from "./HomeNeedLeadView";
+import Footer from "./Footer";
 
 const NO_MODAL = "";
 const MODAL_LEAD_OPEN = "modal_lead_open";
@@ -43,7 +46,7 @@ const useStyles = makeStyles(theme => ({
     paddingTop: "25px",
     flexWrap: "wrap"
   },
-  submitNeed: {
+  submitPanel: {
     width: "45vw",
     height: "22vh",
     display: "flex",
@@ -51,27 +54,18 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "center",
     textAlign: "center",
     minWidth: "210px",
-    minHeight: "185px",
+    minHeight: "200px",
     marginTop: "10px",
-    background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${threePeopleImage}) no-repeat center center `,
-    backgroundSize: "cover",
     color: "#5b5b5b",
     fontSize: "17px"
   },
+  submitNeed: {
+    background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${threePeopleImage}) no-repeat center center `,
+    backgroundSize: "cover"
+  },
   submitLead: {
-    width: "45vw",
-    height: "22vh",
-    display: "flex",
-    flexDirection: "column",
-    justifyContent: "center",
-    textAlign: "center",
-    minWidth: "210px",
-    minHeight: "185px",
-    marginTop: "10px",
     background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${maskImage}) no-repeat center center `,
-    backgroundSize: "cover",
-    color: "#5b5b5b",
-    fontSize: "17px"
+    backgroundSize: "cover"
   },
   text: {
     marginBottom: "15px",
@@ -116,6 +110,8 @@ function Home() {
   const [mutateNeed] = useMutation(MUTATE_NEED);
   const [mutateLead] = useMutation(MUTATE_LEAD);
 
+  useEffect(() => {});
+
   const onNeedSubmit = (need: Need) => {
     mutateNeed({
       variables: { request: need }
@@ -156,7 +152,7 @@ function Home() {
         </Container>
       </Box>
       <Box className={styles.container}>
-        <Container className={styles.submitNeed}>
+        <Container className={`${styles.submitPanel} ${styles.submitNeed}`}>
           <Container className={styles.text}>
             On the front-lines flighting COVID-19 and in need of medical
             supplies & equipment?
@@ -180,7 +176,7 @@ function Home() {
           />
         </Container>
 
-        <Container className={styles.submitLead}>
+        <Container className={`${styles.submitPanel} ${styles.submitLead}`}>
           <Container className={styles.text}>
             Have access to medical supplies & equipment needed by healthcare
             professionals?
@@ -204,6 +200,8 @@ function Home() {
           />
         </Container>
       </Box>
+      <HomeNeedLeadView />
+      <Footer />
     </>
   );
 }
