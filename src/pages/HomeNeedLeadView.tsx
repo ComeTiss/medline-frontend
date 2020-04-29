@@ -75,7 +75,6 @@ const HomeNeedLeadView = () => {
     });
     const needs = needsData?.getAllNeeds?.needs;
 
-    console.log(needs);
     const styles = useStyles();
 
     return (
@@ -85,60 +84,64 @@ const HomeNeedLeadView = () => {
             <Box className={styles.box_table}>
                 <h3 className={styles.h3}>VIEW NEEDS</h3>
                     <table className={styles.table}>
-                        <tr>
-                            <th className={styles.header}>URGENCY</th>
-                            <th className={styles.header}>NEED</th>
-                            <th className={styles.header}>QTY</th>
-                            <th className={styles.header}>DONATE/BUY</th>
-                            <th className={styles.header}>CITY</th>
-                            <th className={styles.header}>NAME</th>
-                            <th className={styles.header}></th>
-                        </tr>
-                        <tr className={styles.tr}>
-                            <td className={styles.td}>1</td>
-                            <td className={styles.td}>N95</td>
-                            <td className={styles.td}>50</td>
-                            <td className={styles.td}>can buy</td>
-                            <td className={styles.td}>NY</td>
-                            <td className={styles.td}>hospital</td>
-                            <td><a className={styles.link} href="">More</a></td>
-                        </tr>
-                        <tr className={styles.tr}>
-                            <td className={styles.td}>1</td>
-                            <td className={styles.td}>N95</td>
-                            <td className={styles.td}>50</td>
-                            <td className={styles.td}>can buy</td>
-                            <td className={styles.td}>NY</td>
-                            <td className={styles.td}>hospital</td>
-                            <td><a className={styles.link} href="">More</a></td>
-                        </tr>
-                        <tr className={styles.tr}>
-                            <td className={styles.td}>1</td>
-                            <td className={styles.td}>N95</td>
-                            <td className={styles.td}>50</td>
-                            <td className={styles.td}>can buy</td>
-                            <td className={styles.td}>NY</td>
-                            <td className={styles.td}>hospital</td>
-                            <td><a className={styles.link} href="">More</a></td>
-                        </tr>
-                        <tr className={styles.tr}>
-                            <td className={styles.td}>1</td>
-                            <td className={styles.td}>N95</td>
-                            <td className={styles.td}>50</td>
-                            <td className={styles.td}>can buy</td>
-                            <td className={styles.td}>NY</td>
-                            <td className={styles.td}>hospital</td>
-                            <td><a className={styles.link} href="">More</a></td>
-                        </tr>
-                        <tr className={styles.tr}>
-                            <td className={styles.td}>1</td>
-                            <td className={styles.td}>N95</td>
-                            <td className={styles.td}>50</td>
-                            <td className={styles.td}>can buy</td>
-                            <td className={styles.td}>NY</td>
-                            <td className={styles.td}>hospital</td>
-                            <td><a className={styles.link} href="">More</a></td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th className={styles.header}>URGENCY</th>
+                                <th className={styles.header}>NEED</th>
+                                <th className={styles.header}>QTY</th>
+                                <th className={styles.header}>DONATE/BUY</th>
+                                <th className={styles.header}>CITY</th>
+                                <th className={styles.header}>NAME</th>
+                                <th className={styles.header}></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className={styles.tr}>
+                                <td className={styles.td}>1</td>
+                                <td className={styles.td}>N95</td>
+                                <td className={styles.td}>50</td>
+                                <td className={styles.td}>can buy</td>
+                                <td className={styles.td}>NY</td>
+                                <td className={styles.td}>hospital</td>
+                                <td><a className={styles.link} href="">More</a></td>
+                            </tr>
+                            <tr className={styles.tr}>
+                                <td className={styles.td}>1</td>
+                                <td className={styles.td}>N95</td>
+                                <td className={styles.td}>50</td>
+                                <td className={styles.td}>can buy</td>
+                                <td className={styles.td}>NY</td>
+                                <td className={styles.td}>hospital</td>
+                                <td><a className={styles.link} href="">More</a></td>
+                            </tr>
+                            <tr className={styles.tr}>
+                                <td className={styles.td}>1</td>
+                                <td className={styles.td}>N95</td>
+                                <td className={styles.td}>50</td>
+                                <td className={styles.td}>can buy</td>
+                                <td className={styles.td}>NY</td>
+                                <td className={styles.td}>hospital</td>
+                                <td><a className={styles.link} href="">More</a></td>
+                            </tr>
+                            <tr className={styles.tr}>
+                                <td className={styles.td}>1</td>
+                                <td className={styles.td}>N95</td>
+                                <td className={styles.td}>50</td>
+                                <td className={styles.td}>can buy</td>
+                                <td className={styles.td}>NY</td>
+                                <td className={styles.td}>hospital</td>
+                                <td><a className={styles.link} href="">More</a></td>
+                            </tr>
+                            <tr className={styles.tr}>
+                                <td className={styles.td}>1</td>
+                                <td className={styles.td}>N95</td>
+                                <td className={styles.td}>50</td>
+                                <td className={styles.td}>can buy</td>
+                                <td className={styles.td}>NY</td>
+                                <td className={styles.td}>hospital</td>
+                                <td><a className={styles.link} href="">More</a></td>
+                            </tr>
+                        </tbody>
                 </table>
                 <Button
                             variant="contained"
@@ -151,59 +154,63 @@ const HomeNeedLeadView = () => {
             <Box className={styles.box_table}>
                     <h3 className={styles.h3}>VIEW LEADS</h3>
                     <table className={styles.table} >
-                        <tr>
-                            <th className={styles.header}>AVAILABLE</th>
-                            <th className={styles.header}>TYPE</th>
-                            <th className={styles.header}>QTY</th>
-                            <th className={styles.header}>DONATE/SELL</th>
-                            <th className={styles.header}>CITY</th>
-                            <th className={styles.header}>NAME</th>
-                        </tr>
-                        <tr className={styles.tr}>
-                            <td>1</td>
-                            <td>N95</td>
-                            <td>50</td>
-                            <td>can buy</td>
-                            <td>NY</td>
-                            <td>hospital</td>
-                            <td><a className={styles.link} href="">More</a></td>
-                        </tr>
-                        <tr className={styles.tr}>
-                            <td>1</td>
-                            <td>N95</td>
-                            <td>50</td>
-                            <td>can buy</td>
-                            <td>NY</td>
-                            <td>hospital</td>
-                            <td><a className={styles.link} href="">More</a></td>
-                        </tr>
-                        <tr className={styles.tr}>
-                            <td>1</td>
-                            <td>N95</td>
-                            <td>50</td>
-                            <td>can buy</td>
-                            <td>NY</td>
-                            <td>hospital</td>
-                            <td><a className={styles.link} href="">More</a></td>
-                        </tr>
-                        <tr className={styles.tr}>
-                            <td>1</td>
-                            <td>N95</td>
-                            <td>50</td>
-                            <td>can buy</td>
-                            <td>NY</td>
-                            <td>hospital</td>
-                            <td><a className={styles.link} href="">More</a></td>
-                        </tr>
-                        <tr className={styles.tr}>
-                            <td>1</td>
-                            <td>N95</td>
-                            <td>50</td>
-                            <td>can buy</td>
-                            <td>NY</td>
-                            <td>hospital</td>
-                            <td><a className={styles.link} href="">More</a></td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th className={styles.header}>AVAILABLE</th>
+                                <th className={styles.header}>TYPE</th>
+                                <th className={styles.header}>QTY</th>
+                                <th className={styles.header}>DONATE/SELL</th>
+                                <th className={styles.header}>CITY</th>
+                                <th className={styles.header}>NAME</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr className={styles.tr}>
+                                <td>1</td>
+                                <td>N95</td>
+                                <td>50</td>
+                                <td>can buy</td>
+                                <td>NY</td>
+                                <td>hospital</td>
+                                <td><a className={styles.link} href="">More</a></td>
+                            </tr>
+                            <tr className={styles.tr}>
+                                <td>1</td>
+                                <td>N95</td>
+                                <td>50</td>
+                                <td>can buy</td>
+                                <td>NY</td>
+                                <td>hospital</td>
+                                <td><a className={styles.link} href="">More</a></td>
+                            </tr>
+                            <tr className={styles.tr}>
+                                <td>1</td>
+                                <td>N95</td>
+                                <td>50</td>
+                                <td>can buy</td>
+                                <td>NY</td>
+                                <td>hospital</td>
+                                <td><a className={styles.link} href="">More</a></td>
+                            </tr>
+                            <tr className={styles.tr}>
+                                <td>1</td>
+                                <td>N95</td>
+                                <td>50</td>
+                                <td>can buy</td>
+                                <td>NY</td>
+                                <td>hospital</td>
+                                <td><a className={styles.link} href="">More</a></td>
+                            </tr>
+                            <tr className={styles.tr}>
+                                <td>1</td>
+                                <td>N95</td>
+                                <td>50</td>
+                                <td>can buy</td>
+                                <td>NY</td>
+                                <td>hospital</td>
+                                <td><a className={styles.link} href="">More</a></td>
+                            </tr>
+                        </tbody>
                     </table>
                 <Button
                         variant="contained"

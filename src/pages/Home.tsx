@@ -20,6 +20,7 @@ import maskImage from "../images/homepage_mask.jpg";
 import threePeopleImage from "../images/homepage_three_people.jpg";
 
 import HomeNeedLeadView from './HomeNeedLeadView'
+import Footer from './Footer'
 
 const NO_MODAL = "";
 const MODAL_LEAD_OPEN = "modal_lead_open";
@@ -212,6 +213,7 @@ function Home() {
         </Container>
       </Box>
       <HomeNeedLeadView />
+      <Footer />
     </>
   );
 }
