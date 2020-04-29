@@ -15,7 +15,7 @@ const useStyles = makeStyles(() =>
     overallContainer: {
       background: `url(${backgroundImage}) no-repeat center center`,
       backgroundSize: "125% auto",
-      backgroundPosition: "0 -250px"
+      backgroundPosition: "0 35%"
     },
     title: {
       color: "#233768",
@@ -239,11 +239,9 @@ export default function JoinUs() {
             title="PROJECT MANAGEMENT"
             content={
               <div>
-                <ul>
-                  <strong>Project Managers:</strong> Taking update and expansion
-                  initiatives from zero to hero. The glue that connects people
-                  together and gets things happening.
-                </ul>
+                <strong>Project Managers:</strong> Taking update and expansion
+                initiatives from zero to hero. The glue that connects people
+                together and gets things happening.
               </div>
             }
           />
@@ -252,15 +250,13 @@ export default function JoinUs() {
             title="OTHERS"
             content={
               <div>
-                <ul>
-                  Have a skill, talent, or expertise you feel might be relevant
-                  to operating, building or improving the platform? Reach out
-                  to&nbsp;
-                  <a href="mailto:ssupport@medline.io" target="_top">
-                    support@medline.io
-                  </a>
-                  &nbsp;and let us know!
-                </ul>
+                Have a skill, talent, or expertise you feel might be relevant to
+                operating, building or improving the platform? Reach out
+                to&nbsp;
+                <a href="mailto:ssupport@medline.io" target="_top">
+                  support@medline.io
+                </a>
+                &nbsp;and let us know!
               </div>
             }
           />

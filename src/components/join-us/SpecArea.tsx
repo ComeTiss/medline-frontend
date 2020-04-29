@@ -25,7 +25,8 @@ const useStyles = makeStyles(() =>
     content: {
       color: "#5b5b5b",
       fontSize: "13px",
-      fontFamily: "Verdana"
+      fontFamily: "Verdana",
+      padding: "5px"
     },
     icon: {
       width: "12%"
