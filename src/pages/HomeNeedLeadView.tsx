@@ -80,7 +80,6 @@ const HomeNeedLeadView = () => {
     return (
         <>
         <Box className={styles.box}>
-                <span>Needs: {JSON.stringify(needs)}</span>
             <Box className={styles.box_table}>
                 <h3 className={styles.h3}>VIEW NEEDS</h3>
                     <table className={styles.table}>
