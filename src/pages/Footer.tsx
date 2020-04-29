@@ -5,15 +5,37 @@ import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
 
-const useStyles = makeStyles(() => ({
-  box: {
+const useStyles = makeStyles(theme => ({
+  boxMd: {
     display: "flex",
     height: "20vh",
     justifyContent: "center",
     padding: "40px 80px",
     backgroundColor: "#243867",
     color: "white",
-    fontSize: "10px"
+    fontSize: "10px",
+    [theme.breakpoints.only("xs")]: {
+      display: "none"
+    }
+  },
+  boxSm: {
+    display: "none",
+    justifyContent: "center",
+    padding: "40px 80px",
+    backgroundColor: "#243867",
+    color: "white",
+    fontSize: "10px",
+    [theme.breakpoints.only("xs")]: {
+      display: "flex"
+    }
+  },
+  column: {
+    display: "flex",
+    justifyContent: "space-around",
+    alignItems: "center",
+    flexDirection: "column",
+    height: "20vh",
+    width: "100vw"
   },
   link: {
     textDecoration: "none",
@@ -59,7 +81,7 @@ const Footer = () => {
 
   return (
     <>
-      <Box className={styles.box}>
+      <Box className={styles.boxMd}>
         <Container className={styles.container_first}>
           <Box className={styles.logo}>MedLine.io</Box>
           <Box className={styles.icons}>
@@ -106,6 +128,61 @@ const Footer = () => {
         <Container className={styles.container_last}>
           <Box className={styles.logo}>goFundMe</Box>
           <Button className={styles.button}>DONATE</Button>
+        </Container>
+      </Box>
+
+      {/* Small screen */}
+      <Box className={styles.boxSm}>
+        <Container className={styles.column}>
+          <Container className={styles.container_first}>
+            <Box className={styles.logo}>MedLine.io</Box>
+            <Box className={styles.icons}>
+              <FacebookIcon className={styles.icon} />
+              <TwitterIcon className={styles.icon} />
+              <InstagramIcon className={styles.icon} />
+            </Box>
+            <Box>© MedLine.io 2020</Box>
+          </Container>
+          <Container className={styles.container}>
+            <Box className={styles.header}>FIGHT COVID</Box>
+            <Box>Nedds: Medical Supplies</Box>
+            <Box>Leads: Suppliers</Box>
+            <Box>
+              <Link className={styles.link} to="/login">
+                Log In
+              </Link>
+            </Box>
+            <Box>
+              <Link className={styles.link} to="/signup">
+                Sign Up
+              </Link>
+            </Box>
+          </Container>
+        </Container>
+        <Container className={styles.column}>
+          <Container className={styles.container}>
+            <Box className={styles.header}>MEDLINE.IO</Box>
+            <Box>
+              <Link className={styles.link} to="/about-us">
+                About
+              </Link>
+            </Box>
+            <Box>
+              <Link className={styles.link} to="/faq">
+                FAQ
+              </Link>
+            </Box>
+            <Box>Join Our Cause</Box>
+            <Box>
+              <Link className={styles.link} to="/contact-us">
+                Contact Us
+              </Link>
+            </Box>
+          </Container>
+          <Container className={styles.container_last}>
+            <Box className={styles.logo}>goFundMe</Box>
+            <Button className={styles.button}>DONATE</Button>
+          </Container>
         </Container>
       </Box>
     </>
