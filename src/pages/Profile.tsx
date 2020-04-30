@@ -11,13 +11,17 @@ import { USER_ID_COOKIE_NAME } from "../utils/constants";
 const backgroundImg = require("../images/face-masks-on-blue-background-3786155.jpg");
 
 const useStyles = makeStyles({
+  container: {
+    position: "relative",
+    height: "100%"
+  },
   background: {
     position: "absolute",
     float: "left",
     width: "100%",
-    height: "110vh",
+    height: "100%",
     backgroundSize: "cover",
-    background: `url(${backgroundImg}) no-repeat center center`,
+    background: `url(${backgroundImg}) no-repeat`,
     opacity: "50%"
   }
 });
@@ -60,11 +64,11 @@ function Profile() {
   });
   const leads = leadsData?.getAllLeads?.leads;
   return (
-    <>
+    <div className={styles.container}>
       <NavBar />
       <div className={styles.background} />
       {!!user && <UserProfileTabs user={user} needs={needs} leads={leads} />}
-    </>
+    </div>
   );
 }
 

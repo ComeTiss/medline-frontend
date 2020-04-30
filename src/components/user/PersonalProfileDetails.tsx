@@ -10,11 +10,12 @@ import {
   Backdrop
 } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import User from "../../service/models/user.model";
+import User, { UserInput } from "../../service/models/user.model";
 import ChangePasswordModal from "./ChangePasswordModal";
 import UpdateProfileDetailsForm from "./UpdateProfileDetailsForm";
 import { MUTATE_USER } from "../../service/apollo/mutations";
 import { useMutation } from "@apollo/react-hooks";
+import signupUtils from "../../utils/signup/signupUtils";
 
 type Props = {
   user: User;
@@ -72,7 +73,7 @@ function PersonalProfileDetails(props: Props) {
   const { user } = props;
   const [mutateUser] = useMutation(MUTATE_USER);
   const styles = useStyles();
-  const [open, setOpen] = useState(false);
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [openUpdateSuccessModal, setOpenUpdateSuccessModal] = useState(false);
   const [error, setError] = useState("");
   const [responseMsg, setResponseMsg] = useState<ReponseMsg>({
@@ -86,64 +87,43 @@ function PersonalProfileDetails(props: Props) {
       message: "",
       isError: false
     });
-    setOpen(true);
+    setShowPasswordModal(true);
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setShowPasswordModal(false);
   };
 
-  const handleOpenUpdateSuccessModal = () => {
-    setOpenUpdateSuccessModal(true);
-  };
-
-  const handleCloseUpdateSuccessModal = () => {
-    setOpenUpdateSuccessModal(false);
-  };
-
-  const onSubmit = (userData: any) => {
-    const {
-      phoneNumber,
-      whatsAppNumber,
-      countryCode,
-      confirmNewPassword,
-      ...userInput
-    } = userData;
-    userInput.phone = `${countryCode} ${phoneNumber}`;
-    userInput.whatsapp = `${countryCode} ${whatsAppNumber}`;
-
-    if (
-      userData.oldPassword !== undefined &&
-      userData.oldPassword.length === 0
-    ) {
-      setError("You must enter your old password");
-    } else if (userData.newPassword !== confirmNewPassword) {
-      setError("Wrong combinaison of password");
-    } else if (
-      userData.newPassword !== undefined &&
-      userData.confirmNewPassword !== undefined &&
-      userData.newPassword.length === 0 &&
-      userData.newPassword.length === 0
-    ) {
-      setError("You must enter a new password");
+  const handlePasswordSubmit = (passwordData: any) => {
+    const passwordErrorMsg = signupUtils.helperTextPassword(
+      passwordData.newPassword
+    );
+    if (passwordErrorMsg) {
+      setError(passwordErrorMsg);
     } else {
-      mutateUser({
-        variables: { request: userInput }
-      })
+      onSubmit({ ...user, ...passwordData })
         .then(() => {
-          handleClose();
-          handleOpenUpdateSuccessModal();
+          setShowPasswordModal(false);
+          setOpenUpdateSuccessModal(true);
           setTimeout(() => {
-            handleCloseUpdateSuccessModal();
+            setOpenUpdateSuccessModal(false);
           }, 2000);
         })
-        .catch(error => {
+        .catch((error: any) => {
           setResponseMsg({
             message: error.graphQLErrors[0].message,
             isError: true
           });
         });
     }
+  };
+
+  const onSubmit = (userData: User) => {
+    const userInput = new UserInput(userData);
+
+    return mutateUser({
+      variables: { request: userInput }
+    });
   };
 
   return (
@@ -170,12 +150,11 @@ function PersonalProfileDetails(props: Props) {
             </Box>
           </Grid>
           <ChangePasswordModal
-            user={user}
-            open={open}
+            open={showPasswordModal}
             handleClose={handleClose}
             submitError={error}
             responseMsg={responseMsg}
-            onSubmit={onSubmit}
+            handlePasswordSubmit={handlePasswordSubmit}
           />
         </Grid>
         <Typography variant="h6" align="left" paragraph={true}>
@@ -190,7 +169,7 @@ function PersonalProfileDetails(props: Props) {
       <Modal
         className={styles.updateSuccessModalLayout__modal}
         open={openUpdateSuccessModal}
-        onClose={handleCloseUpdateSuccessModal}
+        onClose={() => setOpenUpdateSuccessModal(false)}
         aria-labelledby="update-success-modal-title"
         aria-describedby="update-success-modal-description"
         closeAfterTransition

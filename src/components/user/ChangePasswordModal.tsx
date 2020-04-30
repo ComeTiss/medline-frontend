@@ -8,18 +8,16 @@ import {
   makeStyles,
   Typography
 } from "@material-ui/core";
-import User from "../../service/models/user.model";
 
 type Props = {
   open: boolean;
   handleClose: () => void;
-  onSubmit: (data: any) => void;
+  handlePasswordSubmit: (data: any) => void;
   submitError: string;
   responseMsg: {
     message: string;
     isError: boolean;
   };
-  user: User;
 };
 
 const GAP_BETWEEN_INPUTS = 10;
@@ -63,19 +61,15 @@ const useStyles = makeStyles(theme => ({
 
 function ChangePasswordModal(props: Props) {
   const styles = useStyles();
-  const { open, handleClose, onSubmit, submitError, responseMsg, user } = props;
+  const {
+    open,
+    handleClose,
+    handlePasswordSubmit,
+    submitError,
+    responseMsg
+  } = props;
 
-  const [inputData, setInputData] = useState({
-    lastName: user.lastName,
-    firstName: user.firstName,
-    civility: user.civility,
-    functionTitle: user.functionTitle,
-    emailDisplay: user.emailDisplay,
-    countryCode: "",
-    phoneNumber: "",
-    whatsAppNumber: "",
-    wechat: "",
-    skype: "",
+  const [inputPassword, setInputPassword] = useState({
     oldPassword: "",
     newPassword: "",
     confirmNewPassword: ""
@@ -83,10 +77,10 @@ function ChangePasswordModal(props: Props) {
 
   const onChangeData = (field: string, e: any) => {
     e.persist();
-    const newData = { ...inputData };
+    const newData = { ...inputPassword };
     // @ts-ignore
     newData[field] = e.target.value;
-    setInputData(newData);
+    setInputPassword(newData);
   };
 
   return (
@@ -168,7 +162,7 @@ function ChangePasswordModal(props: Props) {
                 color="primary"
                 component="span"
                 fullWidth
-                onClick={() => onSubmit(inputData)}
+                onClick={() => handlePasswordSubmit(inputPassword)}
               >
                 Submit
               </Button>
