@@ -49,8 +49,6 @@ export const UserFragment = gql`
     lastName
     email
     functionTitle
-    contactID
-    contactType
     isAdmin
     createdAt
     updatedAt
