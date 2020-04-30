@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Grid,
   Box,
@@ -8,18 +8,37 @@ import {
   Radio,
   Button
 } from "@material-ui/core";
-import User from "../../service/models/user.model";
 import CountryCodeSelect from "./CountryCodeSelect";
+import User from "../../service/models/user.model";
 
 type Props = {
   user: User;
-  inputData: any;
-  onChangeData: (field: string, e: any) => void;
   onSubmit: (data: any) => void;
 };
 
 function UpdateProfileDetailsForm(props: Props) {
-  const { user, inputData, onChangeData, onSubmit } = props;
+  const { user, onSubmit } = props;
+
+  const [inputData, setInputData] = useState({
+    lastName: user.lastName,
+    firstName: user.firstName,
+    civility: user.civility,
+    functionTitle: user.functionTitle,
+    emailDisplay: user.emailDisplay,
+    countryCode: "",
+    phoneNumber: "",
+    whatsAppNumber: "",
+    wechat: "",
+    skype: ""
+  });
+
+  const onChangeData = (field: string, e: any) => {
+    e.persist();
+    const newData = { ...inputData };
+    // @ts-ignore
+    newData[field] = e.target.value;
+    setInputData(newData);
+  };
 
   return (
     <>
@@ -33,7 +52,7 @@ function UpdateProfileDetailsForm(props: Props) {
           <TextField
             fullWidth
             id="last-name-input"
-            value={user.lastName}
+            value={inputData.lastName}
             onChange={(e: any) => onChangeData("lastName", e)}
           />
         </Grid>
@@ -48,7 +67,7 @@ function UpdateProfileDetailsForm(props: Props) {
           <TextField
             fullWidth
             id="first-name-input"
-            value={user.firstName}
+            value={inputData.firstName}
             onChange={(e: any) => onChangeData("firstName", e)}
           />
         </Grid>
@@ -63,21 +82,21 @@ function UpdateProfileDetailsForm(props: Props) {
             defaultValue="end"
           >
             <FormControlLabel
-              value="miss"
+              value="Ms."
               name="civility"
               control={<Radio color="primary" />}
               label="Ms."
               onChange={(e: any) => onChangeData("civility", e)}
             />
             <FormControlLabel
-              value="mister"
+              value="Mr."
               name="civility"
               control={<Radio color="primary" />}
               label="Mr."
               onChange={(e: any) => onChangeData("civility", e)}
             />
             <FormControlLabel
-              value="doctor"
+              value="Dr."
               name="civility"
               control={<Radio color="primary" />}
               label="Dr."
@@ -96,7 +115,7 @@ function UpdateProfileDetailsForm(props: Props) {
           <TextField
             fullWidth
             id="function-title-input"
-            value={user.functionTitle}
+            value={inputData.functionTitle}
             onChange={(e: any) => onChangeData("functionTitle", e)}
           />
         </Grid>
@@ -113,7 +132,7 @@ function UpdateProfileDetailsForm(props: Props) {
           <TextField
             fullWidth
             id="email-display-input"
-            value={user.email}
+            value={inputData.emailDisplay}
             onChange={(e: any) => onChangeData("emailDisplay", e)}
           />
         </Grid>
@@ -168,7 +187,7 @@ function UpdateProfileDetailsForm(props: Props) {
           <TextField
             fullWidth
             id="weChat-id-input"
-            onChange={(e: any) => onChangeData("weChatId", e)}
+            onChange={(e: any) => onChangeData("wechat", e)}
           />
         </Grid>
       </Grid>
@@ -182,7 +201,7 @@ function UpdateProfileDetailsForm(props: Props) {
           <TextField
             fullWidth
             id="skype-id-input"
-            onChange={(e: any) => onChangeData("skypeId", e)}
+            onChange={(e: any) => onChangeData("skype", e)}
           />
         </Grid>
       </Grid>
@@ -193,7 +212,7 @@ function UpdateProfileDetailsForm(props: Props) {
               variant="contained"
               color="primary"
               component="span"
-              onClick={() => onSubmit}
+              onClick={() => onSubmit(inputData)}
             >
               Save
             </Button>

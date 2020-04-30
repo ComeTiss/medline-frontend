@@ -23,7 +23,8 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: "flex",
-    height: "740px"
+    minHeight: "740px",
+    height: "100%"
   },
   tabsContainer: {
     paddingTop: theme.spacing(2),

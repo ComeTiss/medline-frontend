@@ -25,7 +25,7 @@ export const MUTATE_NEED = gql`
 `;
 
 export const MUTATE_USER = gql`
-  mutation UpdateUser($request: MutateNeedRequest!) {
+  mutation UpdateUser($request: UserInput!) {
     updateUser(request: $request) {
       ...UserItem
     }

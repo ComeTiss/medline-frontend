@@ -6,6 +6,8 @@ class User {
   country: string;
   createdAt: Date;
   email: string;
+  emailDisplay: string;
+  civility: string;
   firstName: string;
   functionTitle: string;
   id: number;
@@ -20,6 +22,8 @@ class User {
     this.contacts = new Contacts(props.contacts);
     this.country = props.country;
     this.email = props.email;
+    this.emailDisplay = props.emailDisplay;
+    this.civility = props.civility;
     this.firstName = props.firstName;
     this.functionTitle = props.functionTitle;
     this.isAdmin = props.isAdmin;

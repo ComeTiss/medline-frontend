@@ -5,9 +5,7 @@ import { makeStyles } from "@material-ui/core/styles";
 
 import NavBar from "../components/navigation/NavBar";
 import UserProfileTabs from "../components/user/UserProfileTabs";
-import { GET_USERS } from "../service/apollo/queries";
-import { GET_NEEDS } from "../service/apollo/queries";
-import { GET_LEADS } from "../service/apollo/queries";
+import { GET_USERS, GET_NEEDS, GET_LEADS } from "../service/apollo/queries";
 import { USER_ID_COOKIE_NAME } from "../utils/constants";
 
 const backgroundImg = require("../images/face-masks-on-blue-background-3786155.jpg");
