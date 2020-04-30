@@ -1,8 +1,10 @@
+import React, { useState } from "react";
+
 import Container from "@material-ui/core/Container";
 import { makeStyles } from "@material-ui/core/styles";
 import Tab from "@material-ui/core/Tab";
 import Tabs from "@material-ui/core/Tabs";
-import React, { useState } from "react";
+
 import Lead from "../../service/models/lead.model";
 import Need from "../../service/models/need.model";
 import User from "../../service/models/user.model";
@@ -14,13 +16,15 @@ import PersonalProfileDetails from "./PersonalProfileDetails";
 const useStyles = makeStyles(theme => ({
   container: {
     marginTop: theme.spacing(8),
-    boxShadow: theme.shadows[3]
+    boxShadow: theme.shadows[3],
+    opacity: "75%"
   },
   tabsLayout: {
     flexGrow: 1,
     backgroundColor: theme.palette.background.paper,
     display: "flex",
-    height: "740px"
+    minHeight: "740px",
+    height: "100%"
   },
   tabsContainer: {
     paddingTop: theme.spacing(2),
