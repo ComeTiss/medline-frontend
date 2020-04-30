@@ -4,7 +4,6 @@ import Button from "@material-ui/core/Button";
 import doctorMaskImage from "../images/homepage_doctor_mask.jpg";
 import { GET_NEEDS, GET_LEADS } from "../service/apollo/queries";
 import { useQuery } from "@apollo/react-hooks";
-import { leadsDummy, needsDummy } from "../tests/mock/dummyData";
 
 const useStyles = makeStyles(() => ({
   box: {
@@ -83,8 +82,8 @@ const HomeNeedLeadView = () => {
     fetchPolicy: "cache-and-network"
   });
 
-  const needs = needsData?.getAllNeeds?.needs || needsDummy;
-  const leads = leadsData?.getAllLeads?.leads || leadsDummy;
+  const needs = needsData?.getAllNeeds?.needs || [];
+  const leads = leadsData?.getAllLeads?.leads || [];
 
   const styles = useStyles();
 
@@ -120,6 +119,8 @@ const HomeNeedLeadView = () => {
     </tr>
   );
 
+  const noDataRow = () => <tr>Nothing to display for now</tr>;
+
   return (
     <>
       <Box className={styles.box}>
@@ -137,7 +138,7 @@ const HomeNeedLeadView = () => {
                 <th className={styles.header}></th>
               </tr>
             </thead>
-            <tbody>{needs.map(needRow)}</tbody>
+            <tbody>{needs.length > 0 ? needs.map(needRow) : noDataRow()}</tbody>
           </table>
           <Button variant="contained" color="primary" className={styles.button}>
             VIEW ALL
@@ -156,7 +157,7 @@ const HomeNeedLeadView = () => {
                 <th className={styles.header}>NAME</th>
               </tr>
             </thead>
-            <tbody>{leads.map(leadRow)}</tbody>
+            <tbody>{leads.length > 0 ? leads.map(leadRow) : noDataRow()}</tbody>
           </table>
           <Button variant="contained" color="primary" className={styles.button}>
             VIEW ALL
