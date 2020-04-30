@@ -5,10 +5,11 @@ import {
   TextField,
   Link,
   Button,
-  Divider
+  Divider,
+  Grid
 } from "@material-ui/core";
 import SaveIcon from "@material-ui/icons/Save";
-import Organization from "../../service/models/organization.model";
+import CountryCodeSelect from "./CountryCodeSelect";
 
 const useStyles = makeStyles(theme => ({
   grid: {
@@ -41,6 +42,13 @@ const useStyles = makeStyles(theme => ({
     color: "red",
     fontWeight: "bold",
     whiteSpace: "pre-line"
+  },
+  noInformationMsg: {
+    fontStyle: "italic",
+    color: "#999999"
+  },
+  inputPhone: {
+    width: "100%"
   }
 }));
 
@@ -48,24 +56,26 @@ type Props = {
   payload: any;
   title: string;
   fieldName: string;
-  onSubmit: (organization: Organization) => Promise<any>;
+  onSubmit: (payload: any) => Promise<any>;
 };
 
 function MutableField(props: Props) {
   const styles = useStyles();
   const { payload, title, fieldName, onSubmit } = props;
-  const [newValue, setNewValue] = useState(payload[fieldName]);
+  const [newValue, setNewValue] = useState(payload[fieldName] ?? "");
   const [isEditing, setIsEditing] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+  const [countryCode, setCountryCode] = useState("");
 
   useEffect(() => {
     if (!isEditing) setError("");
   }, [isEditing]);
 
   const handleSubmit = () => {
+    const value = countryCode ? `+${countryCode} ${newValue}` : newValue;
     setIsLoading(true);
-    onSubmit({ ...payload, [fieldName]: newValue })
+    onSubmit({ ...payload, [fieldName]: value })
       .then(() => setIsEditing(false))
       .catch(() => setError("Internal server error, please try again later"))
       .finally(() => setIsLoading(false));
@@ -84,17 +94,49 @@ function MutableField(props: Props) {
       >
         {isEditing ? "Cancel" : "Modify"}
       </Link>
-      {!isEditing && <Typography>{payload[fieldName]}</Typography>}
+      {!isEditing && (
+        <Typography
+          className={payload[fieldName] ? "" : styles.noInformationMsg}
+        >
+          {payload[fieldName] ?? "No information"}
+        </Typography>
+      )}
       {isEditing && (
         <>
-          <TextField
-            required
-            size="small"
-            value={newValue}
-            id={`${fieldName}-input`}
-            variant="outlined"
-            onChange={e => setNewValue(e.target.value)}
-          />
+          {fieldName === "phoneNumber" || fieldName === "whatsapp" ? (
+            <>
+              <Grid container direction="row" justify="flex-start">
+                <Grid item xs={4}>
+                  <CountryCodeSelect
+                    value={countryCode}
+                    onChangeData={setCountryCode}
+                  />
+                </Grid>
+                <Grid item xs={8}>
+                  <TextField
+                    required
+                    className={styles.inputPhone}
+                    size="small"
+                    value={newValue}
+                    id={`${fieldName}-input`}
+                    variant="outlined"
+                    onChange={e => setNewValue(e.target.value)}
+                  />
+                </Grid>
+              </Grid>
+            </>
+          ) : (
+            <>
+              <TextField
+                required
+                size="small"
+                value={newValue}
+                id={`${fieldName}-input`}
+                variant="outlined"
+                onChange={e => setNewValue(e.target.value)}
+              />
+            </>
+          )}
           <Button
             disabled={isLoading || newValue === payload[fieldName]}
             className={styles.button}

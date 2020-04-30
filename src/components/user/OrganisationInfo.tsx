@@ -58,7 +58,7 @@ const fields = [
   }
 ];
 
-function UserProfile(props: Props) {
+function OrganisationInfo(props: Props) {
   const styles = useStyles();
   const { user } = props;
   const { organization, id: userId } = user;
@@ -119,4 +119,4 @@ function UserProfile(props: Props) {
   );
 }
 
-export default UserProfile;
+export default OrganisationInfo;

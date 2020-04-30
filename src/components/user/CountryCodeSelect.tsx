@@ -8,8 +8,8 @@ import {
 } from "@material-ui/core";
 
 type Props = {
-  inputData: any;
-  onChangeData: (field: string, e: any) => void;
+  value: string;
+  onChangeData: (e: any) => void;
 };
 
 const useStyles = makeStyles(() => ({
@@ -19,16 +19,16 @@ const useStyles = makeStyles(() => ({
     marginBottom: "5px"
   },
   countryCodeLayout__inputLabel: {
-    top: "-15px!important"
+    top: "-5px!important"
   },
   countryCodeLayout__selectInput: {
-    marginTop: "0!important"
+    marginTop: "5px!important"
   }
 }));
 
 function CountryCodeSelect(props: Props) {
   const styles = useStyles();
-  const { inputData, onChangeData } = props;
+  const { value, onChangeData } = props;
 
   return (
     <FormControl className={styles.countryCodeLayout__formControl}>
@@ -43,8 +43,8 @@ function CountryCodeSelect(props: Props) {
         labelId="country-code-select-label"
         id="country-code-select"
         placeholder="Country Code"
-        value={inputData.countryCode}
-        onChange={(e: any) => onChangeData("countryCode", e)}
+        value={value}
+        onChange={(e: any) => onChangeData(e.target.value)}
       >
         <MenuItem value={1} selected>
           USA (+1)
