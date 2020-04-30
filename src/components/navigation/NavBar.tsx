@@ -3,7 +3,6 @@ import {
   AppBar,
   Toolbar,
   IconButton,
-  Typography,
   Button,
   Menu,
   MenuItem,
@@ -14,7 +13,14 @@ import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { isAuthenticated } from "../../utils/authentication/AuthUtils";
 
+const logo = require("../../images/medline-logo.png");
+
 const useStyles = makeStyles(() => ({
+  logo: {
+    width: "200px",
+    position: "absolute",
+    right: "calc(50% - 100px)"
+  },
   navBar__container: {
     color: "black"
   },
@@ -26,7 +32,6 @@ const useStyles = makeStyles(() => ({
     textDecoration: "none"
   },
   navBar__menuBtn: {
-    marginLeft: 16,
     flexGrow: 1
   },
   navBar__menu: {
@@ -74,10 +79,9 @@ function NavBar() {
       color="inherit"
       className={styles.navBar__container}
     >
+      <img src={String(logo)} className={styles.logo} alt="medline-logo" />
       <Toolbar>
-        <Typography variant="h6" className={styles.navBar__menuBtn}>
-          Medline.io
-        </Typography>
+        <div className={styles.navBar__menuBtn} />
         {isUserLoggedIn && LinkBtn("Logout", "/logout")}
         {!isUserLoggedIn && LinkBtn("Login", "/login")}
         {!isUserLoggedIn && LinkBtn("Signup", "/signup")}
