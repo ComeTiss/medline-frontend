@@ -34,12 +34,6 @@ export default function FAQ() {
   return (
     <div className={classes.overallContainer}>
       <NavBar />
-      {/* <img
-        src={String(logo)}
-        style={{ width: "100%" }}
-        className={classes.background}
-        alt="laptop"
-      /> */}
       <div className={classes.title}>FAQ</div>
       <div className={classes.root}>
         <Panel
@@ -71,7 +65,7 @@ export default function FAQ() {
               <br />
               We do receive some donations to help keep the platform up and
               running. If you’d like to learn more about volunteering or
-              donations, [click here] or&nbsp;
+              donations, <a href="/join-us">click here</a> or&nbsp;
               <a href="/contact-us">contact us</a>.
             </div>
           }
@@ -170,7 +164,8 @@ export default function FAQ() {
               post Needs / Leads!
               <br />
               <br />
-              Here&apos;s our [link] and [social accounts].
+              Here&apos;s our [LinkedIn] and&nbsp;
+              <a href="https://www.facebook.com/MedLine.io">facebook</a>.
             </div>
           }
           bottomPanel={false}
