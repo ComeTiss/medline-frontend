@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../components/navigation/NavBar";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import SpecArea from "../components/join-us/SpecArea";
+import Footer from "./Footer";
 const backgroundImage = require("../media/join_us_images/join_us_background.jpg");
 const techIcon = require("../media/join_us_images/tech-icon.svg");
 const designIcon = require("../media/join_us_images/design-icon.svg");
@@ -295,6 +296,7 @@ export default function JoinUs() {
       </div>
       <br />
       <br />
+      <Footer />
     </div>
   );
 }
