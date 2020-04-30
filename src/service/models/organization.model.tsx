@@ -1,3 +1,21 @@
+export class OrganizationInput {
+  id: string;
+  name: string;
+  city: string;
+  country: string;
+  address: string;
+  activity: string;
+
+  constructor(props: any) {
+    this.id = props.id;
+    this.name = props.name;
+    this.city = props.city;
+    this.country = props.country;
+    this.address = props.address;
+    this.activity = props.activity;
+  }
+}
+
 class Organization {
   id: string;
   name: string;

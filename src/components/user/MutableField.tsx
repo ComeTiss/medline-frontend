@@ -45,27 +45,19 @@ const useStyles = makeStyles(theme => ({
 }));
 
 type Props = {
-  baseValue: string;
-  inputData: any;
+  payload: any;
   title: string;
   fieldName: string;
-  onChangeData: (fieldName: string, e: any) => void;
   onSubmit: (organization: Organization) => Promise<any>;
 };
 
-function UserProfile(props: Props) {
+function MutableField(props: Props) {
   const styles = useStyles();
+  const { payload, title, fieldName, onSubmit } = props;
+  const [newValue, setNewValue] = useState(payload[fieldName]);
   const [isEditing, setIsEditing] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
-  const {
-    title,
-    onChangeData,
-    fieldName,
-    inputData,
-    onSubmit,
-    baseValue
-  } = props;
 
   useEffect(() => {
     if (!isEditing) setError("");
@@ -73,7 +65,7 @@ function UserProfile(props: Props) {
 
   const handleSubmit = () => {
     setIsLoading(true);
-    onSubmit(inputData)
+    onSubmit({ ...payload, [fieldName]: newValue })
       .then(() => setIsEditing(false))
       .catch(() => setError("Internal server error, please try again later"))
       .finally(() => setIsLoading(false));
@@ -92,16 +84,16 @@ function UserProfile(props: Props) {
       >
         {isEditing ? "Cancel" : "Modify"}
       </Link>
-      {!isEditing && <Typography>{baseValue}</Typography>}
+      {!isEditing && <Typography>{payload[fieldName]}</Typography>}
       {isEditing && (
         <>
           <TextField
             required
             size="small"
-            value={inputData[fieldName]}
+            value={newValue}
             id={`${fieldName}-input`}
             variant="outlined"
-            onChange={(e: any) => onChangeData(fieldName, e)}
+            onChange={e => setNewValue(e.target.value)}
           />
           <Button
             disabled={isLoading}
@@ -127,4 +119,4 @@ function UserProfile(props: Props) {
   );
 }
 
-export default UserProfile;
+export default MutableField;
