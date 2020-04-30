@@ -4,7 +4,7 @@ import { makeStyles, Box, Button, Container } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
-import logoImage from "../images/homepage_logo.png";
+import logoImage from "../../images/homepage_logo.png";
 
 const useStyles = makeStyles(theme => ({
   boxMd: {

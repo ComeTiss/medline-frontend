@@ -1,5 +1,6 @@
 export const needsDummy = [
   {
+    id: 1,
     urgencyLevel: 1,
     itemName: "N95 makeStyles",
     quantity: "50,000",
@@ -8,6 +9,7 @@ export const needsDummy = [
     createdAt: "NY hospital"
   },
   {
+    id: 2,
     urgencyLevel: 2,
     itemName: "Nitrile Gloves",
     quantity: "1,000",
@@ -16,6 +18,7 @@ export const needsDummy = [
     createdAt: "Danile"
   },
   {
+    id: 3,
     urgencyLevel: 3,
     itemName: "Face shield",
     quantity: "500",
@@ -24,6 +27,7 @@ export const needsDummy = [
     createdAt: "Nursing Home"
   },
   {
+    id: 4,
     urgencyLevel: 3,
     itemName: "Face shield",
     quantity: "500",
@@ -32,6 +36,7 @@ export const needsDummy = [
     createdAt: "Nursing Home"
   },
   {
+    id: 5,
     urgencyLevel: 3,
     itemName: "Ventilators",
     quantity: "20",
@@ -40,6 +45,7 @@ export const needsDummy = [
     createdAt: "Health Center"
   },
   {
+    id: 6,
     urgencyLevel: 4,
     itemName: "Nitrile Gloves",
     quantity: "1,000",

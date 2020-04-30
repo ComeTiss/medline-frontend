@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import doctorMaskImage from "../images/homepage_doctor_mask.jpg";
 import { GET_NEEDS, GET_LEADS } from "../service/apollo/queries";
 import { useQuery } from "@apollo/react-hooks";
-import { leadsDummy, needsDummy } from "../media/dummyData";
+import { leadsDummy, needsDummy } from "../tests/mock/dummyData";
 
 const useStyles = makeStyles(() => ({
   box: {
@@ -63,24 +63,24 @@ const HomeNeedLeadView = () => {
     variables: {
       request: {
         options: {
-          page: 0,
+          page: 1,
           limit: 5
         }
       }
     },
-    fetchPolicy: "network-only"
+    fetchPolicy: "cache-and-network"
   });
 
   const { data: leadsData } = useQuery(GET_LEADS, {
     variables: {
       request: {
         options: {
-          page: 0,
+          page: 1,
           limit: 5
         }
       }
     },
-    fetchPolicy: "network-only"
+    fetchPolicy: "cache-and-network"
   });
 
   const needs = needsData?.getAllNeeds?.needs || needsDummy;
@@ -89,7 +89,7 @@ const HomeNeedLeadView = () => {
   const styles = useStyles();
 
   const needRow = (need: any) => (
-    <tr className={styles.tr}>
+    <tr className={styles.tr} key={need.id}>
       <td className={styles.td}>{need.urgencyLevel}</td>
       <td className={styles.td}>{need.itemName}</td>
       <td className={styles.td}>{need.quantity}</td>
@@ -105,7 +105,7 @@ const HomeNeedLeadView = () => {
   );
 
   const leadRow = (lead: any) => (
-    <tr className={styles.tr}>
+    <tr className={styles.tr} key={lead.id}>
       <td className={styles.td}>{lead.itemName}</td>
       <td className={styles.td}>{lead.specifications}</td>
       <td className={styles.td}>{lead.quantity}</td>
