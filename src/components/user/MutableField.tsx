@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
     width: "100%",
     display: "grid",
     gridTemplateColumns: "80% 20%",
-    gridAutoRows: "30px 40px 10px",
+    gridAutoRows: "30px min-content 16px",
     alignItems: "start"
   },
   link: {
@@ -96,7 +96,7 @@ function MutableField(props: Props) {
             onChange={e => setNewValue(e.target.value)}
           />
           <Button
-            disabled={isLoading}
+            disabled={isLoading || newValue === payload[fieldName]}
             className={styles.button}
             variant="contained"
             color="primary"
