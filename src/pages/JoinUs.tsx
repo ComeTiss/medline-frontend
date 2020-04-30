@@ -272,7 +272,7 @@ export default function JoinUs() {
         available to the public soon.
       </div>
       <br />
-      <a href="/about-us">
+      <a href="/contact-us">
         <button className={classes.contact_button}>CONTACT US</button>
       </a>
       <br />
