@@ -1,5 +1,10 @@
 import gql from "graphql-tag";
-import { LeadFragment, NeedFragment, UserFragment } from "./fragments";
+import {
+  LeadFragment,
+  NeedFragment,
+  UserFragment,
+  OrganizationFragment
+} from "./fragments";
 
 export const MUTATE_LEAD = gql`
   mutation MutateLead($request: MutateLeadRequest!) {
@@ -26,6 +31,15 @@ export const MUTATE_USER = gql`
     }
   }
   ${UserFragment}
+`;
+
+export const MUTATE_ORGANIZATION = gql`
+  mutation MutateOrganization($request: MutateOrganizationRequest!) {
+    mutateOrganization(request: $request) {
+      ...OrganizationItem
+    }
+  }
+  ${OrganizationFragment}
 `;
 
 export const DELETE_NEEDS = gql`

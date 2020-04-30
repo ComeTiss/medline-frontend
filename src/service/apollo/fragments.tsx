@@ -35,6 +35,8 @@ export const OrganizationFragment = gql`
     name
     country
     city
+    address
+    activity
     verifiedAt
     deletedAt
     createdAt
