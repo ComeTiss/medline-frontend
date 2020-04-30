@@ -109,7 +109,7 @@ const Footer = () => {
           <Box className={styles.header}>MEDLINE.IO</Box>
           {BoxWithLink("About", "/about-us")}
           {BoxWithLink("FAQ", "/faq")}
-          <Box>Join Our Cause</Box>
+          {BoxWithLink("Join Our Cause", "/join-us")}
           {BoxWithLink("Contact Us", "/contact-us")}
         </Container>
         <Container className={styles.container_last}>
@@ -143,7 +143,7 @@ const Footer = () => {
             <Box className={styles.header}>MEDLINE.IO</Box>
             {BoxWithLink("About", "/about-us")}
             {BoxWithLink("FAQ", "/faq")}
-            <Box>Join Our Cause</Box>
+            {BoxWithLink("Join Our Cause", "/join-us")}
             {BoxWithLink("Contact Us", "/contact-us")}
           </Container>
           <Container className={styles.container_last}>
