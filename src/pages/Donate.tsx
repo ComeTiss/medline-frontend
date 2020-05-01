@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
   wrapper: {
     background: `url(${backgroundImage}) no-repeat center center`,
     backgroundSize: "cover",
-    minHeight: "100vh"
+    minHeight: "80vh"
   },
   container: {
     background: "rgba(255, 255, 255, 0.6)",
@@ -27,9 +27,9 @@ const useStyles = makeStyles(theme => ({
   },
   bottomContainer: {
     background: "rgba(255, 255, 255, 0.6)",
-    padding: "1rem 4rem 20rem",
+    padding: "1rem 4rem 18rem",
     [theme.breakpoints.up("sm")]: {
-      padding: "3rem 1rem 18rem"
+      padding: "3rem 1rem 28rem"
     }
   },
   gridContainer: {
@@ -109,10 +109,10 @@ const useStyles = makeStyles(theme => ({
     width: "105vw",
     marginLeft: "50%",
     transform: "translateX(-50%)",
+    position: "fixed",
     bottom: "0",
     left: "0",
-    right: "0",
-    position: "fixed"
+    right: "0"
   }
 }));
 
@@ -207,9 +207,11 @@ function Donate() {
             "We are working to either partner or register as a recognized non-profit for tax"
           )}
           {TextBody1("deductibles in the near future. Stay tuned")}
-          <div className={styles.footerContainer}>
-            <Footer />
-          </div>
+          <Grid container className={styles.footerContainer}>
+            <Grid item xs={12} sm={12}>
+              <Footer />
+            </Grid>
+          </Grid>
         </div>
       </div>
     </>
