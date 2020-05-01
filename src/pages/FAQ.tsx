@@ -2,7 +2,7 @@ import React from "react";
 import NavBar from "../components/navigation/NavBar";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Panel from "../components/faq/Panel";
-import Footer from "./Footer";
+import Footer from "../components/footer/Footer";
 const backgroundImage = require("../media/faq_background.jpg");
 
 const useStyles = makeStyles(() =>
