@@ -49,10 +49,17 @@ export const UserFragment = gql`
     id
     firstName
     lastName
+    civility
     email
+    displayEmail
     functionTitle
     isAdmin
     createdAt
     updatedAt
+    phoneNumber
+    whatsapp
+    skype
+    wechat
+    zoom
   }
 `;

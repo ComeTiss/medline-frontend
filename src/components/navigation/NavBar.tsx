@@ -48,7 +48,7 @@ const menuLinks = [
   { name: "About us", path: "/about-us" },
   { name: "Contact us", path: "/contact-us" },
   { name: "FAQ", path: "/faq" },
-  { name: "Join us", path: "/joinus" }
+  { name: "Join us", path: "/join-us" }
 ];
 
 function NavBar() {
