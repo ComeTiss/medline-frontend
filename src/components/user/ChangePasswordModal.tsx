@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Modal,
   Backdrop,
   Fade,
   TextField,
   Button,
-  makeStyles
+  makeStyles,
+  Typography
 } from "@material-ui/core";
 
 type Props = {
-  onChangeData: (field: string, e: any) => void;
   open: boolean;
   handleClose: () => void;
+  handlePasswordSubmit: (data: any) => void;
+  submitError: string;
+  responseMsg: {
+    message: string;
+    isError: boolean;
+  };
 };
 
 const GAP_BETWEEN_INPUTS = 10;
@@ -38,14 +44,44 @@ const useStyles = makeStyles(theme => ({
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
     width: 400
+  },
+  changePasswordModalLayout__responseMsgSuccess: {
+    marginTop: 10,
+    fontWeight: "bolder",
+    color: "blue",
+    textAlign: "center"
+  },
+  changePasswordModalLayout__responseMsgError: {
+    marginTop: 10,
+    fontWeight: "bolder",
+    color: "red",
+    textAlign: "center"
   }
 }));
 
 function ChangePasswordModal(props: Props) {
   const styles = useStyles();
-  const { onChangeData } = props;
-  const { open } = props;
-  const { handleClose } = props;
+  const {
+    open,
+    handleClose,
+    handlePasswordSubmit,
+    submitError,
+    responseMsg
+  } = props;
+
+  const [inputPassword, setInputPassword] = useState({
+    oldPassword: "",
+    newPassword: "",
+    confirmNewPassword: ""
+  });
+
+  const onChangeData = (field: string, e: any) => {
+    e.persist();
+    const newData = { ...inputPassword };
+    // @ts-ignore
+    newData[field] = e.target.value;
+    setInputPassword(newData);
+  };
 
   return (
     <Modal
@@ -100,13 +136,33 @@ function ChangePasswordModal(props: Props) {
                 onChange={(e: any) => onChangeData("confirmNewPassword", e)}
               />
             </div>
+            {submitError && !!submitError?.trim() && (
+              <Typography
+                variant="subtitle1"
+                className={styles.changePasswordModalLayout__responseMsgError}
+              >
+                {submitError}
+              </Typography>
+            )}
+            {responseMsg?.message?.trim() && (
+              <Typography
+                variant="subtitle1"
+                className={
+                  responseMsg.isError
+                    ? styles.changePasswordModalLayout__responseMsgError
+                    : styles.changePasswordModalLayout__responseMsgSuccess
+                }
+              >
+                {responseMsg.message}
+              </Typography>
+            )}
             <div className={styles.changePasswordModalLayout__submitBtn}>
               <Button
                 variant="contained"
                 color="primary"
                 component="span"
                 fullWidth
-                onClick={() => handleClose}
+                onClick={() => handlePasswordSubmit(inputPassword)}
               >
                 Submit
               </Button>
