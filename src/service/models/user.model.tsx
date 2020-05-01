@@ -1,7 +1,8 @@
+import Contacts from "./contacts.model";
+import Organization from "./organization.model";
 class User {
   city: string;
-  contactID?: number;
-  contactType?: string;
+  contacts?: Contacts;
   country: string;
   createdAt: Date;
   email: string;
@@ -10,20 +11,20 @@ class User {
   id: number;
   isAdmin: boolean;
   lastName: string;
-  organizationId: number;
+  organization: Organization;
   updatedAt: Date;
 
   constructor(props: any) {
     this.id = props.id;
     this.city = props.city;
-    this.contactID = props.contactID;
+    this.contacts = new Contacts(props.contacts);
     this.country = props.country;
     this.email = props.email;
     this.firstName = props.firstName;
     this.functionTitle = props.functionTitle;
     this.isAdmin = props.isAdmin;
     this.lastName = props.lastName;
-    this.organizationId = props.organizationId;
+    this.organization = new Organization(props.organization);
     this.createdAt = props.createdAt;
     this.updatedAt = props.updatedAt;
   }
