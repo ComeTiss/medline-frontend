@@ -35,6 +35,8 @@ export const OrganizationFragment = gql`
     name
     country
     city
+    address
+    activity
     verifiedAt
     deletedAt
     createdAt
@@ -47,10 +49,17 @@ export const UserFragment = gql`
     id
     firstName
     lastName
+    civility
     email
+    displayEmail
     functionTitle
     isAdmin
     createdAt
     updatedAt
+    phoneNumber
+    whatsapp
+    skype
+    wechat
+    zoom
   }
 `;
