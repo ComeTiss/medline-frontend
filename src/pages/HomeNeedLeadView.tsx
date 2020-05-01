@@ -119,7 +119,7 @@ const HomeNeedLeadView = () => {
     </tr>
   );
 
-  const noDataRow = () => <tr>Nothing to display for now</tr>;
+  const noDataRow = () => <tr><td>Nothing to display for now</td></tr>;
 
   return (
     <>
