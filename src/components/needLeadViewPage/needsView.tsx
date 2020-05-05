@@ -25,7 +25,9 @@ function NeedsView() {
             background: "rgba(255,255,255,0.75)",
             width: "80%",
             height: "67vh",
-            padding: "20px 35px 35px 35px"
+            padding: "20px 35px 35px 35px",
+            minWidth: "875px",
+            minHeight: "475px"
         },
         needHeader: {
             display: "flex",

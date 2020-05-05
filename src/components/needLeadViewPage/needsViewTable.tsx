@@ -14,8 +14,30 @@ type Props = {
 function NeedsViewTable() {
     const [page, setPage] = useState(1);
     const useStyles = makeStyles(() => ({
+        outerTable: {
+            width: "100%",
+            height: "42vh",
+            marginBottom: "20px",
+            minWidth: "800px",
+            minHeight: "475",
+        },
         table: {
-            // border: "1px solid #c3c3c3"
+            width: "100%"
+        },
+        headerTable: {
+            width: "100%",
+            minWidth: "800px"
+        },
+        innerTable: {
+            width: "100%",
+            height: "42vh",
+            minWidth: "800px",
+            minHeight:"285",
+            border: "1px solid #c3c3c3",
+            marginTop: "5px",
+            fontSize: "13px",
+            fontFamily: "sans - serif",
+            fontWeight: 400
         },
         header: {
             color: "#26396a",
@@ -25,12 +47,15 @@ function NeedsViewTable() {
             padding: "4px"
         },
         bodyBox: {
-            // border: "1px solid #c3c3c3",
+            width: "100%",
             color: "#77797a"
         },
         footer: {
             display:"flex",
-            justifyContent: "center"
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: "20px",
+            color: "#5a5a5a"
         }
     }));
     const styles = useStyles();
@@ -65,7 +90,7 @@ function NeedsViewTable() {
 
     const noDataRow = () => (
         <tr>
-            <td>Nothing to display for now</td>
+            <td></td>
         </tr>
     )
 
@@ -79,23 +104,30 @@ function NeedsViewTable() {
 
     return (
         <>
-            <table className={styles.table}>
-                <thead>
-                    <tr>
-                        <th className={styles.header}>URGENCY</th>
-                        <th className={styles.header}>ITEMS</th>
-                        <th className={styles.header}>POSTED BY</th>
-                        <th className={styles.header}>COUNTRY</th>
-                        <th className={styles.header}>CITY</th>
-                        <th className={styles.header}>QTY</th>
-                        <th className={styles.header}>DATE</th>
-                        <th className={styles.header}>BUDGET</th>
-                    </tr>
-                </thead>
-                <tbody className={styles.bodyBox} >{needs.length > 0 ? needs.map(needRow) : noDataRow()}</tbody>
-            </table>
+            <Box  className={styles.outerTable}>
+                <table className={styles.table}>
+                    <Box className={styles.headerTable}>
+                        <table className={styles.table}>
+                            <tr>
+                                <th className={styles.header}>URGENCY</th>
+                                <th className={styles.header}>ITEMS</th>
+                                <th className={styles.header}>POSTED BY</th>
+                                <th className={styles.header}>COUNTRY</th>
+                                <th className={styles.header}>CITY</th>
+                                <th className={styles.header}>QTY</th>
+                                <th className={styles.header}>DATE</th>
+                                <th className={styles.header}>BUDGET</th>
+                            </tr>
+                        </table>
+                    </Box>
+                    <Box className={styles.innerTable}>
+                        <table className={styles.bodyBox} >{needs.length > 0 ? needs.map(needRow) : noDataRow()}</table >
+                    </Box>
+                </table>
+            </Box>
             <Container className={styles.footer}>
                 <ArrowLeftIcon onClick={() => changePageHandle("left")} />
+                    {page}
                 <ArrowRightIcon onClick={() => changePageHandle("right")} />
             </Container>
         </>
