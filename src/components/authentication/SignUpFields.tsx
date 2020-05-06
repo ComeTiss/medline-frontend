@@ -51,7 +51,7 @@ function SignUpFields(props: Props) {
       <Typography className={styles.signupFields__TextSeparator} variant="h6">
         Personal Details
       </Typography>
-      <RadioGroup row aria-label="position" name="position" defaultValue="">
+      <RadioGroup row aria-label="position" name="position">
         <FormControlLabel
           value="Ms."
           control={<Radio color="primary" />}
@@ -74,7 +74,7 @@ function SignUpFields(props: Props) {
           onChange={(e: any) => onChangeData("civility", e)}
         />
         <FormControlLabel
-          value={""}
+          value={null}
           control={<Radio color="primary" />}
           label="Leave blank"
           labelPlacement="start"

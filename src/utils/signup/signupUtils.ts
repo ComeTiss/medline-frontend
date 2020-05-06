@@ -41,5 +41,5 @@ export type SignupInputDataType = {
   city: string;
   functionTitle: string;
   activity: string;
-  civility: string;
+  civility: string | null;
 };

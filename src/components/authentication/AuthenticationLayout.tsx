@@ -67,7 +67,7 @@ const signUpExtraFields = {
   city: "",
   functionTitle: "",
   activity: "",
-  civility: ""
+  civility: null
 };
 
 function AuthenticationLayout(props: Props) {
