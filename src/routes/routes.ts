@@ -8,6 +8,7 @@ import ContactUs from "../pages/ContactUs";
 import Profile from "../pages/Profile";
 import FAQ from "../pages/FAQ";
 import JoinUs from "../pages/JoinUs";
+import Donate from "../pages/Donate";
 
 const routes = [
   {
@@ -74,12 +75,19 @@ const routes = [
     component: FAQ
   },
   {
-    path: "/joinus",
+    path: "/join-us",
     exact: true,
     name: "joinus",
     protected: false,
     component: JoinUs
   },
+  {
+    path: "/donate",
+    exact: true,
+    name: "donate",
+    protected: false,
+    component: Donate
+  }
 ];
 
 export default routes;
