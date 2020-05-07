@@ -3,9 +3,12 @@ import { useQuery } from "@apollo/react-hooks";
 import { makeStyles, Box, Container } from "@material-ui/core";
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 import { GET_NEEDS } from "../../service/apollo/queries";
 import Need from "../../service/models/need.model";
+
+
 
 type Props = {
     page: number;
@@ -16,17 +19,14 @@ function NeedsViewTable() {
     const useStyles = makeStyles(() => ({
         outerTable: {
             width: "100%",
-            height: "42vh",
+            height: "80%",
             marginBottom: "20px",
             minWidth: "800px",
-            minHeight: "475",
         },
         table: {
-            width: "100%"
-        },
-        headerTable: {
             width: "100%",
-            minWidth: "800px"
+            minWidth: "908px",
+            minHeight: "425px"
         },
         innerTable: {
             width: "100%",
@@ -41,20 +41,23 @@ function NeedsViewTable() {
         },
         header: {
             color: "#26396a",
-            textAlign: "start"
+            textAlign: "start",
+            fontWeight: 400,
+            transform: "scaleY(0.9)",
         },
         td: {
-            padding: "4px"
+            padding: "0px 10px 15px 5px",
+            transform: "scaleY(0.9)",
+            fontWeight: 400
         },
         bodyBox: {
-            width: "100%",
+            // width: "100%",
             color: "#77797a"
         },
         footer: {
             display:"flex",
             justifyContent: "center",
             alignItems: "center",
-            marginTop: "20px",
             color: "#5a5a5a"
         }
     }));
@@ -106,23 +109,19 @@ function NeedsViewTable() {
         <>
             <Box  className={styles.outerTable}>
                 <table className={styles.table}>
-                    <Box className={styles.headerTable}>
-                        <table className={styles.table}>
-                            <tr>
-                                <th className={styles.header}>URGENCY</th>
-                                <th className={styles.header}>ITEMS</th>
-                                <th className={styles.header}>POSTED BY</th>
-                                <th className={styles.header}>COUNTRY</th>
-                                <th className={styles.header}>CITY</th>
-                                <th className={styles.header}>QTY</th>
-                                <th className={styles.header}>DATE</th>
-                                <th className={styles.header}>BUDGET</th>
-                            </tr>
-                        </table>
-                    </Box>
-                    <Box className={styles.innerTable}>
-                        <table className={styles.bodyBox} >{needs.length > 0 ? needs.map(needRow) : noDataRow()}</table >
-                    </Box>
+                    <thead>
+                        <th className={styles.header}>URGENCY <ArrowDropDownIcon /></th>
+                        <th className={styles.header}>ITEMS <ArrowDropDownIcon /></th>
+                        <th className={styles.header}>POSTED BY <ArrowDropDownIcon /></th>
+                        <th className={styles.header}>COUNTRY <ArrowDropDownIcon /></th>
+                        <th className={styles.header}>CITY <ArrowDropDownIcon /></th>
+                        <th className={styles.header}>QTY <ArrowDropDownIcon /></th>
+                        <th className={styles.header}>DATE <ArrowDropDownIcon /></th>
+                        <th className={styles.header}>BUDGET <ArrowDropDownIcon /></th>
+                    </thead>
+                    <tbody className={styles.bodyBox} >
+                        {needs.length > 0 ? needs.map(needRow) : noDataRow()}
+                    </tbody>
                 </table>
             </Box>
             <Container className={styles.footer}>

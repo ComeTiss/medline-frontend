@@ -22,12 +22,11 @@ function NeedsView() {
         boxNeed: {
             display: "flex",
             flexDirection: "column",
-            background: "rgba(255,255,255,0.75)",
-            width: "80%",
-            height: "67vh",
+            background: "rgba(255,255,255,0.85)",
+            height: "60vh",
             padding: "20px 35px 35px 35px",
             minWidth: "875px",
-            minHeight: "475px"
+            minHeight: "560px"
         },
         needHeader: {
             display: "flex",
