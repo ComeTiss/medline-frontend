@@ -2,8 +2,8 @@ import React from "react";
 import { makeStyles, Box } from "@material-ui/core";
 import Button from "@material-ui/core/Button";
 import doctorMaskImage from "../images/homepage_doctor_mask.jpg";
-// import { GET_NEEDS } from "../service/apollo/queries";
-// import { useQuery } from "@apollo/react-hooks";
+import { GET_NEEDS, GET_LEADS } from "../service/apollo/queries";
+import { useQuery } from "@apollo/react-hooks";
 
 const useStyles = makeStyles(() => ({
   box: {
@@ -58,19 +58,72 @@ const useStyles = makeStyles(() => ({
 }));
 
 const HomeNeedLeadView = () => {
-  // const { data: needsData } = useQuery(GET_NEEDS, {
-  //   variables: {
-  //     request: {
-  //       options: {
-  //         limit: 5
-  //       }
-  //     }
-  //   },
-  //   fetchPolicy: "network-only"
-  // });
-  // const needs = needsData?.getAllNeeds?.needs;
+  const { data: needsData } = useQuery(GET_NEEDS, {
+    variables: {
+      request: {
+        options: {
+          page: 1,
+          limit: 5
+        }
+      }
+    },
+    fetchPolicy: "cache-and-network"
+  });
+
+  const { data: leadsData } = useQuery(GET_LEADS, {
+    variables: {
+      request: {
+        options: {
+          page: 1,
+          limit: 5
+        }
+      }
+    },
+    fetchPolicy: "cache-and-network"
+  });
+
+  const needs = needsData?.getAllNeeds?.needs || [];
+  const leads = leadsData?.getAllLeads?.leads || [];
 
   const styles = useStyles();
+
+  const needRow = (need: any) => (
+    <tr className={styles.tr} key={need.id}>
+      <td className={styles.td}>{need.urgencyLevel}</td>
+      <td className={styles.td}>{need.itemName}</td>
+      <td className={styles.td}>{need.quantity}</td>
+      <td className={styles.td}>{need.budget}</td>
+      <td className={styles.td}>{need.specifications}</td>
+      <td className={styles.td}>{need.createdAt}</td>
+      <td>
+        <a className={styles.link} href="/">
+          More
+        </a>
+      </td>
+    </tr>
+  );
+
+  const leadRow = (lead: any) => (
+    <tr className={styles.tr} key={lead.id}>
+      <td className={styles.td}>{lead.itemName}</td>
+      <td className={styles.td}>{lead.specifications}</td>
+      <td className={styles.td}>{lead.quantity}</td>
+      <td className={styles.td}>{lead.cost}</td>
+      <td className={styles.td}>{lead.availableAt}</td>
+      <td className={styles.td}>{lead.createdAt}</td>
+      <td>
+        <a className={styles.link} href="/">
+          More
+        </a>
+      </td>
+    </tr>
+  );
+
+  const noDataRow = () => (
+    <tr>
+      <td>Nothing to display for now</td>
+    </tr>
+  );
 
   return (
     <>
@@ -89,73 +142,7 @@ const HomeNeedLeadView = () => {
                 <th className={styles.header}></th>
               </tr>
             </thead>
-            <tbody>
-              <tr className={styles.tr}>
-                <td className={styles.td}>1</td>
-                <td className={styles.td}>N95</td>
-                <td className={styles.td}>50</td>
-                <td className={styles.td}>can buy</td>
-                <td className={styles.td}>NY</td>
-                <td className={styles.td}>hospital</td>
-                <td>
-                  {/* <a className={styles.link}>
-                    More
-                  </a> */}
-                </td>
-              </tr>
-              <tr className={styles.tr}>
-                <td className={styles.td}>1</td>
-                <td className={styles.td}>N95</td>
-                <td className={styles.td}>50</td>
-                <td className={styles.td}>can buy</td>
-                <td className={styles.td}>NY</td>
-                <td className={styles.td}>hospital</td>
-                <td>
-                  {/* <a className={styles.link}>
-                    More
-                  </a> */}
-                </td>
-              </tr>
-              <tr className={styles.tr}>
-                <td className={styles.td}>1</td>
-                <td className={styles.td}>N95</td>
-                <td className={styles.td}>50</td>
-                <td className={styles.td}>can buy</td>
-                <td className={styles.td}>NY</td>
-                <td className={styles.td}>hospital</td>
-                <td>
-                  {/* <a className={styles.link}>
-                    More
-                  </a> */}
-                </td>
-              </tr>
-              <tr className={styles.tr}>
-                <td className={styles.td}>1</td>
-                <td className={styles.td}>N95</td>
-                <td className={styles.td}>50</td>
-                <td className={styles.td}>can buy</td>
-                <td className={styles.td}>NY</td>
-                <td className={styles.td}>hospital</td>
-                <td>
-                  {/* <a className={styles.link}>
-                    More
-                  </a> */}
-                </td>
-              </tr>
-              <tr className={styles.tr}>
-                <td className={styles.td}>1</td>
-                <td className={styles.td}>N95</td>
-                <td className={styles.td}>50</td>
-                <td className={styles.td}>can buy</td>
-                <td className={styles.td}>NY</td>
-                <td className={styles.td}>hospital</td>
-                <td>
-                  {/* <a className={styles.link}>
-                    More
-                  </a> */}
-                </td>
-              </tr>
-            </tbody>
+            <tbody>{needs.length > 0 ? needs.map(needRow) : noDataRow()}</tbody>
           </table>
           <Button variant="contained" color="primary" className={styles.button}>
             VIEW ALL
@@ -174,73 +161,7 @@ const HomeNeedLeadView = () => {
                 <th className={styles.header}>NAME</th>
               </tr>
             </thead>
-            <tbody>
-              <tr className={styles.tr}>
-                <td>1</td>
-                <td>N95</td>
-                <td>50</td>
-                <td>can buy</td>
-                <td>NY</td>
-                <td>hospital</td>
-                <td>
-                  {/* <a className={styles.link}>
-                    More
-                  </a> */}
-                </td>
-              </tr>
-              <tr className={styles.tr}>
-                <td>1</td>
-                <td>N95</td>
-                <td>50</td>
-                <td>can buy</td>
-                <td>NY</td>
-                <td>hospital</td>
-                <td>
-                  {/* <a className={styles.link}>
-                    More
-                  </a> */}
-                </td>
-              </tr>
-              <tr className={styles.tr}>
-                <td>1</td>
-                <td>N95</td>
-                <td>50</td>
-                <td>can buy</td>
-                <td>NY</td>
-                <td>hospital</td>
-                <td>
-                  {/* <a className={styles.link}>
-                    More
-                  </a> */}
-                </td>
-              </tr>
-              <tr className={styles.tr}>
-                <td>1</td>
-                <td>N95</td>
-                <td>50</td>
-                <td>can buy</td>
-                <td>NY</td>
-                <td>hospital</td>
-                <td>
-                  {/* <a className={styles.link}>
-                    More
-                  </a> */}
-                </td>
-              </tr>
-              <tr className={styles.tr}>
-                <td>1</td>
-                <td>N95</td>
-                <td>50</td>
-                <td>can buy</td>
-                <td>NY</td>
-                <td>hospital</td>
-                <td>
-                  {/* <a className={styles.link}>
-                    More
-                  </a> */}
-                </td>
-              </tr>
-            </tbody>
+            <tbody>{leads.length > 0 ? leads.map(leadRow) : noDataRow()}</tbody>
           </table>
           <Button variant="contained" color="primary" className={styles.button}>
             VIEW ALL

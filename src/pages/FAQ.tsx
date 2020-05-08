@@ -2,14 +2,20 @@ import React from "react";
 import NavBar from "../components/navigation/NavBar";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import Panel from "../components/faq/Panel";
-const logo = require("../media/faq_background.jpg");
+import Footer from "../components/footer/Footer";
+const backgroundImage = require("../media/faq_background.jpg");
 
 const useStyles = makeStyles(() =>
   createStyles({
+    overallContainer: {
+      background: `url(${backgroundImage}) no-repeat center center`,
+      backgroundSize: "100% auto",
+      backgroundPosition: "0 5vh"
+    },
     root: {
       width: "58%",
-      position: "absolute",
-      left: "21%"
+      marginLeft: "21%",
+      marginBottom: "7.5%"
     },
     title: {
       color: "#233768",
@@ -18,11 +24,6 @@ const useStyles = makeStyles(() =>
       padding: "30px",
       fontSize: "20px",
       fontFamily: "Verdana"
-    },
-    background: {
-      position: "absolute",
-      float: "left",
-      opacity: "20%"
     }
   })
 );
@@ -31,14 +32,8 @@ export default function FAQ() {
   const classes = useStyles();
 
   return (
-    <div>
+    <div className={classes.overallContainer}>
       <NavBar />
-      <img
-        src={String(logo)}
-        style={{ width: "100%" }}
-        className={classes.background}
-        alt="laptop"
-      />
       <div className={classes.title}>FAQ</div>
       <div className={classes.root}>
         <Panel
@@ -70,7 +65,7 @@ export default function FAQ() {
               <br />
               We do receive some donations to help keep the platform up and
               running. If you’d like to learn more about volunteering or
-              donations, [click here] or&nbsp;
+              donations, <a href="/join-us">click here</a> or&nbsp;
               <a href="/contact-us">contact us</a>.
             </div>
           }
@@ -169,7 +164,8 @@ export default function FAQ() {
               post Needs / Leads!
               <br />
               <br />
-              Here&apos;s our [link] and [social accounts].
+              Here&apos;s our [LinkedIn] and&nbsp;
+              <a href="https://www.facebook.com/MedLine.io">facebook</a>.
             </div>
           }
           bottomPanel={false}
@@ -203,6 +199,7 @@ export default function FAQ() {
           bottomPanel={true}
         />
       </div>
+      <Footer />
     </div>
   );
 }
