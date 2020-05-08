@@ -13,6 +13,10 @@ import Captcha from "./Captcha";
 import signupUtils, {
   SignupInputDataType
 } from "../../utils/signup/signupUtils";
+import {
+  isLoginInputValid,
+  isSignupInputValid
+} from "../needs-and-leads/validateForm";
 
 type Props = {
   title: string;
@@ -82,12 +86,16 @@ function AuthenticationLayout(props: Props) {
     inputData.password && isSignup
       ? signupUtils.helperTextPassword(inputData.password)
       : "";
+  const isInputValid = isSignup
+    ? isSignupInputValid(inputData)
+    : isLoginInputValid(inputData);
 
   const onChangeData = (field: string, e: any) => {
     e.persist();
     const newData = { ...inputData };
+    if (field === "civility" && !e.target.value) newData[field] = null;
     // @ts-ignore
-    if (field !== "country") newData[field] = e.target.value;
+    else if (field !== "country") newData[field] = e.target.value;
     else {
       const country = e.target.textContent.match(/[A-Z].+?(?= \()/g);
       newData[field] = country ? country[0] : e.target.value;
@@ -109,8 +117,8 @@ function AuthenticationLayout(props: Props) {
               required
               fullWidth
               id="email-input"
-              label="Email adress"
-              placeholder="Email adress"
+              label="Email address"
+              placeholder="Email address"
               onChange={(e: any) => onChangeData("email", e)}
             />
           </div>
@@ -146,6 +154,7 @@ function AuthenticationLayout(props: Props) {
               color="primary"
               component="span"
               fullWidth
+              disabled={!isInputValid}
               onClick={() => onSubmit(inputData)}
             >
               Submit
