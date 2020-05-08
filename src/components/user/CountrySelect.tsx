@@ -310,7 +310,7 @@ const countries = [
   { code: "TR", label: "Turkey" },
   { code: "TT", label: "Trinidad and Tobago" },
   { code: "TV", label: "Tuvalu" },
-  { code: "TW", label: "Taiwan, Province of China" },
+  { code: "TW", label: "Taiwan" },
   { code: "TZ", label: "United Republic of Tanzania" },
   { code: "UA", label: "Ukraine" },
   { code: "UG", label: "Uganda" },
