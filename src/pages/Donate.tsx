@@ -15,21 +15,17 @@ import backgroundImage from "../media/person-holding-white-peony-bouquet-closeup
 const useStyles = makeStyles(theme => ({
   wrapper: {
     background: `url(${backgroundImage}) no-repeat center center`,
-    backgroundSize: "cover",
-    minHeight: "80vh"
+    backgroundSize: "cover"
   },
   container: {
     background: "rgba(255, 255, 255, 0.6)",
-    padding: "1rem 4rem",
-    [theme.breakpoints.up("sm")]: {
-      padding: "1rem 7rem"
-    }
+    padding: "1rem"
   },
   bottomContainer: {
     background: "rgba(255, 255, 255, 0.6)",
-    padding: "1rem 4rem 18rem",
+    padding: "1rem 4rem 8rem",
     [theme.breakpoints.up("sm")]: {
-      padding: "3rem 1rem 28rem"
+      padding: "3rem 1rem 25rem"
     }
   },
   gridContainer: {
@@ -38,38 +34,18 @@ const useStyles = makeStyles(theme => ({
       padding: "1rem 0"
     }
   },
-  overlapContainer: {
-    background: "rgba(255, 255, 255, 0.8)",
-    padding: "0 2rem",
-    [theme.breakpoints.up("sm")]: {
-      padding: "0 7rem"
-    }
-  },
-  paragraphContainer: {
-    padding: "1rem 0"
-  },
-  boldText: {
-    fontWeight: "bold"
-  },
   titleWrapper: {
-    paddingTop: "2rem",
-    [theme.breakpoints.up("sm")]: {
-      paddingTop: "2rem"
-    }
+    paddingTop: "1rem"
   },
   root: {
-    flexGrow: 1,
     justifyContent: "center",
     backgroundColor: "white",
     opacity: "0.75",
-    [theme.breakpoints.up("xs")]: {
-      paddingTop: "1rem"
-    }
+    paddingTop: "1rem"
   },
   box: {
     padding: theme.spacing(2),
     textAlign: "center",
-    variant: "outlined",
     fontSize: "16px"
   },
   circle: {
@@ -94,25 +70,8 @@ const useStyles = makeStyles(theme => ({
     margin: theme.spacing(2),
     backgroundColor: "white"
   },
-
   buttonContainer: {
     textAlign: "center"
-  },
-
-  footerContainer: {
-    background: "rgba(255, 255, 255, 0.6)",
-    padding: "0rem",
-    //   display: "flex",
-    // minHeight: "60vh",
-    // marginBottom: "50vh",
-    // marginTop: "-180px",
-    width: "105vw",
-    marginLeft: "50%",
-    transform: "translateX(-50%)",
-    position: "fixed",
-    bottom: "0",
-    left: "0",
-    right: "0"
   }
 }));
 
@@ -207,13 +166,9 @@ function Donate() {
             "We are working to either partner or register as a recognized non-profit for tax"
           )}
           {TextBody1("deductibles in the near future. Stay tuned")}
-          <Grid container className={styles.footerContainer}>
-            <Grid item xs={12} sm={12}>
-              <Footer />
-            </Grid>
-          </Grid>
         </div>
       </div>
+      <Footer />
     </>
   );
 }
