@@ -8,6 +8,7 @@ import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 import { GET_NEEDS } from "../../service/apollo/queries";
 import Need from "../../service/models/need.model";
+import { regExpLiteral } from "@babel/types";
 
 
 
@@ -17,7 +18,9 @@ type Props = {
 
 function NeedsViewTable() {
     const [page, setPage] = useState(1);
+    const [totalPages, setTotalPage] = useState(1);
     const [needs,setNeeds] = useState([])
+    const [filterStr, setFilterStr] = useState('');
 
     const useStyles = makeStyles(() => ({
         outerTable: {
@@ -101,6 +104,9 @@ function NeedsViewTable() {
             justifyContent: "center",
             alignItems: "center",
             color: "#5a5a5a"
+        },
+        arrowIcon: {
+            cursor: "pointer"
         }
     }));
     const styles = useStyles();
@@ -111,40 +117,68 @@ function NeedsViewTable() {
                 options: {
                     page: page,
                     limit: 10
-                }
+                },
+                filters: {}
             }
         },
         fetchPolicy: "cache-and-network"
     });
 
+    const { data: filteredNeeds } = useQuery(GET_NEEDS, {
+        variables: {
+            request: {
+
+            },
+        },
+        fetchPolicy: "cache-and-network"
+    });
+
+    const fetchFilteredNeeds  = () => {
+        let totalNeeds = filteredNeeds?.getAllNeeds?.needs || [];
+        totalNeeds = totalNeeds.filter((need: any) => {
+            return need.itemName.includes(filterStr)
+        }).slice(0,10)
+        console.log("filterNeeds", totalNeeds)
+        setNeeds(totalNeeds)
+    }
+
 
     const fetchNeeds = () => {
-        const needs = needsData ?.getAllNeeds ?.needs || [];
-        let space = 10 - needs.length % 10;
-
-        if (space !== 0) {
-            for (let i = 0; i < space; i++) {
-                needs.push({
-                    urgencyLevel: "",
-                    itemName: "",
-                    createdAt: "",
-                    specifications: "",
-                    quantity: "",
-                    budget: ""
-                })
-            }
+        const totalNeeds = filteredNeeds ?.getAllNeeds ?.needs || [];
+        const needs = needsData?.getAllNeeds?.needs || [];
+        let space;
+        if (needs.length !== 10) {
+            space = 10 - (needs.length % 10);
+        } else {
+            space = 0;
         }
+       
+        
+        for (let i = 0; i < space; i++) {
+            needs.push({
+                urgencyLevel: "",
+                itemName: "",
+                createdAt: "",
+                specifications: "",
+                quantity: "",
+                budget: ""
+            })
+        }
+
+        let totalPages = Math.ceil(totalNeeds.length / 10);
         setNeeds(needs)
+        setTotalPage(totalPages)
     }
 
 
     useEffect(() => {
         fetchNeeds();
-    }, [needs]);
+        console.log("state change",needs)
+    }, [needsData, filterStr, totalPages]);
 
     function searchNeeds(e: any) {
-        // const newNeeds = needs.filter(it => !!it && it.itemName.search(e.target.value) >= 0)
-        // setNeeds(newNeeds)
+        setFilterStr(e.target.value);
+        fetchFilteredNeeds()
     }
 
     const needRow = (need: Need) => (
@@ -169,7 +203,7 @@ function NeedsViewTable() {
     const changePageHandle = (dir: String) => {
         if (dir === "left" && page > 1) {
             setPage(page - 1)
-        } else {
+        } else if (dir === "right" && page < totalPages ){
             setPage(page + 1)
         }
     }
@@ -205,7 +239,7 @@ function NeedsViewTable() {
                 </Box>
                 <Container className={styles.footer}>
                     <ArrowLeftIcon onClick={() => changePageHandle("left")} />
-                    {page}
+                    {page} / {totalPages}
                     <ArrowRightIcon onClick={() => changePageHandle("right")} />
                 </Container>
             </Box>
