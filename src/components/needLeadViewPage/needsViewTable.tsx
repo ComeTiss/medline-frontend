@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { makeStyles, Box, Container } from "@material-ui/core";
+import SearchIcon from '@material-ui/icons/Search';
 import ArrowLeftIcon from '@material-ui/icons/ArrowLeft';
 import ArrowRightIcon from '@material-ui/icons/ArrowRight';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
@@ -16,12 +17,54 @@ type Props = {
 
 function NeedsViewTable() {
     const [page, setPage] = useState(1);
+    const [needs,setNeeds] = useState([])
+
     const useStyles = makeStyles(() => ({
         outerTable: {
             width: "100%",
             height: "80%",
             marginBottom: "20px",
             minWidth: "800px",
+        },
+        boxNeed: {
+            display: "flex",
+            flexDirection: "column",
+            background: "rgba(255,255,255,0.85)",
+            height: "60vh",
+            padding: "20px 35px 35px 35px",
+            minWidth: "875px",
+            minHeight: "575px"
+        },
+        needHeader: {
+            display: "flex",
+            justifyContent: "space-around",
+            alignItems: "center",
+            color: "#26396a",
+        },
+        headerText: {
+            fontFamily: "inherit",
+            fontWeight: 400,
+            fontSize: "20px"
+        },
+        inputBox: {
+            display: "flex",
+            width: "40%",
+            height: "25px",
+            justifyContent: "space-between",
+            alignItems: "center",
+            border: "1px solid #c3c3c3",
+            background: "white",
+            paddingRight: "2px",
+            marginRight: "0px"
+        },
+        input: {
+            width: "100%",
+            border: "none",
+            height: "23px",
+            outline: "none"
+        },
+        searchIcon: {
+            color: "#616161"
         },
         table: {
             width: "100%",
@@ -43,7 +86,7 @@ function NeedsViewTable() {
             color: "#26396a",
             textAlign: "start",
             fontWeight: 400,
-            transform: "scaleY(0.9)",
+            transform: "scaleY(0.9)"
         },
         td: {
             padding: "0px 10px 15px 5px",
@@ -51,7 +94,6 @@ function NeedsViewTable() {
             fontWeight: 400
         },
         bodyBox: {
-            // width: "100%",
             color: "#77797a"
         },
         footer: {
@@ -75,8 +117,35 @@ function NeedsViewTable() {
         fetchPolicy: "cache-and-network"
     });
 
-    const needs = needsData?.getAllNeeds?.needs || [];
 
+    const fetchNeeds = () => {
+        const needs = needsData ?.getAllNeeds ?.needs || [];
+        let space = 10 - needs.length % 10;
+
+        if (space !== 0) {
+            for (let i = 0; i < space; i++) {
+                needs.push({
+                    urgencyLevel: "",
+                    itemName: "",
+                    createdAt: "",
+                    specifications: "",
+                    quantity: "",
+                    budget: ""
+                })
+            }
+        }
+        setNeeds(needs)
+    }
+
+
+    useEffect(() => {
+        fetchNeeds();
+    }, [needs]);
+
+    function searchNeeds(e: any) {
+        // const newNeeds = needs.filter(it => !!it && it.itemName.search(e.target.value) >= 0)
+        // setNeeds(newNeeds)
+    }
 
     const needRow = (need: Need) => (
         <tr key={need.id}>
@@ -107,28 +176,39 @@ function NeedsViewTable() {
 
     return (
         <>
-            <Box  className={styles.outerTable}>
-                <table className={styles.table}>
-                    <thead>
-                        <th className={styles.header}>URGENCY <ArrowDropDownIcon /></th>
-                        <th className={styles.header}>ITEMS <ArrowDropDownIcon /></th>
-                        <th className={styles.header}>POSTED BY <ArrowDropDownIcon /></th>
-                        <th className={styles.header}>COUNTRY <ArrowDropDownIcon /></th>
-                        <th className={styles.header}>CITY <ArrowDropDownIcon /></th>
-                        <th className={styles.header}>QTY <ArrowDropDownIcon /></th>
-                        <th className={styles.header}>DATE <ArrowDropDownIcon /></th>
-                        <th className={styles.header}>BUDGET <ArrowDropDownIcon /></th>
-                    </thead>
-                    <tbody className={styles.bodyBox} >
-                        {needs.length > 0 ? needs.map(needRow) : noDataRow()}
-                    </tbody>
-                </table>
-            </Box>
-            <Container className={styles.footer}>
-                <ArrowLeftIcon onClick={() => changePageHandle("left")} />
+            <Box className={styles.boxNeed}>
+                <Box className={styles.needHeader}>
+                    <h1 className={styles.headerText}>NEEDS</h1>
+                    <Container className={styles.inputBox}>
+                        <input className={styles.input} type="text" onChange={searchNeeds} />
+                        <SearchIcon className={styles.searchIcon} />
+                    </Container>
+                </Box>
+                <Box className={styles.outerTable}>
+                    <table className={styles.table}>
+                        <thead>
+                            <tr>
+                                <th className={styles.header}>URGENCY <ArrowDropDownIcon /></th>
+                                <th className={styles.header}>ITEMS <ArrowDropDownIcon /></th>
+                                <th className={styles.header}>POSTED BY <ArrowDropDownIcon /></th>
+                                <th className={styles.header}>COUNTRY <ArrowDropDownIcon /></th>
+                                <th className={styles.header}>CITY <ArrowDropDownIcon /></th>
+                                <th className={styles.header}>QTY <ArrowDropDownIcon /></th>
+                                <th className={styles.header}>DATE <ArrowDropDownIcon /></th>
+                                <th className={styles.header}>BUDGET <ArrowDropDownIcon /></th>
+                            </tr>
+                        </thead>
+                        <tbody className={styles.bodyBox} >
+                            {needs.length > 0 ? needs.map(needRow) : noDataRow()}
+                        </tbody>
+                    </table>
+                </Box>
+                <Container className={styles.footer}>
+                    <ArrowLeftIcon onClick={() => changePageHandle("left")} />
                     {page}
-                <ArrowRightIcon onClick={() => changePageHandle("right")} />
-            </Container>
+                    <ArrowRightIcon onClick={() => changePageHandle("right")} />
+                </Container>
+            </Box>
         </>
     );
 }
