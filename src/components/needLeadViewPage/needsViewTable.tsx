@@ -128,32 +128,28 @@ function NeedsViewTable() {
     fetchPolicy: "cache-and-network"
   });
 
-  const fetchFilteredNeeds = () => {
-    let totalNeeds = filteredNeeds?.getAllNeeds?.needs || [];
-    totalNeeds = totalNeeds
-      .filter((need: any) => {
-        return need.itemName.includes(filterStr);
-      })
-      .slice(0, 10);
-    let space = 10 - totalNeeds.length;
-    for (let i = 0; i < space; i++) {
-      totalNeeds.push({
-        urgencyLevel: "",
-        itemName: "",
-        createdAt: "",
-        specifications: "",
-        quantity: "",
-        budget: "",
-        id: `spacer-need-${Math.random()}`
-      });
-    }
-    setNeeds(totalNeeds);
-    setTotalPage(1);
-  };
-
-  const fetchNeeds = () => {
+  useEffect(() => {
     if (filterStr !== "") {
-      fetchFilteredNeeds();
+      let totalNeeds = filteredNeeds?.getAllNeeds?.needs || [];
+      totalNeeds = totalNeeds
+        .filter((need: any) => {
+          return need.itemName.includes(filterStr);
+        })
+        .slice(0, 10);
+      let space = 10 - totalNeeds.length;
+      for (let i = 0; i < space; i++) {
+        totalNeeds.push({
+          urgencyLevel: "",
+          itemName: "",
+          createdAt: "",
+          specifications: "",
+          quantity: "",
+          budget: "",
+          id: `spacer-need-${Math.random()}`
+        });
+      }
+      setNeeds(totalNeeds);
+      setTotalPage(1);
     } else {
       const totalNeeds = filteredNeeds?.getAllNeeds?.needs || [];
       const needs = needsData?.getAllNeeds?.needs || [];
@@ -180,15 +176,10 @@ function NeedsViewTable() {
       setNeeds(needs);
       setTotalPage(totalPages);
     }
-  };
-
-  useEffect(() => {
-    fetchNeeds();
   }, [needsData, filterStr, totalPages, filteredNeeds]);
 
   function searchNeeds(e: any) {
     setFilterStr(e.target.value);
-    fetchFilteredNeeds();
   }
 
   const needRow = (need: Need) => (
