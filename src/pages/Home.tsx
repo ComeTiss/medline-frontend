@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
@@ -19,10 +19,8 @@ import heartImage from "../images/homepage_heart.jpg";
 import maskImage from "../images/homepage_mask.jpg";
 import threePeopleImage from "../images/homepage_three_people.jpg";
 
-
 import HomeNeedLeadView from "./HomeNeedLeadView";
 import Footer from "../components/footer/Footer";
-
 
 const NO_MODAL = "";
 const MODAL_LEAD_OPEN = "modal_lead_open";
@@ -66,7 +64,6 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: "cover"
   },
   submitLead: {
-
     width: "45vw",
     height: "22vh",
     display: "flex",
@@ -111,7 +108,6 @@ const useStyles = makeStyles(theme => ({
     outline: "none"
   }
 }));
-
 
 function Home() {
   const cookies = useCookies();
