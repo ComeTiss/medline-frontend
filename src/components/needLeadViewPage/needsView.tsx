@@ -12,7 +12,8 @@ function NeedsView() {
       alignItems: "center",
       background: `url(${maskImage}) no-repeat center center`,
       backgroundSize: "cover",
-      height: "100vh"
+      height: "100vh",
+        overflow: "hidden"
     }
   }));
   const styles = useStyles();
