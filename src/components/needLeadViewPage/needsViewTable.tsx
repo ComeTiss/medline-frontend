@@ -107,7 +107,7 @@ function NeedsViewTable() {
       cursor: "pointer"
     },
     tableCustomBorder: {
-      border: "1px solid #26396a",
+      border: "1px solid #86888b",
       position: "absolute",
       width: "100%",
       height: "calc(100% - 35px)",
