@@ -13,7 +13,7 @@ function NeedsView() {
       background: `url(${maskImage}) no-repeat center center`,
       backgroundSize: "cover",
       height: "100vh",
-        overflow: "hidden"
+      overflow: "hidden"
     }
   }));
   const styles = useStyles();

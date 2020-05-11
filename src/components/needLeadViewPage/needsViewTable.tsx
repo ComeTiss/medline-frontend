@@ -107,12 +107,12 @@ function NeedsViewTable() {
       cursor: "pointer"
     },
     tableCustomBorder: {
-        border: "1px solid #26396a",
-        position: "absolute",
-        width: "100%",
-        height: "calc(100% - 35px)",
-        top: "35px",
-        minWidth: "908px"
+      border: "1px solid #26396a",
+      position: "absolute",
+      width: "100%",
+      height: "calc(100% - 35px)",
+      top: "35px",
+      minWidth: "908px"
     }
   }));
   const styles = useStyles();
@@ -233,7 +233,7 @@ function NeedsViewTable() {
           </Container>
         </Box>
         <Box className={styles.outerTable}>
-            <div className={styles.tableCustomBorder}></div>
+          <div className={styles.tableCustomBorder}></div>
           <table className={styles.table}>
             <thead>
               <tr>
@@ -264,7 +264,7 @@ function NeedsViewTable() {
               </tr>
             </thead>
             <tbody className={styles.bodyBox}>
-                {needs.length > 0 ? needs.map(needRow) : noDataRow()}
+              {needs.length > 0 ? needs.map(needRow) : noDataRow()}
             </tbody>
           </table>
         </Box>
