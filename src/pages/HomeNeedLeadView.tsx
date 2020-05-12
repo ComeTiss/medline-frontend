@@ -1,6 +1,5 @@
 import React from "react";
-import { makeStyles, Box } from "@material-ui/core";
-import Button from "@material-ui/core/Button";
+import { makeStyles, Box, Button } from "@material-ui/core";
 import doctorMaskImage from "../images/homepage_doctor_mask.jpg";
 import { GET_NEEDS, GET_LEADS } from "../service/apollo/queries";
 import { useQuery } from "@apollo/react-hooks";
@@ -144,7 +143,12 @@ const HomeNeedLeadView = () => {
             </thead>
             <tbody>{needs.length > 0 ? needs.map(needRow) : noDataRow()}</tbody>
           </table>
-          <Button variant="contained" color="primary" className={styles.button}>
+          <Button
+            variant="contained"
+            color="primary"
+            className={styles.button}
+            href="/needs"
+          >
             VIEW ALL
           </Button>
         </Box>

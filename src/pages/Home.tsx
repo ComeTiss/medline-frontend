@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { makeStyles } from "@material-ui/core/styles";
 import { useHistory } from "react-router-dom";
@@ -64,6 +64,15 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: "cover"
   },
   submitLead: {
+    width: "45vw",
+    height: "22vh",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    textAlign: "center",
+    minWidth: "210px",
+    minHeight: "200px",
+    marginTop: "10px",
     background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${maskImage}) no-repeat center center `,
     backgroundSize: "cover"
   },
@@ -109,8 +118,6 @@ function Home() {
   const [error, setError] = useState("");
   const [mutateNeed] = useMutation(MUTATE_NEED);
   const [mutateLead] = useMutation(MUTATE_LEAD);
-
-  useEffect(() => {});
 
   const onNeedSubmit = (need: Need) => {
     mutateNeed({

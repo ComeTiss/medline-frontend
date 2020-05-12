@@ -9,6 +9,7 @@ import Profile from "../pages/Profile";
 import FAQ from "../pages/FAQ";
 import JoinUs from "../pages/JoinUs";
 import Donate from "../pages/Donate";
+import NeedsView from "../components/needLeadViewPage/needsView"
 
 const routes = [
   {
@@ -87,6 +88,13 @@ const routes = [
     name: "donate",
     protected: false,
     component: Donate
+  },
+  {
+    path: "/needs",
+    exact: true,
+    name: "needs",
+    protected: false,
+    component: NeedsView
   }
 ];
 
