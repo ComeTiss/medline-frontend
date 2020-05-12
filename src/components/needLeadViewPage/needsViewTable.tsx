@@ -69,8 +69,7 @@ function NeedsViewTable() {
     },
     table: {
       width: "100%",
-      minWidth: "908px",
-      minHeight: "425px"
+      minWidth: "908px"
     },
     innerTable: {
       width: "100%",
@@ -95,7 +94,8 @@ function NeedsViewTable() {
       fontWeight: 400
     },
     bodyBox: {
-      color: "#77797a"
+      color: "#77797a",
+      verticalAlign: "top"
     },
     footer: {
       display: "flex",
@@ -145,42 +145,11 @@ function NeedsViewTable() {
           return need.itemName.includes(filterStr);
         })
         .slice(0, 10);
-      let space = 10 - totalNeeds.length;
-      for (let i = 0; i < space; i++) {
-        totalNeeds.push({
-          urgencyLevel: "",
-          itemName: "",
-          createdAt: "",
-          specifications: "",
-          quantity: "",
-          budget: "",
-          id: `spacer-need-${Math.random()}`
-        });
-      }
       setNeeds(totalNeeds);
       setTotalPage(1);
     } else {
       const totalNeeds = filteredNeeds?.getAllNeeds?.needs || [];
       const needs = needsData?.getAllNeeds?.needs || [];
-      let space;
-      if (needs.length !== 10) {
-        space = 10 - (needs.length % 10);
-      } else {
-        space = 0;
-      }
-
-      for (let i = 0; i < space; i++) {
-        needs.push({
-          urgencyLevel: "",
-          itemName: "",
-          createdAt: "",
-          specifications: "",
-          quantity: "",
-          budget: "",
-          id: `spacer-need-${Math.random()}`
-        });
-      }
-
       let totalPages = Math.ceil(totalNeeds.length / 10);
       setNeeds(needs);
       setTotalPage(totalPages);
