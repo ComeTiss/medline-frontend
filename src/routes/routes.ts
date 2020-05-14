@@ -9,8 +9,8 @@ import Profile from "../pages/Profile";
 import FAQ from "../pages/FAQ";
 import JoinUs from "../pages/JoinUs";
 import Donate from "../pages/Donate";
-import NeedsView from "../components/needLeadViewPage/needsView";
-import LeadsView from "../components/needLeadViewPage/leadsView";
+import NeedsView from "../pages/NeedsView";
+import LeadsView from "../pages/LeadsView";
 
 const routes = [
   {
