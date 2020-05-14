@@ -90,8 +90,8 @@ const HomeNeedLeadView = () => {
     <tr className={styles.tr} key={need.id}>
       <td className={styles.td}>{need.urgencyLevel}</td>
       <td className={styles.td}>{need.itemName}</td>
-      <td className={styles.td}>{need.quantity}</td>
-      <td className={styles.td}>{need.budget}</td>
+      <td className={styles.td}>{addCommaSeparators(need.quantity)}</td>
+      <td className={styles.td}>{switchNumberToString(need.budget, "need")}</td>
       <td className={styles.td}>{need.specifications}</td>
       <td className={styles.td}>{need.createdAt}</td>
       <td>
@@ -106,8 +106,8 @@ const HomeNeedLeadView = () => {
     <tr className={styles.tr} key={lead.id}>
       <td className={styles.td}>{lead.itemName}</td>
       <td className={styles.td}>{lead.specifications}</td>
-      <td className={styles.td}>{lead.quantity}</td>
-      <td className={styles.td}>{lead.cost}</td>
+      <td className={styles.td}>{addCommaSeparators(lead.quantity)}</td>
+      <td className={styles.td}>{switchNumberToString(lead.cost, "lead")}</td>
       <td className={styles.td}>{lead.availableAt}</td>
       <td className={styles.td}>{lead.createdAt}</td>
       <td>
@@ -123,6 +123,22 @@ const HomeNeedLeadView = () => {
       <td>Nothing to display for now</td>
     </tr>
   );
+
+  const addCommaSeparators = (number: number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  };
+
+  const switchNumberToString = (number: number, str: string) => {
+    if (number <= 0 && str === "need") {
+      return "Need Donate";
+    } else if (number <= 0 && str === "lead") {
+      return "Donate";
+    } else if (number > 0 && str === "need") {
+      return "Can Buy";
+    } else if (number > 0 && str === "lead") {
+      return "Sell";
+    }
+  };
 
   return (
     <>
@@ -167,7 +183,12 @@ const HomeNeedLeadView = () => {
             </thead>
             <tbody>{leads.length > 0 ? leads.map(leadRow) : noDataRow()}</tbody>
           </table>
-          <Button variant="contained" color="primary" className={styles.button}>
+          <Button
+            variant="contained"
+            color="primary"
+            className={styles.button}
+            href="/leads"
+          >
             VIEW ALL
           </Button>
         </Box>

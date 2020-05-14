@@ -6,17 +6,17 @@ import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
 
-import { GET_NEEDS } from "../../service/apollo/queries";
-import Need from "../../service/models/need.model";
+import { GET_LEADS } from "../../service/apollo/queries";
+import Lead from "../../service/models/lead.model";
 
 type Props = {
   page: number;
 };
 
-function NeedsViewTable() {
+function LeadsViewTable() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPage] = useState(1);
-  const [needs, setNeeds] = useState([]);
+  const [leads, setLeads] = useState([]);
   const [filterStr, setFilterStr] = useState("");
 
   const useStyles = makeStyles(() => ({
@@ -27,7 +27,7 @@ function NeedsViewTable() {
       minWidth: "800px",
       position: "relative"
     },
-    boxNeed: {
+    boxLead: {
       display: "flex",
       flexDirection: "column",
       background: "rgba(255,255,255,0.85)",
@@ -36,7 +36,7 @@ function NeedsViewTable() {
       minWidth: "875px",
       minHeight: "575px"
     },
-    needHeader: {
+    leadHeader: {
       display: "flex",
       justifyContent: "space-around",
       alignItems: "center",
@@ -117,7 +117,7 @@ function NeedsViewTable() {
   }));
   const styles = useStyles();
 
-  const { data: needsData } = useQuery(GET_NEEDS, {
+  const { data: leadsData } = useQuery(GET_LEADS, {
     variables: {
       request: {
         options: {
@@ -130,7 +130,7 @@ function NeedsViewTable() {
     fetchPolicy: "cache-and-network"
   });
 
-  const { data: filteredNeeds } = useQuery(GET_NEEDS, {
+  const { data: filteredLeads } = useQuery(GET_LEADS, {
     variables: {
       request: {}
     },
@@ -139,37 +139,37 @@ function NeedsViewTable() {
 
   useEffect(() => {
     if (filterStr !== "") {
-      let totalNeeds = filteredNeeds?.getAllNeeds?.needs || [];
-      totalNeeds = totalNeeds
-        .filter((need: any) => {
-          return need.itemName.includes(filterStr);
+      let totalLeads = filteredLeads?.getAllLeads?.leads || [];
+      totalLeads = totalLeads
+        .filter((lead: any) => {
+          return lead.itemName.includes(filterStr);
         })
         .slice(0, 10);
-      setNeeds(totalNeeds);
+      setLeads(totalLeads);
       setTotalPage(1);
     } else {
-      const totalNeeds = filteredNeeds?.getAllNeeds?.needs || [];
-      const needs = needsData?.getAllNeeds?.needs || [];
-      let totalPages = Math.ceil(totalNeeds.length / 10);
-      setNeeds(needs);
+      const totalLeads = filteredLeads?.getAllLeads?.leads || [];
+      const leads = leadsData?.getAllLeads?.leads || [];
+      let totalPages = Math.ceil(totalLeads.length / 10);
+      setLeads(leads);
       setTotalPage(totalPages);
     }
-  }, [needsData, filterStr, totalPages, filteredNeeds]);
+  }, [leadsData, filterStr, totalPages, filteredLeads]);
 
-  function searchNeeds(e: any) {
+  function searchLeads(e: any) {
     setFilterStr(e.target.value);
   }
 
-  const needRow = (need: Need) => (
-    <tr key={need.id}>
-      <td className={styles.td}>{need.urgencyLevel}</td>
-      <td className={styles.td}>{need.itemName}</td>
-      <td className={styles.td}>{need.createdAt}</td>
-      <td className={styles.td}>{need.createdAt}</td>
-      <td className={styles.td}>{need.specifications}</td>
-      <td className={styles.td}>{addCommaSeparators(need.quantity)}</td>
-      <td className={styles.td}>{need.createdAt}</td>
-      <td className={styles.td}>{switchNumberToString(need.budget, "need")}</td>
+  const leadRow = (lead: Lead) => (
+    <tr key={lead.id}>
+      <td className={styles.td}>{lead.itemName}</td>
+      <td className={styles.td}>{lead.authorId}</td>
+      <td className={styles.td}>{lead.specifications}</td>
+      <td className={styles.td}>{lead.availableAt}</td>
+      <td className={styles.td}>{lead.availableAt}</td>
+      <td className={styles.td}>{addCommaSeparators(lead.quantity)}</td>
+      <td className={styles.td}>{lead.availableAt}</td>
+      <td className={styles.td}>{switchNumberToString(lead.cost, "lead")}</td>
     </tr>
   );
 
@@ -205,14 +205,14 @@ function NeedsViewTable() {
 
   return (
     <>
-      <Box className={styles.boxNeed}>
-        <Box className={styles.needHeader}>
-          <h1 className={styles.headerText}>NEEDS</h1>
+      <Box className={styles.boxLead}>
+        <Box className={styles.leadHeader}>
+          <h1 className={styles.headerText}>LEADS</h1>
           <Container className={styles.inputBox}>
             <input
               className={styles.input}
               type="text"
-              onChange={searchNeeds}
+              onChange={searchLeads}
             />
             <SearchIcon className={styles.searchIcon} />
           </Container>
@@ -223,13 +223,13 @@ function NeedsViewTable() {
             <thead>
               <tr>
                 <th className={styles.header}>
-                  URGENCY <ArrowDropDownIcon />
-                </th>
-                <th className={styles.header}>
                   ITEMS <ArrowDropDownIcon />
                 </th>
                 <th className={styles.header}>
                   POSTED BY <ArrowDropDownIcon />
+                </th>
+                <th className={styles.header}>
+                  TYPE <ArrowDropDownIcon />
                 </th>
                 <th className={styles.header}>
                   COUNTRY <ArrowDropDownIcon />
@@ -241,15 +241,15 @@ function NeedsViewTable() {
                   QTY <ArrowDropDownIcon />
                 </th>
                 <th className={styles.header}>
-                  DATE <ArrowDropDownIcon />
+                  AVAIL.DATE <ArrowDropDownIcon />
                 </th>
                 <th className={styles.header}>
-                  BUDGET <ArrowDropDownIcon />
+                  COST <ArrowDropDownIcon />
                 </th>
               </tr>
             </thead>
             <tbody className={styles.bodyBox}>
-              {needs.length > 0 ? needs.map(needRow) : noDataRow()}
+              {leads.length > 0 ? leads.map(leadRow) : noDataRow()}
             </tbody>
           </table>
         </Box>
@@ -269,4 +269,4 @@ function NeedsViewTable() {
   );
 }
 
-export default NeedsViewTable;
+export default LeadsViewTable;

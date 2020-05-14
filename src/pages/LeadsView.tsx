@@ -1,10 +1,10 @@
 import React from "react";
 import { makeStyles, Box } from "@material-ui/core";
-import NeedsViewTable from "./needsViewTable";
+import LeadsViewTable from "../components/needLeadViewPage/leadsViewTable";
 
-import maskImage from "../../images/face-masks-on-blue-background-3786155.jpg";
+import maskImage from "../images/face-masks-on-blue-background-3786155.jpg";
 
-function NeedsView() {
+function LeadsView() {
   const useStyles = makeStyles(() => ({
     needContainer: {
       display: "flex",
@@ -20,9 +20,9 @@ function NeedsView() {
 
   return (
     <Box className={styles.needContainer}>
-      <NeedsViewTable />
+      <LeadsViewTable />
     </Box>
   );
 }
 
-export default NeedsView;
+export default LeadsView;

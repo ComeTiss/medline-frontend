@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     padding: "40px 80px",
     backgroundColor: "#243867",
     color: "white",
-    fontSize: "10px",
+    fontSize: "12px",
     [theme.breakpoints.only("xs")]: {
       display: "none"
     }
@@ -49,13 +49,14 @@ const useStyles = makeStyles(theme => ({
     padding: "5px 15px"
   },
   header: {
-    fontSize: "13px",
+    fontSize: "17px",
     marginBottom: "10px"
   },
   logo: {
-    fontSize: "20px",
+    fontSize: "23px",
     fontWeight: 500,
-    marginBottom: "5px"
+    marginBottom: "5px",
+    marginTop: "13px"
   },
   icons: {
     marginBottom: "10px"
@@ -109,8 +110,8 @@ const Footer = () => {
         </Container>
         <Container className={styles.container}>
           <Box className={styles.header}>FIGHT COVID</Box>
-          <Box>Needs: Medical Supplies</Box>
-          <Box>Leads: Suppliers</Box>
+          {BoxWithLink("Needs: Medical Supplies", "/needs")}
+          {BoxWithLink("Leads: Suppliers", "/leads")}
           {BoxWithLink("Log in", "/login")}
           {BoxWithLink("Sign up", "/signup")}
         </Container>
@@ -141,8 +142,8 @@ const Footer = () => {
           </Container>
           <Container className={styles.container}>
             <Box className={styles.header}>FIGHT COVID</Box>
-            <Box>Needs: Medical Supplies</Box>
-            <Box>Leads: Suppliers</Box>
+            {BoxWithLink("Needs: Medical Supplies", "/needs")}
+            {BoxWithLink("Leads: Suppliers", "/leads")}
             {BoxWithLink("Log in", "/login")}
             {BoxWithLink("Sign up", "/signup")}
           </Container>
