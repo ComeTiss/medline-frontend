@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
     textAlign: "center",
     width: "30vw",
     fontWeight: 500,
-    fontSize: "16px",
+    fontSize: "18px",
     lineHeight: "26px",
     minWidth: "140px"
   },
@@ -155,7 +155,8 @@ function Home() {
       <Box className={styles.head}>
         <Container className={styles.textHead}>
           Aggregating global demand & supply of medical supplies & equipment to
-          connect needs with supply leads. STAT.
+          connect needs with supply leads. <br/>
+          STAT.
         </Container>
       </Box>
       <Box className={styles.container}>
