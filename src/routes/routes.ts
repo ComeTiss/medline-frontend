@@ -9,7 +9,8 @@ import Profile from "../pages/Profile";
 import FAQ from "../pages/FAQ";
 import JoinUs from "../pages/JoinUs";
 import Donate from "../pages/Donate";
-import NeedsView from "../components/needLeadViewPage/needsView"
+import NeedsView from "../components/needLeadViewPage/needsView";
+import LeadsView from "../components/needLeadViewPage/leadsView";
 
 const routes = [
   {
@@ -95,6 +96,13 @@ const routes = [
     name: "needs",
     protected: false,
     component: NeedsView
+  },
+  {
+    path: "/leads",
+    exact: true,
+    name: "leads",
+    protected: false,
+    component: LeadsView
   }
 ];
 

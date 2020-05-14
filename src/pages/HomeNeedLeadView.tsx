@@ -167,7 +167,12 @@ const HomeNeedLeadView = () => {
             </thead>
             <tbody>{leads.length > 0 ? leads.map(leadRow) : noDataRow()}</tbody>
           </table>
-          <Button variant="contained" color="primary" className={styles.button}>
+          <Button
+            variant="contained"
+            color="primary"
+            className={styles.button}
+            href="/leads"
+          >
             VIEW ALL
           </Button>
         </Box>
