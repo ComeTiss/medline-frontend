@@ -167,9 +167,9 @@ function NeedsViewTable() {
       <td className={styles.td}>{need.createdAt}</td>
       <td className={styles.td}>{need.createdAt}</td>
       <td className={styles.td}>{need.specifications}</td>
-      <td className={styles.td}>{need.quantity}</td>
+      <td className={styles.td}>{addCommaSeparators(need.quantity)}</td>
       <td className={styles.td}>{need.createdAt}</td>
-      <td className={styles.td}>{need.budget}</td>
+      <td className={styles.td}>{switchNumberToString(need.budget,"need")}</td>
     </tr>
   );
 
@@ -186,6 +186,22 @@ function NeedsViewTable() {
       <td></td>
     </tr>
   );
+
+  const addCommaSeparators = (number: number) => {
+    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  const switchNumberToString = (number: number, str: string) => {
+    if (number <= 0 && str === "need") {
+      return "Need Donate";
+    } else if (number <= 0 && str === "lead") {
+      return "Donate";
+    } else if (number > 0 && str === "need") {
+      return "Can Buy";
+    } else if (number > 0 && str === "lead") {
+      return "Sell";
+    }
+  }
 
   return (
     <>

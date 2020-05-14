@@ -167,9 +167,9 @@ function LeadsViewTable() {
             <td className={styles.td}>{lead.specifications}</td>
             <td className={styles.td}>{lead.availableAt}</td>
             <td className={styles.td}>{lead.availableAt}</td>
-            <td className={styles.td}>{lead.quantity}</td>
+            <td className={styles.td}>{addCommaSeparators(lead.quantity)}</td>
             <td className={styles.td}>{lead.availableAt}</td>
-            <td className={styles.td}>{lead.cost}</td>
+            <td className={styles.td}>{switchNumberToString(lead.cost,"lead")}</td>
         </tr>
     );
 
@@ -186,6 +186,22 @@ function LeadsViewTable() {
             <td></td>
         </tr>
     );
+
+    const addCommaSeparators = (number: number) => {
+        return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    const switchNumberToString = (number: number, str: string) => {
+        if (number <= 0 && str === "need") {
+            return "Need Donate";
+        } else if (number <= 0 && str === "lead") {
+            return "Donate";
+        } else if (number > 0 && str === "need") {
+            return "Can Buy";
+        } else if (number > 0 && str === "lead") {
+            return "Sell";
+        }
+    }
 
     return (
         <>
