@@ -169,7 +169,7 @@ function NeedsViewTable() {
       <td className={styles.td}>{need.specifications}</td>
       <td className={styles.td}>{addCommaSeparators(need.quantity)}</td>
       <td className={styles.td}>{need.createdAt}</td>
-      <td className={styles.td}>{switchNumberToString(need.budget,"need")}</td>
+      <td className={styles.td}>{switchNumberToString(need.budget, "need")}</td>
     </tr>
   );
 
@@ -189,7 +189,7 @@ function NeedsViewTable() {
 
   const addCommaSeparators = (number: number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+  };
 
   const switchNumberToString = (number: number, str: string) => {
     if (number <= 0 && str === "need") {
@@ -201,7 +201,7 @@ function NeedsViewTable() {
     } else if (number > 0 && str === "lead") {
       return "Sell";
     }
-  }
+  };
 
   return (
     <>

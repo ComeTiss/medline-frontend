@@ -3,7 +3,6 @@ import { makeStyles, Box, Button } from "@material-ui/core";
 import doctorMaskImage from "../images/homepage_doctor_mask.jpg";
 import { GET_NEEDS, GET_LEADS } from "../service/apollo/queries";
 import { useQuery } from "@apollo/react-hooks";
-import { number } from "prop-types";
 
 const useStyles = makeStyles(() => ({
   box: {
@@ -92,7 +91,7 @@ const HomeNeedLeadView = () => {
       <td className={styles.td}>{need.urgencyLevel}</td>
       <td className={styles.td}>{need.itemName}</td>
       <td className={styles.td}>{addCommaSeparators(need.quantity)}</td>
-      <td className={styles.td}>{switchNumberToString(need.budget,"need")}</td>
+      <td className={styles.td}>{switchNumberToString(need.budget, "need")}</td>
       <td className={styles.td}>{need.specifications}</td>
       <td className={styles.td}>{need.createdAt}</td>
       <td>
@@ -108,7 +107,7 @@ const HomeNeedLeadView = () => {
       <td className={styles.td}>{lead.itemName}</td>
       <td className={styles.td}>{lead.specifications}</td>
       <td className={styles.td}>{addCommaSeparators(lead.quantity)}</td>
-      <td className={styles.td}>{switchNumberToString(lead.cost,"lead")}</td>
+      <td className={styles.td}>{switchNumberToString(lead.cost, "lead")}</td>
       <td className={styles.td}>{lead.availableAt}</td>
       <td className={styles.td}>{lead.createdAt}</td>
       <td>
@@ -127,10 +126,10 @@ const HomeNeedLeadView = () => {
 
   const addCommaSeparators = (number: number) => {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
+  };
 
   const switchNumberToString = (number: number, str: string) => {
-    if(number <= 0 && str === "need") {
+    if (number <= 0 && str === "need") {
       return "Need Donate";
     } else if (number <= 0 && str === "lead") {
       return "Donate";
@@ -139,7 +138,7 @@ const HomeNeedLeadView = () => {
     } else if (number > 0 && str === "lead") {
       return "Sell";
     }
-  }
+  };
 
   return (
     <>

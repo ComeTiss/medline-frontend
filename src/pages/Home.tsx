@@ -155,7 +155,7 @@ function Home() {
       <Box className={styles.head}>
         <Container className={styles.textHead}>
           Aggregating global demand & supply of medical supplies & equipment to
-          connect needs with supply leads. <br/>
+          connect needs with supply leads. <br />
           STAT.
         </Container>
       </Box>
