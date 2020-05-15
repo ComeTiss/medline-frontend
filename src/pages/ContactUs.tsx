@@ -4,9 +4,18 @@ import CustomTextField from "../components/form/CustomTextField";
 import { useFormFields } from "../utils/hooks";
 import NavBar from "../components/navigation/NavBar";
 import { signup } from "../service/rest/apis";
+import Footer from "../components/footer/Footer";
+
+import backgroundImage from "../media/person-holding-white-smartphone-on-white-table-3766218.jpg";
+
 
 const useStyles = makeStyles(theme => ({
-  card: { maxWidth: 600, padding: 20, margin: "20px auto" },
+  card: {
+    maxWidth: 600,
+    padding: 20,
+    margin: "20px auto",
+    opacity: "0.75"
+  },
   textField: {
     padding: "10px 0"
   },
@@ -19,7 +28,23 @@ const useStyles = makeStyles(theme => ({
     padding: "40px 0 20px"
   },
   text: {
-    textAlign: "center"
+    textAlign: "center",
+    // color: "white"
+  },
+  backgroundWrapper: {
+    background: `url(${backgroundImage}) no-repeat center center`,
+    backgroundSize: "cover",
+    // filter: "contrast(65%)"
+  },
+  container: {
+    // background: "rgba(255, 255, 255, 0.6)",
+    padding: "1rem"
+  },
+  cardContainer: {
+    paddingBottom: "20rem",
+    [theme.breakpoints.up("sm")]: {
+      paddingBottom: "27rem"
+    }
   }
 }));
 
@@ -56,79 +81,84 @@ const ContactUs = () => {
   return (
     <>
       <NavBar />
-      <div>
-        <Typography variant="h5" className={`${classes.title} ${classes.text}`}>
-          Contact us
+      <div className={classes.backgroundWrapper}>
+        <div className={classes.container}>
+          <Typography variant="h5" className={`${classes.title} ${classes.text}`}>
+            Contact us
         </Typography>
-        <Typography component="p" className={classes.text}>
-          Have any questions, suggestions, or would like to support MedLine.io?
+          <Typography component="p" className={classes.text}>
+            Have any questions, suggestions, or would like to support MedLine.io?
         </Typography>
-        <Typography component="p" className={classes.text}>
-          Send us an email to support@mediline.io or fill our this form and
-          we`ll get back to you.
+          <Typography component="p" className={classes.text}>
+            Send us an email to <a href="mailto: support@mediline.io" style={{ textDecoration: 'none' }}>support@mediline.io</a> or fill our this form and
+            we`ll get back to you.
         </Typography>
-        <Card className={classes.card}>
-          {error ? (
-            <>
-              <Typography component="p" className={classes.text}>
-                There was an error, please try again later
+          <div className={classes.cardContainer}>
+            <Card className={classes.card}>
+              {error ? (
+                <>
+                  <Typography component="p" className={classes.text}>
+                    There was an error, please try again later
               </Typography>
-              <br />
-              <div className={classes.text}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={() => setError(false)}
-                >
-                  Go back to form
+                  <br />
+                  <div className={classes.text}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={() => setError(false)}
+                    >
+                      Go back to form
                 </Button>
-              </div>
-            </>
-          ) : (
-            <form>
-              <CustomTextField
-                label="Name"
-                className={classes.textField}
-                onChange={handleFieldChange}
-                name="name"
-                value={fields.name}
-              />
-              <CustomTextField
-                label="Email (for reply)*"
-                className={classes.textField}
-                onChange={handleFieldChange}
-                name="email"
-                value={fields.email}
-              />
-              <CustomTextField
-                label="Subject"
-                className={classes.textField}
-                onChange={handleFieldChange}
-                name="subject"
-                value={fields.subject}
-              />
-              <CustomTextField
-                label="Message*"
-                className={classes.textField}
-                onChange={handleFieldChange}
-                name="message"
-                value={fields.message}
-                multiline
-              />
-              <div className={classes.buttonWrapper}>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  onClick={submit}
-                  disabled={fields.email === "" || fields.message === ""}
-                >
-                  Submit
+                  </div>
+                </>
+              ) : (
+                  <form>
+                    <CustomTextField
+                      label="Name"
+                      className={classes.textField}
+                      onChange={handleFieldChange}
+                      name="name"
+                      value={fields.name}
+                    />
+                    <CustomTextField
+                      label="Email (for reply)*"
+                      className={classes.textField}
+                      onChange={handleFieldChange}
+                      name="email"
+                      value={fields.email}
+                    />
+                    <CustomTextField
+                      label="Subject"
+                      className={classes.textField}
+                      onChange={handleFieldChange}
+                      name="subject"
+                      value={fields.subject}
+                    />
+                    <CustomTextField
+                      label="Message*"
+                      className={classes.textField}
+                      onChange={handleFieldChange}
+                      name="message"
+                      value={fields.message}
+                      multiline
+                    />
+                    <div className={classes.buttonWrapper}>
+                      <Button
+                        variant="contained"
+                        color="primary"
+                        onClick={submit}
+                        disabled={fields.email === "" || fields.message === ""}
+                      >
+                        Submit
                 </Button>
-              </div>
-            </form>
-          )}
-        </Card>
+                    </div>
+                  </form>
+                )}
+            </Card>
+          </div>
+        </div>
       </div>
+      <Footer />
     </>
   );
 };
