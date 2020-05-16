@@ -69,7 +69,8 @@ function LeadsViewTable() {
     },
     table: {
       width: "100%",
-      minWidth: "908px"
+      minWidth: "915px",
+      padding: "10px"
     },
     innerTable: {
       width: "100%",
