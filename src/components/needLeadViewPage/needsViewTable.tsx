@@ -88,6 +88,9 @@ function NeedsViewTable() {
       fontWeight: 400,
       transform: "scaleY(0.9)"
     },
+    headerDiv: {
+       display: "flex"
+    },
     td: {
       padding: "0px 10px 15px 5px",
       transform: "scaleY(0.9)",
@@ -223,28 +226,52 @@ function NeedsViewTable() {
             <thead>
               <tr>
                 <th className={styles.header}>
-                  URGENCY <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                     URGENCY
+                    <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  ITEMS <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                     ITEMS
+                    <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  POSTED BY <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                     POSTED BY 
+                    <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  COUNTRY <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    COUNTRY
+                    <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  CITY <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    CITY
+                    <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  QTY <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    QTY
+                    <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  DATE <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    DATE
+                    <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  BUDGET <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    BUDGET
+                    <ArrowDropDownIcon />
+                  </div>
                 </th>
               </tr>
             </thead>
