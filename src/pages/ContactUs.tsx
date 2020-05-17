@@ -29,15 +29,12 @@ const useStyles = makeStyles(theme => ({
   },
   text: {
     textAlign: "center",
-    // color: "white"
   },
   backgroundWrapper: {
     background: `url(${backgroundImage}) no-repeat center center`,
     backgroundSize: "cover",
-    // filter: "contrast(65%)"
   },
   container: {
-    // background: "rgba(255, 255, 255, 0.6)",
     padding: "1rem"
   },
   cardContainer: {
