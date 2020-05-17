@@ -90,7 +90,8 @@ function LeadsViewTable() {
       transform: "scaleY(0.9)"
     },
     headerDiv: {
-      display: "flex"
+      display: "flex",
+      whiteSpace: "nowrap"
     },
     td: {
       padding: "0px 10px 15px 5px",

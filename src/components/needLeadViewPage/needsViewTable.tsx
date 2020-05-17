@@ -90,7 +90,8 @@ function NeedsViewTable() {
       transform: "scaleY(0.9)"
     },
     headerDiv: {
-       display: "flex"
+      display: "flex",
+      whiteSpace: "nowrap"
     },
     td: {
       padding: "0px 10px 15px 5px",
@@ -168,8 +169,8 @@ function NeedsViewTable() {
     <tr key={need.id}>
       <td className={styles.td}>{need.urgencyLevel}</td>
       <td className={styles.td}>{need.itemName}</td>
-      <td className={styles.td}>{need.createdAt}</td>
-      <td className={styles.td}>{need.createdAt}</td>
+      <td className={styles.td}>{need.authorId}</td>
+      <td className={styles.td}>{need.authorId}</td>
       <td className={styles.td}>{need.specifications}</td>
       <td className={styles.td}>{addCommaSeparators(need.quantity)}</td>
       <td className={styles.td}>{need.createdAt}</td>
@@ -228,19 +229,19 @@ function NeedsViewTable() {
               <tr>
                 <th className={styles.header}>
                   <div className={styles.headerDiv}>
-                     URGENCY
+                    URGENCY
                     <ArrowDropDownIcon />
                   </div>
                 </th>
                 <th className={styles.header}>
                   <div className={styles.headerDiv}>
-                     ITEMS
+                    ITEMS
                     <ArrowDropDownIcon />
                   </div>
                 </th>
                 <th className={styles.header}>
                   <div className={styles.headerDiv}>
-                     POSTED BY 
+                    POSTED BY
                     <ArrowDropDownIcon />
                   </div>
                 </th>
