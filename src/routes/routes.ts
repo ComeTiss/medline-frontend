@@ -11,6 +11,7 @@ import JoinUs from "../pages/JoinUs";
 import Donate from "../pages/Donate";
 import NeedsView from "../pages/NeedsView";
 import LeadsView from "../pages/LeadsView";
+import NeedDetail from '../pages/NeedDetail';
 
 const routes = [
   {
@@ -103,6 +104,13 @@ const routes = [
     name: "leads",
     protected: false,
     component: LeadsView
+  },
+  {
+    path: "/needs/:needId",
+    exact: true,
+    name: "needsDetail",
+    protected: false,
+    component: NeedDetail
   }
 ];
 
