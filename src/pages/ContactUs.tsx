@@ -61,7 +61,7 @@ export const intialValues: FormValuesProps = {
 const email = (
   <a href="mailto: support@mediline.io" style={{ textDecoration: "none" }}>
     support@mediline.io
-    </a>
+  </a>
 );
 
 const ContactUs = () => {
@@ -79,8 +79,6 @@ const ContactUs = () => {
         setError(true);
       });
   };
-
-
 
   return (
     <>
@@ -120,48 +118,48 @@ const ContactUs = () => {
                   </div>
                 </>
               ) : (
-                  <form>
-                    <CustomTextField
-                      label="Name"
-                      className={classes.textField}
-                      onChange={handleFieldChange}
-                      name="name"
-                      value={fields.name}
-                    />
-                    <CustomTextField
-                      label="Email (for reply)*"
-                      className={classes.textField}
-                      onChange={handleFieldChange}
-                      name="email"
-                      value={fields.email}
-                    />
-                    <CustomTextField
-                      label="Subject"
-                      className={classes.textField}
-                      onChange={handleFieldChange}
-                      name="subject"
-                      value={fields.subject}
-                    />
-                    <CustomTextField
-                      label="Message*"
-                      className={classes.textField}
-                      onChange={handleFieldChange}
-                      name="message"
-                      value={fields.message}
-                      multiline
-                    />
-                    <div className={classes.buttonWrapper}>
-                      <Button
-                        variant="contained"
-                        color="primary"
-                        onClick={submit}
-                        disabled={fields.email === "" || fields.message === ""}
-                      >
-                        Submit
+                <form>
+                  <CustomTextField
+                    label="Name"
+                    className={classes.textField}
+                    onChange={handleFieldChange}
+                    name="name"
+                    value={fields.name}
+                  />
+                  <CustomTextField
+                    label="Email (for reply)*"
+                    className={classes.textField}
+                    onChange={handleFieldChange}
+                    name="email"
+                    value={fields.email}
+                  />
+                  <CustomTextField
+                    label="Subject"
+                    className={classes.textField}
+                    onChange={handleFieldChange}
+                    name="subject"
+                    value={fields.subject}
+                  />
+                  <CustomTextField
+                    label="Message*"
+                    className={classes.textField}
+                    onChange={handleFieldChange}
+                    name="message"
+                    value={fields.message}
+                    multiline
+                  />
+                  <div className={classes.buttonWrapper}>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      onClick={submit}
+                      disabled={fields.email === "" || fields.message === ""}
+                    >
+                      Submit
                     </Button>
-                    </div>
-                  </form>
-                )}
+                  </div>
+                </form>
+              )}
             </Card>
           </div>
         </div>
