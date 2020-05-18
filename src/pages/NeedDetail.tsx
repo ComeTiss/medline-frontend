@@ -21,8 +21,18 @@ function NeedDetail() {
             alignItems: "center",
             background: `url(${maskImage}) no-repeat center center`,
             backgroundSize: "cover",
-            height: "100vh",
+            height: "140vh",
             overflow: "hidden"
+        },
+        needWhiteBack: {
+            background: "rgba(255,255,255,0.85)",
+            width: "47vw",
+            height: "125vh",
+            padding: "10px"
+        },
+        header: {
+            color: "#26396a",
+            fontSize: "20px"
         }
     }));
     const styles = useStyles();
@@ -53,6 +63,76 @@ function NeedDetail() {
     const needs = needsData?.getAllNeeds?.needs || [];
     const users = userData?.getUsersWithOptions?.users || [];
 
+    const renderNeed = () => {
+        if(needs.length > 0 ) {
+            return (
+                <div>
+                    <div className={styles.header} >NEED DETAIL</div>
+                    <div>[ Medical supply needed ]</div>
+                    <div>Quantity needed : [{needs[0].quantity}]</div>
+                    <div>Urgency level: [{needs[0].urgencyLevel}]</div>
+                    <div>Supply posted on: [{needs[0].createdAt}]</div>
+                    <div>Product Specifications (including required certifications such as CE, FDA):
+                    <div>
+                            {needs[0].specifications}
+                    </div>
+                    </div>
+                    <div>
+                        <div>Click to open images:</div>
+                        {/* <img></img>
+                    <img></img> */}
+                        <div>I need help from donors or free supplies.</div>
+                    </div>
+                    <div>
+                        <div>BUDGET</div>
+                        <div>My budget per piece is : {needs[0].budget}USD</div>
+                        <div>My budget per piece is : {needs[0].budget}USD [including / excluding] delivery.</div>
+                        <div>I need help from donors or free supplies</div>
+                    </div>
+                    {renderOrganization()}
+                    <div>CONTACT PERSON</div>
+                    <div>[Ms.,Mr.,Dr] [Last family] [First (given) name]</div>
+                    <div>Job title / Function:</div>
+                    <div>Email address:</div>
+                    <div>Telephone number:</div>
+                    <div>WeChat ID:</div>
+                    <div>Skype ID:</div>
+                </div>
+            )
+        } else {
+            return (
+                <div></div>
+            )
+        }
+    }
+
+
+    const renderOrganization = () => {
+        if (needs[0].organization) {
+            return (
+                <div>
+                    <div>ORGANIZATION DETAILS</div>
+                    <div>[Institution / Company Name]</div>
+                    <div>Industry / Activity :</div>
+                    <div>I need help from donors or free supplies</div>
+                    <div>Street address:</div>
+                    <div>City:</div>
+                    <div>Product Specifications (including required certifications such as CE, FDA): </div>
+                    <div></div>
+                    <div>
+                        <div>Click to open images:</div>
+                        {/* <img></img>
+                                <img></img> */}
+                        <div>I need help from donors or free supplies.</div>
+                    </div>
+                </div>
+            )
+        } else {
+            return (
+                <div></div>
+            )
+        }
+    }
 
     console.log("needs",needs)
     console.log("users", users)
@@ -60,6 +140,9 @@ function NeedDetail() {
 
     return (
         <Box className={styles.needContainer}>
+            <Box className={styles.needWhiteBack}>
+                {renderNeed()}
+            </Box>
         </Box>
     );
 }
