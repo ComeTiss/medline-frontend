@@ -6,6 +6,7 @@ import { GET_NEEDS, GET_USERS } from "../service/apollo/queries";
 // import LeadsViewTable from "../components/needLeadViewPage/leadsViewTable";
 
 import maskImage from "../images/face-masks-on-blue-background-3786155.jpg";
+import { style } from "@material-ui/system";
 
 function NeedDetail() {
     const [userId, setUserId] = useState(1);
@@ -28,12 +29,27 @@ function NeedDetail() {
             background: "rgba(255,255,255,0.85)",
             width: "47vw",
             height: "125vh",
-            padding: "10px"
+            padding: "35px 30px",
+            color: "#5a5a5a"
         },
         header: {
             color: "#26396a",
             fontSize: "20px"
+        },
+        needs: {
+            display: "flex",
+            flexDirection: "column",
+            height: "110vh",
+            justifyContent: "space-between"
+        },
+        textarea: {
+            minHeight: "6vh",
+            border: "1px solid #a8a8a8"
+        },
+        close: {
+            float: "right",
         }
+
     }));
     const styles = useStyles();
 
@@ -67,36 +83,37 @@ function NeedDetail() {
         if(needs.length > 0 ) {
             return (
                 <div>
+                    <div className={styles.close}>X</div>
                     <div className={styles.header} >NEED DETAIL</div>
-                    <div>[ Medical supply needed ]</div>
-                    <div>Quantity needed : [{needs[0].quantity}]</div>
-                    <div>Urgency level: [{needs[0].urgencyLevel}]</div>
-                    <div>Supply posted on: [{needs[0].createdAt}]</div>
-                    <div>Product Specifications (including required certifications such as CE, FDA):
-                    <div>
-                            {needs[0].specifications}
-                    </div>
-                    </div>
-                    <div>
-                        <div>Click to open images:</div>
-                        {/* <img></img>
-                    <img></img> */}
-                        <div>I need help from donors or free supplies.</div>
-                    </div>
-                    <div>
+                    <div >[ Medical supply needed ]</div>
+                    <div className={styles.needs}>
+                        <div>Quantity needed : [{needs[0].quantity}]</div>
+                        <div>Urgency level: [{needs[0].urgencyLevel}]</div>
+                        <div>Supply posted on: [{needs[0].createdAt}]</div>
+                        <div>Product Specifications (including required certifications such as CE, FDA):
+                        <div className={styles.textarea}>
+                                {needs[0].specifications}
+                        </div>
+                        </div>
+                        <div>
+                            <div>Click to open images:</div>
+                            <img></img>
+                            <img></img>
+                            <div>I need help from donors or free supplies.</div>
+                        </div>
                         <div>BUDGET</div>
                         <div>My budget per piece is : {needs[0].budget}USD</div>
                         <div>My budget per piece is : {needs[0].budget}USD [including / excluding] delivery.</div>
                         <div>I need help from donors or free supplies</div>
+                        {renderOrganization()}
+                        <div>CONTACT PERSON</div>
+                        <div>[Ms.,Mr.,Dr] [Last family] [First (given) name]</div>
+                        <div>Job title / Function:</div>
+                        <div>Email address:</div>
+                        <div>Telephone number:</div>
+                        <div>WeChat ID:</div>
+                        <div>Skype ID:</div>
                     </div>
-                    {renderOrganization()}
-                    <div>CONTACT PERSON</div>
-                    <div>[Ms.,Mr.,Dr] [Last family] [First (given) name]</div>
-                    <div>Job title / Function:</div>
-                    <div>Email address:</div>
-                    <div>Telephone number:</div>
-                    <div>WeChat ID:</div>
-                    <div>Skype ID:</div>
                 </div>
             )
         } else {
@@ -118,11 +135,11 @@ function NeedDetail() {
                     <div>Street address:</div>
                     <div>City:</div>
                     <div>Product Specifications (including required certifications such as CE, FDA): </div>
-                    <div></div>
+                    <div className={styles.textarea}></div>
                     <div>
                         <div>Click to open images:</div>
-                        {/* <img></img>
-                                <img></img> */}
+                        <img></img>
+                        <img></img>
                         <div>I need help from donors or free supplies.</div>
                     </div>
                 </div>
