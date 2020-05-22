@@ -10,6 +10,13 @@ import {
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import SignUpFields from "./SignUpFields";
 import Captcha from "./Captcha";
+import signupUtils, {
+  SignupInputDataType
+} from "../../utils/signup/signupUtils";
+import {
+  isLoginInputValid,
+  isSignupInputValid
+} from "../needs-and-leads/validateForm";
 
 type Props = {
   title: string;
@@ -55,29 +62,44 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const signUpExtraFields = {
+  address: "",
   confirmPassword: "",
   firstName: "",
   lastName: "",
   organizationName: "",
   country: "",
   city: "",
-  functionTitle: ""
+  functionTitle: "",
+  activity: "",
+  civility: null
 };
 
 function AuthenticationLayout(props: Props) {
   const { submitError, onSubmit, title, isSignup } = props;
   const styles = useStyles();
-  const [inputData, setInputData] = useState({
+  const [inputData, setInputData] = useState<SignupInputDataType>({
     email: "",
     password: "",
     ...signUpExtraFields
   });
+  const passwordHelperText =
+    inputData.password && isSignup
+      ? signupUtils.helperTextPassword(inputData.password)
+      : "";
+  const isInputValid = isSignup
+    ? isSignupInputValid(inputData)
+    : isLoginInputValid(inputData);
 
   const onChangeData = (field: string, e: any) => {
     e.persist();
     const newData = { ...inputData };
+    if (field === "civility" && !e.target.value) newData[field] = null;
     // @ts-ignore
-    newData[field] = e.target.value;
+    else if (field !== "country") newData[field] = e.target.value;
+    else {
+      const country = e.target.textContent.match(/[A-Z].+?(?= \()/g);
+      newData[field] = country ? country[0] : e.target.value;
+    }
     setInputData(newData);
   };
 
@@ -95,8 +117,8 @@ function AuthenticationLayout(props: Props) {
               required
               fullWidth
               id="email-input"
-              label="Email adress"
-              placeholder="Email adress"
+              label="Email address"
+              placeholder="Email address"
               onChange={(e: any) => onChangeData("email", e)}
             />
           </div>
@@ -105,14 +127,16 @@ function AuthenticationLayout(props: Props) {
             variant="outlined"
             required
             fullWidth
+            error={!!passwordHelperText}
             id="password-input"
             label="Password"
+            helperText={passwordHelperText}
             placeholder="Password"
             onChange={(e: any) => onChangeData("password", e)}
           />
           {isSignup && (
             <div className={styles.authLayout__signUpFieldsContainer}>
-              <SignUpFields onChangeData={onChangeData} />
+              <SignUpFields onChangeData={onChangeData} inputData={inputData} />
             </div>
           )}
           {submitError && !!submitError?.trim() && (
@@ -130,6 +154,7 @@ function AuthenticationLayout(props: Props) {
               color="primary"
               component="span"
               fullWidth
+              disabled={!isInputValid}
               onClick={() => onSubmit(inputData)}
             >
               Submit

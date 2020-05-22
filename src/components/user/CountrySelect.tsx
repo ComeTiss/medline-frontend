@@ -25,14 +25,20 @@ const useStyles = makeStyles({
 
 type Props = {
   onChangeData: (field: string, e: any) => void;
+  isOutlined?: boolean;
+  isFullWidth?: boolean;
 };
-export default function CountrySelect({ onChangeData }: Props) {
+export default function CountrySelect({
+  onChangeData,
+  isOutlined,
+  isFullWidth
+}: Props) {
   const classes = useStyles();
 
   return (
     <Autocomplete
       id="country-select"
-      style={{ width: 345 }}
+      style={isFullWidth ? { width: "100%" } : { width: 345 }}
       options={countries as CountryType[]}
       classes={{
         option: classes.option
@@ -48,6 +54,9 @@ export default function CountrySelect({ onChangeData }: Props) {
       )}
       renderInput={params => (
         <TextField
+          fullWidth={isFullWidth}
+          placeholder="Country *"
+          variant={isOutlined ? "outlined" : "standard"}
           onChange={(e: any) => onChangeData("country", e)}
           {...params}
           inputProps={{
@@ -301,7 +310,7 @@ const countries = [
   { code: "TR", label: "Turkey" },
   { code: "TT", label: "Trinidad and Tobago" },
   { code: "TV", label: "Tuvalu" },
-  { code: "TW", label: "Taiwan, Province of China" },
+  { code: "TW", label: "Taiwan" },
   { code: "TZ", label: "United Republic of Tanzania" },
   { code: "UA", label: "Ukraine" },
   { code: "UG", label: "Uganda" },

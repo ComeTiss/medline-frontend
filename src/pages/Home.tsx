@@ -19,6 +19,10 @@ import heartImage from "../images/homepage_heart.jpg";
 import maskImage from "../images/homepage_mask.jpg";
 import threePeopleImage from "../images/homepage_three_people.jpg";
 import ProgressTracker from '../components/homepage/ProgressTracker'
+
+import HomeNeedLeadView from "./HomeNeedLeadView";
+import Footer from "../components/footer/Footer";
+
 const NO_MODAL = "";
 const MODAL_LEAD_OPEN = "modal_lead_open";
 const MODAL_NEED_OPEN = "modal_need_open";
@@ -43,7 +47,7 @@ const useStyles = makeStyles( theme => ( {
     paddingTop: "25px",
     flexWrap: "wrap"
   },
-  submitNeed: {
+  submitPanel: {
     width: "45vw",
     height: "22vh",
     display: "flex",
@@ -51,12 +55,14 @@ const useStyles = makeStyles( theme => ( {
     justifyContent: "center",
     textAlign: "center",
     minWidth: "210px",
-    minHeight: "185px",
+    minHeight: "200px",
     marginTop: "10px",
-    background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${threePeopleImage}) no-repeat center center `,
-    backgroundSize: "cover",
     color: "#5b5b5b",
     fontSize: "17px"
+  },
+  submitNeed: {
+    background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${threePeopleImage}) no-repeat center center `,
+    backgroundSize: "cover"
   },
   submitLead: {
     width: "45vw",
@@ -66,12 +72,10 @@ const useStyles = makeStyles( theme => ( {
     justifyContent: "center",
     textAlign: "center",
     minWidth: "210px",
-    minHeight: "185px",
+    minHeight: "200px",
     marginTop: "10px",
     background: `linear-gradient(rgba(255, 255, 255, .7), rgba(255, 255, 255, .7)), url(${maskImage}) no-repeat center center `,
-    backgroundSize: "cover",
-    color: "#5b5b5b",
-    fontSize: "17px"
+    backgroundSize: "cover"
   },
   text: {
     marginBottom: "15px",
@@ -82,7 +86,7 @@ const useStyles = makeStyles( theme => ( {
     textAlign: "center",
     width: "30vw",
     fontWeight: 500,
-    fontSize: "16px",
+    fontSize: "18px",
     lineHeight: "26px",
     minWidth: "140px"
   },
@@ -152,11 +156,12 @@ function Home() {
       <Box className={styles.head}>
         <Container className={styles.textHead}>
           Aggregating global demand & supply of medical supplies & equipment to
-          connect needs with supply leads. STAT.
+          connect needs with supply leads. <br />
+          STAT.
         </Container>
       </Box>
       <Box className={styles.container}>
-        <Container className={styles.submitNeed}>
+        <Container className={`${styles.submitPanel} ${styles.submitNeed}`}>
           <Container className={styles.text}>
             On the front-lines flighting COVID-19 and in need of medical
             supplies & equipment?
@@ -180,7 +185,7 @@ function Home() {
           />
         </Container>
 
-        <Container className={styles.submitLead}>
+        <Container className={`${styles.submitPanel} ${styles.submitLead}`}>
           <Container className={styles.text}>
             Have access to medical supplies & equipment needed by healthcare
             professionals?
@@ -206,6 +211,8 @@ function Home() {
       </Box>
       <ProgressTracker />
 
+      <HomeNeedLeadView />
+      <Footer />
     </>
   );
 }

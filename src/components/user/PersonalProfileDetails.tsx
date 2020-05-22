@@ -5,12 +5,17 @@ import {
   Typography,
   Grid,
   Box,
-  Link
+  Link,
+  Modal,
+  Backdrop
 } from "@material-ui/core";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import User from "../../service/models/user.model";
+import User, { UserInput } from "../../service/models/user.model";
 import ChangePasswordModal from "./ChangePasswordModal";
 import UpdateProfileDetailsForm from "./UpdateProfileDetailsForm";
+import { MUTATE_USER } from "../../service/apollo/mutations";
+import { useMutation } from "@apollo/react-hooks";
+import signupUtils from "../../utils/signup/signupUtils";
 
 type Props = {
   user: User;
@@ -44,51 +49,81 @@ const useStyles = makeStyles(theme => ({
     border: "2px solid #000",
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3)
+  },
+  updateSuccessModalLayout__modal: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  updateSuccessModalLayout__paper: {
+    backgroundColor: theme.palette.background.paper,
+    border: "2px solid #000",
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+    width: 400
   }
 }));
 
+type ReponseMsg = {
+  message: string;
+  isError: boolean;
+};
+
 function PersonalProfileDetails(props: Props) {
   const { user } = props;
+  const [mutateUser] = useMutation(MUTATE_USER);
   const styles = useStyles();
-  const [open, setOpen] = useState(false);
-  //const [error, setError] = useState("");
+  const [showPasswordModal, setShowPasswordModal] = useState(false);
+  const [openUpdateSuccessModal, setOpenUpdateSuccessModal] = useState(false);
+  const [error, setError] = useState("");
+  const [responseMsg, setResponseMsg] = useState<ReponseMsg>({
+    message: "",
+    isError: false
+  });
 
   const handleOpen = () => {
-    setOpen(true);
+    setError("");
+    setResponseMsg({
+      message: "",
+      isError: false
+    });
+    setShowPasswordModal(true);
   };
 
   const handleClose = () => {
-    setOpen(false);
+    setShowPasswordModal(false);
   };
 
-  const [inputData, setInputData] = useState({
-    password: "",
-    confirmPassword: "",
-    lastName: user.lastName,
-    firstName: user.firstName,
-    civility: "",
-    functionTitle: user.functionTitle,
-    emailDisplay: user.email,
-    countryCode: "",
-    phoneNumber: "",
-    whatsAppNumber: "",
-    weChatId: "",
-    skypeId: ""
-  });
-
-  const onChangeData = (field: string, e: any) => {
-    e.persist();
-    const newData = { ...inputData };
-    // @ts-ignore
-    newData[field] = e.target.value;
-    setInputData(newData);
-  };
-
-  const onSubmit = (data: any) => {
-    if (data?.password !== data?.confirmPassword) {
-      //setError("Invalid password confirmation.");
-      return;
+  const handlePasswordSubmit = (passwordData: any) => {
+    const passwordErrorMsg = signupUtils.helperTextPassword(
+      passwordData.newPassword
+    );
+    if (passwordErrorMsg) {
+      setError(passwordErrorMsg);
+    } else {
+      onSubmit({ ...user, ...passwordData })
+        .then(() => {
+          setShowPasswordModal(false);
+          setOpenUpdateSuccessModal(true);
+          setTimeout(() => {
+            setOpenUpdateSuccessModal(false);
+          }, 2000);
+        })
+        .catch((error: any) => {
+          setResponseMsg({
+            message: error.graphQLErrors[0].message,
+            isError: true
+          });
+        });
     }
+  };
+
+  const onSubmit = (userData: User) => {
+    const userInput = new UserInput(userData);
+
+    return mutateUser({
+      variables: { request: userInput }
+    });
   };
 
   return (
@@ -115,9 +150,11 @@ function PersonalProfileDetails(props: Props) {
             </Box>
           </Grid>
           <ChangePasswordModal
-            onChangeData={onChangeData}
-            open={open}
+            open={showPasswordModal}
             handleClose={handleClose}
+            submitError={error}
+            responseMsg={responseMsg}
+            handlePasswordSubmit={handlePasswordSubmit}
           />
         </Grid>
         <Typography variant="h6" align="left" paragraph={true}>
@@ -127,13 +164,27 @@ function PersonalProfileDetails(props: Props) {
         <p className={styles.personalProfileDetailsLayout__subText}>
           The following information will only be displayed to registered users.
         </p>
-        <UpdateProfileDetailsForm
-          user={user}
-          inputData={inputData}
-          onChangeData={onChangeData}
-          onSubmit={onSubmit}
-        />
+        <UpdateProfileDetailsForm user={user} onSubmit={onSubmit} />
       </div>
+      <Modal
+        className={styles.updateSuccessModalLayout__modal}
+        open={openUpdateSuccessModal}
+        onClose={() => setOpenUpdateSuccessModal(false)}
+        aria-labelledby="update-success-modal-title"
+        aria-describedby="update-success-modal-description"
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500
+        }}
+      >
+        <div className={styles.updateSuccessModalLayout__paper}>
+          <h2 id="update-success-modal-title">Update success</h2>
+          <p id="update_success-modal-description">
+            Your information has been saved.
+          </p>
+        </div>
+      </Modal>
     </Container>
   );
 }

@@ -7,6 +7,10 @@ import ConfirmEmail from "../pages/ConfirmEmail";
 import ContactUs from "../pages/ContactUs";
 import Profile from "../pages/Profile";
 import FAQ from "../pages/FAQ";
+import JoinUs from "../pages/JoinUs";
+import Donate from "../pages/Donate";
+import NeedsView from "../pages/NeedsView";
+import LeadsView from "../pages/LeadsView";
 
 const routes = [
   {
@@ -71,6 +75,34 @@ const routes = [
     name: "faq",
     protected: false,
     component: FAQ
+  },
+  {
+    path: "/join-us",
+    exact: true,
+    name: "joinus",
+    protected: false,
+    component: JoinUs
+  },
+  {
+    path: "/donate",
+    exact: true,
+    name: "donate",
+    protected: false,
+    component: Donate
+  },
+  {
+    path: "/needs",
+    exact: true,
+    name: "needs",
+    protected: false,
+    component: NeedsView
+  },
+  {
+    path: "/leads",
+    exact: true,
+    name: "leads",
+    protected: false,
+    component: LeadsView
   }
 ];
 
