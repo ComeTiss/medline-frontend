@@ -4,7 +4,7 @@ import findImage from "../../images/homepage-find.png";
 import handsImage from "../../images/homepage-hands-and-gestures.png";
 import helpImage from "../../images/homepage-help.png";
 
-const useStyles = makeStyles( {
+const useStyles = makeStyles({
   progressTracker: {
     display: "flex",
     flexDirection: "column",
@@ -29,14 +29,14 @@ const useStyles = makeStyles( {
     height: "100%",
     transform: "translateY(16%)"
   }
-} );
+});
 type TypographyProp = {
   children: string;
 };
 
 const ProgressTracker = () => {
   const styles = useStyles();
-  const TypographyHeaderConfig = ( props: TypographyProp ) => (
+  const TypographyHeaderConfig = (props: TypographyProp) => (
     <Typography
       variant="body2"
       component="h1"
@@ -44,23 +44,24 @@ const ProgressTracker = () => {
       align="center"
       style={{
         fontWeight: "bold"
-      }}>
+      }}
+    >
       {props.children}
     </Typography>
   );
 
-  const TypographyBodyConfig = ( props: TypographyProp ) => (
+  const TypographyBodyConfig = (props: TypographyProp) => (
     <Typography
       variant="body2"
       component="p"
       color="textSecondary"
-      align="center">
-      {" "}
+      align="center"
+    >
       {props.children}
     </Typography>
   );
 
-  const TypographyStepNumberConfig = ( props: TypographyProp ) => (
+  const TypographyStepNumberConfig = (props: TypographyProp) => (
     <Typography
       variant="body2"
       component="h1"
@@ -73,7 +74,8 @@ const ProgressTracker = () => {
         border: "solid 2px #233768",
         padding: "0.4em 0.7em",
         display: "inline"
-      }}>
+      }}
+    >
       {props.children}
     </Typography>
   );
@@ -96,12 +98,14 @@ const ProgressTracker = () => {
           style={{
             marginTop: "50px",
             paddingTop: "0.6em"
-          }}>
+          }}
+        >
           <TypographyStepNumberConfig>1</TypographyStepNumberConfig>
           <div className={styles.verticalBarRel}></div>
         </div>
         <div className={styles.step}></div>
       </div>
+
       <div className={styles.stepLevel}>
         <div className={styles.step}></div>
         <div
