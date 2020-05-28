@@ -44,8 +44,7 @@ const ProgressTracker = () => {
       align="center"
       style={{
         fontWeight: "bold"
-      }}
-    >
+      }}>
       {props.children}
     </Typography>
   );
@@ -55,8 +54,7 @@ const ProgressTracker = () => {
       variant="body2"
       component="p"
       color="textSecondary"
-      align="center"
-    >
+      align="center">
       {" "}
       {props.children}
     </Typography>
@@ -75,8 +73,7 @@ const ProgressTracker = () => {
         border: "solid 2px #233768",
         padding: "0.4em 0.7em",
         display: "inline"
-      }}
-    >
+      }}>
       {props.children}
     </Typography>
   );
@@ -85,7 +82,7 @@ const ProgressTracker = () => {
     <div className={styles.progressTracker}>
       <div className={styles.stepLevel}>
         <div className={styles.step}>
-          <img src={helpImage} className={styles.stepImage} alt={''} />
+          <img src={helpImage} className={styles.stepImage} alt={""} />
           <TypographyHeaderConfig>REQUEST YOUR NEEDS</TypographyHeaderConfig>
           <TypographyBodyConfig>
             Listing medical supply needs of medical personnel and organisations,
@@ -99,8 +96,7 @@ const ProgressTracker = () => {
           style={{
             marginTop: "50px",
             paddingTop: "0.6em"
-          }}
-        >
+          }}>
           <TypographyStepNumberConfig>1</TypographyStepNumberConfig>
           <div className={styles.verticalBarRel}></div>
         </div>
@@ -119,7 +115,7 @@ const ProgressTracker = () => {
           <div className={styles.verticalBarRel}></div>
         </div>
         <div className={styles.step}>
-          <img src={findImage} className={styles.stepImage} alt={''} />
+          <img src={findImage} className={styles.stepImage} alt={""} />
 
           <TypographyHeaderConfig>
             FIND SUPPLIERS THAT FIT
@@ -134,7 +130,7 @@ const ProgressTracker = () => {
       </div>
       <div className={styles.stepLevel}>
         <div className={styles.step}>
-          <img src={handsImage} className={styles.stepImage} alt={''} />
+          <img src={handsImage} className={styles.stepImage} alt={""} />
 
           <TypographyHeaderConfig>
             CONNECT FAST AND DIRECT
