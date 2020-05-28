@@ -4,7 +4,7 @@ import findImage from "../../images/homepage-find.png";
 import handsImage from "../../images/homepage-hands-and-gestures.png";
 import helpImage from "../../images/homepage-help.png";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles( {
   progressTracker: {
     display: "flex",
     flexDirection: "column",
@@ -29,14 +29,14 @@ const useStyles = makeStyles({
     height: "100%",
     transform: "translateY(16%)"
   }
-});
+} );
 type TypographyProp = {
   children: string;
 };
 
 const ProgressTracker = () => {
   const styles = useStyles();
-  const TypographyHeaderConfig = (props: TypographyProp) => (
+  const TypographyHeaderConfig = ( props: TypographyProp ) => (
     <Typography
       variant="body2"
       component="h1"
@@ -50,7 +50,7 @@ const ProgressTracker = () => {
     </Typography>
   );
 
-  const TypographyBodyConfig = (props: TypographyProp) => (
+  const TypographyBodyConfig = ( props: TypographyProp ) => (
     <Typography
       variant="body2"
       component="p"
@@ -62,7 +62,7 @@ const ProgressTracker = () => {
     </Typography>
   );
 
-  const TypographyStepNumberConfig = (props: TypographyProp) => (
+  const TypographyStepNumberConfig = ( props: TypographyProp ) => (
     <Typography
       variant="body2"
       component="h1"
@@ -85,7 +85,7 @@ const ProgressTracker = () => {
     <div className={styles.progressTracker}>
       <div className={styles.stepLevel}>
         <div className={styles.step}>
-          <img src={helpImage} className={styles.stepImage} />
+          <img src={helpImage} className={styles.stepImage} alt={''} />
           <TypographyHeaderConfig>REQUEST YOUR NEEDS</TypographyHeaderConfig>
           <TypographyBodyConfig>
             Listing medical supply needs of medical personnel and organisations,
@@ -119,7 +119,7 @@ const ProgressTracker = () => {
           <div className={styles.verticalBarRel}></div>
         </div>
         <div className={styles.step}>
-          <img src={findImage} className={styles.stepImage} />
+          <img src={findImage} className={styles.stepImage} alt={''} />
 
           <TypographyHeaderConfig>
             FIND SUPPLIERS THAT FIT
@@ -134,7 +134,7 @@ const ProgressTracker = () => {
       </div>
       <div className={styles.stepLevel}>
         <div className={styles.step}>
-          <img src={handsImage} className={styles.stepImage} />
+          <img src={handsImage} className={styles.stepImage} alt={''} />
 
           <TypographyHeaderConfig>
             CONNECT FAST AND DIRECT
