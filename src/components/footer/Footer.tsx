@@ -40,7 +40,11 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     textDecoration: "none",
-    color: "white"
+    color: "white",
+    fontSize: "16px",
+    [theme.breakpoints.only("xs")]: {
+      fontSize: "12px",
+    }
   },
   button: {
     fontWeight: 400,
@@ -49,7 +53,7 @@ const useStyles = makeStyles(theme => ({
     padding: "5px 15px"
   },
   header: {
-    fontSize: "17px",
+    fontSize: "19px",
     marginBottom: "10px"
   },
   logo: {
