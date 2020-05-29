@@ -139,7 +139,7 @@ function AuthenticationLayout(props: Props) {
               <SignUpFields onChangeData={onChangeData} inputData={inputData} />
             </div>
           )}
-          {submitError && !!submitError ?.trim() && (
+          {submitError && !!submitError?.trim() && (
             <Typography
               variant="subtitle1"
               className={styles.authLayout_errorMsg}

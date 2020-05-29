@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
     color: "white",
     fontSize: "16px",
     [theme.breakpoints.only("xs")]: {
-      fontSize: "12px",
+      fontSize: "12px"
     }
   },
   button: {
