@@ -83,9 +83,9 @@ const useStyles = makeStyles(theme => ({
   textHead: {
     color: "white",
     textAlign: "center",
-    width: "30vw",
+    width: "33vw",
     fontWeight: 500,
-    fontSize: "18px",
+    fontSize: "20px",
     lineHeight: "26px",
     minWidth: "140px"
   },
