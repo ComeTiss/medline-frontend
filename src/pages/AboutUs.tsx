@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "../components/navigation/NavBar";
+import Footer from "../components/footer/Footer";
 import { makeStyles, Typography, Link } from "@material-ui/core";
 
 import backgroundImage from "../media/about_us_background.png";
@@ -38,7 +39,7 @@ const useStyles = makeStyles(theme => ({
   titleWrapper: {
     paddingTop: "2rem",
     [theme.breakpoints.up("sm")]: {
-      paddingTop: "4rem"
+      paddingTop: "1rem"
     }
   }
 }));
@@ -52,7 +53,7 @@ function AboutUs() {
         <div className={classes.container}>
           <div className={classes.titleWrapper}>
             <Typography
-              variant="h3"
+              variant="h5"
               component="h1"
               align="center"
               color="primary"
@@ -192,6 +193,7 @@ function AboutUs() {
           Thank you! Stay safe, and be well.
         </Typography>
       </div>
+      <Footer />
     </>
   );
 }
