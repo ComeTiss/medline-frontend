@@ -283,7 +283,8 @@ export default function JoinUs() {
       <br />
       <div className={classes.people}>
         <strong>Tech:</strong> Come Tisserand, Perry Yang, Lucas Zimmerman,
-        thzimmer, Tia Rose, Adriana Black, Marta Ibarra, Jason Wong
+        Thomas Zimmerman, Adriana Black, Marta Ibarra, Jason Wong, Xiaowen Ling,
+        David Awad, Liam Scott
         <br />
         <strong>Design:</strong> Diane Russell, Elena Svitkina, Voss Yao
         <br />
@@ -292,7 +293,7 @@ export default function JoinUs() {
         <br />
         <strong>Media / Content:</strong>
         <br />
-        <strong>Project Management:</strong>
+        <strong>Project Management:</strong> Jillian Seymour
       </div>
       <br />
       <br />
