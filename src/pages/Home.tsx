@@ -18,6 +18,7 @@ import { MUTATE_NEED, MUTATE_LEAD } from "../service/apollo/mutations";
 import heartImage from "../images/homepage_heart.jpg";
 import maskImage from "../images/homepage_mask.jpg";
 import threePeopleImage from "../images/homepage_three_people.jpg";
+import ProgressTracker from "../components/homepage/ProgressTracker";
 
 import HomeNeedLeadView from "./HomeNeedLeadView";
 import Footer from "../components/footer/Footer";
@@ -83,9 +84,9 @@ const useStyles = makeStyles(theme => ({
   textHead: {
     color: "white",
     textAlign: "center",
-    width: "30vw",
+    width: "33vw",
     fontWeight: 500,
-    fontSize: "18px",
+    fontSize: "20px",
     lineHeight: "26px",
     minWidth: "140px"
   },
@@ -208,6 +209,8 @@ function Home() {
           />
         </Container>
       </Box>
+      <ProgressTracker />
+
       <HomeNeedLeadView />
       <Footer />
     </>

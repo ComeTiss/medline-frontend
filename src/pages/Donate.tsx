@@ -84,7 +84,7 @@ function Donate() {
     </Typography>
   );
   const TextH3 = (content: string) => (
-    <Typography variant="h3" component="h1" align="center" color="primary">
+    <Typography variant="h5" component="h1" align="center" color="primary">
       {content}
     </Typography>
   );

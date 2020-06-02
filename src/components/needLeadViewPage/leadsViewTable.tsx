@@ -69,7 +69,8 @@ function LeadsViewTable() {
     },
     table: {
       width: "100%",
-      minWidth: "908px"
+      minWidth: "915px",
+      padding: "10px"
     },
     innerTable: {
       width: "100%",
@@ -87,6 +88,10 @@ function LeadsViewTable() {
       textAlign: "start",
       fontWeight: 400,
       transform: "scaleY(0.9)"
+    },
+    headerDiv: {
+      display: "flex",
+      whiteSpace: "nowrap"
     },
     td: {
       padding: "0px 10px 15px 5px",
@@ -223,28 +228,45 @@ function LeadsViewTable() {
             <thead>
               <tr>
                 <th className={styles.header}>
-                  ITEMS <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    ITEMS
+                    <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  POSTED BY <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    POSTED BY <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  TYPE <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    TYPE <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  COUNTRY <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    COUNTRY <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  CITY <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    CITY <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  QTY <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    QTY <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  AVAIL.DATE <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    AVAIL.DATE <ArrowDropDownIcon />
+                  </div>
                 </th>
                 <th className={styles.header}>
-                  COST <ArrowDropDownIcon />
+                  <div className={styles.headerDiv}>
+                    COST <ArrowDropDownIcon />
+                  </div>
                 </th>
               </tr>
             </thead>

@@ -40,7 +40,11 @@ const useStyles = makeStyles(theme => ({
   },
   link: {
     textDecoration: "none",
-    color: "white"
+    color: "white",
+    fontSize: "16px",
+    [theme.breakpoints.only("xs")]: {
+      fontSize: "12px"
+    }
   },
   button: {
     fontWeight: 400,
@@ -49,7 +53,7 @@ const useStyles = makeStyles(theme => ({
     padding: "5px 15px"
   },
   header: {
-    fontSize: "17px",
+    fontSize: "19px",
     marginBottom: "10px"
   },
   logo: {
@@ -123,7 +127,7 @@ const Footer = () => {
           {BoxWithLink("Contact Us", "/contact-us")}
         </Container>
         <Container className={styles.container_last}>
-          <Box className={styles.logo}>goFundMe</Box>
+          <Box className={styles.logo}>GoFundMe</Box>
           <Button className={styles.button}>DONATE</Button>
         </Container>
       </Box>
@@ -157,7 +161,7 @@ const Footer = () => {
             {BoxWithLink("Contact Us", "/contact-us")}
           </Container>
           <Container className={styles.container_last}>
-            <Box className={styles.logo}>goFundMe</Box>
+            <Box className={styles.logo}>GoFundMe</Box>
             <Button className={styles.button}>DONATE</Button>
           </Container>
         </Container>
