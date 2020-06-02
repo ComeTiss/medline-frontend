@@ -3,16 +3,19 @@ import { useQuery } from "@apollo/react-hooks";
 import { useParams } from 'react-router-dom';
 import { makeStyles, Box } from "@material-ui/core";
 import { GET_NEEDS, GET_USERS } from "../service/apollo/queries";
+import CloseIcon from '@material-ui/icons/Close';
+import { useHistory } from "react-router-dom";
 // import LeadsViewTable from "../components/needLeadViewPage/leadsViewTable";
 
 import maskImage from "../images/face-masks-on-blue-background-3786155.jpg";
 import { style } from "@material-ui/system";
 
 function NeedDetail() {
+    let history = useHistory();
     const [userId, setUserId] = useState(1);
     const [id, setId] = useState("1");
 
-
+    
     const { needId } = useParams();
 
     const useStyles = makeStyles(() => ({
@@ -47,7 +50,11 @@ function NeedDetail() {
             border: "1px solid #a8a8a8"
         },
         close: {
-            float: "right",
+            float: "right"
+        },
+        closeIcon: {
+            top: "60px",
+            position: "absolute",
         }
 
     }));
@@ -76,6 +83,8 @@ function NeedDetail() {
     });
 
 
+
+
     const needs = needsData?.getAllNeeds?.needs || [];
     const users = userData?.getUsersWithOptions?.users || [];
 
@@ -83,7 +92,9 @@ function NeedDetail() {
         if(needs.length > 0 ) {
             return (
                 <div>
-                    <div className={styles.close}>X</div>
+                    <div className={styles.close} onClick={() => history.goBack()}>
+                        <CloseIcon className={styles.closeIcon}/>
+                    </div>
                     <div className={styles.header} >NEED DETAIL</div>
                     <div >[ Medical supply needed ]</div>
                     <div className={styles.needs}>
