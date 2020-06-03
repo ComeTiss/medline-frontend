@@ -66,13 +66,16 @@ const useStyles = makeStyles(theme => ({
   icons: {
     color: "blue",
     textDecoration: "none",
-    marginBottom: "10px"
+    marginBottom: "10px",
+    [theme.breakpoints.only("xs")]: {
+
+    }
   },
   icon: {
     color: "blue",
     marginLeft: "5px",
     [theme.breakpoints.only("xs")]: {
-      marginLeft: "20px"
+      marginLeft: "5px"
     }
   },
   container: {
@@ -80,7 +83,11 @@ const useStyles = makeStyles(theme => ({
   },
   container_first: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    [theme.breakpoints.only("xs")]: {
+      marginLeft: "15px",
+      marginRight: "30px"
+    }
   },
   container_last: {
     display: "flex",
