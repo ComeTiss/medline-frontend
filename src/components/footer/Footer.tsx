@@ -4,6 +4,7 @@ import { makeStyles, Box, Button, Container } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import logoImage from "../../images/homepage_logo.png";
 
 const useStyles = makeStyles(theme => ({
@@ -25,7 +26,7 @@ const useStyles = makeStyles(theme => ({
     padding: "40px 80px",
     backgroundColor: "#243867",
     color: "white",
-    fontSize: "10px",
+    fontSize: "9px",
     [theme.breakpoints.only("xs")]: {
       display: "flex"
     }
@@ -63,10 +64,16 @@ const useStyles = makeStyles(theme => ({
     marginTop: "13px"
   },
   icons: {
+    color: "blue",
+    textDecoration: "none",
     marginBottom: "10px"
   },
   icon: {
-    marginLeft: "5px"
+    color: "blue",
+    marginLeft: "5px",
+    [theme.breakpoints.only("xs")]: {
+      marginLeft: "20px"
+    }
   },
   container: {
     padding: "5px"
@@ -98,6 +105,7 @@ const Footer = () => {
       </Link>
     </Box>
   );
+
   return (
     <>
       <Box className={styles.boxMd}>
@@ -106,9 +114,18 @@ const Footer = () => {
             <img className={styles.logoImg} src={logoImage} alt="logo" />
           </Box>
           <Box className={styles.icons}>
-            <FacebookIcon className={styles.icon} />
-            <TwitterIcon className={styles.icon} />
-            <InstagramIcon className={styles.icon} />
+            <a href="http://www.linkedin.com/company/medline-io">
+              <LinkedInIcon className={styles.icon} />
+            </a>
+            <a href="http://www.facebook.com/MedLine.io/">
+              <FacebookIcon className={styles.icon} />
+            </a>
+            <a href='http://www.twitter.com/medlineio'>
+              <TwitterIcon className={styles.icon} />
+            </a>
+            <a href='http://www.instagram.com/medlineio/'>
+              <InstagramIcon className={styles.icon} />
+            </a>
           </Box>
           <Box>© MedLine.io 2020</Box>
         </Container>
@@ -138,9 +155,18 @@ const Footer = () => {
           <Container className={styles.container_first}>
             <Box className={styles.logo}>MedLine.io</Box>
             <Box className={styles.icons}>
-              <FacebookIcon className={styles.icon} />
-              <TwitterIcon className={styles.icon} />
-              <InstagramIcon className={styles.icon} />
+              <a href="http://www.linkedin.com/company/medline-io">
+                <LinkedInIcon className={styles.icon} />
+              </a>
+              <a href="http://www.facebook.com/MedLine.io/">
+                <FacebookIcon className={styles.icon} />
+              </a>
+              <a href='http://www.twitter.com/medlineio'>
+                <TwitterIcon className={styles.icon} />
+              </a>
+              <a href='http://www.instagram.com/medlineio/'>
+                <InstagramIcon className={styles.icon} />
+              </a>
             </Box>
             <Box>© MedLine.io 2020</Box>
           </Container>
