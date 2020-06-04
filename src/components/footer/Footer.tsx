@@ -23,7 +23,8 @@ const useStyles = makeStyles(theme => ({
   boxSm: {
     display: "none",
     justifyContent: "center",
-    padding: "40px 80px",
+    padding: "40px 80px 80px",
+    height: "35vh",
     backgroundColor: "#243867",
     color: "white",
     fontSize: "9px",
@@ -61,7 +62,19 @@ const useStyles = makeStyles(theme => ({
     fontSize: "23px",
     fontWeight: 500,
     marginBottom: "5px",
-    marginTop: "13px"
+    marginTop: "13px",
+    [theme.breakpoints.only("xs")]: {
+      marginLeft: "10px"
+    },
+  },
+  goFundLogo: {
+    fontSize: "23px",
+    fontWeight: 500,
+    marginBottom: "5px",
+    marginTop: "13px",
+    [theme.breakpoints.only("xs")]: {
+      marginRight: "10px"
+    },
   },
   icons: {
     color: "blue",
@@ -69,36 +82,48 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "10px",
     [theme.breakpoints.only("xs")]: {
 
-    }
+    },
+
   },
   icon: {
-    color: "blue",
+    color: "white",
     marginLeft: "5px",
     [theme.breakpoints.only("xs")]: {
-      marginLeft: "5px"
+      marginLeft: "10px"
     }
   },
   container: {
-    padding: "5px"
+    padding: "5px",
+    [theme.breakpoints.only("xs")]: {
+      paddingLeft: "20px",
+      paddingBottom: "15px"
+    },
   },
   container_first: {
     display: "flex",
     flexDirection: "column",
     [theme.breakpoints.only("xs")]: {
       marginLeft: "15px",
-      marginRight: "30px"
+      marginRight: "30px",
+      paddingBottom: "15px"
     }
   },
   container_last: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    [theme.breakpoints.only("xs")]: {
+      paddingBottom: "15px"
+    }
   },
   logoImg: {
     width: "80%",
     marginBottom: "-10px",
     marginTop: "-15px",
     marginLeft: "-15px"
+  },
+  corpTag: {
+    marginLeft: "13px"
   }
 }));
 
@@ -175,7 +200,7 @@ const Footer = () => {
                 <InstagramIcon className={styles.icon} />
               </a>
             </Box>
-            <Box>© MedLine.io 2020</Box>
+            <Box className={styles.corpTag}>© MedLine.io 2020</Box>
           </Container>
           <Container className={styles.container}>
             <Box className={styles.header}>FIGHT COVID</Box>
@@ -194,7 +219,7 @@ const Footer = () => {
             {BoxWithLink("Contact Us", "/contact-us")}
           </Container>
           <Container className={styles.container_last}>
-            <Box className={styles.logo}>GoFundMe</Box>
+            <Box className={styles.goFundLogo}>GoFundMe</Box>
             <Button className={styles.button}>DONATE</Button>
           </Container>
         </Container>

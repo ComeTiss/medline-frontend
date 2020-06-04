@@ -194,7 +194,7 @@ export default function FAQ() {
               <br />
               <br />
               Medline Industries is “the largest privately held manufacturer and
-              distributor of medical supplies.” You can vist them
+              distributor of medical supplies.” You can visit them
               <a href="https://www.medline.com/" className={classes.links}> here</a>
             </div>
           }
