@@ -24,6 +24,10 @@ const useStyles = makeStyles(() =>
       padding: "30px",
       fontSize: "20px",
       fontFamily: "Verdana"
+    },
+    links: {
+      textDecoration: "none",
+      color: "blue"
     }
   })
 );
@@ -65,8 +69,15 @@ export default function FAQ() {
               <br />
               We do receive some donations to help keep the platform up and
               running. If you’d like to learn more about volunteering or
-              donations, <a href="/join-us">click here</a> or&nbsp;
-              <a href="/contact-us">contact us</a>.
+              donations,{" "}
+              <a href="/join-us" className={classes.links}>
+                click here
+              </a>{" "}
+              or&nbsp;
+              <a href="/contact-us" className={classes.links}>
+                contact us
+              </a>
+              .
             </div>
           }
           bottomPanel={false}
@@ -107,7 +118,11 @@ export default function FAQ() {
               <br />
               <br />
               If you have relevant expertise and ideas that could help with
-              this, <a href="/contact-us">please let us know!</a>.
+              this,{" "}
+              <a href="/contact-us" className={classes.links}>
+                please let us know
+              </a>
+              !
             </div>
           }
           bottomPanel={false}
@@ -164,8 +179,32 @@ export default function FAQ() {
               post Needs / Leads!
               <br />
               <br />
-              Here&apos;s our [LinkedIn] and&nbsp;
-              <a href="https://www.facebook.com/MedLine.io">facebook</a>.
+              Here&apos;s our{" "}
+              <a
+                href="https://www.linkedin.com/company/medline-io"
+                className={classes.links}
+              >
+                LinkedIn
+              </a>
+              ,
+              <a
+                href="https://www.facebook.com/MedLine.io"
+                className={classes.links}
+              >
+                {" "}
+                facebook
+              </a>
+              ,{" "}
+              <a
+                href="https://www.instagram.com/medlineio/"
+                className={classes.links}
+              >
+                instagram
+              </a>{" "}
+              and{" "}
+              <a href="https://twitter.com/medlineio" className={classes.links}>
+                twitter.
+              </a>
             </div>
           }
           bottomPanel={false}
@@ -185,15 +224,19 @@ export default function FAQ() {
               MedlinePlus is “an online health information resource” and
               “service of the National Library of Medicine (NLM), the world’s
               largest medical library, which is part of the National Institutes
-              of Health (NIH). You can visit them at
-              <a href="https://www.medlineplus.gov/">
-                https://medlineplus.gov/
+              of Health (NIH). You can visit them
+              <a href="https://www.medlineplus.gov/" className={classes.links}>
+                {" "}
+                here
               </a>
               <br />
               <br />
               Medline Industries is “the largest privately held manufacturer and
-              distributor of medical supplies.” You can vist them at
-              <a href="https://www.medline.com/">https://www.medline.com/</a>
+              distributor of medical supplies.” You can visit them
+              <a href="https://www.medline.com/" className={classes.links}>
+                {" "}
+                here
+              </a>
             </div>
           }
           bottomPanel={true}

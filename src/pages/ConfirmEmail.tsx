@@ -81,15 +81,13 @@ function ConfirmEmail() {
       <NavBar />
       <Container className={styles.confirmEmail__container} maxWidth="xs">
         <Typography variant="h5">Email Confirmation</Typography>
+        <br></br>
         <Typography variant="subtitle1">
           An email has been sent to you so we can verify your identity.
         </Typography>
-        <Typography variant="subtitle1">
-          Enter your email to receive a new confirmation:.
-        </Typography>
         <Paper component="form" className={styles.confirmEmail__inputContainer}>
           <InputBase
-            placeholder="Email adress"
+            placeholder="Email address"
             className={styles.confirmEmail__inputField}
             onChange={(e: any) => setEmail(e.target.value)}
           />
@@ -105,6 +103,11 @@ function ConfirmEmail() {
             <SendIcon />
           </IconButton>
         </Paper>
+        <br></br>
+        <Typography variant="subtitle1">
+          If you did not receive an email from us in your inbox, spam or trash;
+          enter your email above to receive a new confirmation.
+        </Typography>
         {responseMsg?.message?.trim() && (
           <Typography
             variant="subtitle1"

@@ -4,6 +4,7 @@ import { makeStyles, Box, Button, Container } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import logoImage from "../../images/homepage_logo.png";
 
 const useStyles = makeStyles(theme => ({
@@ -22,10 +23,11 @@ const useStyles = makeStyles(theme => ({
   boxSm: {
     display: "none",
     justifyContent: "center",
-    padding: "40px 80px",
+    padding: "40px 80px 80px",
+    height: "35vh",
     backgroundColor: "#243867",
     color: "white",
-    fontSize: "10px",
+    fontSize: "9px",
     [theme.breakpoints.only("xs")]: {
       display: "flex"
     }
@@ -60,31 +62,65 @@ const useStyles = makeStyles(theme => ({
     fontSize: "23px",
     fontWeight: 500,
     marginBottom: "5px",
-    marginTop: "13px"
+    marginTop: "13px",
+    [theme.breakpoints.only("xs")]: {
+      marginLeft: "10px"
+    }
+  },
+  goFundLogo: {
+    fontSize: "23px",
+    fontWeight: 500,
+    marginBottom: "5px",
+    marginTop: "13px",
+    [theme.breakpoints.only("xs")]: {
+      marginRight: "10px"
+    }
   },
   icons: {
-    marginBottom: "10px"
+    color: "blue",
+    textDecoration: "none",
+    marginBottom: "10px",
+    [theme.breakpoints.only("xs")]: {}
   },
   icon: {
-    marginLeft: "5px"
+    color: "white",
+    marginLeft: "5px",
+    [theme.breakpoints.only("xs")]: {
+      marginLeft: "10px"
+    }
   },
   container: {
-    padding: "5px"
+    padding: "5px",
+    [theme.breakpoints.only("xs")]: {
+      paddingLeft: "20px",
+      paddingBottom: "15px"
+    }
   },
   container_first: {
     display: "flex",
-    flexDirection: "column"
+    flexDirection: "column",
+    [theme.breakpoints.only("xs")]: {
+      marginLeft: "15px",
+      marginRight: "30px",
+      paddingBottom: "15px"
+    }
   },
   container_last: {
     display: "flex",
     flexDirection: "column",
-    alignItems: "center"
+    alignItems: "center",
+    [theme.breakpoints.only("xs")]: {
+      paddingBottom: "15px"
+    }
   },
   logoImg: {
     width: "80%",
     marginBottom: "-10px",
     marginTop: "-15px",
     marginLeft: "-15px"
+  },
+  corpTag: {
+    marginLeft: "13px"
   }
 }));
 
@@ -98,6 +134,7 @@ const Footer = () => {
       </Link>
     </Box>
   );
+
   return (
     <>
       <Box className={styles.boxMd}>
@@ -106,9 +143,18 @@ const Footer = () => {
             <img className={styles.logoImg} src={logoImage} alt="logo" />
           </Box>
           <Box className={styles.icons}>
-            <FacebookIcon className={styles.icon} />
-            <TwitterIcon className={styles.icon} />
-            <InstagramIcon className={styles.icon} />
+            <a href="http://www.linkedin.com/company/medline-io">
+              <LinkedInIcon className={styles.icon} />
+            </a>
+            <a href="http://www.facebook.com/MedLine.io/">
+              <FacebookIcon className={styles.icon} />
+            </a>
+            <a href="http://www.twitter.com/medlineio">
+              <TwitterIcon className={styles.icon} />
+            </a>
+            <a href="http://www.instagram.com/medlineio/">
+              <InstagramIcon className={styles.icon} />
+            </a>
           </Box>
           <Box>© MedLine.io 2020</Box>
         </Container>
@@ -138,11 +184,20 @@ const Footer = () => {
           <Container className={styles.container_first}>
             <Box className={styles.logo}>MedLine.io</Box>
             <Box className={styles.icons}>
-              <FacebookIcon className={styles.icon} />
-              <TwitterIcon className={styles.icon} />
-              <InstagramIcon className={styles.icon} />
+              <a href="http://www.linkedin.com/company/medline-io">
+                <LinkedInIcon className={styles.icon} />
+              </a>
+              <a href="http://www.facebook.com/MedLine.io/">
+                <FacebookIcon className={styles.icon} />
+              </a>
+              <a href="http://www.twitter.com/medlineio">
+                <TwitterIcon className={styles.icon} />
+              </a>
+              <a href="http://www.instagram.com/medlineio/">
+                <InstagramIcon className={styles.icon} />
+              </a>
             </Box>
-            <Box>© MedLine.io 2020</Box>
+            <Box className={styles.corpTag}>© MedLine.io 2020</Box>
           </Container>
           <Container className={styles.container}>
             <Box className={styles.header}>FIGHT COVID</Box>
@@ -161,7 +216,7 @@ const Footer = () => {
             {BoxWithLink("Contact Us", "/contact-us")}
           </Container>
           <Container className={styles.container_last}>
-            <Box className={styles.logo}>GoFundMe</Box>
+            <Box className={styles.goFundLogo}>GoFundMe</Box>
             <Button className={styles.button}>DONATE</Button>
           </Container>
         </Container>
