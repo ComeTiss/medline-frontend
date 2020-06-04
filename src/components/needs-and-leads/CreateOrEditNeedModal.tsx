@@ -37,7 +37,9 @@ const useStyles = makeStyles(theme => ({
     paddingBottom: theme.spacing(6),
     marginTop: "40px",
     textAlign: "center",
-    backgroundColor: "white"
+    backgroundColor: "white",
+    height: "86vh",
+    overflowY: "scroll"
   },
   container: {
     outline: "none"

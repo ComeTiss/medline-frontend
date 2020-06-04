@@ -18,6 +18,7 @@ import { MUTATE_NEED, MUTATE_LEAD } from "../service/apollo/mutations";
 import heartImage from "../images/homepage_heart.jpg";
 import maskImage from "../images/homepage_mask.jpg";
 import threePeopleImage from "../images/homepage_three_people.jpg";
+import ProgressTracker from "../components/homepage/ProgressTracker";
 
 import HomeNeedLeadView from "./HomeNeedLeadView";
 import Footer from "../components/footer/Footer";
@@ -208,6 +209,8 @@ function Home() {
           />
         </Container>
       </Box>
+      <ProgressTracker />
+
       <HomeNeedLeadView />
       <Footer />
     </>
