@@ -4,7 +4,7 @@ import { makeStyles, Box, Button, Container } from "@material-ui/core";
 import FacebookIcon from "@material-ui/icons/Facebook";
 import TwitterIcon from "@material-ui/icons/Twitter";
 import InstagramIcon from "@material-ui/icons/Instagram";
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import logoImage from "../../images/homepage_logo.png";
 
 const useStyles = makeStyles(theme => ({
@@ -65,7 +65,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: "13px",
     [theme.breakpoints.only("xs")]: {
       marginLeft: "10px"
-    },
+    }
   },
   goFundLogo: {
     fontSize: "23px",
@@ -74,16 +74,13 @@ const useStyles = makeStyles(theme => ({
     marginTop: "13px",
     [theme.breakpoints.only("xs")]: {
       marginRight: "10px"
-    },
+    }
   },
   icons: {
     color: "blue",
     textDecoration: "none",
     marginBottom: "10px",
-    [theme.breakpoints.only("xs")]: {
-
-    },
-
+    [theme.breakpoints.only("xs")]: {}
   },
   icon: {
     color: "white",
@@ -97,7 +94,7 @@ const useStyles = makeStyles(theme => ({
     [theme.breakpoints.only("xs")]: {
       paddingLeft: "20px",
       paddingBottom: "15px"
-    },
+    }
   },
   container_first: {
     display: "flex",
@@ -152,10 +149,10 @@ const Footer = () => {
             <a href="http://www.facebook.com/MedLine.io/">
               <FacebookIcon className={styles.icon} />
             </a>
-            <a href='http://www.twitter.com/medlineio'>
+            <a href="http://www.twitter.com/medlineio">
               <TwitterIcon className={styles.icon} />
             </a>
-            <a href='http://www.instagram.com/medlineio/'>
+            <a href="http://www.instagram.com/medlineio/">
               <InstagramIcon className={styles.icon} />
             </a>
           </Box>
@@ -193,10 +190,10 @@ const Footer = () => {
               <a href="http://www.facebook.com/MedLine.io/">
                 <FacebookIcon className={styles.icon} />
               </a>
-              <a href='http://www.twitter.com/medlineio'>
+              <a href="http://www.twitter.com/medlineio">
                 <TwitterIcon className={styles.icon} />
               </a>
-              <a href='http://www.instagram.com/medlineio/'>
+              <a href="http://www.instagram.com/medlineio/">
                 <InstagramIcon className={styles.icon} />
               </a>
             </Box>

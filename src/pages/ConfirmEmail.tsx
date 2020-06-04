@@ -58,19 +58,19 @@ function ConfirmEmail() {
   });
 
   const onSubmit = () => {
-    if (!email ?.trim()) {
+    if (!email?.trim()) {
       return;
     }
     sendEmailConfirmation(email)
       .then(response => {
         setResponseMsg({
-          message: response ?.data ?.message,
+          message: response?.data?.message,
           isError: false
         });
       })
       .catch(error => {
         setResponseMsg({
-          message: error ?.response ?.data ?.error,
+          message: error?.response?.data?.error,
           isError: true
         });
       });
@@ -105,9 +105,10 @@ function ConfirmEmail() {
         </Paper>
         <br></br>
         <Typography variant="subtitle1">
-          If you did not receive an email from us in your inbox, spam or trash; enter your email above to receive a new confirmation.
+          If you did not receive an email from us in your inbox, spam or trash;
+          enter your email above to receive a new confirmation.
         </Typography>
-        {responseMsg ?.message ?.trim() && (
+        {responseMsg?.message?.trim() && (
           <Typography
             variant="subtitle1"
             className={
