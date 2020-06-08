@@ -37,7 +37,9 @@ function NeedDetail() {
         },
         header: {
             color: "#26396a",
-            fontSize: "20px"
+            fontSize: "20px",
+            fontFamily: "sans-serif",
+            transform: "scaleY(0.95)"
         },
         needs: {
             display: "flex",
@@ -47,7 +49,8 @@ function NeedDetail() {
         },
         textarea: {
             minHeight: "6vh",
-            border: "1px solid #a8a8a8"
+            border: "1px solid #a8a8a8",
+            padding: "5px"
         },
         close: {
             float: "right"
@@ -55,6 +58,14 @@ function NeedDetail() {
         closeIcon: {
             top: "60px",
             position: "absolute",
+        },
+        span: {
+            marginLeft: "5vw"
+        },
+        title: {
+            fontSize: "17px",
+            fontWeight: 400,
+            transform: "scaleY(0.9)"
         }
 
     }));
@@ -89,7 +100,7 @@ function NeedDetail() {
     const users = userData?.getUsersWithOptions?.users || [];
 
     const renderNeed = () => {
-        if(needs.length > 0 ) {
+        if(needs.length > 0  && users.length > 0) {
             return (
                 <div>
                     <div className={styles.close} onClick={() => history.goBack()}>
@@ -98,32 +109,32 @@ function NeedDetail() {
                     <div className={styles.header} >NEED DETAIL</div>
                     <div >[ Medical supply needed ]</div>
                     <div className={styles.needs}>
-                        <div>Quantity needed : [{needs[0].quantity}]</div>
-                        <div>Urgency level: [{needs[0].urgencyLevel}]</div>
-                        <div>Supply posted on: [{needs[0].createdAt}]</div>
+                        <div>Quantity needed : <span className={styles.span}>[{needs[0].quantity}]</span></div>
+                        <div>Urgency level: <span className={styles.span}>[{needs[0].urgencyLevel}]</span></div>
+                        <div>Supply posted on:  <span className={styles.span}> [{needs[0].createdAt}]</span></div>
                         <div>Product Specifications (including required certifications such as CE, FDA):
                         <div className={styles.textarea}>
                                 {needs[0].specifications}
                         </div>
                         </div>
-                        <div>
+                        {/* <div>
                             <div>Click to open images:</div>
                             <img></img>
                             <img></img>
                             <div>I need help from donors or free supplies.</div>
-                        </div>
-                        <div>BUDGET</div>
-                        <div>My budget per piece is : {needs[0].budget}USD</div>
-                        <div>My budget per piece is : {needs[0].budget}USD [including / excluding] delivery.</div>
+                        </div> */}
+                        <div className={styles.title}>BUDGET</div>
+                        <div>My budget per piece is : <span className={styles.span}> {needs[0].budget}</span>{needs[0].budget}USD</div>
+                        <div>My budget per piece is :<span className={styles.span}> {needs[0].budget}</span> USD [including / excluding] delivery.</div>
                         <div>I need help from donors or free supplies</div>
                         {renderOrganization()}
-                        <div>CONTACT PERSON</div>
-                        <div>[Ms.,Mr.,Dr] [Last family] [First (given) name]</div>
+                        <div className={styles.title}>CONTACT PERSON</div>
+                        <div>[Ms.,Mr.,Dr] [{users[0].firstName}] [{users[0].lastName}]</div>
                         <div>Job title / Function:</div>
-                        <div>Email address:</div>
-                        <div>Telephone number:</div>
-                        <div>WeChat ID:</div>
-                        <div>Skype ID:</div>
+                        <div>Email address: {users[0].email}</div>
+                        <div>Telephone number: {users[0].phoneNumber}</div>
+                        <div>WeChat ID: {users[0].wechat}</div>
+                        <div>Skype ID: {users[0].skype}</div>
                     </div>
                 </div>
             )
@@ -139,20 +150,20 @@ function NeedDetail() {
         if (needs[0].organization) {
             return (
                 <div>
-                    <div>ORGANIZATION DETAILS</div>
+                    <div className={styles.title}>ORGANIZATION DETAILS</div>
                     <div>[Institution / Company Name]</div>
-                    <div>Industry / Activity :</div>
+                    <div>Industry / Activity : {needs[0].organization.activity}</div>
                     <div>I need help from donors or free supplies</div>
-                    <div>Street address:</div>
-                    <div>City:</div>
+                    <div>Street address:  {needs[0].organization.address}</div>
+                    <div>City: {needs[0].organization.city}</div>
                     <div>Product Specifications (including required certifications such as CE, FDA): </div>
                     <div className={styles.textarea}></div>
-                    <div>
+                    {/* <div>
                         <div>Click to open images:</div>
                         <img></img>
                         <img></img>
                         <div>I need help from donors or free supplies.</div>
-                    </div>
+                    </div> */}
                 </div>
             )
         } else {
