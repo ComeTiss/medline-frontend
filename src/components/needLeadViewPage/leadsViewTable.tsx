@@ -171,7 +171,11 @@ function LeadsViewTable() {
   }
 
   const leadRow = (lead: Lead) => (
-    <tr key={lead.id}  className={styles.tr} onClick={() => history.push(`leads/${lead.id}`)}>
+    <tr
+      key={lead.id}
+      className={styles.tr}
+      onClick={() => history.push(`leads/${lead.id}`)}
+    >
       <td className={styles.td}>{lead.itemName}</td>
       <td className={styles.td}>{lead.authorId}</td>
       <td className={styles.td}>{lead.specifications}</td>

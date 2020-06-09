@@ -84,7 +84,6 @@ const HomeNeedLeadView = () => {
   const needs = needsData?.getAllNeeds?.needs || [];
   const leads = leadsData?.getAllLeads?.leads || [];
 
-
   const styles = useStyles();
 
   const needRow = (need: any) => (

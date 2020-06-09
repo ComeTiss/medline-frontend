@@ -171,7 +171,11 @@ function NeedsViewTable() {
   }
 
   const needRow = (need: Need) => (
-    <tr key={need.id} className={styles.tr} onClick={() => history.push(`needs/${need.id}`) }>
+    <tr
+      key={need.id}
+      className={styles.tr}
+      onClick={() => history.push(`needs/${need.id}`)}
+    >
       <td className={styles.td}>{need.urgencyLevel}</td>
       <td className={styles.td}>{need.itemName}</td>
       <td className={styles.td}>{need.authorId}</td>
