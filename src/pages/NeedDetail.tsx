@@ -185,10 +185,6 @@ function NeedDetail() {
     }
   };
 
-  console.log("needs", needs);
-  console.log("users", users);
-  console.log("needId", needId);
-
   return (
     <Box className={styles.needContainer}>
       <Box className={styles.needWhiteBack}>{renderNeed()}</Box>
