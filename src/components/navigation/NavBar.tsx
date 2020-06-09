@@ -85,7 +85,12 @@ function NavBar() {
       color="inherit"
       className={styles.navBar__container}
     >
-      <img src={String(logo)} className={styles.logo} alt="medline-logo" onClick={() => history.push("/")}/>
+      <img
+        src={String(logo)}
+        className={styles.logo}
+        alt="medline-logo"
+        onClick={() => history.push("/")}
+      />
       <Toolbar>
         <div className={styles.navBar__menuBtn} />
         {isUserLoggedIn && LinkBtn("Logout", "/logout")}

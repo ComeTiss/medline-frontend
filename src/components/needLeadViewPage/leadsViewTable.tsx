@@ -170,7 +170,7 @@ function LeadsViewTable() {
     const timestamp = lead?.availableAt;
     if (!timestamp) return null;
     let time = new Date(Number(timestamp));
-    return(
+    return (
       <tr key={lead.id}>
         <td className={styles.td}>{lead.itemName}</td>
         <td className={styles.td}>{lead.authorId}</td>
@@ -181,7 +181,7 @@ function LeadsViewTable() {
         <td className={styles.td}>{moment(time).format("MMM Do YYYY")}</td>
         <td className={styles.td}>{switchNumberToString(lead.cost, "lead")}</td>
       </tr>
-    )
+    );
   };
 
   const changePageHandle = (dir: String) => {

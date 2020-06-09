@@ -119,6 +119,9 @@ function NeedsViewTable() {
       height: "calc(100% - 35px)",
       top: "35px",
       minWidth: "908px"
+    },
+    nav: {
+      display: "block"
     }
   }));
   const styles = useStyles();
@@ -173,7 +176,7 @@ function NeedsViewTable() {
     if (!timestamp) return null;
     let time = new Date(Number(timestamp));
 
-    return(
+    return (
       <tr key={need.id}>
         <td className={styles.td}>{need.urgencyLevel}</td>
         <td className={styles.td}>{need.itemName}</td>
@@ -182,10 +185,12 @@ function NeedsViewTable() {
         <td className={styles.td}>{need.specifications}</td>
         <td className={styles.td}>{addCommaSeparators(need.quantity)}</td>
         <td className={styles.td}>{moment(time).format("MMM Do YYYY")}</td>
-        <td className={styles.td}>{switchNumberToString(need.budget, "need")}</td>
+        <td className={styles.td}>
+          {switchNumberToString(need.budget, "need")}
+        </td>
       </tr>
-    )
-  }
+    );
+  };
 
   const changePageHandle = (dir: String) => {
     if (dir === "left" && page > 1) {
