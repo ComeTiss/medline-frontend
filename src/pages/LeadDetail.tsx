@@ -101,30 +101,29 @@ function LeadDetail() {
         if (leads.length > 0 && users.length > 0) {
             return (
                 <div>
-                    {/* <div className={styles.close} onClick={() => history.goBack()}>
+                    <div className={styles.close} onClick={() => history.goBack()}>
                         <CloseIcon className={styles.closeIcon} />
                     </div>
-                    <div className={styles.header} >lead DETAIL</div>
-                    <div >[ Medical supply leaded ]</div>
+                    <div className={styles.header} >SUPPLY DETAIL</div>
+                    <div >[ Medical supply AVAILABLE]</div>
                     <div className={styles.leads}>
-                        <div>Quantity leaded : <span className={styles.span}>[{leads[0].quantity}]</span></div>
-                        <div>Urgency level: <span className={styles.span}>[{leads[0].urgencyLevel}]</span></div>
+                        <div>Quantity needed : <span className={styles.span}>[{leads[0].quantity}]</span></div>
+                        <div>Available from: <span className={styles.span}>[{leads[0].availableAt}]</span></div>
                         <div>Supply posted on:  <span className={styles.span}> [{leads[0].createdAt}]</span></div>
                         <div>Product Specifications (including required certifications such as CE, FDA):
                         <div className={styles.textarea}>
                                 {leads[0].specifications}
                             </div>
-                        </div> */}
+                        </div>
                         {/* <div>
                             <div>Click to open images:</div>
                             <img></img>
                             <img></img>
                             <div>I lead help from donors or free supplies.</div>
                         </div> */}
-                        {/* <div className={styles.title}>BUDGET</div>
-                        <div>My budget per piece is : <span className={styles.span}> {leads[0].budget}</span>{leads[0].budget}USD</div>
-                        <div>My budget per piece is :<span className={styles.span}> {leads[0].budget}</span> USD [including / excluding] delivery.</div>
-                        <div>I lead help from donors or free supplies</div>
+                        <div className={styles.title}>COST</div>
+                        <div>Cosy per unit: <span className={styles.span}> {leads[0].budget}</span>{leads[0].cost}USD</div>
+                        <div>I can donate these supplies</div>
                         {renderOrganization()}
                         <div className={styles.title}>CONTACT PERSON</div>
                         <div>[Ms.,Mr.,Dr] [{users[0].firstName}] [{users[0].lastName}]</div>
@@ -133,7 +132,7 @@ function LeadDetail() {
                         <div>Telephone number: {users[0].phoneNumber}</div>
                         <div>WeChat ID: {users[0].wechat}</div>
                         <div>Skype ID: {users[0].skype}</div>
-                    </div> */}
+                    </div>
                 </div>
             )
         } else {
