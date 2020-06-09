@@ -5,6 +5,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import moment from "moment";
 
 import { GET_NEEDS } from "../../service/apollo/queries";
 import Need from "../../service/models/need.model";
@@ -118,6 +119,9 @@ function NeedsViewTable() {
       height: "calc(100% - 35px)",
       top: "35px",
       minWidth: "908px"
+    },
+    nav: {
+      display: "block"
     }
   }));
   const styles = useStyles();
@@ -165,18 +169,28 @@ function NeedsViewTable() {
     setFilterStr(e.target.value);
   }
 
-  const needRow = (need: Need) => (
-    <tr key={need.id}>
-      <td className={styles.td}>{need.urgencyLevel}</td>
-      <td className={styles.td}>{need.itemName}</td>
-      <td className={styles.td}>{need.authorId}</td>
-      <td className={styles.td}>{need.authorId}</td>
-      <td className={styles.td}>{need.specifications}</td>
-      <td className={styles.td}>{addCommaSeparators(need.quantity)}</td>
-      <td className={styles.td}>{need.createdAt}</td>
-      <td className={styles.td}>{switchNumberToString(need.budget, "need")}</td>
-    </tr>
-  );
+  const needRow = (need: Need) => {
+    const timestamp = need?.createdAt;
+    const userId = need?.authorId;
+    if (!userId) return null;
+    if (!timestamp) return null;
+    let time = new Date(Number(timestamp));
+
+    return (
+      <tr key={need.id}>
+        <td className={styles.td}>{need.urgencyLevel}</td>
+        <td className={styles.td}>{need.itemName}</td>
+        <td className={styles.td}>{need.authorId}</td>
+        <td className={styles.td}>{need.authorId}</td>
+        <td className={styles.td}>{need.specifications}</td>
+        <td className={styles.td}>{addCommaSeparators(need.quantity)}</td>
+        <td className={styles.td}>{moment(time).format("MMM Do YYYY")}</td>
+        <td className={styles.td}>
+          {switchNumberToString(need.budget, "need")}
+        </td>
+      </tr>
+    );
+  };
 
   const changePageHandle = (dir: String) => {
     if (dir === "left" && page > 1) {
