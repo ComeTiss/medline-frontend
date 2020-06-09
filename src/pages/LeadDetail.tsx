@@ -6,6 +6,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { useHistory, useParams } from "react-router-dom";
 
 import maskImage from "../images/face-masks-on-blue-background-3786155.jpg";
+import NavBar from "../components/navigation/NavBar";
 
 function LeadDetail() {
   let history = useHistory();
@@ -51,7 +52,7 @@ function LeadDetail() {
       float: "right"
     },
     closeIcon: {
-      top: "9vh",
+      top: "17vh",
       position: "absolute"
     },
     span: {
@@ -181,8 +182,11 @@ function LeadDetail() {
   };
 
   return (
-    <Box className={styles.leadContainer}>
-      <Box className={styles.leadWhiteBack}>{renderLead()}</Box>
+    <Box>
+      <NavBar />
+      <Box className={styles.leadContainer}>
+        <Box className={styles.leadWhiteBack}>{renderLead()}</Box>
+      </Box>
     </Box>
   );
 }

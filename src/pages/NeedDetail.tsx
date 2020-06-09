@@ -6,6 +6,7 @@ import CloseIcon from "@material-ui/icons/Close";
 import { useHistory, useParams } from "react-router-dom";
 
 import maskImage from "../images/face-masks-on-blue-background-3786155.jpg";
+import NavBar from "../components/navigation/NavBar";
 
 function NeedDetail() {
   let history = useHistory();
@@ -51,7 +52,7 @@ function NeedDetail() {
       float: "right"
     },
     closeIcon: {
-      top: "9vh",
+      top: "17vh",
       position: "absolute"
     },
     span: {
@@ -186,8 +187,11 @@ function NeedDetail() {
   };
 
   return (
-    <Box className={styles.needContainer}>
-      <Box className={styles.needWhiteBack}>{renderNeed()}</Box>
+    <Box>
+      <NavBar />
+      <Box className={styles.needContainer}>
+        <Box className={styles.needWhiteBack}>{renderNeed()}</Box>
+      </Box>
     </Box>
   );
 }
