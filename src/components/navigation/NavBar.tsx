@@ -12,6 +12,7 @@ import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import { isAuthenticated } from "../../utils/authentication/AuthUtils";
+import { useHistory } from "react-router-dom";
 
 const logo = require("../../images/medline-logo.png");
 
@@ -19,7 +20,9 @@ const useStyles = makeStyles(() => ({
   logo: {
     width: "200px",
     position: "absolute",
-    right: "calc(50% - 100px)"
+    right: "calc(50% - 100px)",
+    zIndex: 2,
+    cursor: "pointer"
   },
   navBar__container: {
     color: "black"
@@ -55,6 +58,7 @@ const menuLinks = [
 function NavBar() {
   const styles = useStyles();
   const cookies = useCookies();
+  const history = useHistory();
   const isUserLoggedIn = isAuthenticated(cookies[0]);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const showMenu = Boolean(anchorEl);
@@ -81,7 +85,7 @@ function NavBar() {
       color="inherit"
       className={styles.navBar__container}
     >
-      <img src={String(logo)} className={styles.logo} alt="medline-logo" />
+      <img src={String(logo)} className={styles.logo} alt="medline-logo" onClick={() => history.push("/")}/>
       <Toolbar>
         <div className={styles.navBar__menuBtn} />
         {isUserLoggedIn && LinkBtn("Logout", "/logout")}

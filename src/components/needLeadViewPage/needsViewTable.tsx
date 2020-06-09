@@ -168,9 +168,11 @@ function NeedsViewTable() {
 
   const needRow = (need: Need) => {
     const timestamp = need?.createdAt;
+    const userId = need?.authorId;
+    if (!userId) return null;
     if (!timestamp) return null;
     let time = new Date(Number(timestamp));
-    
+
     return(
       <tr key={need.id}>
         <td className={styles.td}>{need.urgencyLevel}</td>
