@@ -5,6 +5,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
 import ArrowRightIcon from "@material-ui/icons/ArrowRight";
 import ArrowDropDownIcon from "@material-ui/icons/ArrowDropDown";
+import moment from "moment";
 
 import { GET_LEADS } from "../../service/apollo/queries";
 import Lead from "../../service/models/lead.model";
@@ -165,18 +166,23 @@ function LeadsViewTable() {
     setFilterStr(e.target.value);
   }
 
-  const leadRow = (lead: Lead) => (
-    <tr key={lead.id}>
-      <td className={styles.td}>{lead.itemName}</td>
-      <td className={styles.td}>{lead.authorId}</td>
-      <td className={styles.td}>{lead.specifications}</td>
-      <td className={styles.td}>{lead.availableAt}</td>
-      <td className={styles.td}>{lead.availableAt}</td>
-      <td className={styles.td}>{addCommaSeparators(lead.quantity)}</td>
-      <td className={styles.td}>{lead.availableAt}</td>
-      <td className={styles.td}>{switchNumberToString(lead.cost, "lead")}</td>
-    </tr>
-  );
+  const leadRow = (lead: Lead) => {
+    const timestamp = lead?.availableAt;
+    if (!timestamp) return null;
+    let time = new Date(Number(timestamp));
+    return(
+      <tr key={lead.id}>
+        <td className={styles.td}>{lead.itemName}</td>
+        <td className={styles.td}>{lead.authorId}</td>
+        <td className={styles.td}>{lead.specifications}</td>
+        <td className={styles.td}>{lead.availableAt}</td>
+        <td className={styles.td}>{lead.availableAt}</td>
+        <td className={styles.td}>{addCommaSeparators(lead.quantity)}</td>
+        <td className={styles.td}>{moment(time).format("MMM Do YYYY")}</td>
+        <td className={styles.td}>{switchNumberToString(lead.cost, "lead")}</td>
+      </tr>
+    )
+  };
 
   const changePageHandle = (dir: String) => {
     if (dir === "left" && page > 1) {
