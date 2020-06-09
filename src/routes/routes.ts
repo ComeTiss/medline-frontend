@@ -12,6 +12,7 @@ import Donate from "../pages/Donate";
 import NeedsView from "../pages/NeedsView";
 import LeadsView from "../pages/LeadsView";
 import NeedDetail from '../pages/NeedDetail';
+import LeadDetail from '../pages/LeadDetail';
 
 const routes = [
   {
@@ -111,6 +112,13 @@ const routes = [
     name: "needsDetail",
     protected: false,
     component: NeedDetail
+  },
+  {
+    path: "/leads/:leadId",
+    exact: true,
+    name: "LeadsDetail",
+    protected: false,
+    component: LeadDetail
   }
 ];
 
