@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import { useQuery } from "@apollo/react-hooks";
 import { makeStyles, Box, Container } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
@@ -14,6 +15,7 @@ type Props = {
 };
 
 function NeedsViewTable() {
+  let history = useHistory();
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPage] = useState(1);
   const [needs, setNeeds] = useState([]);
@@ -98,6 +100,9 @@ function NeedsViewTable() {
       transform: "scaleY(0.9)",
       fontWeight: 400
     },
+    tr: {
+      cursor: "pointer"
+    },
     bodyBox: {
       color: "#77797a",
       verticalAlign: "top"
@@ -166,7 +171,11 @@ function NeedsViewTable() {
   }
 
   const needRow = (need: Need) => (
-    <tr key={need.id}>
+    <tr
+      key={need.id}
+      className={styles.tr}
+      onClick={() => history.push(`needs/${need.id}`)}
+    >
       <td className={styles.td}>{need.urgencyLevel}</td>
       <td className={styles.td}>{need.itemName}</td>
       <td className={styles.td}>{need.authorId}</td>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
+import { useHistory } from "react-router-dom";
 import { makeStyles, Box, Container } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import ArrowLeftIcon from "@material-ui/icons/ArrowLeft";
@@ -14,6 +15,7 @@ type Props = {
 };
 
 function LeadsViewTable() {
+  let history = useHistory();
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPage] = useState(1);
   const [leads, setLeads] = useState([]);
@@ -98,6 +100,9 @@ function LeadsViewTable() {
       transform: "scaleY(0.9)",
       fontWeight: 400
     },
+    tr: {
+      cursor: "pointer"
+    },
     bodyBox: {
       color: "#77797a",
       verticalAlign: "top"
@@ -166,7 +171,11 @@ function LeadsViewTable() {
   }
 
   const leadRow = (lead: Lead) => (
-    <tr key={lead.id}>
+    <tr
+      key={lead.id}
+      className={styles.tr}
+      onClick={() => history.push(`leads/${lead.id}`)}
+    >
       <td className={styles.td}>{lead.itemName}</td>
       <td className={styles.td}>{lead.authorId}</td>
       <td className={styles.td}>{lead.specifications}</td>
