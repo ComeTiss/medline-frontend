@@ -52,7 +52,7 @@ function LeadDetail() {
             float: "right"
         },
         closeIcon: {
-            top: "60px",
+            top: "9vh",
             position: "absolute",
         },
         span: {
