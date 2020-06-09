@@ -95,7 +95,7 @@ const HomeNeedLeadView = () => {
       <td className={styles.td}>{need.specifications}</td>
       <td className={styles.td}>{need.createdAt}</td>
       <td>
-        <a className={styles.link} href="/">
+        <a className={styles.link} href={`needs/${need.id}`}>
           More
         </a>
       </td>
@@ -111,7 +111,7 @@ const HomeNeedLeadView = () => {
       <td className={styles.td}>{lead.availableAt}</td>
       <td className={styles.td}>{lead.createdAt}</td>
       <td>
-        <a className={styles.link} href="/">
+        <a className={styles.link} href={`leads/${lead.id}`}>
           More
         </a>
       </td>

@@ -170,11 +170,6 @@ function LeadDetail() {
         }
     }
 
-    console.log("leads", leads)
-    console.log("users", users)
-    console.log("leadId", leadId)
-
-
     return (
         <Box className={styles.leadContainer}>
             <Box className={styles.leadWhiteBack}>
